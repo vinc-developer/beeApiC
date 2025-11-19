@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de QR Code Personnalisé</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Générateur de QR Code Personnalisé</h1>
+
+  <div class="form-section">
+    <div class="input-group">
+      <label for="urlInput">URL du site web :</label>
+      <input type="url" id="urlInput" placeholder="https://exemple.com" required>
+    </div>
+
+    <div class="input-group">
+      <label for="qrName">Nom du QR Code :</label>
+      <input type="text" id="qrName" placeholder="Mon QR Code">
+    </div>
+
+    <div class="style-section">
+      <h3>🎨 Style des points du QR Code</h3>
+
+      <div class="style-grid">
+        <div class="input-group">
+          <label for="dotsType">Type de points :</label>
+          <select id="dotsType">
+            <option value="rounded">Carrés arrondis</option>
+            <option value="dots">Points ronds</option>
+            <option value="classy">Élégant</option>
+            <option value="classy-rounded">Élégant arrondi</option>
+            <option value="square">Carrés</option>
+            <option value="extra-rounded">Extra arrondi</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="cornersSquareType">Type de coins carrés :</label>
+          <select id="cornersSquareType">
+            <option value="dot">Point</option>
+            <option value="square">Carré</option>
+            <option value="extra-rounded">Extra arrondi</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="cornersDotType">Type de points des coins :</label>
+          <select id="cornersDotType">
+            <option value="dot">Point</option>
+            <option value="square">Carré</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-section">
+      <h3>🎨 Couleurs du QR Code</h3>
+
+      <div class="style-grid">
+        <div class="input-group">
+          <label for="colorDark">Couleur des points :</label>
+          <div class="color-picker-group">
+            <input type="color" id="colorDark" value="#000000">
+            <input type="text" id="colorDarkText" value="#000000" class="color-text">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="colorLight">Couleur de fond :</label>
+          <div class="color-picker-group">
+            <input type="color" id="colorLight" value="#ffffff">
+            <input type="text" id="colorLightText" value="#ffffff" class="color-text">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="cornersSquareColor">Couleur des coins carrés :</label>
+          <div class="color-picker-group">
+            <input type="color" id="cornersSquareColor" value="#000000">
+            <input type="text" id="cornersSquareColorText" value="#000000" class="color-text">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="cornersDotColor">Couleur des points des coins :</label>
+          <div class="color-picker-group">
+            <input type="color" id="cornersDotColor" value="#000000">
+            <input type="text" id="cornersDotColorText" value="#000000" class="color-text">
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>
+          <input type="checkbox" id="useGradient">
+          Utiliser un dégradé de couleur
+        </label>
+      </div>
+
+      <div id="gradientOptions" style="display: none;">
+        <div class="style-grid">
+          <div class="input-group">
+            <label for="gradientType">Type de dégradé :</label>
+            <select id="gradientType">
+              <option value="linear">Linéaire</option>
+              <option value="radial">Radial</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="gradientColor2">Couleur secondaire :</label>
+            <div class="color-picker-group">
+              <input type="color" id="gradientColor2" value="#667eea">
+              <input type="text" id="gradientColor2Text" value="#667eea" class="color-text">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-section">
+      <h3>🖼️ Bordure du QR Code</h3>
+
+      <div class="input-group">
+        <label>
+          <input type="checkbox" id="qrBorderEnabled">
+          Activer la bordure du QR Code
+        </label>
+      </div>
+
+      <div id="qrBorderOptions" style="display: none;">
+        <div class="style-grid">
+          <div class="input-group">
+            <label for="qrBorderWidth">Épaisseur : <span id="qrBorderWidthValue">10px</span></label>
+            <input type="range" id="qrBorderWidth" min="1" max="50" value="10" step="1">
+          </div>
+
+          <div class="input-group">
+            <label for="qrBorderStyle">Style de bordure :</label>
+            <select id="qrBorderStyle">
+              <option value="solid">Solide</option>
+              <option value="dashed">Tirets</option>
+              <option value="dotted">Points</option>
+              <option value="double">Double</option>
+              <option value="groove">Gravure</option>
+              <option value="ridge">Relief</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="qrBorderColor">Couleur de bordure :</label>
+            <div class="color-picker-group">
+              <input type="color" id="qrBorderColor" value="#667eea">
+              <input type="text" id="qrBorderColorText" value="#667eea" class="color-text">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="qrBorderRadius">Arrondi des coins : <span id="qrBorderRadiusValue">0px</span></label>
+            <input type="range" id="qrBorderRadius" min="0" max="50" value="0" step="5">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-section">
+      <h3>📏 Dimensions</h3>
+
+      <div class="input-group">
+        <label for="qrSize">Taille du QR Code : <span id="sizeValue">400px</span></label>
+        <input type="range" id="qrSize" min="200" max="800" value="400" step="50">
+      </div>
+
+      <div class="input-group">
+        <label for="qrMargin">Marge : <span id="marginValue">10px</span></label>
+        <input type="range" id="qrMargin" min="0" max="50" value="10" step="5">
+      </div>
+    </div>
+
+    <div class="logo-section">
+      <h3>🖼️ Logo personnalisé</h3>
+
+      <div class="input-group">
+        <label for="logoInput">Choisir un logo (optionnel) :</label>
+        <input type="file" id="logoInput" accept="image/*">
+      </div>
+
+      <div class="input-group">
+        <label for="logoSize">Taille du logo : <span id="logoSizeValue">0.3</span> (ratio)</label>
+        <input type="range" id="logoSize" min="0.1" max="0.5" value="0.3" step="0.05">
+      </div>
+
+      <div class="input-group">
+        <label for="logoMargin">Marge du logo : <span id="logoMarginValue">10px</span></label>
+        <input type="range" id="logoMargin" min="0" max="30" value="10" step="5">
+      </div>
+
+      <h4 style="margin-top: 20px; color: #666;">🎨 Bordure du logo</h4>
+
+      <div class="input-group">
+        <label>
+          <input type="checkbox" id="logoBorderEnabled">
+          Activer la bordure du logo
+        </label>
+      </div>
+
+      <div id="logoBorderOptions" style="display: none;">
+        <div class="style-grid">
+          <div class="input-group">
+            <label for="logoBorderWidth">Épaisseur : <span id="logoBorderWidthValue">5px</span></label>
+            <input type="range" id="logoBorderWidth" min="1" max="20" value="5" step="1">
+          </div>
+
+          <div class="input-group">
+            <label for="logoBorderStyle">Style de bordure :</label>
+            <select id="logoBorderStyle">
+              <option value="solid">Solide</option>
+              <option value="dashed">Tirets</option>
+              <option value="dotted">Points</option>
+              <option value="double">Double</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="logoBorderColor">Couleur de bordure :</label>
+            <div class="color-picker-group">
+              <input type="color" id="logoBorderColor" value="#667eea">
+              <input type="text" id="logoBorderColorText" value="#667eea" class="color-text">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="logoBorderRadius">Arrondi : <span id="logoBorderRadiusValue">0%</span></label>
+            <input type="range" id="logoBorderRadius" min="0" max="50" value="0" step="5">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="logoBackgroundColor">Couleur de fond du logo :</label>
+          <div class="color-picker-group">
+            <input type="color" id="logoBackgroundColor" value="#ffffff">
+            <input type="text" id="logoBackgroundColorText" value="#ffffff" class="color-text">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="generateBtn" class="btn-generate">Générer le QR Code</button>
+    <button id="previewBtn" class="btn-preview">Aperçu en temps réel</button>
+  </div>
+
+  <div class="qr-display" id="qrDisplay">
+    <h3>Aperçu du QR Code</h3>
+    <div id="qrWrapper">
+      <div id="qrCanvas"></div>
+    </div>
+    <button id="downloadBtn" class="btn-download" style="display: none;">Télécharger PNG</button>
+    <button id="downloadSvgBtn" class="btn-download" style="display: none;">Télécharger SVG</button>
+  </div>
+
+  <div class="saved-qr-section">
+    <h2>QR Codes créés</h2>
+    <div id="savedQRList" class="qr-list"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
