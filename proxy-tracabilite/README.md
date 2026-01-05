@@ -119,12 +119,17 @@ heroku config:set BEEPERF_API_KEY=votre_clé_api
 git push heroku main
 ```
 
-### Option 2 : Render
+### Option 2 : Render -> privilégié
 
 1. Créez un compte sur [Render](https://render.com/)
-2. Connectez votre repository GitHub
-3. Configurez les variables d'environnement dans le dashboard
-4. Déployez automatiquement
+2. "New" → "Web Service"
+3. Connectez votre repository GitHub
+4. Configurez :
+   - Environment : Node
+   - Build Command : npm install
+   - Start Command : npm start
+   - Variables d'environnement : Ajoutez BEEPERF_API_KEY
+5. Déployez automatiquement
 
 ### Option 3 : Railway
 
