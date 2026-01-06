@@ -158,14 +158,14 @@
     function displayProfile() {
         // Photo
         if (beekeeperData.photo) {
-            elements.profilePhoto.src = beekeeperData.photo;
+            elements.profilePhoto.src = "images/" + beekeeperData.photo;
             elements.profilePhoto.classList.remove('hidden');
             elements.profilePhotoPlaceholder.classList.add('hidden');
         }
 
         // Logo
         if (beekeeperData.logo) {
-            elements.profileLogo.src = beekeeperData.logo;
+            elements.profileLogo.src = "images/" + beekeeperData.logo;
             elements.profileLogo.classList.remove('hidden');
         } else {
             elements.profileLogoContainer.style.display = 'none';
@@ -219,7 +219,13 @@
             beekeeperData.gallery.forEach((photo, index) => {
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
-                item.innerHTML = `<img src="${photo}" alt="Photo ${index + 1}" loading="lazy">`;
+
+                const img = document.createElement('img');
+                img.src = `images/${photo}`;
+                img.alt = `Photo ${index + 1}`;
+                img.loading = 'lazy';
+
+                item.appendChild(img);
                 elements.photoGallery.appendChild(item);
             });
         }

@@ -366,7 +366,7 @@ const UI = (function() {
             // Photo de l'apiculteur
             console.log('📷 Affichage photo...');
             if (beekeeper.photo) {
-                elements.beekeeperPhotoImg.src = beekeeper.photo;
+                elements.beekeeperPhotoImg.src = "images/" + beekeeper.photo;
                 elements.beekeeperPhotoImg.classList.remove('hidden');
                 elements.photoPlaceholder.classList.add('hidden');
             } else {
@@ -377,7 +377,7 @@ const UI = (function() {
             // Logo commercial
             console.log('🏢 Affichage logo...');
             if (beekeeper.logo) {
-                elements.beekeeperLogoImg.src = beekeeper.logo;
+                elements.beekeeperLogoImg.src = "images/" + beekeeper.logo;
                 elements.beekeeperLogoImg.classList.remove('hidden');
                 elements.logoPlaceholder.classList.add('hidden');
             } else {

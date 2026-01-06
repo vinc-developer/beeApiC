@@ -60,7 +60,8 @@ const API = (function() {
         try {
             //const data = await fetchWithTimeout(url);
             // L'API BeePerf retourne un objet avec une propriété 'data' contenant les lots
-            return [ await getMockData("LOT2323").then(data => data.lotNumber)];
+            return [ await getMockData("BA-2026-CH-0107").then(data => data.lotNumber),
+                await getMockData("MC-2026-PA-2505").then(data => data.lotNumber)];
             //return data.data || [];
         } catch (error) {
             console.error('Erreur lors de la récupération de la liste des lots:', error);
@@ -143,49 +144,94 @@ const API = (function() {
         // Simuler un délai réseau
         await new Promise(resolve => setTimeout(resolve, 1000));
 
-        // Données simulées pour les tests
-        return {
-            lotNumber: lotNumber,
-            zone: {
-                publicName: 'Vallée de la Loire',
-                environment: 'Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques.'
-            },
-            production: {
-                extractionDates: [
-                    '2024-07-15',
-                    '2024-07-22',
-                    '2024-08-05'
-                ],
-                bottlingDate: '2024-08-20'
-            },
-            beekeeper: {
-                type: 'Apiculteur Récoltant',
-                partnerSince: 2025,
-                firstName: 'Jean',
-                lastName: 'Dupont',
-                commercialName: 'Les Ruchers du Val de Loire',
-                address: '123 Chemin des Abeilles\n37000 Tours\nFrance',
-                email: 'contact@ruchersduval.fr',
-                phone: '+33 2 47 12 34 56',
-                website: 'https://www.ruchersduval.fr',
-                siret: '123 456 789 00012',
-                photo: '',
-                logo: '',
-                bio: 'Passionné par l\'apiculture depuis plus de 20 ans, je produis un miel de qualité dans la magnifique région de la Loire. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.',
-                hivesCount: '40 ruches',
-                location: 'Vallée de la Loire, Indre-et-Loire',
-                distance: '180 km de Nantes',
-                beekeeperSince: '2005',
-                gallery: [],
-                socialMedia: {
-                    instagram: 'https://instagram.com/ruchersduval',
-                    facebook: 'https://facebook.com/ruchersduval',
-                    tiktok: '',
-                    youtube: 'https://youtube.com/@ruchersduval',
-                    linkedin: ''
+        if (lotNumber == "BA-2026-CH-0107") {
+            // Données simulées pour les tests
+            return {
+                lotNumber: lotNumber,
+                zone: {
+                    publicName: 'France - Saint Léger les Vignes',
+                    environment: 'Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques.'
+                },
+                production: {
+                    extractionDates: [
+                        '2024-07-15',
+                        '2024-07-22',
+                        '2024-08-05'
+                    ],
+                    bottlingDate: '2024-08-20'
+                },
+                beekeeper: {
+                    type: 'Apiculteur Récoltant',
+                    partnerSince: '',
+                    firstName: 'Vincent',
+                    lastName: 'Colas',
+                    commercialName: 'Bee Api\'C',
+                    address: 'bois des abeilles\n44680 Saint-Hilaire-de-Chaléons - France',
+                    email: 'bee.apic@gmail.com',
+                    phone: '+33 6 06 06 06 06',
+                    website: 'https://bee-apic.com/',
+                    siret: '910 020 346 00029',
+                    photo: 'colas-vincent.jpg',
+                    logo: 'logo-beeapic.png',
+                    bio: 'Passionné par l\'apiculture depuis plus de 10 ans, je produis un miel de qualité dans la magnifique région des Pays de Retz. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.',
+                    hivesCount: '20 ruches',
+                    location: 'Saint-Hilaire-de-Chaléons, Loire-Atlantique, France',
+                    distance: '45 km de Nantes',
+                    beekeeperSince: '2023',
+                    gallery: ['cadre-miel.jpg', 'essaim.jpg', 'miels.jpg', 'produits.jpg'],
+                    socialMedia: {
+                        instagram: 'https://instagram.com/ruchersduval',
+                        facebook: 'https://facebook.com/ruchersduval',
+                        tiktok: 'https://facebook.com/ruchersduval',
+                        youtube: 'https://youtube.com/@ruchersduval',
+                        linkedin: 'https://facebook.com/ruchersduval'
+                    }
                 }
-            }
-        };
+            };
+        } else {
+            return {
+                lotNumber: lotNumber,
+                zone: {
+                    publicName: 'France - Guenrouet',
+                    environment: 'Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques.'
+                },
+                production: {
+                    extractionDates: [
+                        '2024-07-15',
+                        '2024-07-22',
+                        '2024-08-05'
+                    ],
+                    bottlingDate: '2024-08-20'
+                },
+                beekeeper: {
+                    type: 'Apiculteur Récoltant',
+                    partnerSince: '2025',
+                    firstName: 'Matthieu',
+                    lastName: 'Colas',
+                    commercialName: 'L\'abeille Guérinoise',
+                    address: 'chemin des abeilles\n44530 Guenrouet - France',
+                    email: 'labeille-guerinoise@gmail.com',
+                    phone: '+33 6 06 06 06 06',
+                    website: 'https://abeille-guerinoise.com/',
+                    siret: '910 020 346 00029',
+                    photo: 'matthieu-colas/matthieu-colas.jpg',
+                    logo: 'matthieu-colas/logo.jpg',
+                    bio: 'Passionné par l\'apiculture depuis plus de 10 ans, je produis un miel de qualité dans la magnifique région des Pays de Retz. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.',
+                    hivesCount: '30 ruches',
+                    location: 'Guenrouet, Loire-Atlantique, France',
+                    distance: '70 km de Nantes',
+                    beekeeperSince: '2020',
+                    gallery: ['matthieu-colas/ruche-matthieu.jpg', 'matthieu-colas/rucher-matthieu.jpg'],
+                    socialMedia: {
+                        instagram: 'https://instagram.com/ruchersduval',
+                        facebook: 'https://facebook.com/ruchersduval',
+                        tiktok: 'https://facebook.com/ruchersduval',
+                        youtube: 'https://youtube.com/@ruchersduval',
+                        linkedin: 'https://facebook.com/ruchersduval'
+                    }
+                }
+            };
+        }
     }
 
     // Interface publique du module
