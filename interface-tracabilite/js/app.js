@@ -19,6 +19,9 @@
     async function init() {
         console.log('🚀 Initialisation de l\'application de traçabilité');
 
+        // Initialiser les informations de la maison mère
+        ui.initializeCompanyInfo();
+
         // Configurer les écouteurs d'événements
         setupEventListeners();
 
@@ -68,6 +71,11 @@
         // Bouton nouvelle recherche
         ui.elements.btnNewSearch.addEventListener('click', () => {
             ui.showSearchForm();
+        });
+
+        // Bouton En savoir plus
+        ui.elements.btnMoreInfo.addEventListener('click', () => {
+            handleMoreInfo();
         });
     }
 
@@ -150,6 +158,9 @@
      * Décommenter pour utiliser des données de test sans appeler l'API
      */
 
+    let currentBeekeeperData = null;
+    let currentLotNumber = null;
+
     async function handleSearchDev(method) {
         const lotNumber = ui.getLotNumber(method);
 
@@ -163,11 +174,34 @@
         try {
             // Utiliser les données simulées
             const data = await api.getMockData(lotNumber);
+            console.log('✓ Données mockées reçues:', data);
+
+            // Sauvegarder les données pour la page apiculteur
+            currentBeekeeperData = data.beekeeper;
+            currentLotNumber = lotNumber;
+
             ui.hideLoading();
             ui.displayResults(data);
+            console.log('✓ Résultats affichés avec succès');
         } catch (error) {
+            console.error('❌ Erreur dans handleSearchDev:', error);
+            console.error('Stack trace:', error.stack);
             ui.hideLoading();
-            ui.showError(config.MESSAGES.ERROR_GENERIC);
+            ui.showError(config.MESSAGES.ERROR_GENERIC + ' (' + error.message + ')');
+        }
+    }
+
+    /**
+     * Gère le clic sur "En savoir plus"
+     */
+    function handleMoreInfo() {
+        if (currentBeekeeperData) {
+            // Sauvegarder dans localStorage
+            localStorage.setItem('currentBeekeeper', JSON.stringify(currentBeekeeperData));
+            localStorage.setItem('currentLotNumber', currentLotNumber);
+
+            // Rediriger vers la page apiculteur
+            window.location.href = 'beekeeper.html';
         }
     }
 

@@ -15,10 +15,65 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
-                <h1 class="header-title">🐝 Traçabilité du Miel</h1>
-                <p class="header-subtitle">Découvrez l'origine et l'histoire de votre pot de miel</p>
+                <div class="brand-logo">
+                    <img src="images/logo-beeapic.png" alt="Bee Api'C" id="brandLogo" class="hidden">
+                    <div class="logo-placeholder-brand" id="logoPlaceholderBrand">
+                        <span class="brand-icon">🐝</span>
+                        <span class="brand-name">Bee Api'C</span>
+                    </div>
+                </div>
+                <h1 class="header-title">Traçabilité du Miel</h1>
+                <p class="header-subtitle">Don't pannic, bee api'c !</p>
             </div>
         </header>
+
+        <!-- Section Maison Mère (toujours visible) -->
+        <section class="company-section">
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-icon">🏢</span>
+                    <h2 class="company-title">Commercialisé par Bee Api'C</h2>
+                    <span class="company-badge">Maison Mère</span>
+                </div>
+
+                <div class="company-content">
+                    <div class="company-info">
+                        <p class="company-description">
+                            Bee Api'C est une entreprise familiale engagée dans la promotion du miel 100% local de Loire-Atlantique.
+                            Nous travaillons en étroite collaboration avec des apiculteurs passionnés pour vous offrir un miel de qualité,
+                            traçable et respectueux de l'environnement.
+                        </p>
+
+                        <div class="company-label">
+                            <span class="label-icon">🇫🇷</span>
+                            <span class="label-text">Miel 100% local de Loire-Atlantique</span>
+                        </div>
+                    </div>
+
+                    <div class="company-contact">
+                        <h3 class="contact-title">Nous contacter</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span class="contact-text" id="companyAddress">Loire-Atlantique, France</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🌐</span>
+                                <a href="#" class="contact-link" id="companyWebsite">www.beeapic.fr</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <a href="#" class="contact-link" id="companyEmail">contact@beeapic.fr</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <a href="#" class="contact-link" id="companyPhone">+33 X XX XX XX XX</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Formulaire de recherche -->
         <section class="search-section" id="searchSection">
@@ -131,11 +186,11 @@
                 </div>
             </div>
 
-            <!-- Informations de l'apiculteur -->
+            <!-- Informations de l'apiculteur producteur -->
             <div class="result-card beekeeper-card">
                 <h2 class="section-title">
                     <span class="title-icon">👨‍🌾</span>
-                    Votre apiculteur
+                    Produit par l'apiculteur
                 </h2>
 
                 <div class="beekeeper-content">
@@ -158,6 +213,10 @@
                     <div class="beekeeper-details">
                         <div class="beekeeper-name">
                             <span class="beekeeper-type" id="beekeeperType">-</span>
+                            <span class="partner-badge hidden" id="partnerBadge">
+                                <span class="partner-icon">🤝</span>
+                                <span class="partner-text">Partenaire Bee Api'C depuis <span id="partnerYear">-</span></span>
+                            </span>
                             <h3 id="beekeeperName">-</h3>
                             <p class="commercial-name" id="commercialName">-</p>
                         </div>
@@ -210,6 +269,14 @@
                             <div class="social-links" id="socialLinks">
                                 <!-- Les liens seront ajoutés dynamiquement -->
                             </div>
+                        </div>
+
+                        <!-- Bouton En savoir plus -->
+                        <div class="beekeeper-actions">
+                            <button class="btn-more-info" id="btnMoreInfo">
+                                <span class="btn-icon">ℹ️</span>
+                                En savoir plus sur l'apiculteur
+                            </button>
                         </div>
                     </div>
                 </div>

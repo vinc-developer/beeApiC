@@ -10,6 +10,14 @@ const UI = (function() {
 
     // Éléments du DOM
     const elements = {
+        // Brand / Maison Mère
+        brandLogo: document.getElementById('brandLogo'),
+        logoPlaceholderBrand: document.getElementById('logoPlaceholderBrand'),
+        companyAddress: document.getElementById('companyAddress'),
+        companyWebsite: document.getElementById('companyWebsite'),
+        companyEmail: document.getElementById('companyEmail'),
+        companyPhone: document.getElementById('companyPhone'),
+
         // Méthodes de recherche
         btnManualInput: document.getElementById('btnManualInput'),
         btnListSelect: document.getElementById('btnListSelect'),
@@ -41,6 +49,8 @@ const UI = (function() {
 
         // Résultats - Apiculteur
         beekeeperType: document.getElementById('beekeeperType'),
+        partnerBadge: document.getElementById('partnerBadge'),
+        partnerYear: document.getElementById('partnerYear'),
         beekeeperName: document.getElementById('beekeeperName'),
         commercialName: document.getElementById('commercialName'),
         beekeeperAddress: document.getElementById('beekeeperAddress'),
@@ -56,7 +66,8 @@ const UI = (function() {
         socialLinks: document.getElementById('socialLinks'),
 
         // Actions
-        btnNewSearch: document.getElementById('btnNewSearch')
+        btnNewSearch: document.getElementById('btnNewSearch'),
+        btnMoreInfo: document.getElementById('btnMoreInfo')
     };
 
     /**
@@ -89,6 +100,42 @@ const UI = (function() {
      */
     function hideLoading() {
         elements.loadingSpinner.classList.add('hidden');
+    }
+
+    /**
+     * Initialise les informations de la maison mère
+     */
+    function initializeCompanyInfo() {
+        // Tentative de chargement du logo
+        const logoImg = new Image();
+        logoImg.src = 'images/logo-beeapic.png';
+
+        logoImg.onload = function() {
+            elements.brandLogo.src = 'images/logo-beeapic.png';
+            elements.brandLogo.classList.remove('hidden');
+            elements.logoPlaceholderBrand.classList.add('hidden');
+        };
+
+        logoImg.onerror = function() {
+            // Le logo n'existe pas encore, on garde le placeholder
+            console.log('ℹ Logo Bee Api\'C non trouvé, utilisation du placeholder');
+        };
+
+        // Configurer les liens de contact de la maison mère
+        if (elements.companyWebsite) {
+            elements.companyWebsite.href = 'https://www.beeapic.fr';
+            elements.companyWebsite.target = '_blank';
+            elements.companyWebsite.rel = 'noopener noreferrer';
+        }
+
+        if (elements.companyEmail) {
+            elements.companyEmail.href = 'mailto:contact@beeapic.fr';
+        }
+
+        if (elements.companyPhone) {
+            // Vous pouvez remplacer par le vrai numéro quand vous l'aurez
+            elements.companyPhone.href = 'tel:+33XXXXXXXXX';
+        }
     }
 
     /**
@@ -226,107 +273,136 @@ const UI = (function() {
      * @param {Object} data - Données de traçabilité
      */
     function displayResults(data) {
-        // Informations du produit
-        elements.displayLotNumber.textContent = data.lotNumber || '-';
-        elements.displayZone.textContent = data.zone?.publicName || '-';
-        elements.displayEnvironment.textContent = data.zone?.environment || '-';
+        try {
+            console.log('🎨 Début affichage des résultats');
 
-        // Dates d'extraction
-        if (data.production?.extractionDates && Array.isArray(data.production.extractionDates)) {
-            if (data.production.extractionDates.length > 0) {
-                elements.displayExtractionDates.innerHTML = data.production.extractionDates
-                    .map(date => `<span class="date-value">${formatDate(date)}</span>`)
-                    .join('');
+            // Informations du produit
+            console.log('📦 Affichage informations produit...');
+            elements.displayLotNumber.textContent = data.lotNumber || '-';
+            elements.displayZone.textContent = data.zone?.publicName || '-';
+            elements.displayEnvironment.textContent = data.zone?.environment || '-';
+
+            // Dates d'extraction
+            console.log('📅 Affichage dates...');
+            if (data.production?.extractionDates && Array.isArray(data.production.extractionDates)) {
+                if (data.production.extractionDates.length > 0) {
+                    elements.displayExtractionDates.innerHTML = data.production.extractionDates
+                        .map(date => `<span class="date-value">${formatDate(date)}</span>`)
+                        .join('');
+                } else {
+                    elements.displayExtractionDates.innerHTML = '<span class="date-value">-</span>';
+                }
             } else {
                 elements.displayExtractionDates.innerHTML = '<span class="date-value">-</span>';
             }
-        } else {
-            elements.displayExtractionDates.innerHTML = '<span class="date-value">-</span>';
-        }
 
-        // Date de mise en pot
-        elements.displayBottlingDate.textContent = formatDate(data.production?.bottlingDate) || '-';
+            // Date de mise en pot
+            elements.displayBottlingDate.textContent = formatDate(data.production?.bottlingDate) || '-';
 
-        // Informations de l'apiculteur
-        const beekeeper = data.beekeeper || {};
+            // Informations de l'apiculteur
+            console.log('👨‍🌾 Affichage informations apiculteur...');
+            const beekeeper = data.beekeeper || {};
 
-        // Type d'apiculteur
-        elements.beekeeperType.textContent = beekeeper.type || '-';
+            // Type d'apiculteur
+            elements.beekeeperType.textContent = beekeeper.type || '-';
 
-        // Nom complet
-        const fullName = [beekeeper.firstName, beekeeper.lastName]
-            .filter(Boolean)
-            .join(' ') || '-';
-
-        elements.beekeeperName.textContent = fullName;
-        elements.commercialName.textContent = beekeeper.commercialName || '-';
-        elements.beekeeperAddress.textContent = beekeeper.address || '-';
-        elements.beekeeperSiret.textContent = beekeeper.siret || '-';
-
-        // Site web (lien cliquable)
-        if (beekeeper.website) {
-            // Extraire le nom de domaine pour l'affichage
-            let displayUrl = beekeeper.website;
-            try {
-                const url = new URL(beekeeper.website);
-                displayUrl = url.hostname.replace('www.', '');
-            } catch (e) {
-                // Si l'URL n'est pas valide, afficher telle quelle
+            // Badge partenaire (si apiculteur externe)
+            console.log('🤝 Gestion badge partenaire...');
+            if (beekeeper.partnerSince) {
+                elements.partnerYear.textContent = beekeeper.partnerSince;
+                elements.partnerBadge.classList.remove('hidden');
+            } else {
+                elements.partnerBadge.classList.add('hidden');
             }
-            elements.beekeeperWebsite.textContent = displayUrl;
-            elements.beekeeperWebsite.href = beekeeper.website;
-        } else {
-            elements.beekeeperWebsite.textContent = '-';
-            elements.beekeeperWebsite.removeAttribute('href');
+
+            // Nom complet
+            console.log('📝 Affichage nom...');
+            const fullName = [beekeeper.firstName, beekeeper.lastName]
+                .filter(Boolean)
+                .join(' ') || '-';
+
+            elements.beekeeperName.textContent = fullName;
+            elements.commercialName.textContent = beekeeper.commercialName || '-';
+            elements.beekeeperAddress.textContent = beekeeper.address || '-';
+            elements.beekeeperSiret.textContent = beekeeper.siret || '-';
+
+            // Site web (lien cliquable)
+            console.log('🌐 Affichage site web...');
+            if (beekeeper.website) {
+                let displayUrl = beekeeper.website;
+                try {
+                    const url = new URL(beekeeper.website);
+                    displayUrl = url.hostname.replace('www.', '');
+                } catch (e) {
+                    // Si l'URL n'est pas valide, afficher telle quelle
+                }
+                elements.beekeeperWebsite.textContent = displayUrl;
+                elements.beekeeperWebsite.href = beekeeper.website;
+            } else {
+                elements.beekeeperWebsite.textContent = '-';
+                elements.beekeeperWebsite.removeAttribute('href');
+            }
+
+            // Email (lien cliquable)
+            console.log('📧 Affichage email...');
+            if (beekeeper.email) {
+                elements.beekeeperEmail.textContent = beekeeper.email;
+                elements.beekeeperEmail.href = `mailto:${beekeeper.email}`;
+            } else {
+                elements.beekeeperEmail.textContent = '-';
+                elements.beekeeperEmail.removeAttribute('href');
+            }
+
+            // Téléphone (lien cliquable)
+            console.log('📱 Affichage téléphone...');
+            if (beekeeper.phone) {
+                elements.beekeeperPhone.textContent = beekeeper.phone;
+                elements.beekeeperPhone.href = `tel:${beekeeper.phone}`;
+            } else {
+                elements.beekeeperPhone.textContent = '-';
+                elements.beekeeperPhone.removeAttribute('href');
+            }
+
+            // Photo de l'apiculteur
+            console.log('📷 Affichage photo...');
+            if (beekeeper.photo) {
+                elements.beekeeperPhotoImg.src = beekeeper.photo;
+                elements.beekeeperPhotoImg.classList.remove('hidden');
+                elements.photoPlaceholder.classList.add('hidden');
+            } else {
+                elements.beekeeperPhotoImg.classList.add('hidden');
+                elements.photoPlaceholder.classList.remove('hidden');
+            }
+
+            // Logo commercial
+            console.log('🏢 Affichage logo...');
+            if (beekeeper.logo) {
+                elements.beekeeperLogoImg.src = beekeeper.logo;
+                elements.beekeeperLogoImg.classList.remove('hidden');
+                elements.logoPlaceholder.classList.add('hidden');
+            } else {
+                elements.beekeeperLogoImg.classList.add('hidden');
+                elements.logoPlaceholder.classList.remove('hidden');
+            }
+
+            // Réseaux sociaux
+            console.log('🌐 Affichage réseaux sociaux...');
+            displaySocialMedia(beekeeper.socialMedia);
+
+            // Afficher les résultats et cacher la recherche
+            console.log('✨ Finalisation affichage...');
+            elements.resultsSection.classList.remove('hidden');
+            elements.searchSection.classList.add('hidden');
+
+            // Scroll vers le haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            console.log('✅ Affichage terminé avec succès');
+        } catch (error) {
+            console.error('❌ Erreur dans displayResults:', error);
+            console.error('Stack:', error.stack);
+            throw error; // Re-lancer l'erreur pour qu'elle soit capturée par handleSearchDev
         }
-
-        // Email (lien cliquable)
-        if (beekeeper.email) {
-            elements.beekeeperEmail.textContent = beekeeper.email;
-            elements.beekeeperEmail.href = `mailto:${beekeeper.email}`;
-        } else {
-            elements.beekeeperEmail.textContent = '-';
-            elements.beekeeperEmail.removeAttribute('href');
-        }
-
-        // Téléphone (lien cliquable)
-        if (beekeeper.phone) {
-            elements.beekeeperPhone.textContent = beekeeper.phone;
-            elements.beekeeperPhone.href = `tel:${beekeeper.phone}`;
-        } else {
-            elements.beekeeperPhone.textContent = '-';
-            elements.beekeeperPhone.removeAttribute('href');
-        }
-
-        // Photo de l'apiculteur
-        if (beekeeper.photo) {
-            elements.beekeeperPhotoImg.src = beekeeper.photo;
-            elements.beekeeperPhotoImg.classList.remove('hidden');
-            elements.photoPlaceholder.classList.add('hidden');
-        } else {
-            elements.beekeeperPhotoImg.classList.add('hidden');
-            elements.photoPlaceholder.classList.remove('hidden');
-        }
-
-        // Logo commercial
-        if (beekeeper.logo) {
-            elements.beekeeperLogoImg.src = beekeeper.logo;
-            elements.beekeeperLogoImg.classList.remove('hidden');
-            elements.logoPlaceholder.classList.add('hidden');
-        } else {
-            elements.beekeeperLogoImg.classList.add('hidden');
-            elements.logoPlaceholder.classList.remove('hidden');
-        }
-
-        // Réseaux sociaux
-        displaySocialMedia(beekeeper.socialMedia);
-
-        // Afficher les résultats et cacher la recherche
-        elements.resultsSection.classList.remove('hidden');
-        elements.searchSection.classList.add('hidden');
-
-        // Scroll vers le haut
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     /**
@@ -379,6 +455,7 @@ const UI = (function() {
     // Interface publique du module
     return {
         elements,
+        initializeCompanyInfo,
         showError,
         hideError,
         showLoading,

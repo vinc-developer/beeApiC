@@ -160,6 +160,7 @@ const API = (function() {
             },
             beekeeper: {
                 type: 'Apiculteur Récoltant',
+                partnerSince: 2025,
                 firstName: 'Jean',
                 lastName: 'Dupont',
                 commercialName: 'Les Ruchers du Val de Loire',
@@ -170,12 +171,18 @@ const API = (function() {
                 siret: '123 456 789 00012',
                 photo: '',
                 logo: '',
+                bio: 'Passionné par l\'apiculture depuis plus de 20 ans, je produis un miel de qualité dans la magnifique région de la Loire. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.',
+                hivesCount: '40 ruches',
+                location: 'Vallée de la Loire, Indre-et-Loire',
+                distance: '180 km de Nantes',
+                beekeeperSince: '2005',
+                gallery: [],
                 socialMedia: {
                     instagram: 'https://instagram.com/ruchersduval',
                     facebook: 'https://facebook.com/ruchersduval',
-                    tiktok: 'https://instagram.com/ruchersduval',
+                    tiktok: '',
                     youtube: 'https://youtube.com/@ruchersduval',
-                    linkedin: 'https://instagram.com/ruchersduval'
+                    linkedin: ''
                 }
             }
         };

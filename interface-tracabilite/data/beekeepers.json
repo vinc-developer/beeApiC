@@ -23,6 +23,7 @@
     "CV": {
       "code": "CV",
       "type": "Apiculteur Récoltant",
+      "partnerSince": 2024,
       "firstName": "Vincent",
       "lastName": "Colas",
       "commercialName": "Colas Vincent",
@@ -33,6 +34,12 @@
       "siret": "987 654 321 00021",
       "photo": "",
       "logo": "",
+      "bio": "Apiculteur partenaire de Bee Api'C depuis 2024, je suis installé en Loire-Atlantique où je pratique une apiculture raisonnée et respectueuse de l'environnement. Mes ruches produisent un miel authentique aux saveurs du terroir local.",
+      "hivesCount": "30 ruches",
+      "location": "Loire-Atlantique, France",
+      "distance": "35 km de Nantes",
+      "beekeeperSince": "2020",
+      "gallery": [],
       "socialMedia": {
         "instagram": "",
         "facebook": "https://facebook.com/colasvincent",

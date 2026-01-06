@@ -1,4 +1,171 @@
 /* ========================================
+   BRAND HEADER
+   ======================================== */
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.brand-logo img {
+    max-height: 80px;
+    width: auto;
+}
+
+.logo-placeholder-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.brand-icon {
+    font-size: var(--font-size-4xl);
+}
+
+.brand-name {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+/* ========================================
+   SECTION MAISON MÈRE
+   ======================================== */
+
+.company-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.company-card {
+    background: linear-gradient(135deg, #FFF8DC 0%, var(--color-white) 100%);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--color-primary-light);
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-primary-light);
+}
+
+.company-icon {
+    font-size: var(--font-size-3xl);
+}
+
+.company-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    flex: 1;
+}
+
+.company-badge {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+}
+
+.company-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.company-description {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+}
+
+.company-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--color-primary-lightest);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    width: fit-content;
+}
+
+.label-icon {
+    font-size: var(--font-size-xl);
+}
+
+.label-text {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+}
+
+.company-contact {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.contact-icon {
+    font-size: var(--font-size-lg);
+    width: 24px;
+    text-align: center;
+}
+
+.contact-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.contact-link {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-base);
+}
+
+.contact-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* ========================================
    COMPOSANTS - CARDS
    ======================================== */
 
@@ -377,6 +544,28 @@
     letter-spacing: 0.5px;
 }
 
+.partner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 2px 8px rgba(255, 165, 0, 0.3);
+}
+
+.partner-icon {
+    font-size: var(--font-size-sm);
+}
+
+.partner-text {
+    font-size: var(--font-size-xs);
+}
+
 .beekeeper-name h3 {
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
@@ -524,6 +713,42 @@
 }
 
 /* ========================================
+   ACTIONS APICULTEUR
+   ======================================== */
+
+.beekeeper-actions {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: var(--border-width-thin) solid var(--color-gray);
+}
+
+.btn-more-info {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-more-info:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-more-info .btn-icon {
+    font-size: var(--font-size-lg);
+}
+
+/* ========================================
    ACTIONS
    ======================================== */
 
@@ -537,6 +762,11 @@
    ======================================== */
 
 @media (max-width: 1024px) {
+    .company-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
     .beekeeper-content {
         grid-template-columns: 250px 1fr;
         gap: var(--spacing-xl);
@@ -544,6 +774,15 @@
 }
 
 @media (max-width: 768px) {
+    .company-header {
+        flex-wrap: wrap;
+    }
+
+    .company-badge {
+        width: 100%;
+        text-align: center;
+    }
+
     .search-method-selector {
         flex-direction: column;
     }
