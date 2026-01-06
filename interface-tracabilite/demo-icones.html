@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aperçu des Icônes Réseaux Sociaux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #444;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .social-link[data-network="instagram"]:hover {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            border-color: #E4405F;
+            color: white;
+        }
+
+        .social-link[data-network="facebook"]:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+            color: white;
+        }
+
+        .social-link[data-network="tiktok"]:hover {
+            background: #000000;
+            border-color: #000000;
+            color: white;
+        }
+
+        .social-link[data-network="youtube"]:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+            color: white;
+        }
+
+        .social-link[data-network="linkedin"]:hover {
+            background: #0A66C2;
+            border-color: #0A66C2;
+            color: white;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        .social-name {
+            white-space: nowrap;
+        }
+
+        .demo-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .demo-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .info-box p {
+            color: #1976D2;
+            line-height: 1.6;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .icon-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .icon-item:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-item i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .icon-item.instagram i { color: #E4405F; }
+        .icon-item.facebook i { color: #1877F2; }
+        .icon-item.tiktok i { color: #000000; }
+        .icon-item.youtube i { color: #FF0000; }
+        .icon-item.linkedin i { color: #0A66C2; }
+
+        .icon-label {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Nouvelles Icônes Réseaux Sociaux</h1>
+        <p class="subtitle">Icônes officielles Font Awesome avec couleurs authentiques</p>
+
+        <div class="demo-section">
+            <div class="demo-title">📱 Aperçu dans l'interface (au survol)</div>
+            <div class="social-links">
+                <a href="#" class="social-link" data-network="instagram">
+                    <i class="fa-brands fa-instagram social-icon"></i>
+                    <span class="social-name">Instagram</span>
+                </a>
+                <a href="#" class="social-link" data-network="facebook">
+                    <i class="fa-brands fa-facebook social-icon"></i>
+                    <span class="social-name">Facebook</span>
+                </a>
+                <a href="#" class="social-link" data-network="tiktok">
+                    <i class="fa-brands fa-tiktok social-icon"></i>
+                    <span class="social-name">TikTok</span>
+                </a>
+                <a href="#" class="social-link" data-network="youtube">
+                    <i class="fa-brands fa-youtube social-icon"></i>
+                    <span class="social-name">YouTube</span>
+                </a>
+                <a href="#" class="social-link" data-network="linkedin">
+                    <i class="fa-brands fa-linkedin social-icon"></i>
+                    <span class="social-name">LinkedIn</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎯 Icônes Officielles</div>
+            <div class="icon-showcase">
+                <div class="icon-item instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                    <div class="icon-label">Instagram</div>
+                </div>
+                <div class="icon-item facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                    <div class="icon-label">Facebook</div>
+                </div>
+                <div class="icon-item tiktok">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <div class="icon-label">TikTok</div>
+                </div>
+                <div class="icon-item youtube">
+                    <i class="fa-brands fa-youtube"></i>
+                    <div class="icon-label">YouTube</div>
+                </div>
+                <div class="icon-item linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <div class="icon-label">LinkedIn</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p><strong>✨ Améliorations apportées :</strong></p>
+            <p>
+                ✅ Icônes officielles Font Awesome (au lieu d'emoji)<br>
+                ✅ Couleurs authentiques de chaque réseau social<br>
+                ✅ Animation au survol avec couleur de marque<br>
+                ✅ Taille et espacement optimisés<br>
+                ✅ Aspect professionnel et reconnaissable
+            </p>
+        </div>
+
+        <div class="info-box" style="background: #fff3cd; border-color: #ffc107;">
+            <p style="color: #856404;">
+                <strong>💡 Astuce :</strong>
+                Passez votre souris sur les boutons ci-dessus pour voir l'effet de couleur de chaque réseau social !
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Empêcher les liens de naviguer (pour la démo)
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
+

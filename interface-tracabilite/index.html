@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traçabilité Miel - BeeApiC</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <!-- Font Awesome pour les icônes des réseaux sociaux -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">🐝 Traçabilité du Miel</h1>
+                <p class="header-subtitle">Découvrez l'origine et l'histoire de votre pot de miel</p>
+            </div>
+        </header>
+
+        <!-- Formulaire de recherche -->
+        <section class="search-section" id="searchSection">
+            <div class="search-card">
+                <h2 class="section-title">Rechercher un lot</h2>
+
+                <div class="search-method-selector">
+                    <button class="btn-method active" id="btnManualInput" data-method="manual">
+                        Saisie manuelle
+                    </button>
+                    <button class="btn-method" id="btnListSelect" data-method="list">
+                        Sélection dans la liste
+                    </button>
+                </div>
+
+                <!-- Saisie manuelle -->
+                <div class="search-input-group" id="manualInputGroup">
+                    <label for="lotNumber" class="input-label">Numéro de lot</label>
+                    <div class="input-wrapper">
+                        <input
+                            type="text"
+                            id="lotNumber"
+                            class="input-field"
+                            placeholder="Ex: LOT2024-001"
+                            autocomplete="off"
+                        >
+                        <button class="btn-search" id="btnSearchManual">
+                            <span class="btn-icon">🔍</span>
+                            Rechercher
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sélection par liste -->
+                <div class="search-input-group hidden" id="listSelectGroup">
+                    <label for="lotSelect" class="input-label">Sélectionner un lot</label>
+                    <div class="input-wrapper">
+                        <select id="lotSelect" class="select-field">
+                            <option value="">-- Choisir un numéro de lot --</option>
+                        </select>
+                        <button class="btn-search" id="btnSearchList">
+                            <span class="btn-icon">🔍</span>
+                            Rechercher
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Message d'erreur -->
+                <div class="error-message hidden" id="errorMessage">
+                    <span class="error-icon">⚠️</span>
+                    <span class="error-text"></span>
+                </div>
+
+                <!-- Loading spinner -->
+                <div class="loading-spinner hidden" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Chargement des informations...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Résultats de la traçabilité -->
+        <section class="results-section hidden" id="resultsSection">
+            <!-- Informations du produit -->
+            <div class="result-card">
+                <h2 class="section-title">
+                    <span class="title-icon">🍯</span>
+                    Informations du produit
+                </h2>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Numéro de lot</span>
+                        <span class="info-value" id="displayLotNumber">-</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Zone géographique</span>
+                        <span class="info-value" id="displayZone">-</span>
+                    </div>
+
+                    <div class="info-item full-width">
+                        <span class="info-label">Environnement des ruches</span>
+                        <span class="info-value" id="displayEnvironment">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dates importantes -->
+            <div class="result-card">
+                <h2 class="section-title">
+                    <span class="title-icon">📅</span>
+                    Dates de production
+                </h2>
+
+                <div class="dates-container">
+                    <div class="date-card">
+                        <div class="date-icon">🍯</div>
+                        <h3 class="date-title">Date(s) d'extraction</h3>
+                        <div class="date-list" id="displayExtractionDates">
+                            <span class="date-value">-</span>
+                        </div>
+                    </div>
+
+                    <div class="date-card">
+                        <div class="date-icon">🏺</div>
+                        <h3 class="date-title">Date de mise en pot</h3>
+                        <div class="date-value" id="displayBottlingDate">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informations de l'apiculteur -->
+            <div class="result-card beekeeper-card">
+                <h2 class="section-title">
+                    <span class="title-icon">👨‍🌾</span>
+                    Votre apiculteur
+                </h2>
+
+                <div class="beekeeper-content">
+                    <div class="beekeeper-visual">
+                        <div class="beekeeper-photo" id="beekeeperPhoto">
+                            <img src="" alt="Photo de l'apiculteur" id="beekeeperPhotoImg" class="hidden">
+                            <div class="photo-placeholder" id="photoPlaceholder">
+                                <span class="placeholder-icon">👤</span>
+                            </div>
+                        </div>
+
+                        <div class="beekeeper-logo" id="beekeeperLogo">
+                            <img src="" alt="Logo commercial" id="beekeeperLogoImg" class="hidden">
+                            <div class="logo-placeholder" id="logoPlaceholder">
+                                <span class="placeholder-icon">🏢</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="beekeeper-details">
+                        <div class="beekeeper-name">
+                            <span class="beekeeper-type" id="beekeeperType">-</span>
+                            <h3 id="beekeeperName">-</h3>
+                            <p class="commercial-name" id="commercialName">-</p>
+                        </div>
+
+                        <div class="beekeeper-info-grid">
+                            <div class="beekeeper-info-item">
+                                <span class="info-icon">📍</span>
+                                <div class="info-content">
+                                    <span class="info-small-label">Adresse</span>
+                                    <span class="info-text" id="beekeeperAddress">-</span>
+                                </div>
+                            </div>
+
+                            <div class="beekeeper-info-item">
+                                <span class="info-icon">🌐</span>
+                                <div class="info-content">
+                                    <span class="info-small-label">Site Web</span>
+                                    <a href="#" class="info-link" id="beekeeperWebsite" target="_blank" rel="noopener noreferrer">-</a>
+                                </div>
+                            </div>
+
+                            <div class="beekeeper-info-item">
+                                <span class="info-icon">📧</span>
+                                <div class="info-content">
+                                    <span class="info-small-label">Email</span>
+                                    <a href="#" class="info-link" id="beekeeperEmail">-</a>
+                                </div>
+                            </div>
+
+                            <div class="beekeeper-info-item">
+                                <span class="info-icon">📱</span>
+                                <div class="info-content">
+                                    <span class="info-small-label">Téléphone</span>
+                                    <a href="#" class="info-link" id="beekeeperPhone">-</a>
+                                </div>
+                            </div>
+
+                            <div class="beekeeper-info-item">
+                                <span class="info-icon">🏢</span>
+                                <div class="info-content">
+                                    <span class="info-small-label">SIRET</span>
+                                    <span class="info-text" id="beekeeperSiret">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Réseaux sociaux -->
+                        <div class="social-media-section hidden" id="socialMediaSection">
+                            <h4 class="social-title">Suivez-nous</h4>
+                            <div class="social-links" id="socialLinks">
+                                <!-- Les liens seront ajoutés dynamiquement -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton nouvelle recherche -->
+            <div class="actions-section">
+                <button class="btn-secondary" id="btnNewSearch">
+                    Nouvelle recherche
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 BeeApiC - Traçabilité du Miel</p>
+        </footer>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

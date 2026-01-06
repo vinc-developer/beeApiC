@@ -1,0 +1,46 @@
+{
+  "beekeepers": {
+    "BA": {
+      "code": "BA",
+      "type": "Apiculteur Récoltant",
+      "firstName": "Bee",
+      "lastName": "Api'C",
+      "commercialName": "Bee Api'C",
+      "address": "123 Rue des Abeilles\n75000 Paris\nFrance",
+      "email": "contact@beeapic.fr",
+      "phone": "+33 1 23 45 67 89",
+      "siret": "123 456 789 00012",
+      "photo": "",
+      "logo": "",
+      "socialMedia": {
+        "instagram": "https://instagram.com/beeapic",
+        "facebook": "https://facebook.com/beeapic",
+        "tiktok": "",
+        "youtube": "",
+        "linkedin": ""
+      }
+    },
+    "CV": {
+      "code": "CV",
+      "type": "Apiculteur Récoltant",
+      "firstName": "Vincent",
+      "lastName": "Colas",
+      "commercialName": "Colas Vincent",
+      "address": "456 Avenue du Miel\n69000 Lyon\nFrance",
+      "email": "vincent.colas@example.fr",
+      "phone": "+33 6 12 34 56 78",
+      "website": "https://www.colasvincent.fr",
+      "siret": "987 654 321 00021",
+      "photo": "",
+      "logo": "",
+      "socialMedia": {
+        "instagram": "",
+        "facebook": "https://facebook.com/colasvincent",
+        "tiktok": "https://tiktok.com/@colasvincent",
+        "youtube": "",
+        "linkedin": "https://linkedin.com/in/vincent-colas"
+      }
+    }
+  }
+}
+
