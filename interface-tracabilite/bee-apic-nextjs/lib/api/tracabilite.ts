@@ -55,11 +55,67 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
   const code = extractBeekeeperCode(lotNumber);
   console.log(`   📋 Code apiculteur extrait: ${code}`);
 
+  // Si le code ne peut pas être extrait (format numérique comme 03052027)
   if (!code) {
-    console.error(`   ❌ Format de numéro de lot invalide`);
-    throw new Error('Format de numéro de lot invalide');
+    console.warn(`   ⚠️ Impossible d'extraire le code apiculteur du numéro de lot`);
+    console.log(`   📡 Tentative de récupération directe depuis le proxy sans code apiculteur...`);
+
+    try {
+      // Essayer de récupérer directement depuis le proxy
+      const proxyData = await fetchFromProxy(lotNumber);
+      console.log(`   ✅ Données reçues du proxy (sans code apiculteur):`, proxyData);
+
+      // Le proxy devrait retourner les infos de l'apiculteur dans les données
+      // On va essayer de mapper les données
+      let beekeeper: Beekeeper | null = null;
+
+      // Si le proxy retourne un code apiculteur dans les données
+      if (proxyData.apiculteur || proxyData.beekeeper || proxyData.code_apiculteur) {
+        const beekeeperCode = proxyData.code_apiculteur || proxyData.beekeeper?.code || proxyData.apiculteur?.code;
+        if (beekeeperCode) {
+          console.log(`   📋 Code apiculteur trouvé dans les données du proxy: ${beekeeperCode}`);
+          beekeeper = await loadBeekeeper(beekeeperCode);
+        }
+      }
+
+      // Si on n'a toujours pas l'apiculteur, essayer de le trouver en cherchant dans tous les apiculteurs
+      if (!beekeeper) {
+        console.log(`   🔍 Recherche de l'apiculteur par numéro de lot dans tous les apiculteurs...`);
+        const beekeepers = beekeepersData.beekeepers as Record<string, Beekeeper>;
+
+        // Chercher l'apiculteur qui a useProxy: true (car ce lot vient du proxy)
+        for (const [beekeeperCode, beekeeperData] of Object.entries(beekeepers)) {
+          if (beekeeperData.useProxy) {
+            console.log(`   ✅ Apiculteur par défaut trouvé (useProxy=true): ${beekeeperCode}`);
+            beekeeper = beekeeperData;
+            break;
+          }
+        }
+      }
+
+      if (!beekeeper) {
+        console.error(`   ❌ Impossible de déterminer l'apiculteur pour ce lot`);
+        throw new Error('Impossible de déterminer l\'apiculteur pour ce numéro de lot');
+      }
+
+      // Construire les données de traçabilité
+      const result = {
+        lotNumber: proxyData.lotNumber || proxyData.numero_lot || lotNumber,
+        zone: proxyData.zone,
+        production: proxyData.production,
+        beekeeper,
+      } as TraceabilityData;
+
+      console.log(`   ✅ Données de traçabilité construites avec succès`);
+      return result;
+
+    } catch (error) {
+      console.error(`   ❌ Erreur lors de la récupération depuis le proxy:`, error);
+      throw new Error(`Format de numéro de lot non reconnu: ${lotNumber}`);
+    }
   }
 
+  // Cas normal : code apiculteur extrait du numéro de lot
   // Charger l'apiculteur
   const beekeeper = await loadBeekeeper(code);
   console.log(`   👤 Apiculteur trouvé: ${beekeeper ? `${beekeeper.firstName} ${beekeeper.lastName}` : 'NON'}`);
