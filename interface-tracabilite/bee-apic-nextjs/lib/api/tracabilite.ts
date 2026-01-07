@@ -155,9 +155,16 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
           if (Array.isArray(data.data)) {
             console.log(`   📦 data.data est un tableau avec ${data.data.length} élément(s)`);
 
+            // Afficher le premier élément pour voir la structure
+            if (data.data.length > 0) {
+              console.log(`   📦 Structure du premier élément:`, JSON.stringify(data.data[0], null, 2));
+              console.log(`   📦 Clés disponibles:`, Object.keys(data.data[0]));
+            }
+
             proxyLots = data.data
-              .map((lot: any) => {
+              .map((lot: any, index: number) => {
                 const numeroLot = lot.numero_lot || lot.numeroLot || lot.lot_number || lot.number;
+                console.log(`      [${index}] Clés: ${Object.keys(lot).join(', ')} → numeroLot extrait: "${numeroLot}"`);
                 return numeroLot;
               })
               .filter((lot: string) => lot);
