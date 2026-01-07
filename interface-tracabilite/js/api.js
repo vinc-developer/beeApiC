@@ -183,9 +183,31 @@ const API = (function() {
     }
 
     /**
+     * Convertit les données locales (ancien format) vers le format du proxy BeePerf
+     * @param {Object} legacyData - Données au format legacy
+     * @returns {Object} - Données au format proxy BeePerf
+     */
+    function convertLegacyToProxyFormat(legacyData) {
+        return {
+            lotNumber: legacyData.lotNumber,
+            ruchers: legacyData.zone ? [{
+                nom: 'Rucher principal',
+                nomPublicZone: legacyData.zone.publicName || 'Zone non spécifiée',
+                environnement: legacyData.zone.environment || 'Environnement non spécifié'
+            }] : [],
+            production: {
+                datesExtractions: legacyData.production?.extractionDates || [],
+                dateConditionnement: legacyData.production?.bottlingDate || '',
+                nbRuchesRecoltees: undefined
+            },
+            beekeeper: legacyData.beekeeper
+        };
+    }
+
+    /**
      * Récupère les informations de traçabilité pour un numéro de lot
      * @param {string} lotNumber - Numéro du lot
-     * @returns {Promise<Object>} - Données de traçabilité
+     * @returns {Promise<Object>} - Données de traçabilité au format proxy BeePerf
      */
     async function getTraceability(lotNumber) {
         if (!lotNumber || typeof lotNumber !== 'string' || lotNumber.trim() === '') {
@@ -207,28 +229,48 @@ const API = (function() {
                 useProxy = beekeeperData.useProxy !== undefined ? beekeeperData.useProxy : true;
                 console.log(`ℹ Source de données: ${useProxy ? 'Proxy API' : 'Fichier JSON local'}`);
             }
+        } else {
+            // Pas de code apiculteur extractible, chercher un apiculteur avec useProxy
+            const beekeepersResponse = await fetch('data/beekeepers.json');
+            const beekeepersAll = await beekeepersResponse.json();
+
+            for (const [code, beekeeper] of Object.entries(beekeepersAll.beekeepers)) {
+                if (beekeeper.useProxy) {
+                    beekeeperData = beekeeper;
+                    console.log(`✓ Apiculteur par défaut (useProxy=true): ${code}`);
+                    break;
+                }
+            }
         }
 
         let data;
 
         if (useProxy) {
-            // Récupérer les données depuis le proxy API
+            // Récupérer les données depuis le proxy API (format BeePerf natif)
             const url = `${config.API_BASE_URL}${config.ENDPOINTS.GET_TRACEABILITY}/${encodeURIComponent(lotNumber.trim())}`;
 
             try {
                 data = await fetchWithTimeout(url);
+                console.log('✓ Données reçues du proxy (format BeePerf natif)');
+
+                // Les données du proxy sont déjà au bon format avec ruchers[], datesExtractions, etc.
+                // Pas besoin de mapping !
             } catch (error) {
                 console.error('Erreur lors de la récupération de la traçabilité depuis le proxy:', error);
                 throw error;
             }
         } else {
-            // Récupérer les données depuis le fichier JSON local
-            data = await loadTraceabilityFromJSON(lotNumber.trim());
+            // Récupérer les données depuis le fichier JSON local (ancien format)
+            const legacyData = await loadTraceabilityFromJSON(lotNumber.trim());
 
-            if (!data) {
+            if (!legacyData) {
                 console.error(`Aucune donnée de traçabilité trouvée pour le lot: ${lotNumber.trim()}`);
                 throw new Error('NOT_FOUND');
             }
+
+            // Convertir l'ancien format vers le format proxy BeePerf
+            console.log('🔄 Conversion des données locales vers le format proxy BeePerf');
+            data = convertLegacyToProxyFormat(legacyData);
         }
 
         // Fusionner les données de l'apiculteur si elles existent

@@ -352,8 +352,19 @@ const UI = (function() {
             // Informations du produit
             console.log('📦 Affichage informations produit...');
             elements.displayLotNumber.textContent = data.lotNumber || '-';
-            elements.displayZone.textContent = data.zone?.publicName || '-';
-            elements.displayEnvironment.textContent = data.zone?.environment || '-';
+
+            // Zone géographique : combiner tous les nomPublicZone des ruchers
+            if (data.ruchers && data.ruchers.length > 0) {
+                const zones = data.ruchers.map(r => r.nomPublicZone).filter(Boolean);
+                elements.displayZone.textContent = zones.join(', ') || 'Non spécifiée';
+
+                // Environnement : combiner et dédupliquer les environnements
+                const environnements = [...new Set(data.ruchers.map(r => r.environnement).filter(Boolean))];
+                elements.displayEnvironment.textContent = environnements.join(', ') || 'Non spécifié';
+            } else {
+                elements.displayZone.textContent = '-';
+                elements.displayEnvironment.textContent = '-';
+            }
 
             // Extraire et afficher le type de miel
             const honeyTypeCode = extractHoneyType(data.lotNumber);
@@ -376,11 +387,11 @@ const UI = (function() {
                 elements.honeyTypeInfo.style.display = 'none';
             }
 
-            // Dates d'extraction
+            // Dates d'extraction (format proxy BeePerf : datesExtractions)
             console.log('📅 Affichage dates...');
-            if (data.production?.extractionDates && Array.isArray(data.production.extractionDates)) {
-                if (data.production.extractionDates.length > 0) {
-                    elements.displayExtractionDates.innerHTML = data.production.extractionDates
+            if (data.production?.datesExtractions && Array.isArray(data.production.datesExtractions)) {
+                if (data.production.datesExtractions.length > 0) {
+                    elements.displayExtractionDates.innerHTML = data.production.datesExtractions
                         .map(date => `<span class="date-value">${formatDate(date)}</span>`)
                         .join('');
                 } else {
@@ -390,8 +401,8 @@ const UI = (function() {
                 elements.displayExtractionDates.innerHTML = '<span class="date-value">-</span>';
             }
 
-            // Date de mise en pot
-            elements.displayBottlingDate.textContent = formatDate(data.production?.bottlingDate) || '-';
+            // Date de conditionnement (format proxy BeePerf : dateConditionnement)
+            elements.displayBottlingDate.textContent = formatDate(data.production?.dateConditionnement) || '-';
 
             // Informations de l'apiculteur
             console.log('👨‍🌾 Affichage informations apiculteur...');
