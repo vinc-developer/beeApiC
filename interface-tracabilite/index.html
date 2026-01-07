@@ -27,7 +27,7 @@
             </div>
         </header>
 
-        <!-- Section Maison Mère (toujours visible) -->
+        <!-- Section Maison Mère (visible uniquement si pas de recherche) -->
         <section class="company-section">
             <div class="company-card">
                 <div class="company-header">
@@ -137,6 +137,14 @@
             </div>
         </section>
 
+        <!-- Bouton nouvelle recherche (positionné en haut à gauche comme le bouton retour) -->
+        <div class="back-button-container hidden" id="backButtonContainer">
+            <button class="btn-back" id="btnNewSearch">
+                <span class="btn-icon">←</span>
+                Nouvelle recherche
+            </button>
+        </div>
+
         <!-- Résultats de la traçabilité -->
         <section class="results-section hidden" id="resultsSection">
             <!-- Informations du produit -->
@@ -155,6 +163,17 @@
                     <div class="info-item">
                         <span class="info-label">Zone géographique</span>
                         <span class="info-value" id="displayZone">-</span>
+                    </div>
+
+                    <div class="info-item full-width" id="honeyTypeInfo" style="display: none;">
+                        <span class="info-label">
+                            <!--<span class="honey-icon">🍯</span>-->
+                            Type de miel
+                        </span>
+                        <div class="honey-type-details">
+                            <span class="honey-type-badge" id="honeyTypeBadge">-</span>
+                            <span class="honey-type-description" id="honeyTypeDescription">-</span>
+                        </div>
                     </div>
 
                     <div class="info-item full-width">
@@ -215,6 +234,10 @@
                     <div class="beekeeper-details">
                         <div class="beekeeper-name">
                             <span class="beekeeper-type" id="beekeeperType">-</span>
+                            <span class="beeapic-producer-badge hidden" id="beeapicProducerBadge">
+                                <span class="producer-icon">🐝</span>
+                                <span class="producer-text">Miel Bee Api'C</span>
+                            </span>
                             <span class="partner-badge hidden" id="partnerBadge">
                                 <span class="partner-icon">🤝</span>
                                 <span class="partner-text">Partenaire Bee Api'C depuis <span id="partnerYear">-</span></span>
@@ -282,13 +305,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Bouton nouvelle recherche -->
-            <div class="actions-section">
-                <button class="btn-secondary" id="btnNewSearch">
-                    Nouvelle recherche
-                </button>
             </div>
         </section>
 

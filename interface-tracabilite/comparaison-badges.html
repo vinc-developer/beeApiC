@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison des badges - v3.6.1</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <style>
+        body {
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #FFB300;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 30px;
+            margin: 20px 0;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 5px solid;
+        }
+        .badge-row.producer {
+            border-left-color: #FDD835;
+        }
+        .badge-row.partner {
+            border-left-color: #FFD700;
+        }
+        .badge-row.honey {
+            border-left-color: #F59E0B;
+        }
+        .badge-preview {
+            flex: 0 0 auto;
+        }
+        .badge-info {
+            flex: 1;
+        }
+        .badge-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .badge-info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .badge-info .usage {
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .color-chips {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .color-chip {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+        .example-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        .example-section h2 {
+            color: #FFB300;
+            margin-bottom: 20px;
+        }
+        .honey-type-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .honey-type-description {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="comparison-container">
+        <h1>🐝 Comparaison des badges - Version 3.6.1</h1>
+
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">
+            Voici les 3 badges avec leurs couleurs distinctives pour une identification rapide
+        </p>
+
+        <!-- Badge Producteur Bee Api'C -->
+        <div class="badge-row producer">
+            <div class="badge-preview">
+                <span class="beeapic-producer-badge">
+                    <span class="producer-icon">🐝</span>
+                    <span class="producer-text">Miel Bee Api'C</span>
+                </span>
+            </div>
+            <div class="badge-info">
+                <h3>Badge Producteur Bee Api'C</h3>
+                <p><strong>Objectif :</strong> Identifier au premier coup d'œil le miel produit par Bee Api'C</p>
+                <p><strong>Quand :</strong> Code apiculteur = "BA" dans le numéro de lot</p>
+                <p><strong>Couleur :</strong> Jaune vif (très distinctive)</p>
+                <div class="color-chips">
+                    <span class="color-chip" style="background: #FDD835;">#FDD835</span>
+                    <span class="color-chip" style="background: #F9A825;">#F9A825</span>
+                    <span class="color-chip" style="background: #F57F17;">Bordure #F57F17</span>
+                </div>
+                <p><strong>Particularités :</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px; color: #666;">
+                    <li>Texte FONCÉ (meilleure lisibilité sur fond jaune)</li>
+                    <li>Bordure dorée de 2px</li>
+                    <li>Animation pulse-glow avec scale</li>
+                    <li>Ombre portée prononcée</li>
+                </ul>
+                <div class="usage">
+                    <strong>Exemple d'utilisation :</strong><br>
+                    Numéro de lot : BA-2026-CH-0107<br>
+                    → Code BA détecté → Badge affiché
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge Partenaire -->
+        <div class="badge-row partner">
+            <div class="badge-preview">
+                <span class="partner-badge">
+                    <span class="partner-icon">🤝</span>
+                    <span class="partner-text">Partenaire Bee Api'C depuis <span>2025</span></span>
+                </span>
+            </div>
+            <div class="badge-info">
+                <h3>Badge Partenaire Bee Api'C</h3>
+                <p><strong>Objectif :</strong> Valoriser les apiculteurs partenaires externes</p>
+                <p><strong>Quand :</strong> Code ≠ "BA" ET partnerSince défini dans beekeepers.json</p>
+                <p><strong>Couleur :</strong> Doré/Orange (chaleureux)</p>
+                <div class="color-chips">
+                    <span class="color-chip" style="background: #FFD700;">#FFD700</span>
+                    <span class="color-chip" style="background: #FFA500;">#FFA500</span>
+                </div>
+                <p><strong>Particularités :</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px; color: #666;">
+                    <li>Texte blanc sur fond doré</li>
+                    <li>Affiche l'année de partenariat</li>
+                    <li>Ombre portée subtile</li>
+                </ul>
+                <div class="usage">
+                    <strong>Exemple d'utilisation :</strong><br>
+                    Numéro de lot : MC-2026-PA-2505<br>
+                    → Code MC + partnerSince: 2025 → Badge affiché
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge Type de Miel -->
+        <div class="badge-row honey">
+            <div class="badge-preview">
+                <div class="honey-type-details">
+                    <span class="honey-type-badge">Miel de Châtaignier</span>
+                    <span class="honey-type-description">Miel corsé au goût prononcé</span>
+                </div>
+            </div>
+            <div class="badge-info">
+                <h3>Badge Type de Miel</h3>
+                <p><strong>Objectif :</strong> Informer sur la variété et les caractéristiques du miel</p>
+                <p><strong>Quand :</strong> Type reconnu dans honey-types.json</p>
+                <p><strong>Couleur :</strong> Orange/Brun (rappelle la couleur du miel)</p>
+                <div class="color-chips">
+                    <span class="color-chip" style="background: #F59E0B;">#F59E0B</span>
+                    <span class="color-chip" style="background: #D97706;">#D97706</span>
+                </div>
+                <p><strong>Particularités :</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px; color: #666;">
+                    <li>Badge avec le nom complet du type</li>
+                    <li>Description en italique sous le badge</li>
+                    <li>Icône 🍯 dans le label</li>
+                    <li>Présentation verticale harmonieuse</li>
+                </ul>
+                <div class="usage">
+                    <strong>Exemple d'utilisation :</strong><br>
+                    Numéro de lot : BA-2026-CH-0107<br>
+                    → Code CH détecté → "Miel de Châtaignier" + description
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemple en contexte -->
+        <div class="example-section">
+            <h2>📱 Exemple en contexte - Page principale</h2>
+            <div style="padding: 20px; background: #fafafa; border-radius: 8px;">
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #333;">Informations du produit</strong>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <span style="color: #666; font-size: 14px;">Numéro de lot</span><br>
+                    <span style="font-weight: 600;">BA-2026-CH-0107</span>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <span style="color: #666; font-size: 14px;">🍯 Type de miel</span><br>
+                    <div class="honey-type-details">
+                        <span class="honey-type-badge">Miel de Châtaignier</span>
+                        <span class="honey-type-description">Miel corsé au goût prononcé</span>
+                    </div>
+                </div>
+                <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+                <div>
+                    <strong style="color: #333;">Produit par l'apiculteur</strong>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span style="color: #666; font-size: 13px; display: block; margin-bottom: 8px;">Apiculteur Récoltant</span>
+                    <span class="beeapic-producer-badge">
+                        <span class="producer-icon">🐝</span>
+                        <span class="producer-text">Miel Bee Api'C</span>
+                    </span>
+                    <h3 style="margin: 10px 0 5px 0;">Vincent Colas</h3>
+                    <p style="color: #FFB300; font-style: italic; margin: 0;">Bee Api'C</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparaison visuelle -->
+        <div class="example-section">
+            <h2>👀 Comparaison côte à côte</h2>
+            <p style="color: #666; margin-bottom: 20px;">Les 3 badges sont facilement distinguables :</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <span class="beeapic-producer-badge">
+                        <span class="producer-icon">🐝</span>
+                        <span class="producer-text">Miel Bee Api'C</span>
+                    </span>
+                    <p style="font-size: 12px; color: #666; margin-top: 10px;">Jaune vif<br>Producteur</p>
+                </div>
+                <div style="text-align: center;">
+                    <span class="partner-badge">
+                        <span class="partner-icon">🤝</span>
+                        <span class="partner-text">Partenaire depuis 2025</span>
+                    </span>
+                    <p style="font-size: 12px; color: #666; margin-top: 10px;">Doré<br>Partenaire</p>
+                </div>
+                <div style="text-align: center;">
+                    <span class="honey-type-badge">Miel de Châtaignier</span>
+                    <p style="font-size: 12px; color: #666; margin-top: 10px;">Orange/Brun<br>Type de miel</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résumé -->
+        <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #FFF8DC 0%, white 100%); border-radius: 8px; border: 2px solid #FFB300;">
+            <h2 style="color: #FFB300; text-align: center; margin-bottom: 20px;">✨ Résultat Final</h2>
+            <div style="text-align: center;">
+                <p style="color: #666; font-size: 16px; line-height: 1.8;">
+                    <strong>3 badges avec des couleurs distinctes</strong> permettant une identification rapide et intuitive :<br><br>
+                    🟡 <strong>Jaune vif</strong> = Production Bee Api'C (maison)<br>
+                    🟠 <strong>Doré</strong> = Apiculteur partenaire<br>
+                    🟤 <strong>Orange/Brun</strong> = Type de miel<br><br>
+                    <em>Design professionnel • Lisibilité optimale • Cohérence visuelle</em>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

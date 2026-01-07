@@ -28,6 +28,7 @@
         profileLogo: document.getElementById('profileLogo'),
         profileLogoContainer: document.getElementById('profileLogoContainer'),
         profileType: document.getElementById('profileType'),
+        profileBeeapicBadge: document.getElementById('profileBeeapicBadge'),
         profilePartnerBadge: document.getElementById('profilePartnerBadge'),
         profilePartnerYear: document.getElementById('profilePartnerYear'),
         profileName: document.getElementById('profileName'),
@@ -174,10 +175,26 @@
         // Type
         elements.profileType.textContent = beekeeperData.type || 'Apiculteur';
 
-        // Badge partenaire
-        if (beekeeperData.partnerSince) {
-            elements.profilePartnerYear.textContent = beekeeperData.partnerSince;
-            elements.profilePartnerBadge.classList.remove('hidden');
+        // Extraire le code apiculteur du numéro de lot
+        const beekeeperCode = extractBeekeeperCodeFromLot(lotNumber);
+
+        // Badge Bee Api'C (si c'est le miel produit par Bee Api'C)
+        if (elements.profileBeeapicBadge) {
+            if (beekeeperCode === 'BA') {
+                elements.profileBeeapicBadge.classList.remove('hidden');
+            } else {
+                elements.profileBeeapicBadge.classList.add('hidden');
+            }
+        }
+
+        // Badge partenaire (si apiculteur externe)
+        if (elements.profilePartnerBadge) {
+            if (beekeeperData.partnerSince && beekeeperCode !== 'BA') {
+                elements.profilePartnerYear.textContent = beekeeperData.partnerSince;
+                elements.profilePartnerBadge.classList.remove('hidden');
+            } else {
+                elements.profilePartnerBadge.classList.add('hidden');
+            }
         }
 
         // Nom
@@ -186,6 +203,17 @@
             .join(' ');
         elements.profileName.textContent = fullName || 'Apiculteur';
         elements.profileCommercialName.textContent = beekeeperData.commercialName || '';
+    }
+
+    /**
+     * Extrait le code apiculteur du numéro de lot
+     * @param {string} lotNumber - Numéro de lot (ex: BA-2026-CH-0107)
+     * @returns {string|null} - Code apiculteur (ex: BA, CV) ou null
+     */
+    function extractBeekeeperCodeFromLot(lotNumber) {
+        if (!lotNumber) return null;
+        const match = lotNumber.match(/^([A-Z]{2,3})-/);
+        return match ? match[1] : null;
     }
 
     /**

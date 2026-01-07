@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test des améliorations v3.6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #FFB300; }
+        h2 { color: #333; margin-top: 0; }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        button {
+            background: #FFB300;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #FF8F00;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Tests des améliorations v3.6</h1>
+
+    <div class="test-section">
+        <h2>Test 1 : Extraction du code apiculteur</h2>
+        <p>Tester l'extraction du code apiculteur depuis le numéro de lot</p>
+        <div id="test1-results"></div>
+        <button onclick="runTest1()">Exécuter Test 1</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2 : Extraction du type de miel</h2>
+        <p>Tester l'extraction du type de miel depuis le numéro de lot</p>
+        <div id="test2-results"></div>
+        <button onclick="runTest2()">Exécuter Test 2</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3 : Chargement des types de miel</h2>
+        <p>Tester le chargement du fichier honey-types.json</p>
+        <div id="test3-results"></div>
+        <button onclick="runTest3()">Exécuter Test 3</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4 : Intégration complète</h2>
+        <p>Ouvrir l'application principale pour tester l'intégration complète</p>
+        <button onclick="window.open('index.html', '_blank')">Ouvrir l'application</button>
+    </div>
+
+    <script>
+        // Fonction d'extraction du code apiculteur (copie depuis ui.js)
+        function extractBeekeeperCode(lotNumber) {
+            if (!lotNumber) return null;
+            const match = lotNumber.match(/^([A-Z]{2,3})-/);
+            return match ? match[1] : null;
+        }
+
+        // Fonction d'extraction du type de miel (copie depuis ui.js)
+        function extractHoneyType(lotNumber) {
+            if (!lotNumber) return null;
+            const match = lotNumber.match(/-([A-Z]{1,2}\d?)-?\d*$/);
+            return match ? match[1] : null;
+        }
+
+        function runTest1() {
+            const results = document.getElementById('test1-results');
+            results.innerHTML = '';
+
+            const tests = [
+                { input: 'BA-2026-CH-0107', expected: 'BA' },
+                { input: 'MC-2026-PA-2505', expected: 'MC' },
+                { input: 'CV-2026-P', expected: 'CV' },
+                { input: 'ABC-2026-TO', expected: 'ABC' },
+                { input: 'LOT2024-001', expected: null }
+            ];
+
+            tests.forEach(test => {
+                const result = extractBeekeeperCode(test.input);
+                const success = result === test.expected;
+
+                results.innerHTML += `
+                    <div class="test-result ${success ? 'success' : 'error'}">
+                        <strong>${success ? '✅' : '❌'}</strong>
+                        Input: <code>${test.input}</code> →
+                        Résultat: <code>${result || 'null'}</code>
+                        (attendu: <code>${test.expected || 'null'}</code>)
+                    </div>
+                `;
+            });
+        }
+
+        function runTest2() {
+            const results = document.getElementById('test2-results');
+            results.innerHTML = '';
+
+            const tests = [
+                { input: 'BA-2026-CH-0107', expected: 'CH' },
+                { input: 'MC-2026-PA-2505', expected: 'PA' },
+                { input: 'CV-2026-P', expected: 'P' },
+                { input: 'BA-2026-CH2-1507', expected: 'CH2' },
+                { input: 'BA-2026-TO', expected: 'TO' },
+                { input: 'LOT2024-001', expected: null }
+            ];
+
+            tests.forEach(test => {
+                const result = extractHoneyType(test.input);
+                const success = result === test.expected;
+
+                results.innerHTML += `
+                    <div class="test-result ${success ? 'success' : 'error'}">
+                        <strong>${success ? '✅' : '❌'}</strong>
+                        Input: <code>${test.input}</code> →
+                        Résultat: <code>${result || 'null'}</code>
+                        (attendu: <code>${test.expected || 'null'}</code>)
+                    </div>
+                `;
+            });
+        }
+
+        async function runTest3() {
+            const results = document.getElementById('test3-results');
+            results.innerHTML = '<div>Chargement...</div>';
+
+            try {
+                const response = await fetch('data/honey-types.json');
+                const data = await response.json();
+
+                let html = '<div class="test-result success"><strong>✅</strong> Fichier chargé avec succès !</div>';
+                html += '<div style="margin-top: 10px;"><strong>Types de miel disponibles :</strong><ul>';
+
+                Object.keys(data.honeyTypes).forEach(code => {
+                    const info = data.honeyTypes[code];
+                    html += `<li><code>${code}</code> → ${info.name} (${info.description})</li>`;
+                });
+
+                html += '</ul></div>';
+                results.innerHTML = html;
+            } catch (error) {
+                results.innerHTML = `
+                    <div class="test-result error">
+                        <strong>❌</strong> Erreur lors du chargement : ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Exécuter automatiquement au chargement
+        window.onload = function() {
+            console.log('🧪 Page de test chargée');
+            console.log('Cliquez sur les boutons pour exécuter les tests');
+        };
+    </script>
+</body>
+</html>
+

@@ -144,8 +144,8 @@ const API = (function() {
         // Simuler un délai réseau
         await new Promise(resolve => setTimeout(resolve, 1000));
 
-        if (lotNumber == "BA-2026-CH-0107") {
-            // Données simulées pour les tests
+        if (lotNumber === "BA-2026-CH-0107") {
+            // Bee Api'C - Miel de Châtaignier
             return {
                 lotNumber: lotNumber,
                 zone: {
@@ -189,6 +189,7 @@ const API = (function() {
                 }
             };
         } else {
+            // Partenaire - Miel d'Acacia
             return {
                 lotNumber: lotNumber,
                 zone: {
@@ -197,11 +198,11 @@ const API = (function() {
                 },
                 production: {
                     extractionDates: [
-                        '2024-07-15',
-                        '2024-07-22',
-                        '2024-08-05'
+                        '2024-05-15',
+                        '2024-05-22',
+                        '2024-06-05'
                     ],
-                    bottlingDate: '2024-08-20'
+                    bottlingDate: '2024-06-20'
                 },
                 beekeeper: {
                     type: 'Apiculteur Récoltant',

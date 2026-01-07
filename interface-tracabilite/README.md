@@ -1,267 +1,285 @@
-# Interface de Traçabilité du Miel - BeeApiC
+# 🐝 Bee Api'C - Interface de Traçabilité du Miel
 
-Interface web pour consulter la traçabilité des pots de miel via l'API BeePerf.
+![Version](https://img.shields.io/badge/version-3.6.4-yellow)
+![License](https://img.shields.io/badge/license-Propriétaire-orange)
 
-## 🚀 Prérequis
+## 📋 Vue d'ensemble
 
-- Un serveur proxy Node.js configuré (voir ci-dessous)
-- Un navigateur web moderne (Chrome, Firefox, Edge, Safari)
+Interface web de traçabilité du miel permettant aux clients de suivre l'origine de leur pot de miel grâce à un numéro de lot. Cette application met en relation les consommateurs avec les apiculteurs producteurs.
 
-## 📁 Structure du projet
+### 🎯 Fonctionnalités principales
+
+- ✅ **Recherche par numéro de lot** - Saisie manuelle ou sélection dans une liste
+- ✅ **Traçabilité complète** - Dates d'extraction, mise en pot, zone géographique
+- ✅ **Identification du producteur** - Informations détaillées sur l'apiculteur
+- ✅ **Détection automatique du type de miel** - À partir du numéro de lot
+- ✅ **Badges distinctifs** - Production Bee Api'C vs Partenaires
+- ✅ **Page apiculteur détaillée** - Bio, galerie photos, contact, réseaux sociaux
+- ✅ **Interface responsive** - Adaptée mobile, tablette et desktop
+
+---
+
+## 🚀 Démarrage rapide
+
+### Prérequis
+- Navigateur web moderne (Chrome, Firefox, Safari, Edge)
+- Serveur web local ou hébergement web
+- Node.js (pour le proxy API optionnel)
+
+### Installation
+
+1. **Cloner ou télécharger le projet**
+```bash
+git clone [URL_DU_PROJET]
+cd interface-tracabilite
+```
+
+2. **Ouvrir directement dans le navigateur**
+```bash
+# Ouvrir index.html dans votre navigateur
+# Ou utiliser un serveur local
+```
+
+3. **Configuration du proxy API (optionnel)**
+```bash
+npm install
+# Configurer .env avec votre clé API BeePerf
+npm start
+```
+
+### Première utilisation
+
+1. Ouvrir `index.html` dans votre navigateur
+2. Tester avec un numéro de lot : `BA-2026-CH-0107`
+3. Explorer les résultats de traçabilité
+4. Cliquer sur "En savoir plus" pour voir le profil de l'apiculteur
+
+---
+
+## 📖 Documentation
+
+### Pour les utilisateurs
+- **[GUIDE-UTILISATEUR.md](./GUIDE-UTILISATEUR.md)** - Guide complet d'utilisation
+  - Format des numéros de lots
+  - Codes apiculteurs
+  - Types de miel
+  - Badges et leur signification
+
+### Pour les développeurs
+- **[GUIDE-DEVELOPPEUR.md](./GUIDE-DEVELOPPEUR.md)** - Documentation technique
+  - Architecture du projet
+  - Structure des fichiers
+  - API et intégration
+  - Configuration et personnalisation
+
+### Historique
+- **[CHANGELOG.md](./CHANGELOG.md)** - Historique complet des versions
+  - v3.6.4 - Positionnement boutons
+  - v3.6.3 - Uniformisation boutons
+  - v3.6.2 - Type de miel compact
+  - v3.6.1 - Badge Bee Api'C distinctif
+  - v3.6.0 - Fonctionnalités majeures
+
+---
+
+## 🏗️ Structure du projet
 
 ```
 interface-tracabilite/
 ├── index.html              # Page principale
-├── js/
-│   ├── config.js          # Configuration de l'application
-│   ├── api.js             # Module de communication avec l'API
-│   ├── ui.js              # Module de gestion de l'interface
-│   └── app.js             # Module principal de l'application
-├── styles/
-│   ├── variables.css      # Variables CSS
+├── beekeeper.html          # Page détail apiculteur
+├── comparaison-badges.html # Démo des badges
+├── test-v3.6.html         # Tests unitaires
+│
+├── js/                     # Scripts JavaScript
+│   ├── app.js             # Application principale
+│   ├── ui.js              # Gestion de l'interface
+│   ├── api.js             # Communication API
+│   ├── config.js          # Configuration
+│   └── beekeeper-page.js  # Page apiculteur
+│
+├── styles/                 # Feuilles de style
 │   ├── main.css           # Styles principaux
-│   └── components.css     # Styles des composants
-└── README.md              # Ce fichier
+│   ├── components.css     # Composants réutilisables
+│   ├── variables.css      # Variables CSS
+│   └── beekeeper-page.css # Styles page apiculteur
+│
+├── data/                   # Données de configuration
+│   ├── beekeepers.json    # Base de données apiculteurs
+│   └── honey-types.json   # Types de miel
+│
+├── images/                 # Images et logos
+│
+└── docs/                   # Documentation
+    ├── README.md
+    ├── CHANGELOG.md
+    ├── GUIDE-UTILISATEUR.md
+    └── GUIDE-DEVELOPPEUR.md
 ```
 
-## 🔧 Configuration
+---
 
-### 1. Serveur Proxy
+## 🎨 Format des numéros de lots
 
-Le serveur proxy doit être démarré avant d'utiliser l'interface. Voici le code du proxy :
-
-```javascript
-require('dotenv').config();
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-
-const BEEPERF_API_URL = process.env.BEEPERF_API_URL || 'https://web.beeperf.com/api';
-const API_KEY = process.env.BEEPERF_API_KEY;
-
-// Route pour récupérer la traçabilité d'un pot
-app.get('/api/tracabilite/numero-lot/:numeroLot', async (req, res) => {
-  try {
-    const { numeroLot } = req.params;
-    const response = await axios.get(
-      `${BEEPERF_API_URL}/tracabilite/numero-lot/${numeroLot}`,
-      { headers: { 'x-api-key': API_KEY } }
-    );
-    res.json(response.data);
-  } catch (error) {
-    // Gestion d'erreur...
-  }
-});
-
-// Route pour récupérer la liste des numéros de lots
-app.get('/api/tracabilite/numeros-lots', async (req, res) => {
-  try {
-    const { per_page = 25, page = 1 } = req.query;
-    const response = await axios.get(
-      `${BEEPERF_API_URL}/tracabilite/numeros-lots`,
-      { 
-        headers: { 'x-api-key': API_KEY },
-        params: { per_page, page }
-      }
-    );
-    res.json(response.data);
-  } catch (error) {
-    // Gestion d'erreur...
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`✓ Serveur démarré sur le port ${PORT}`);
-});
+### Structure
+```
+[CODE]-[ANNÉE]-[TYPE]-[DATE]
+  2-3     4      1-3    4
+lettres chiffres lettres chiffres
+                +chiffre (optionnel)
 ```
 
-### 2. Fichier .env pour le proxy
+### Exemples
+- `BA-2026-CH-0107` → Bee Api'C, Châtaignier, 7 janvier 2026
+- `MC-2026-PA-2505` → Matthieu Colas (partenaire), Acacia, 25 mai 2026
+- `CV-2026-P` → Colas Vincent, Printemps
+- `BA-2026-CH2-1507` → Bee Api'C, Châtaignier cuve 2, 15 juillet
 
-Créez un fichier `.env` à la racine du projet du proxy :
+### Codes apiculteurs
+- **BA** - Bee Api'C (maison mère)
+- **CV** - Colas Vincent
+- **MC** - Matthieu Colas (partenaire)
 
-```env
-PORT=3000
-BEEPERF_API_KEY=votre_clé_api_ici
-BEEPERF_API_URL=https://web.beeperf.com/api
-```
+### Types de miel
+- **P** - Printemps | **PA** - Acacia | **CH** - Châtaignier
+- **E** - Été | **F** - Forêt | **T** - Tilleul
+- **L** - Lavande | **TO** - Toutes Fleurs
 
-### 3. Configuration de l'interface
+---
 
-Par défaut, l'interface est configurée pour se connecter à `http://localhost:3000`.
+## 🎯 Badges et signification
 
-Si votre proxy tourne sur un autre port ou une autre adresse, modifiez le fichier `js/config.js` :
+### 🟡 Badge "Miel Bee Api'C" (Jaune vif)
+- **Quand** : Code apiculteur = BA
+- **Signification** : Miel produit directement par Bee Api'C
+- **Couleur** : Jaune vif (#FDD835) avec bordure dorée
 
-```javascript
-const CONFIG = {
-    API_BASE_URL: 'http://localhost:3000/api/tracabilite',
-    // ...
-};
-```
+### 🟠 Badge "Partenaire Bee Api'C" (Doré)
+- **Quand** : Code ≠ BA + apiculteur partenaire
+- **Signification** : Miel produit par un apiculteur externe partenaire
+- **Couleur** : Doré (#FFD700) avec année de partenariat
 
-## 🎯 Utilisation
+### 🟤 Badge "Type de Miel" (Orange/Brun)
+- **Quand** : Type détecté dans le numéro de lot
+- **Signification** : Variété de miel avec description
+- **Couleur** : Orange/Brun (#F59E0B)
 
-### Démarrage
+---
 
-1. **Démarrer le serveur proxy** :
-   ```bash
-   cd proxy-beeperf
-   npm install
-   node server.js
-   ```
+## ⚙️ Configuration
 
-2. **Ouvrir l'interface** :
-   - Ouvrez simplement le fichier `index.html` dans votre navigateur
-   - Ou utilisez un serveur web local (recommandé) :
-     ```bash
-     # Avec Python 3
-     python -m http.server 8000
-     
-     # Avec Node.js (http-server)
-     npx http-server -p 8000
-     
-     # Avec PHP
-     php -S localhost:8000
-     ```
-   - Puis accédez à `http://localhost:8000`
-
-### Recherche de traçabilité
-
-L'interface propose deux modes de recherche :
-
-#### 1. Saisie manuelle
-- Cliquez sur "Saisie manuelle"
-- Entrez le numéro de lot (ex: LOT2024-001)
-- Cliquez sur "Rechercher" ou appuyez sur Entrée
-
-#### 2. Sélection dans la liste
-- Cliquez sur "Sélection dans la liste"
-- Choisissez un lot dans le menu déroulant
-- Cliquez sur "Rechercher"
-
-### Informations affichées
-
-Une fois la recherche effectuée, vous verrez :
-
-- **Informations du produit** :
-  - Numéro de lot
-  - Zone géographique
-  - Environnement des ruches
-
-- **Dates de production** :
-  - Date(s) d'extraction du miel
-  - Date de mise en pot
-
-- **Informations de l'apiculteur** :
-  - Nom et prénom
-  - Nom commercial
-  - Photo (si disponible)
-  - Logo (si disponible)
-  - Adresse
-  - Email (cliquable)
-  - SIRET
-
-## 🛠️ Développement
-
-### Mode développement
-
-Pour tester l'interface sans l'API, vous pouvez utiliser le mode développement avec des données simulées.
-
-Dans le fichier `js/app.js`, décommentez la fonction `handleSearchDev` et modifiez les écouteurs d'événements pour utiliser cette fonction à la place de `handleSearch`.
-
-### Structure des données
-
-L'API BeePerf retourne des données au format suivant :
-
+### Ajouter un apiculteur
+Éditer `data/beekeepers.json` :
 ```json
 {
-  "lotNumber": "LOT2024-001",
-  "zone": {
-    "publicName": "Vallée de la Loire",
-    "environment": "Description de l'environnement..."
-  },
-  "production": {
-    "extractionDates": ["2024-07-15", "2024-07-22"],
-    "bottlingDate": "2024-08-20"
-  },
-  "beekeeper": {
-    "firstName": "Jean",
-    "lastName": "Dupont",
-    "commercialName": "Les Ruchers du Val",
-    "address": "123 Rue...",
-    "email": "contact@example.com",
-    "siret": "123 456 789 00012",
-    "photo": "url/to/photo.jpg",
-    "logo": "url/to/logo.png"
+  "beekeepers": {
+    "XX": {
+      "type": "Apiculteur Récoltant",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "commercialName": "Nom commercial",
+      "address": "Adresse complète",
+      "email": "email@example.com",
+      "phone": "+33 X XX XX XX XX",
+      "website": "https://example.com",
+      "siret": "XXX XXX XXX XXXXX",
+      "photo": "dossier/photo.jpg",
+      "logo": "dossier/logo.jpg",
+      "partnerSince": "2026",
+      "socialMedia": {
+        "instagram": "https://instagram.com/...",
+        "facebook": "https://facebook.com/..."
+      }
+    }
   }
 }
 ```
 
-## 🐛 Débogage
-
-### Console du navigateur
-
-L'application log toutes ses actions dans la console du navigateur. Ouvrez la console (F12) pour voir :
-- Les requêtes API
-- Les erreurs éventuelles
-- Les données reçues
-
-### Objet global APP
-
-Un objet `APP` est exposé dans la console pour faciliter le débogage :
-
-```javascript
-// Recharger la liste des lots
-APP.loadLotsList()
-
-// Forcer une recherche
-APP.handleSearch('manual')
-
-// Vérifier la version
-APP.version
+### Ajouter un type de miel
+Éditer `data/honey-types.json` :
+```json
+{
+  "honeyTypes": {
+    "BR": {
+      "name": "Miel de Bruyère",
+      "description": "Miel ambré aux notes maltées"
+    }
+  }
+}
 ```
 
-## 🔍 Résolution de problèmes
+---
 
-### "Erreur de connexion au serveur"
-- Vérifiez que le serveur proxy est bien démarré
-- Vérifiez l'URL dans `js/config.js`
-- Vérifiez la console du navigateur pour les erreurs CORS
+## 🧪 Tests
 
-### "Aucune information trouvée pour ce numéro de lot"
-- Le numéro de lot n'existe pas dans la base de données
-- Vérifiez l'orthographe du numéro de lot
+### Tests unitaires
+Ouvrir `test-v3.6.html` pour exécuter les tests automatisés :
+- Extraction du code apiculteur
+- Extraction du type de miel
+- Chargement des données
 
-### La liste déroulante est vide
-- Le proxy ne répond pas ou n'a pas accès à l'API
-- Vérifiez que la clé API est correctement configurée dans le `.env`
+### Tests manuels
+1. **Test production Bee Api'C** : `BA-2026-CH-0107`
+2. **Test partenaire** : `MC-2026-PA-2505`
+3. **Navigation complète** : Recherche → Résultats → Page apiculteur
 
-## 📝 Notes
+---
 
-- L'interface est entièrement statique (HTML/CSS/JavaScript vanilla)
-- Aucune dépendance externe requise côté client
-- Responsive design pour mobile et desktop
-- Supporte les navigateurs modernes (ES6+)
+## 🔧 Technologies utilisées
 
-## 🔒 Sécurité
+- **HTML5** - Structure sémantique
+- **CSS3** - Design moderne avec variables CSS
+- **JavaScript ES6+** - Programmation modulaire
+- **Font Awesome 6** - Icônes réseaux sociaux
+- **Fetch API** - Requêtes asynchrones
+- **LocalStorage** - Stockage temporaire des données
 
-⚠️ **Important** : Ne jamais exposer votre clé API BeePerf dans le code client !
+---
 
-C'est pourquoi nous utilisons un proxy serveur qui :
-- Stocke la clé API de manière sécurisée
-- Fait les requêtes à l'API BeePerf
-- Expose une API publique sans authentification
+## 📱 Compatibilité
 
-## 📄 Licence
+- ✅ Chrome/Edge 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Mobile iOS/Android
+- ✅ Tablettes
 
-© 2026 BeeApiC - Traçabilité du Miel
+---
+
+## 🤝 Contribution
+
+Pour contribuer au projet :
+1. Lire `GUIDE-DEVELOPPEUR.md`
+2. Créer une branche pour vos modifications
+3. Tester avec `test-v3.6.html`
+4. Documenter les changements dans `CHANGELOG.md`
+
+---
 
 ## 📞 Support
 
-Pour toute question ou problème, contactez l'équipe BeeApiC.
+**Email** : bee.apic.pro@gmail.com  
+**Site web** : [bee-apic.com](https://bee-apic.sumupstore.com/)  
+**Téléphone** : +33 6 28 51 19 05
+
+---
+
+## 📄 Licence
+
+© 2026 Bee Api'C - Tous droits réservés  
+Code propriétaire - Utilisation réservée à Bee Api'C
+
+---
+
+## 🎉 Crédits
+
+**Développement** : Interface de traçabilité Bee Api'C  
+**Design** : Interface moderne et responsive  
+**Entreprise** : Bee Api'C - Miel 100% local de Loire-Atlantique
+
+---
+
+**Don't Panic, Bee Api'C ! 🐝✨**
+
+*Dernière mise à jour : 7 janvier 2026 - Version 3.6.4*
 

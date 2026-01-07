@@ -267,8 +267,14 @@
    BOUTONS
    ======================================== */
 
+/* Conteneur du bouton retour */
+.back-button-container {
+    margin-bottom: var(--spacing-lg);
+}
+
 .btn-search,
-.btn-secondary {
+.btn-secondary,
+.btn-back {
     padding: var(--spacing-md) var(--spacing-xl);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
@@ -305,6 +311,20 @@
 
 .btn-secondary:hover {
     background: var(--color-gray);
+}
+
+/* Bouton retour (utilisé pour "Retour à la tracabilité" et "Nouvelle recherche") */
+.btn-back {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-white);
+    border: var(--border-width-medium) solid var(--color-gray);
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+}
+
+.btn-back:hover {
+    background: var(--color-gray);
+    transform: translateX(-4px);
 }
 
 .btn-icon {
@@ -556,6 +576,91 @@
     border-radius: var(--border-radius-full);
     margin-bottom: var(--spacing-sm);
     box-shadow: 0 2px 8px rgba(255, 165, 0, 0.3);
+}
+
+.beeapic-producer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    background: linear-gradient(135deg, #0AFF00 0%, #0A8C00 100%);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 2px 12px rgba(9, 77, 1, 0.3);
+    animation: pulse-glow-2 2s ease-in-out infinite;
+    /*border: 2px solid #F57F17;*/
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 2px 12px rgba(249, 168, 37, 0.5);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(249, 168, 37, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes pulse-glow-2 {
+    0%, 100% {
+        box-shadow: 0 2px 12px rgba(10, 140, 0, 0.5);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(10, 255, 0, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+.producer-icon {
+    font-size: var(--font-size-sm);
+    animation: buzz 1.5s ease-in-out infinite;
+}
+
+@keyframes buzz {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+.producer-text {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.5px;
+}
+
+.honey-type-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3);
+    width: fit-content;
+}
+
+.honey-type-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: flex-start;
+}
+
+.honey-type-description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+    font-style: italic;
+    line-height: var(--line-height-relaxed);
+}
+
+.honey-icon {
+    font-size: var(--font-size-lg);
+    margin-right: var(--spacing-xs);
 }
 
 .partner-icon {

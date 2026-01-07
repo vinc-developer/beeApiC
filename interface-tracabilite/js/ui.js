@@ -13,6 +13,7 @@ const UI = (function() {
         // Brand / Maison Mère
         brandLogo: document.getElementById('brandLogo'),
         logoPlaceholderBrand: document.getElementById('logoPlaceholderBrand'),
+        companySection: document.querySelector('.company-section'),
         companyAddress: document.getElementById('companyAddress'),
         companyWebsite: document.getElementById('companyWebsite'),
         companyEmail: document.getElementById('companyEmail'),
@@ -37,11 +38,15 @@ const UI = (function() {
         // Sections
         searchSection: document.getElementById('searchSection'),
         resultsSection: document.getElementById('resultsSection'),
+        backButtonContainer: document.getElementById('backButtonContainer'),
 
         // Résultats - Informations du produit
         displayLotNumber: document.getElementById('displayLotNumber'),
         displayZone: document.getElementById('displayZone'),
         displayEnvironment: document.getElementById('displayEnvironment'),
+        honeyTypeInfo: document.getElementById('honeyTypeInfo'),
+        honeyTypeBadge: document.getElementById('honeyTypeBadge'),
+        honeyTypeDescription: document.getElementById('honeyTypeDescription'),
 
         // Résultats - Dates
         displayExtractionDates: document.getElementById('displayExtractionDates'),
@@ -51,6 +56,7 @@ const UI = (function() {
         beekeeperType: document.getElementById('beekeeperType'),
         partnerBadge: document.getElementById('partnerBadge'),
         partnerYear: document.getElementById('partnerYear'),
+        beeapicProducerBadge: document.getElementById('beeapicProducerBadge'),
         beekeeperName: document.getElementById('beekeeperName'),
         commercialName: document.getElementById('commercialName'),
         beekeeperAddress: document.getElementById('beekeeperAddress'),
@@ -69,6 +75,46 @@ const UI = (function() {
         btnNewSearch: document.getElementById('btnNewSearch'),
         btnMoreInfo: document.getElementById('btnMoreInfo')
     };
+
+    /**
+     * Extrait le code apiculteur du numéro de lot
+     * @param {string} lotNumber - Numéro de lot (ex: BA-2026-CH-0107)
+     * @returns {string|null} - Code apiculteur (ex: BA, CV) ou null
+     */
+    function extractBeekeeperCode(lotNumber) {
+        if (!lotNumber) return null;
+        const match = lotNumber.match(/^([A-Z]{2,3})-/);
+        return match ? match[1] : null;
+    }
+
+    /**
+     * Extrait le type de miel du numéro de lot
+     * @param {string} lotNumber - Numéro de lot (ex: BA-2026-CH-0107 ou BA-2026-PA ou BA-2026-CH2)
+     * @returns {string|null} - Code du type de miel (ex: CH, PA, CH2) ou null
+     */
+    function extractHoneyType(lotNumber) {
+        if (!lotNumber) return null;
+        // Format: XX-YYYY-TYPE-DDMM ou XX-YYYY-TYPE
+        // Cherche 1-3 caractères (lettres ou lettres+chiffre) après le dernier tiret
+        const match = lotNumber.match(/-([A-Z]{1,2}\d?)-?\d*$/);
+        return match ? match[1] : null;
+    }
+
+    /**
+     * Charge les informations sur un type de miel
+     * @param {string} honeyTypeCode - Code du type de miel
+     * @returns {Promise<Object|null>} - Info du type de miel ou null
+     */
+    async function loadHoneyTypeInfo(honeyTypeCode) {
+        try {
+            const response = await fetch('data/honey-types.json');
+            const data = await response.json();
+            return data.honeyTypes[honeyTypeCode] || null;
+        } catch (error) {
+            console.error('Erreur lors du chargement des types de miel:', error);
+            return null;
+        }
+    }
 
     /**
      * Affiche un message d'erreur
@@ -272,15 +318,41 @@ const UI = (function() {
      * Affiche les résultats de la traçabilité
      * @param {Object} data - Données de traçabilité
      */
-    function displayResults(data) {
+    async function displayResults(data) {
         try {
             console.log('🎨 Début affichage des résultats');
+
+            // Masquer la section maison mère lors de l'affichage des résultats
+            if (elements.companySection) {
+                elements.companySection.classList.add('hidden');
+            }
 
             // Informations du produit
             console.log('📦 Affichage informations produit...');
             elements.displayLotNumber.textContent = data.lotNumber || '-';
             elements.displayZone.textContent = data.zone?.publicName || '-';
             elements.displayEnvironment.textContent = data.zone?.environment || '-';
+
+            // Extraire et afficher le type de miel
+            const honeyTypeCode = extractHoneyType(data.lotNumber);
+            if (honeyTypeCode && elements.honeyTypeInfo) {
+                const honeyTypeInfo = await loadHoneyTypeInfo(honeyTypeCode);
+                if (honeyTypeInfo) {
+                    elements.honeyTypeBadge.textContent = honeyTypeInfo.name;
+                    if (elements.honeyTypeDescription) {
+                        elements.honeyTypeDescription.textContent = honeyTypeInfo.description;
+                    }
+                    elements.honeyTypeInfo.classList.remove('hidden');
+                    // Utiliser style.display pour les éléments avec style inline
+                    elements.honeyTypeInfo.style.display = 'flex';
+                } else {
+                    elements.honeyTypeInfo.classList.add('hidden');
+                    elements.honeyTypeInfo.style.display = 'none';
+                }
+            } else if (elements.honeyTypeInfo) {
+                elements.honeyTypeInfo.classList.add('hidden');
+                elements.honeyTypeInfo.style.display = 'none';
+            }
 
             // Dates d'extraction
             console.log('📅 Affichage dates...');
@@ -306,13 +378,27 @@ const UI = (function() {
             // Type d'apiculteur
             elements.beekeeperType.textContent = beekeeper.type || '-';
 
+            // Extraire le code apiculteur pour identifier Bee Api'C
+            const beekeeperCode = extractBeekeeperCode(data.lotNumber);
+
+            // Badge Bee Api'C (si c'est le miel produit par Bee Api'C)
+            if (elements.beeapicProducerBadge) {
+                if (beekeeperCode === 'BA') {
+                    elements.beeapicProducerBadge.classList.remove('hidden');
+                } else {
+                    elements.beeapicProducerBadge.classList.add('hidden');
+                }
+            }
+
             // Badge partenaire (si apiculteur externe)
             console.log('🤝 Gestion badge partenaire...');
-            if (beekeeper.partnerSince) {
-                elements.partnerYear.textContent = beekeeper.partnerSince;
-                elements.partnerBadge.classList.remove('hidden');
-            } else {
-                elements.partnerBadge.classList.add('hidden');
+            if (elements.partnerBadge) {
+                if (beekeeper.partnerSince && beekeeperCode !== 'BA') {
+                    elements.partnerYear.textContent = beekeeper.partnerSince;
+                    elements.partnerBadge.classList.remove('hidden');
+                } else {
+                    elements.partnerBadge.classList.add('hidden');
+                }
             }
 
             // Nom complet
@@ -394,6 +480,11 @@ const UI = (function() {
             elements.resultsSection.classList.remove('hidden');
             elements.searchSection.classList.add('hidden');
 
+            // Afficher le bouton retour
+            if (elements.backButtonContainer) {
+                elements.backButtonContainer.classList.remove('hidden');
+            }
+
             // Scroll vers le haut
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -411,6 +502,16 @@ const UI = (function() {
     function showSearchForm() {
         elements.resultsSection.classList.add('hidden');
         elements.searchSection.classList.remove('hidden');
+
+        // Masquer le bouton retour
+        if (elements.backButtonContainer) {
+            elements.backButtonContainer.classList.add('hidden');
+        }
+
+        // Réafficher la section maison mère
+        if (elements.companySection) {
+            elements.companySection.classList.remove('hidden');
+        }
 
         // Réinitialiser les champs
         elements.lotNumber.value = '';
