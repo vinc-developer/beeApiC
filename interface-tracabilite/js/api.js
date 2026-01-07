@@ -62,6 +62,15 @@ const API = (function() {
             const beekeepersResponse = await fetch('data/beekeepers.json');
             const beekeepersData = await beekeepersResponse.json();
 
+            // Charger une seule fois les données JSON locales (optimisation)
+            let localTraceabilityData = null;
+            try {
+                const traceabilityResponse = await fetch('data/traceability-data.json');
+                localTraceabilityData = await traceabilityResponse.json();
+            } catch (error) {
+                console.warn('⚠ Impossible de charger traceability-data.json:', error.message);
+            }
+
             // 2. Pour chaque apiculteur
             for (const [code, beekeeper] of Object.entries(beekeepersData.beekeepers)) {
                 lotsByBeekeeper[code] = {
@@ -69,33 +78,39 @@ const API = (function() {
                     lots: []
                 };
 
+                const allLotsForBeekeeper = new Set(); // Utiliser un Set pour éviter les doublons
+
+                // Toujours charger depuis le JSON local si disponible
+                if (localTraceabilityData) {
+                    try {
+                        const localLots = Object.keys(localTraceabilityData.lots || {})
+                            .filter(lotNumber => lotNumber.startsWith(code + '-'));
+
+                        localLots.forEach(lot => allLotsForBeekeeper.add(lot));
+                        console.log(`✓ ${localLots.length} lot(s) chargé(s) depuis JSON local pour ${code}`);
+                    } catch (error) {
+                        console.warn(`⚠ Erreur lors du filtrage des lots JSON pour ${code}:`, error.message);
+                    }
+                }
+
+                // Si useProxy, charger AUSSI depuis l'API et fusionner
                 if (beekeeper.useProxy) {
-                    // Charger depuis l'API Proxy
                     try {
                         const url = `${config.API_BASE_URL}${config.ENDPOINTS.LIST_LOTS}?per_page=${perPage}&page=${page}&beekeeper=${code}`;
                         const response = await fetchWithTimeout(url);
-                        lotsByBeekeeper[code].lots = response.data || [];
-                        console.log(`✓ ${lotsByBeekeeper[code].lots.length} lot(s) chargé(s) depuis l'API pour ${code}`);
+                        const proxyLots = response.data || [];
+
+                        proxyLots.forEach(lot => allLotsForBeekeeper.add(lot));
+                        console.log(`✓ ${proxyLots.length} lot(s) chargé(s) depuis l'API Proxy pour ${code}`);
                     } catch (error) {
                         console.warn(`⚠ Impossible de charger les lots depuis l'API pour ${code}:`, error.message);
                         // Continuer avec les autres apiculteurs même si un échoue
                     }
-                } else {
-                    // Charger depuis le JSON local
-                    try {
-                        const traceabilityResponse = await fetch('data/traceability-data.json');
-                        const traceabilityData = await traceabilityResponse.json();
-
-                        // Filtrer les lots pour cet apiculteur
-                        const beekeeperLots = Object.keys(traceabilityData.lots || {})
-                            .filter(lotNumber => lotNumber.startsWith(code + '-'));
-
-                        lotsByBeekeeper[code].lots = beekeeperLots;
-                        console.log(`✓ ${lotsByBeekeeper[code].lots.length} lot(s) chargé(s) depuis JSON pour ${code}`);
-                    } catch (error) {
-                        console.warn(`⚠ Impossible de charger les lots depuis JSON pour ${code}:`, error.message);
-                    }
                 }
+
+                // Convertir le Set en tableau et trier
+                lotsByBeekeeper[code].lots = Array.from(allLotsForBeekeeper).sort();
+                console.log(`✓ Total pour ${code}: ${lotsByBeekeeper[code].lots.length} lot(s) unique(s)`);
             }
 
             // 3. Aplatir la liste pour compatibilité avec le code existant

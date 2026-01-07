@@ -116,14 +116,23 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
   console.log(`📡 URL du proxy configurée: ${API_CONFIG.PROXY_URL}`);
 
   for (const [code, beekeeper] of Object.entries(beekeepers)) {
-    const beekeeperLots: string[] = [];
-
     console.log(`\n👤 Traitement apiculteur: ${code} (${beekeeper.firstName} ${beekeeper.lastName})`);
     console.log(`   useProxy: ${beekeeper.useProxy}`);
 
+    // Utiliser un Set pour éviter les doublons lors de la fusion
+    const allLotsForBeekeeper = new Set<string>();
+
+    // 1. TOUJOURS charger depuis le JSON local si disponible
+    console.log(`   📂 Chargement depuis les données locales`);
+    const localLots = traceabilityData.lots as Record<string, any>;
+    const localBeekeeperLots = Object.keys(localLots).filter(lotNumber => lotNumber.startsWith(code + '-'));
+
+    localBeekeeperLots.forEach(lot => allLotsForBeekeeper.add(lot));
+    console.log(`   ✅ ${localBeekeeperLots.length} lot(s) trouvé(s) localement pour ${code}`);
+
+    // 2. Si useProxy, charger AUSSI depuis le proxy et fusionner
     if (beekeeper.useProxy) {
-      // Récupérer depuis le proxy
-      const url = `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.NUMEROS_LOTS}?per_page=100`;
+      const url = `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.NUMEROS_LOTS}?per_page=100&page=1&beekeeper=${code}`;
       console.log(`   📡 Appel proxy: ${url}`);
 
       try {
@@ -139,37 +148,54 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(`   📦 Données reçues:`, data);
+          console.log(`   📦 Données proxy reçues`);
 
-          // Filtrer les lots de cet apiculteur (commençant par son code)
-          const lots = data.data?.filter((lot: any) =>
-            lot.numero_lot?.startsWith(code)
-          ).map((lot: any) => lot.numero_lot) || [];
+          let proxyLots: string[] = [];
 
-          console.log(`   ✅ ${lots.length} lot(s) trouvé(s) pour ${code}:`, lots);
-          beekeeperLots.push(...lots);
+          if (Array.isArray(data.data)) {
+            console.log(`   📦 data.data est un tableau avec ${data.data.length} élément(s)`);
+
+            proxyLots = data.data
+              .map((lot: any) => {
+                const numeroLot = lot.numero_lot || lot.numeroLot || lot.lot_number || lot.number;
+                return numeroLot;
+              })
+              .filter((lot: string) => lot);
+
+          } else if (Array.isArray(data)) {
+            console.log(`   📦 data est directement un tableau avec ${data.length} élément(s)`);
+
+            proxyLots = data
+              .map((lot: any) => {
+                const numeroLot = lot.numero_lot || lot.numeroLot || lot.lot_number || lot.number;
+                return numeroLot;
+              })
+              .filter((lot: string) => lot);
+          }
+
+          // Ajouter les lots du proxy au Set (fusion automatique, pas de doublons)
+          proxyLots.forEach(lot => allLotsForBeekeeper.add(lot));
+          console.log(`   ✅ ${proxyLots.length} lot(s) trouvé(s) depuis le proxy pour ${code}`);
+
         } else {
           console.error(`   ❌ Erreur HTTP: ${response.status} ${response.statusText}`);
         }
       } catch (error) {
-        console.error(`   ❌ Erreur lors de la récupération des lots pour ${code}:`, error);
-        console.error(`   💡 Vérifiez que le proxy tourne sur ${API_CONFIG.PROXY_URL}`);
+        console.error(`   ❌ Erreur lors de la récupération des lots depuis le proxy pour ${code}:`, error);
+        console.error(`   💡 Les lots locaux seront utilisés`);
       }
-    } else {
-      // Récupérer depuis les données locales
-      console.log(`   📂 Récupération depuis les données locales`);
-      const localLots = traceabilityData.lots as Record<string, any>;
-      const lots = Object.keys(localLots).filter(lot => lot.startsWith(code));
-      console.log(`   ✅ ${lots.length} lot(s) trouvé(s) localement pour ${code}:`, lots);
-      beekeeperLots.push(...lots);
     }
+
+    // 3. Convertir le Set en tableau trié
+    const beekeeperLots = Array.from(allLotsForBeekeeper).sort();
+    console.log(`   ✅ Total pour ${code}: ${beekeeperLots.length} lot(s) unique(s) (local + proxy)`);
 
     // Ajouter au groupe si des lots existent
     if (beekeeperLots.length > 0) {
       grouped.push({
         beekeeperName: `${beekeeper.firstName} ${beekeeper.lastName}${beekeeper.commercialName ? ` (${beekeeper.commercialName})` : ''}`,
         beekeeperCode: code,
-        lots: beekeeperLots.sort(),
+        lots: beekeeperLots,
       });
     }
   }
