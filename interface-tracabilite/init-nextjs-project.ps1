@@ -1,8 +1,8 @@
 # Script d'Initialisation du Projet Next.js Bee Api'C
 # Crée toute la structure et les fichiers de base
 
-Write-Host "🚀 Initialisation du projet Next.js Bee Api'C" -ForegroundColor Cyan
-Write-Host "=============================================`n" -ForegroundColor Cyan
+Write-Host "Initialisation du projet Next.js Bee Api'C" -ForegroundColor Cyan
+Write-Host "=========================================`n" -ForegroundColor Cyan
 
 $projectRoot = "C:\Users\vincolas\Applis\Projets\beeApiC\bee-apic-nextjs"
 
@@ -237,4 +237,4 @@ Write-Host "📦 Prochaines étapes :`n" -ForegroundColor Cyan
 Write-Host "  1. cd bee-apic-nextjs" -ForegroundColor White
 Write-Host "  2. npm install" -ForegroundColor White
 Write-Host "  3. npm run dev" -ForegroundColor White
-Write-Host "`n🐝 Don't Pannic, Bee Api'C ! 🍯`n" -ForegroundColor Yellow
+Write-Host "`nBee Api'C - Structure Next.js créée avec succès !`n" -ForegroundColor Yellow
