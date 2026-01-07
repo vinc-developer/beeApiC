@@ -47,6 +47,12 @@ export interface TraceabilityData {
   beekeeper?: Beekeeper;
 }
 
+export interface LotsGroupedByBeekeeper {
+  beekeeperName: string;
+  beekeeperCode: string;
+  lots: string[];
+}
+
 export interface HoneyType {
   code: string;
   name: string;
