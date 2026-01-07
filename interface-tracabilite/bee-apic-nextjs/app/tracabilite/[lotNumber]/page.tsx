@@ -67,8 +67,10 @@ export default async function LotDetailPage({
             </div>
 
             <div className="info-item">
-              <span className="info-label">Zone géographique</span>
-              <span className="info-value">{data.zone.publicName}</span>
+              <span className="info-label">Zone(s) géographique(s)</span>
+              <span className="info-value">
+                {data.ruchers.map(r => r.nomPublicZone).join(', ') || 'Non spécifiée'}
+              </span>
             </div>
 
             {honeyType && (
@@ -85,8 +87,17 @@ export default async function LotDetailPage({
 
             <div className="info-item full-width">
               <span className="info-label">Environnement des ruches</span>
-              <span className="info-value">{data.zone.environment}</span>
+              <span className="info-value">
+                {[...new Set(data.ruchers.map(r => r.environnement))].join(', ') || 'Non spécifié'}
+              </span>
             </div>
+
+            {data.production.nbRuchesRecoltees && (
+              <div className="info-item">
+                <span className="info-label">Nombre de ruches récoltées</span>
+                <span className="info-value">{data.production.nbRuchesRecoltees}</span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -102,7 +113,7 @@ export default async function LotDetailPage({
               <div className="date-icon">🍯</div>
               <h3 className="date-title">Date(s) d'extraction</h3>
               <div className="date-list">
-                {data.production.extractionDates.map((date, index) => (
+                {data.production.datesExtractions.map((date, index) => (
                   <span key={index} className="date-value">
                     {formatDate(date)}
                   </span>
@@ -112,8 +123,8 @@ export default async function LotDetailPage({
 
             <div className="date-card">
               <div className="date-icon">🏺</div>
-              <h3 className="date-title">Date de mise en pot</h3>
-              <div className="date-value">{formatDate(data.production.bottlingDate)}</div>
+              <h3 className="date-title">Date de conditionnement</h3>
+              <div className="date-value">{formatDate(data.production.dateConditionnement)}</div>
             </div>
           </div>
         </div>

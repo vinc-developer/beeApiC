@@ -1,9 +1,23 @@
+// Format du proxy BeePerf
+export interface Rucher {
+  nom: string;
+  environnement: string;
+  nomPublicZone: string;
+}
+
+export interface Production {
+  datesExtractions: string[];
+  dateConditionnement: string;
+  nbRuchesRecoltees?: number;
+}
+
+// Pour la compatibilité avec les données locales (ancien format)
 export interface Zone {
   publicName: string;
   environment: string;
 }
 
-export interface Production {
+export interface ProductionLegacy {
   extractionDates: string[];
   bottlingDate: string;
 }
@@ -42,8 +56,16 @@ export interface Beekeeper {
 
 export interface TraceabilityData {
   lotNumber: string;
-  zone: Zone;
+  ruchers: Rucher[];
   production: Production;
+  beekeeper?: Beekeeper;
+}
+
+// Pour la compatibilité avec les données locales
+export interface TraceabilityDataLegacy {
+  lotNumber: string;
+  zone: Zone;
+  production: ProductionLegacy;
   beekeeper?: Beekeeper;
 }
 
