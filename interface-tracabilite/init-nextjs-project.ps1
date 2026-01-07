@@ -73,9 +73,9 @@ $packageJson = @'
 '@
 
 $packageJson | Out-File -FilePath (Join-Path $projectRoot "package.json") -Encoding UTF8
-Write-Host "  ✅ package.json créé" -ForegroundColor Green
+Write-Host "package.json créé" -ForegroundColor Green
 
-Write-Host "`n📝 Création des fichiers de configuration..." -ForegroundColor Yellow
+Write-Host "`n Création des fichiers de configuration..." -ForegroundColor Yellow
 
 # tsconfig.json
 $tsconfigJson = @'
@@ -199,9 +199,9 @@ next-env.d.ts
 '@
 
 $gitignore | Out-File -FilePath (Join-Path $projectRoot ".gitignore") -Encoding UTF8
-Write-Host "  ✅ .gitignore créé" -ForegroundColor Green
+Write-Host "  .gitignore créé" -ForegroundColor Green
 
-Write-Host "`n📋 Copie des données existantes..." -ForegroundColor Yellow
+Write-Host "`n Copie des données existantes..." -ForegroundColor Yellow
 
 $oldDataPath = "C:\Users\vincolas\Applis\Projets\beeApiC\interface-tracabilite\data"
 $newDataPath = Join-Path $projectRoot "data"
@@ -219,7 +219,7 @@ foreach ($file in $dataFiles) {
     }
 }
 
-Write-Host "`n🖼️  Copie des images..." -ForegroundColor Yellow
+Write-Host "`n  Copie des images..." -ForegroundColor Yellow
 
 $oldImagesPath = "C:\Users\vincolas\Applis\Projets\beeApiC\interface-tracabilite\images"
 $newImagesPath = Join-Path $projectRoot "public\images"
@@ -231,10 +231,4 @@ if (Test-Path $oldImagesPath) {
     Write-Host "  ⚠️  Dossier images non trouvé" -ForegroundColor Yellow
 }
 
-Write-Host "`n✅ Structure de base créée !`n" -ForegroundColor Green
 
-Write-Host "📦 Prochaines étapes :`n" -ForegroundColor Cyan
-Write-Host "  1. cd bee-apic-nextjs" -ForegroundColor White
-Write-Host "  2. npm install" -ForegroundColor White
-Write-Host "  3. npm run dev" -ForegroundColor White
-Write-Host "`nBee Api'C - Structure Next.js créée avec succès !`n" -ForegroundColor Yellow
