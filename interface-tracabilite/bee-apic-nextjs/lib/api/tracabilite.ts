@@ -343,7 +343,7 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
     // Ajouter au groupe si des lots existent
     if (beekeeperLots.length > 0) {
       grouped.push({
-        beekeeperName: `${beekeeper.firstName} ${beekeeper.lastName}${beekeeper.commercialName ? ` (${beekeeper.commercialName})` : ''}`,
+        beekeeperName: `${beekeeper.commercialName ? `${beekeeper.commercialName}` : `${beekeeper.firstName} ${beekeeper.lastName}`} (${code}) `,
         beekeeperCode: code,
         lots: beekeeperLots,
       });

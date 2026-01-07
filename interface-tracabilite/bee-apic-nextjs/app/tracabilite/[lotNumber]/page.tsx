@@ -180,7 +180,7 @@ export default async function LotDetailPage({
                   <span className="partner-badge">
                     <span className="partner-icon">🤝</span>
                     <span className="partner-text">
-                      Partenaire Bee Api'C {data.beekeeper.partnerSince && `depuis ${data.beekeeper.partnerSince}`}
+                      Partenaire Bee Api'C
                     </span>
                   </span>
                 )}
