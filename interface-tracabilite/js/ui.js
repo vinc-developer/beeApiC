@@ -389,20 +389,43 @@ const UI = (function() {
 
             // Dates d'extraction (format proxy BeePerf : datesExtractions)
             console.log('📅 Affichage dates...');
+            console.log('   Structure production:', {
+                hasProduction: !!data.production,
+                hasDatesExtractions: !!data.production?.datesExtractions,
+                isArray: Array.isArray(data.production?.datesExtractions),
+                datesExtractions: data.production?.datesExtractions,
+                type: typeof data.production?.datesExtractions
+            });
+
             if (data.production?.datesExtractions && Array.isArray(data.production.datesExtractions)) {
                 if (data.production.datesExtractions.length > 0) {
+                    console.log(`   ✅ ${data.production.datesExtractions.length} date(s) d'extraction à afficher`);
                     elements.displayExtractionDates.innerHTML = data.production.datesExtractions
-                        .map(date => `<span class="date-value">${formatDate(date)}</span>`)
+                        .map(date => {
+                            const formatted = formatDate(date);
+                            console.log(`      Date: ${date} → Formatée: ${formatted}`);
+                            return `<span class="date-value">${formatted}</span>`;
+                        })
                         .join('');
                 } else {
+                    console.warn('   ⚠️ Tableau datesExtractions vide');
                     elements.displayExtractionDates.innerHTML = '<span class="date-value">-</span>';
                 }
             } else {
+                console.warn('   ⚠️ Pas de datesExtractions ou pas un tableau');
+                console.warn('   Structure de production:', data.production);
                 elements.displayExtractionDates.innerHTML = '<span class="date-value">-</span>';
             }
 
             // Date de conditionnement (format proxy BeePerf : dateConditionnement)
-            elements.displayBottlingDate.textContent = formatDate(data.production?.dateConditionnement) || '-';
+            console.log('📦 Date de conditionnement:', {
+                hasDateConditionnement: !!data.production?.dateConditionnement,
+                dateConditionnement: data.production?.dateConditionnement,
+                type: typeof data.production?.dateConditionnement
+            });
+            const dateCondFormatted = formatDate(data.production?.dateConditionnement) || '-';
+            console.log(`   Date conditionnement formatée: ${dateCondFormatted}`);
+            elements.displayBottlingDate.textContent = dateCondFormatted;
 
             // Informations de l'apiculteur
             console.log('👨‍🌾 Affichage informations apiculteur...');

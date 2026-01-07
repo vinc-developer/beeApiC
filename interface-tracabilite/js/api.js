@@ -286,22 +286,80 @@ const API = (function() {
 
             try {
                 console.log(`⏳ Appel en cours...`);
-                data = await fetchWithTimeout(url);
-                console.log('✅ Données reçues du proxy avec succès (format BeePerf natif)');
-                console.log(`📦 Structure:`, {
+                const rawData = await fetchWithTimeout(url);
+                console.log('✅ Données reçues du proxy avec succès');
+                console.log(`📦 Données brutes du proxy:`, rawData);
+
+                // Le proxy BeePerf retourne les données à la racine :
+                // {
+                //   dateConditionnement: "2024-07-04",
+                //   datesExtractions: ["2024-07-02", "2024-07-03"],
+                //   nbRuchesRecoltees: 12,
+                //   ruchers: [...]
+                // }
+
+                // Restructurer pour matcher notre format attendu
+                data = {
+                    lotNumber: rawData.lotNumber || rawData.numero_lot || lotNumber.trim(),
+                    ruchers: rawData.ruchers || [],
+                    production: {
+                        datesExtractions: rawData.datesExtractions || [],
+                        dateConditionnement: rawData.dateConditionnement || '',
+                        nbRuchesRecoltees: rawData.nbRuchesRecoltees
+                    },
+                    beekeeper: rawData.beekeeper || null
+                };
+
+                console.log(`📦 Données restructurées:`, {
                     hasRuchers: !!data.ruchers,
                     nbRuchers: data.ruchers?.length || 0,
                     hasProduction: !!data.production,
-                    hasDatesExtractions: !!data.production?.datesExtractions
+                    hasDatesExtractions: !!data.production?.datesExtractions,
+                    datesExtractions: data.production?.datesExtractions,
+                    hasDateConditionnement: !!data.production?.dateConditionnement,
+                    dateConditionnement: data.production?.dateConditionnement
                 });
-
-                // Les données du proxy sont déjà au bon format avec ruchers[], datesExtractions, etc.
-                // Pas besoin de mapping !
             } catch (error) {
                 console.error(`❌ ERREUR lors de la récupération depuis le proxy:`);
                 console.error(`   Type: ${error.message}`);
                 console.error(`   Détails:`, error);
-                throw error;
+
+                // FALLBACK AUTOMATIQUE vers le JSON local si le proxy échoue
+                if (error.message === 'NOT_FOUND' || error.message.includes('404')) {
+                    console.log(`\n${'='.repeat(60)}`);
+                    console.log(`🔄 FALLBACK AUTOMATIQUE VERS JSON LOCAL`);
+                    console.log(`${'='.repeat(60)}`);
+                    console.log(`⚠️ Le lot n'a pas été trouvé dans le proxy`);
+                    console.log(`📂 Tentative de récupération depuis le fichier JSON local...`);
+
+                    try {
+                        const legacyData = await loadTraceabilityFromJSON(lotNumber.trim());
+
+                        if (!legacyData) {
+                            console.error(`❌ Lot non trouvé dans le JSON local non plus`);
+                            throw new Error('NOT_FOUND');
+                        }
+
+                        console.log('✅ Lot trouvé dans le JSON local !');
+                        console.log(`📦 Structure des données legacy:`, {
+                            hasLotNumber: !!legacyData.lotNumber,
+                            hasZone: !!legacyData.zone,
+                            hasProduction: !!legacyData.production
+                        });
+
+                        // Convertir l'ancien format vers le format proxy BeePerf
+                        console.log(`🔄 Conversion de l'ancien format vers le format proxy BeePerf...`);
+                        data = convertLegacyToProxyFormat(legacyData, lotNumber.trim());
+
+                        console.log('✅ Données converties avec succès (depuis fallback JSON)');
+                    } catch (fallbackError) {
+                        console.error(`❌ Échec du fallback JSON local:`, fallbackError);
+                        throw error; // Relancer l'erreur originale du proxy
+                    }
+                } else {
+                    // Pour les autres erreurs (timeout, réseau, etc.), on ne fait pas de fallback
+                    throw error;
+                }
             }
         } else {
             // Récupérer les données depuis le fichier JSON local (ancien format)
@@ -375,6 +433,8 @@ const API = (function() {
         console.log(`📦 Date conditionnement: ${data.production?.dateConditionnement || 'N/A'}`);
         console.log(`👤 Apiculteur: ${data.beekeeper ? `${data.beekeeper.firstName} ${data.beekeeper.lastName}` : 'Non défini'}`);
         console.log(`${'='.repeat(60)}\n`);
+
+        data.lotNumber = lotNumber;
 
         return data;
     }
