@@ -157,17 +157,34 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
 
             // Afficher le premier élément pour voir la structure
             if (data.data.length > 0) {
-              console.log(`   📦 Structure du premier élément:`, JSON.stringify(data.data[0], null, 2));
-              console.log(`   📦 Clés disponibles:`, Object.keys(data.data[0]));
+              console.log(`   📦 Premier élément:`, data.data[0]);
+              console.log(`   📦 Type du premier élément:`, typeof data.data[0]);
+
+              // Si c'est un objet, afficher ses clés
+              if (typeof data.data[0] === 'object' && data.data[0] !== null) {
+                console.log(`   📦 Clés disponibles:`, Object.keys(data.data[0]));
+              }
             }
 
             proxyLots = data.data
               .map((lot: any, index: number) => {
-                const numeroLot = lot.numero_lot || lot.numeroLot || lot.lot_number || lot.number;
-                console.log(`      [${index}] Clés: ${Object.keys(lot).join(', ')} → numeroLot extrait: "${numeroLot}"`);
-                return numeroLot;
+                // Si c'est déjà une chaîne de caractères (numéro de lot direct)
+                if (typeof lot === 'string') {
+                  console.log(`      [${index}] Type: string → "${lot}"`);
+                  return lot;
+                }
+
+                // Si c'est un objet, essayer d'extraire le numéro de lot
+                if (typeof lot === 'object' && lot !== null) {
+                  const numeroLot = lot.numero_lot || lot.numeroLot || lot.lot_number || lot.number || lot.lotNumber;
+                  console.log(`      [${index}] Type: object, clés: ${Object.keys(lot).join(', ')} → numeroLot: "${numeroLot}"`);
+                  return numeroLot;
+                }
+
+                console.log(`      [${index}] Type inconnu (${typeof lot})`);
+                return null;
               })
-              .filter((lot: string) => lot);
+              .filter((lot: string | null) => lot && typeof lot === 'string');
 
           } else if (Array.isArray(data)) {
             console.log(`   📦 data est directement un tableau avec ${data.length} élément(s)`);
