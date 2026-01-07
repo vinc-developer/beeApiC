@@ -53,18 +53,18 @@
 
         // Boutons de recherche
         ui.elements.btnSearchManual.addEventListener('click', () => {
-            handleSearchDev('manual');
+            handleSearch('manual');
         });
 
         ui.elements.btnSearchList.addEventListener('click', () => {
-            handleSearchDev('list');
+            handleSearch('list');
         });
 
         // Recherche avec la touche Entrée dans le champ de saisie manuelle
         ui.elements.lotNumber.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                handleSearchDev('manual');
+                handleSearch('manual');
             }
         });
 
@@ -86,12 +86,13 @@
         console.log('📋 Chargement de la liste des lots...');
 
         try {
-            // Récupérer tous les lots (on peut augmenter per_page si nécessaire)
-            const lots = await api.getLotsList(100, 1);
+            // Récupérer tous les lots (organisés par apiculteur)
+            const lotsData = await api.getLotsList(100, 1);
 
-            if (lots && lots.length > 0) {
-                ui.populateLotsList(lots);
-                console.log(`✓ ${lots.length} lot(s) chargé(s)`);
+            if (lotsData && lotsData.flat && lotsData.flat.length > 0) {
+                // Passer les deux formats à l'UI pour qu'elle puisse choisir
+                ui.populateLotsList(lotsData.flat, lotsData.byBeekeeper);
+                console.log(`✓ ${lotsData.flat.length} lot(s) chargé(s)`);
             } else {
                 console.warn('⚠ Aucun lot disponible');
             }
@@ -128,6 +129,10 @@
 
             console.log('✓ Données reçues:', data);
 
+            // Sauvegarder les données pour le bouton "En savoir plus"
+            currentBeekeeperData = data.beekeeper;
+            currentLotNumber = lotNumber;
+
             // Afficher les résultats
             ui.hideLoading();
             ui.displayResults(data);
@@ -161,36 +166,6 @@
     let currentBeekeeperData = null;
     let currentLotNumber = null;
 
-    async function handleSearchDev(method) {
-        const lotNumber = ui.getLotNumber(method);
-
-        if (!ui.validateLotNumber(lotNumber, method)) {
-            return;
-        }
-
-        ui.showLoading();
-        ui.hideError();
-
-        try {
-            // Utiliser les données simulées
-            const data = await api.getMockData(lotNumber);
-            console.log('✓ Données mockées reçues:', data);
-
-            // Sauvegarder les données pour la page apiculteur
-            currentBeekeeperData = data.beekeeper;
-            currentLotNumber = lotNumber;
-
-            ui.hideLoading();
-            ui.displayResults(data);
-            console.log('✓ Résultats affichés avec succès');
-        } catch (error) {
-            console.error('❌ Erreur dans handleSearchDev:', error);
-            console.error('Stack trace:', error.stack);
-            ui.hideLoading();
-            ui.showError(config.MESSAGES.ERROR_GENERIC + ' (' + error.message + ')');
-        }
-    }
-
     /**
      * Gère le clic sur "En savoir plus"
      */
@@ -216,7 +191,6 @@
     // Exposer certaines fonctions pour le débogage en console
     window.APP = {
         loadLotsList,
-        handleSearchDev,
         version: '1.0.0'
     };
 

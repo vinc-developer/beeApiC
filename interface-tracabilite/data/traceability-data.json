@@ -1,0 +1,35 @@
+{
+  "lots": {
+    "BA-2026-CH-0107": {
+      "lotNumber": "BA-2026-CH-0107",
+      "zone": {
+        "publicName": "France - Saint Léger les Vignes",
+        "environment": "Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques."
+      },
+      "production": {
+        "extractionDates": [
+          "2024-07-15",
+          "2024-07-22",
+          "2024-08-05"
+        ],
+        "bottlingDate": "2024-08-20"
+      }
+    },
+    "MC-2026-PA-2505": {
+      "lotNumber": "MC-2026-PA-2505",
+      "zone": {
+        "publicName": "France - Guenrouet",
+        "environment": "Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques."
+      },
+      "production": {
+        "extractionDates": [
+          "2024-05-15",
+          "2024-05-22",
+          "2024-06-05"
+        ],
+        "bottlingDate": "2024-06-20"
+      }
+    }
+  }
+}
+

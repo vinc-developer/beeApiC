@@ -52,20 +52,75 @@ const API = (function() {
      * Récupère la liste des numéros de lots disponibles
      * @param {number} perPage - Nombre de résultats par page (défaut: 100)
      * @param {number} page - Numéro de la page (défaut: 1)
-     * @returns {Promise<Array<string>>} - Liste des numéros de lots
+     * @returns {Promise<Object>} - Objet avec les lots organisés par apiculteur
      */
     async function getLotsList(perPage = 100, page = 1) {
-        const url = `${config.API_BASE_URL}${config.ENDPOINTS.LIST_LOTS}?per_page=${perPage}&page=${page}`;
-
         try {
-            //const data = await fetchWithTimeout(url);
-            // L'API BeePerf retourne un objet avec une propriété 'data' contenant les lots
-            return [ await getMockData("BA-2026-CH-0107").then(data => data.lotNumber),
-                await getMockData("MC-2026-PA-2505").then(data => data.lotNumber)];
-            //return data.data || [];
+            const lotsByBeekeeper = {};
+
+            // 1. Charger la liste des apiculteurs
+            const beekeepersResponse = await fetch('data/beekeepers.json');
+            const beekeepersData = await beekeepersResponse.json();
+
+            // 2. Pour chaque apiculteur
+            for (const [code, beekeeper] of Object.entries(beekeepersData.beekeepers)) {
+                lotsByBeekeeper[code] = {
+                    name: beekeeper.commercialName || `${beekeeper.firstName} ${beekeeper.lastName}`,
+                    lots: []
+                };
+
+                if (beekeeper.useProxy) {
+                    // Charger depuis l'API Proxy
+                    try {
+                        const url = `${config.API_BASE_URL}${config.ENDPOINTS.LIST_LOTS}?per_page=${perPage}&page=${page}&beekeeper=${code}`;
+                        const response = await fetchWithTimeout(url);
+                        lotsByBeekeeper[code].lots = response.data || [];
+                        console.log(`✓ ${lotsByBeekeeper[code].lots.length} lot(s) chargé(s) depuis l'API pour ${code}`);
+                    } catch (error) {
+                        console.warn(`⚠ Impossible de charger les lots depuis l'API pour ${code}:`, error.message);
+                        // Continuer avec les autres apiculteurs même si un échoue
+                    }
+                } else {
+                    // Charger depuis le JSON local
+                    try {
+                        const traceabilityResponse = await fetch('data/traceability-data.json');
+                        const traceabilityData = await traceabilityResponse.json();
+
+                        // Filtrer les lots pour cet apiculteur
+                        const beekeeperLots = Object.keys(traceabilityData.lots || {})
+                            .filter(lotNumber => lotNumber.startsWith(code + '-'));
+
+                        lotsByBeekeeper[code].lots = beekeeperLots;
+                        console.log(`✓ ${lotsByBeekeeper[code].lots.length} lot(s) chargé(s) depuis JSON pour ${code}`);
+                    } catch (error) {
+                        console.warn(`⚠ Impossible de charger les lots depuis JSON pour ${code}:`, error.message);
+                    }
+                }
+            }
+
+            // 3. Aplatir la liste pour compatibilité avec le code existant
+            const allLots = [];
+            for (const [code, data] of Object.entries(lotsByBeekeeper)) {
+                if (data.lots.length > 0) {
+                    allLots.push(...data.lots);
+                }
+            }
+
+            console.log(`✓ Total: ${allLots.length} lot(s) disponible(s)`);
+
+            // Retourner les deux formats pour flexibilité
+            return {
+                flat: allLots,              // Liste plate pour compatibilité
+                byBeekeeper: lotsByBeekeeper // Organisé par apiculteur
+            };
+
         } catch (error) {
             console.error('Erreur lors de la récupération de la liste des lots:', error);
-            throw error;
+            // En cas d'erreur, retourner un objet vide
+            return {
+                flat: [],
+                byBeekeeper: {}
+            };
         }
     }
 
@@ -97,6 +152,22 @@ const API = (function() {
     }
 
     /**
+     * Charge les données de traçabilité depuis le fichier JSON local
+     * @param {string} lotNumber - Numéro du lot
+     * @returns {Promise<Object|null>} - Données de traçabilité ou null
+     */
+    async function loadTraceabilityFromJSON(lotNumber) {
+        try {
+            const response = await fetch('data/traceability-data.json');
+            const data = await response.json();
+            return data.lots[lotNumber] || null;
+        } catch (error) {
+            console.error('Erreur lors du chargement des données de traçabilité depuis JSON:', error);
+            return null;
+        }
+    }
+
+    /**
      * Récupère les informations de traçabilité pour un numéro de lot
      * @param {string} lotNumber - Numéro du lot
      * @returns {Promise<Object>} - Données de traçabilité
@@ -106,140 +177,61 @@ const API = (function() {
             throw new Error('INVALID_LOT_NUMBER');
         }
 
-        const url = `${config.API_BASE_URL}${config.ENDPOINTS.GET_TRACEABILITY}/${encodeURIComponent(lotNumber.trim())}`;
+        // Vérifier si le numéro de lot contient un code apiculteur (nouveau format)
+        const beekeeperCode = extractBeekeeperCode(lotNumber.trim());
+        let beekeeperData = null;
+        let useProxy = true; // Par défaut, on utilise le proxy
 
-        try {
-            const data = await fetchWithTimeout(url);
+        if (beekeeperCode) {
+            // Charger les données de l'apiculteur depuis le JSON
+            beekeeperData = await loadBeekeeperData(beekeeperCode);
 
-            // Vérifier si le numéro de lot contient un code apiculteur (nouveau format)
-            const beekeeperCode = extractBeekeeperCode(lotNumber.trim());
-
-            if (beekeeperCode) {
-                // Charger les données de l'apiculteur depuis le JSON
-                const beekeeperData = await loadBeekeeperData(beekeeperCode);
-
-                if (beekeeperData) {
-                    // Remplacer ou fusionner avec les données de l'API
-                    data.beekeeper = {
-                        ...data.beekeeper, // Données de l'API (si présentes)
-                        ...beekeeperData   // Données du JSON (prioritaires)
-                    };
-                    console.log(`✓ Données apiculteur chargées pour le code: ${beekeeperCode}`);
-                }
+            if (beekeeperData) {
+                console.log(`✓ Données apiculteur chargées pour le code: ${beekeeperCode}`);
+                // Vérifier si on doit utiliser le proxy ou les données locales
+                useProxy = beekeeperData.useProxy !== undefined ? beekeeperData.useProxy : true;
+                console.log(`ℹ Source de données: ${useProxy ? 'Proxy API' : 'Fichier JSON local'}`);
             }
-
-            return data;
-        } catch (error) {
-            console.error('Erreur lors de la récupération de la traçabilité:', error);
-            throw error;
         }
-    }
 
-    /**
-     * Simule une API pour les tests en local (à retirer en production)
-     * @param {string} lotNumber - Numéro du lot
-     * @returns {Promise<Object>} - Données simulées
-     */
-    async function getMockData(lotNumber) {
-        // Simuler un délai réseau
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        let data;
 
-        if (lotNumber === "BA-2026-CH-0107") {
-            // Bee Api'C - Miel de Châtaignier
-            return {
-                lotNumber: lotNumber,
-                zone: {
-                    publicName: 'France - Saint Léger les Vignes',
-                    environment: 'Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques.'
-                },
-                production: {
-                    extractionDates: [
-                        '2024-07-15',
-                        '2024-07-22',
-                        '2024-08-05'
-                    ],
-                    bottlingDate: '2024-08-20'
-                },
-                beekeeper: {
-                    type: 'Apiculteur Récoltant',
-                    partnerSince: '',
-                    firstName: 'Vincent',
-                    lastName: 'Colas',
-                    commercialName: 'Bee Api\'C',
-                    address: 'bois des abeilles\n44680 Saint-Hilaire-de-Chaléons - France',
-                    email: 'bee.apic@gmail.com',
-                    phone: '+33 6 06 06 06 06',
-                    website: 'https://bee-apic.com/',
-                    siret: '910 020 346 00029',
-                    photo: 'colas-vincent.jpg',
-                    logo: 'logo-beeapic.png',
-                    bio: 'Passionné par l\'apiculture depuis plus de 10 ans, je produis un miel de qualité dans la magnifique région des Pays de Retz. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.',
-                    hivesCount: '20 ruches',
-                    location: 'Saint-Hilaire-de-Chaléons, Loire-Atlantique, France',
-                    distance: '45 km de Nantes',
-                    beekeeperSince: '2023',
-                    gallery: ['cadre-miel.jpg', 'essaim.jpg', 'miels.jpg', 'produits.jpg'],
-                    socialMedia: {
-                        instagram: 'https://instagram.com/ruchersduval',
-                        facebook: 'https://facebook.com/ruchersduval',
-                        tiktok: 'https://facebook.com/ruchersduval',
-                        youtube: 'https://youtube.com/@ruchersduval',
-                        linkedin: 'https://facebook.com/ruchersduval'
-                    }
-                }
-            };
+        if (useProxy) {
+            // Récupérer les données depuis le proxy API
+            const url = `${config.API_BASE_URL}${config.ENDPOINTS.GET_TRACEABILITY}/${encodeURIComponent(lotNumber.trim())}`;
+
+            try {
+                data = await fetchWithTimeout(url);
+            } catch (error) {
+                console.error('Erreur lors de la récupération de la traçabilité depuis le proxy:', error);
+                throw error;
+            }
         } else {
-            // Partenaire - Miel d'Acacia
-            return {
-                lotNumber: lotNumber,
-                zone: {
-                    publicName: 'France - Guenrouet',
-                    environment: 'Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques.'
-                },
-                production: {
-                    extractionDates: [
-                        '2024-05-15',
-                        '2024-05-22',
-                        '2024-06-05'
-                    ],
-                    bottlingDate: '2024-06-20'
-                },
-                beekeeper: {
-                    type: 'Apiculteur Récoltant',
-                    partnerSince: '2025',
-                    firstName: 'Matthieu',
-                    lastName: 'Colas',
-                    commercialName: 'L\'abeille Guérinoise',
-                    address: 'chemin des abeilles\n44530 Guenrouet - France',
-                    email: 'labeille-guerinoise@gmail.com',
-                    phone: '+33 6 06 06 06 06',
-                    website: 'https://abeille-guerinoise.com/',
-                    siret: '910 020 346 00029',
-                    photo: 'matthieu-colas/matthieu-colas.jpg',
-                    logo: 'matthieu-colas/logo.jpg',
-                    bio: 'Passionné par l\'apiculture depuis plus de 10 ans, je produis un miel de qualité dans la magnifique région des Pays de Retz. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.',
-                    hivesCount: '30 ruches',
-                    location: 'Guenrouet, Loire-Atlantique, France',
-                    distance: '70 km de Nantes',
-                    beekeeperSince: '2020',
-                    gallery: ['matthieu-colas/ruche-matthieu.jpg', 'matthieu-colas/rucher-matthieu.jpg'],
-                    socialMedia: {
-                        instagram: 'https://instagram.com/ruchersduval',
-                        facebook: 'https://facebook.com/ruchersduval',
-                        tiktok: 'https://facebook.com/ruchersduval',
-                        youtube: 'https://youtube.com/@ruchersduval',
-                        linkedin: 'https://facebook.com/ruchersduval'
-                    }
-                }
+            // Récupérer les données depuis le fichier JSON local
+            data = await loadTraceabilityFromJSON(lotNumber.trim());
+
+            if (!data) {
+                console.error(`Aucune donnée de traçabilité trouvée pour le lot: ${lotNumber.trim()}`);
+                throw new Error('NOT_FOUND');
+            }
+        }
+
+        // Fusionner les données de l'apiculteur si elles existent
+        if (beekeeperData) {
+            data.beekeeper = {
+                ...data.beekeeper, // Données de l'API ou du JSON (si présentes)
+                ...beekeeperData   // Données du fichier beekeepers.json (prioritaires)
             };
         }
+
+        return data;
     }
+
 
     // Interface publique du module
     return {
         getLotsList,
-        getTraceability,
-        getMockData // À retirer en production
+        getTraceability
     };
 })();
 

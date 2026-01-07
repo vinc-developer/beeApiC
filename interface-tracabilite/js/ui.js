@@ -204,20 +204,42 @@ const UI = (function() {
     }
 
     /**
-     * Remplit la liste déroulante avec les numéros de lots
-     * @param {Array<string>} lots - Liste des numéros de lots
+     * Peuple la liste déroulante des numéros de lots
+     * @param {Array<string>} lotsFlat - Liste plate des lots (pour compatibilité)
+     * @param {Object} lotsByBeekeeper - Lots organisés par apiculteur
      */
-    function populateLotsList(lots) {
+    function populateLotsList(lotsFlat, lotsByBeekeeper = null) {
         // Vider la liste sauf l'option par défaut
         elements.lotSelect.innerHTML = '<option value="">-- Choisir un numéro de lot --</option>';
 
-        // Ajouter les lots
-        lots.forEach(lot => {
-            const option = document.createElement('option');
-            option.value = lot;
-            option.textContent = lot;
-            elements.lotSelect.appendChild(option);
-        });
+        // Si les lots sont organisés par apiculteur, créer des optgroups
+        if (lotsByBeekeeper && Object.keys(lotsByBeekeeper).length > 0) {
+            for (const [code, data] of Object.entries(lotsByBeekeeper)) {
+                if (data.lots && data.lots.length > 0) {
+                    // Créer un optgroup pour chaque apiculteur
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = `${data.name} (${code})`;
+
+                    // Ajouter les lots de cet apiculteur
+                    data.lots.forEach(lot => {
+                        const option = document.createElement('option');
+                        option.value = lot;
+                        option.textContent = lot;
+                        optgroup.appendChild(option);
+                    });
+
+                    elements.lotSelect.appendChild(optgroup);
+                }
+            }
+        } else {
+            // Fallback: afficher la liste plate sans organisation
+            lotsFlat.forEach(lot => {
+                const option = document.createElement('option');
+                option.value = lot;
+                option.textContent = lot;
+                elements.lotSelect.appendChild(option);
+            });
+        }
     }
 
     /**
@@ -394,7 +416,7 @@ const UI = (function() {
             console.log('🤝 Gestion badge partenaire...');
             if (elements.partnerBadge) {
                 if (beekeeper.partnerSince && beekeeperCode !== 'BA') {
-                    elements.partnerYear.textContent = beekeeper.partnerSince;
+                    //elements.partnerYear.textContent = beekeeper.partnerSince;
                     elements.partnerBadge.classList.remove('hidden');
                 } else {
                     elements.partnerBadge.classList.add('hidden');

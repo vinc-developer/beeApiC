@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualisation des Sources de Données - Bee Api'C</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .flow-path {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .flow-path.proxy {
+            border: 3px solid #4CAF50;
+        }
+
+        .flow-path.local {
+            border: 3px solid #2196F3;
+        }
+
+        .flow-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .flow-path.proxy .flow-title {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .flow-path.local .flow-title {
+            background: #2196F3;
+            color: white;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #666;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .flow-step.proxy {
+            border-left-color: #4CAF50;
+        }
+
+        .flow-step.local {
+            border-left-color: #2196F3;
+        }
+
+        .flow-step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .flow-step-desc {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 2em;
+            color: #999;
+            margin: 10px 0;
+        }
+
+        .config-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .config-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .beekeeper-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .beekeeper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .beekeeper-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge.proxy {
+            background: #4CAF50;
+        }
+
+        .badge.local {
+            background: #2196F3;
+        }
+
+        .beekeeper-details {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .lots-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .lot-item {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        .legend-color.proxy {
+            background: #4CAF50;
+        }
+
+        .legend-color.local {
+            background: #2196F3;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-info {
+            background: #2196F3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐝 Sources de Données - Bee Api'C</h1>
+        <p class="subtitle">Visualisation du système de gestion flexible des données de traçabilité</p>
+
+        <!-- Légende -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color proxy"></div>
+                <span><strong>useProxy: true</strong> - API Proxy BeePerf</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color local"></div>
+                <span><strong>useProxy: false</strong> - Fichiers JSON locaux</span>
+            </div>
+        </div>
+
+        <!-- Diagramme de flux -->
+        <div class="flow-diagram">
+            <!-- Flux avec Proxy -->
+            <div class="flow-path proxy">
+                <div class="flow-title">📡 Avec API Proxy</div>
+
+                <div class="flow-step proxy">
+                    <div class="flow-step-title">1️⃣ Recherche du lot</div>
+                    <div class="flow-step-desc">Ex: BA-2026-CH-0107</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step proxy">
+                    <div class="flow-step-title">2️⃣ Extraction du code</div>
+                    <div class="flow-step-desc">Code: BA</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step proxy">
+                    <div class="flow-step-title">3️⃣ Chargement apiculteur</div>
+                    <div class="flow-step-desc">beekeepers.json → useProxy: true</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step proxy">
+                    <div class="flow-step-title">4️⃣ Appel API Proxy</div>
+                    <div class="flow-step-desc">Récupération depuis BeePerf</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step proxy">
+                    <div class="flow-step-title">5️⃣ Fusion des données</div>
+                    <div class="flow-step-desc">API + beekeepers.json</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step proxy">
+                    <div class="flow-step-title">6️⃣ Affichage</div>
+                    <div class="flow-step-desc">✅ Résultats complets</div>
+                </div>
+            </div>
+
+            <!-- Flux sans Proxy -->
+            <div class="flow-path local">
+                <div class="flow-title">📄 Sans Proxy (JSON Local)</div>
+
+                <div class="flow-step local">
+                    <div class="flow-step-title">1️⃣ Recherche du lot</div>
+                    <div class="flow-step-desc">Ex: CV-2026-PA-0501</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step local">
+                    <div class="flow-step-title">2️⃣ Extraction du code</div>
+                    <div class="flow-step-desc">Code: CV</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step local">
+                    <div class="flow-step-title">3️⃣ Chargement apiculteur</div>
+                    <div class="flow-step-desc">beekeepers.json → useProxy: false</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step local">
+                    <div class="flow-step-title">4️⃣ Lecture JSON local</div>
+                    <div class="flow-step-desc">traceability-data.json</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step local">
+                    <div class="flow-step-title">5️⃣ Fusion des données</div>
+                    <div class="flow-step-desc">JSON local + beekeepers.json</div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-step local">
+                    <div class="flow-step-title">6️⃣ Affichage</div>
+                    <div class="flow-step-desc">✅ Résultats complets</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration actuelle -->
+        <div class="config-section">
+            <div class="config-title">📊 Configuration Actuelle</div>
+
+            <!-- Apiculteur BA -->
+            <div class="beekeeper-card">
+                <div class="beekeeper-header">
+                    <div class="beekeeper-name">🐝 Bee Api'C (BA)</div>
+                    <span class="badge proxy">useProxy: true</span>
+                </div>
+                <div class="beekeeper-details">
+                    <strong>Source de données :</strong> API Proxy BeePerf<br>
+                    <strong>Type :</strong> Producteur principal<br>
+                    <strong>Badge :</strong> Production Bee Api'C (doré)<br>
+                    <strong>Numéros de lots disponibles :</strong>
+                    <div class="lots-list">
+                        <div class="lot-item">BA-2026-CH-0107 (Miel de Châtaignier)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apiculteur CV -->
+            <div class="beekeeper-card">
+                <div class="beekeeper-header">
+                    <div class="beekeeper-name">👨‍🌾 Colas Vincent (CV)</div>
+                    <span class="badge local">useProxy: false</span>
+                </div>
+                <div class="beekeeper-details">
+                    <strong>Source de données :</strong> Fichiers JSON locaux<br>
+                    <strong>Type :</strong> Apiculteur partenaire<br>
+                    <strong>Badge :</strong> Partenaire Bee Api'C depuis 2024 (vert)<br>
+                    <strong>Numéros de lots disponibles :</strong>
+                    <div class="lots-list">
+                        <div class="lot-item">CV-2026-PA-0501 (Miel d'Acacia)</div>
+                        <div class="lot-item">CV-2026-CH-0815 (Miel de Châtaignier)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-primary">🐝 Ouvrir l'Application</a>
+            <a href="GUIDE-SOURCES-DONNEES.md" class="btn btn-success">📖 Guide Complet</a>
+            <a href="EXEMPLES-SOURCES-DONNEES.md" class="btn btn-info">💡 Exemples</a>
+        </div>
+
+        <!-- Script de test -->
+        <div class="config-section">
+            <div class="config-title">🧪 Test en Direct</div>
+            <p style="margin-bottom: 20px; color: #666;">Ouvrez la console du navigateur (F12) pour voir les résultats des tests.</p>
+            <button class="btn btn-success" onclick="runTests()">▶️ Lancer les Tests</button>
+            <div id="testResults" style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px; display: none;">
+                <h3 style="margin-bottom: 10px;">Résultats des tests :</h3>
+                <pre id="testOutput" style="background: white; padding: 15px; border-radius: 5px; overflow-x: auto;"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function runTests() {
+            const resultsDiv = document.getElementById('testResults');
+            const outputPre = document.getElementById('testOutput');
+            let output = '';
+
+            resultsDiv.style.display = 'block';
+            output += '🔍 Démarrage des tests...\n\n';
+            outputPre.textContent = output;
+
+            // Test 1: Vérifier beekeepers.json
+            output += '📁 Test 1: Vérification de beekeepers.json\n';
+            try {
+                const response = await fetch('data/beekeepers.json');
+                const data = await response.json();
+                output += `✅ Fichier chargé avec succès\n`;
+                output += `✅ ${Object.keys(data.beekeepers).length} apiculteur(s) trouvé(s)\n`;
+
+                Object.entries(data.beekeepers).forEach(([code, beekeeper]) => {
+                    output += `   - ${code}: ${beekeeper.commercialName} (useProxy: ${beekeeper.useProxy})\n`;
+                });
+            } catch (error) {
+                output += `❌ Erreur: ${error.message}\n`;
+            }
+            output += '\n';
+            outputPre.textContent = output;
+
+            // Test 2: Vérifier traceability-data.json
+            output += '📁 Test 2: Vérification de traceability-data.json\n';
+            try {
+                const response = await fetch('data/traceability-data.json');
+                const data = await response.json();
+                output += `✅ Fichier chargé avec succès\n`;
+                output += `✅ ${Object.keys(data.lots).length} lot(s) trouvé(s)\n`;
+
+                Object.keys(data.lots).forEach(lotNumber => {
+                    output += `   - ${lotNumber}\n`;
+                });
+            } catch (error) {
+                output += `❌ Erreur: ${error.message}\n`;
+            }
+            output += '\n';
+            outputPre.textContent = output;
+
+            // Test 3: Cohérence
+            output += '🔗 Test 3: Vérification de la cohérence\n';
+            try {
+                const beekeepersResponse = await fetch('data/beekeepers.json');
+                const beekeepersData = await beekeepersResponse.json();
+
+                const traceabilityResponse = await fetch('data/traceability-data.json');
+                const traceabilityData = await traceabilityResponse.json();
+
+                let coherent = true;
+
+                Object.keys(traceabilityData.lots).forEach(lotNumber => {
+                    const code = lotNumber.match(/^([A-Z]{2,3})-/)?.[1];
+                    const beekeeper = beekeepersData.beekeepers[code];
+
+                    if (!beekeeper) {
+                        output += `❌ Lot ${lotNumber}: Apiculteur ${code} non trouvé\n`;
+                        coherent = false;
+                    } else if (beekeeper.useProxy) {
+                        output += `⚠️ Lot ${lotNumber}: Apiculteur utilise proxy mais a données locales\n`;
+                    } else {
+                        output += `✅ Lot ${lotNumber}: Cohérent\n`;
+                    }
+                });
+
+                if (coherent) {
+                    output += '✅ Tous les lots sont cohérents avec les apiculteurs\n';
+                }
+            } catch (error) {
+                output += `❌ Erreur: ${error.message}\n`;
+            }
+            output += '\n';
+            outputPre.textContent = output;
+
+            output += '✅ Tests terminés !\n';
+            output += '\n💡 Vous pouvez maintenant tester l\'application avec:\n';
+            output += '   - BA-2026-CH-0107 (avec proxy)\n';
+            output += '   - CV-2026-PA-0501 (sans proxy)\n';
+            output += '   - CV-2026-CH-0815 (sans proxy)\n';
+            outputPre.textContent = output;
+
+            console.log('Tests terminés ! Voir les résultats ci-dessus.');
+        }
+    </script>
+</body>
+</html>
+

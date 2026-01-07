@@ -190,7 +190,7 @@
         // Badge partenaire (si apiculteur externe)
         if (elements.profilePartnerBadge) {
             if (beekeeperData.partnerSince && beekeeperCode !== 'BA') {
-                elements.profilePartnerYear.textContent = beekeeperData.partnerSince;
+                //elements.profilePartnerYear.textContent = beekeeperData.partnerSince;
                 elements.profilePartnerBadge.classList.remove('hidden');
             } else {
                 elements.profilePartnerBadge.classList.add('hidden');

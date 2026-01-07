@@ -4,6 +4,96 @@ Toutes les modifications notables du projet sont documentées dans ce fichier.
 
 ---
 
+## [3.8.0] - 2026-01-07
+
+### 🔄 Chargement Multi-Sources des Lots
+
+#### Ajouté
+- `getLotsList()` charge maintenant les lots depuis toutes les sources
+- Support API Proxy (useProxy: true) + JSON local (useProxy: false)
+- Organisation des lots par apiculteur dans la liste déroulante
+- Optgroups HTML pour grouper visuellement les lots
+
+#### Modifié
+- `js/api.js` : `getLotsList()` retourne `{flat: [], byBeekeeper: {}}`
+- `js/app.js` : `loadLotsList()` passe les deux formats à l'UI
+- `js/ui.js` : `populateLotsList()` crée des optgroups par apiculteur
+
+#### Améliorations
+- ✅ Lots groupés par apiculteur dans la liste déroulante
+- ✅ Nom de l'apiculteur visible dans les groupes
+- ✅ Gestion robuste des erreurs par source
+- ✅ Logs détaillés pour chaque source de données
+
+#### Format de liste
+```
+-- Choisir un numéro de lot --
+▼ Bee Api'C (BA)
+  BA-2026-CH-0107
+▼ L'abeille Guérinoise (MC)
+  MC-2026-PA-2505
+```
+
+---
+
+## [3.7.2] - 2026-01-07
+
+### 🐛 Correction du Bouton "En savoir plus"
+
+#### Corrigé
+- Bouton "En savoir plus" ne fonctionnait pas après recherche
+- Variables `currentBeekeeperData` et `currentLotNumber` non mises à jour
+
+#### Modifié
+- `js/app.js` : Ajout de la sauvegarde des données dans `handleSearch()`
+
+```javascript
+// Après récupération des données
+currentBeekeeperData = data.beekeeper;
+currentLotNumber = lotNumber;
+```
+
+#### Résultat
+- ✅ Bouton "En savoir plus" fonctionne correctement
+- ✅ Redirection vers la page apiculteur opérationnelle
+- ✅ Données stockées dans localStorage
+
+---
+
+## [3.7.1] - 2026-01-07
+
+### 🔄 Migration des Données vers JSON
+
+#### Modifié
+- Données de `getMockData()` migrées vers `data/beekeepers.json`
+- Données de traçabilité migrées vers `data/traceability-data.json`
+- `getLotsList()` charge depuis `traceability-data.json`
+
+#### Supprimé
+- Fonction `getMockData()` (données maintenant en JSON)
+- Délai simulé de 1000ms
+
+#### Ajouté
+- Apiculteur **BA** (Bee Api'C) avec données complètes
+- Apiculteur **MC** (L'abeille Guérinoise) partenaire 2025
+- Lot `BA-2026-CH-0107` (Miel de Châtaignier)
+- Lot `MC-2026-PA-2505` (Miel d'Acacia)
+
+#### Configuration
+```json
+// Tous les apiculteurs en useProxy: false
+"BA": { "useProxy": false },
+"MC": { "useProxy": false }
+```
+
+#### Avantages
+- ✅ Code simplifié et maintenable
+- ✅ Chargement instantané (pas de délai)
+- ✅ Données faciles à modifier
+- ✅ Format JSON standard
+
+---
+
 ## [3.6.4] - 2026-01-07
 
 ### 🎯 Positionnement du bouton "Nouvelle recherche"

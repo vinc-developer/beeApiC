@@ -16,6 +16,9 @@ Interface web de traçabilité du miel permettant aux clients de suivre l'origin
 - ✅ **Badges distinctifs** - Production Bee Api'C vs Partenaires
 - ✅ **Page apiculteur détaillée** - Bio, galerie photos, contact, réseaux sociaux
 - ✅ **Interface responsive** - Adaptée mobile, tablette et desktop
+- ✅ **Sources de données flexibles** - API Proxy ou fichiers JSON locaux selon l'apiculteur
+
+> 📖 **Voir [GUIDE-SOURCES-DONNEES.md](GUIDE-SOURCES-DONNEES.md)** pour la gestion des sources de données
 
 ---
 
@@ -59,14 +62,14 @@ npm start
 ## 📖 Documentation
 
 ### Pour les utilisateurs
-- **[GUIDE-UTILISATEUR.md](./GUIDE-UTILISATEUR.md)** - Guide complet d'utilisation
+- **[GUIDE-UTILISATEUR.md](docs/GUIDE-UTILISATEUR.md)** - Guide complet d'utilisation
   - Format des numéros de lots
   - Codes apiculteurs
   - Types de miel
   - Badges et leur signification
 
 ### Pour les développeurs
-- **[GUIDE-DEVELOPPEUR.md](./GUIDE-DEVELOPPEUR.md)** - Documentation technique
+- **[GUIDE-DEVELOPPEUR.md](docs/GUIDE-DEVELOPPEUR.md)** - Documentation technique
   - Architecture du projet
   - Structure des fichiers
   - API et intégration
@@ -88,8 +91,6 @@ npm start
 interface-tracabilite/
 ├── index.html              # Page principale
 ├── beekeeper.html          # Page détail apiculteur
-├── comparaison-badges.html # Démo des badges
-├── test-v3.6.html         # Tests unitaires
 │
 ├── js/                     # Scripts JavaScript
 │   ├── app.js             # Application principale
@@ -106,15 +107,24 @@ interface-tracabilite/
 │
 ├── data/                   # Données de configuration
 │   ├── beekeepers.json    # Base de données apiculteurs
+│   ├── traceability-data.json # Données de traçabilité locales
 │   └── honey-types.json   # Types de miel
 │
 ├── images/                 # Images et logos
 │
-└── docs/                   # Documentation
+├── tests/                  # 🧪 Tests et démonstrations
+│   ├── test-v3.6.html     # Tests unitaires
+│   ├── comparaison-badges.html # Démo des badges
+│   ├── visualisation-sources-donnees.html # Visualisation système
+│   └── README.md          # Documentation des tests
+│
+└── docs/                   # 📚 Documentation complète
     ├── README.md
     ├── CHANGELOG.md
+    ├── INDEX-DOCUMENTATION.md
     ├── GUIDE-UTILISATEUR.md
-    └── GUIDE-DEVELOPPEUR.md
+    ├── GUIDE-DEVELOPPEUR.md
+    └── GUIDE-GESTION-DONNEES.md
 ```
 
 ---
