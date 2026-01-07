@@ -48,163 +48,129 @@ export default function TracabilitePage() {
   };
 
   return (
-    <div className="container-custom py-16">
-      <div className="mx-auto max-w-3xl">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-amber-100 to-amber-200 text-5xl shadow-lg">
-            🔍
+    <div className="container">
+      {/* Header */}
+      <header className="header">
+        <div className="header-content">
+          <div className="brand-logo">
+            <span className="brand-icon">🐝</span>
+            <span className="brand-name">Bee Api'C</span>
           </div>
-          <h1 className="mb-4 text-5xl font-bold">
-            Traçabilité du Miel
-          </h1>
-          <p className="text-xl text-gray-600">
-            Découvrez l'origine de votre pot de miel
-          </p>
+          <h1 className="header-title">Traçabilité du Miel</h1>
+          <p className="header-subtitle">Don't Pannic, Bee Api'C !</p>
         </div>
+      </header>
 
-        {/* Mode de recherche */}
-        <div className="mb-8 flex justify-center gap-4">
-          <button
-            onClick={() => setSearchMode('manual')}
-            className={`rounded-lg px-6 py-3 font-semibold transition-all ${
-              searchMode === 'manual'
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-50'
-            }`}
-          >
-            Saisie manuelle
-          </button>
-          <button
-            onClick={() => setSearchMode('list')}
-            className={`rounded-lg px-6 py-3 font-semibold transition-all ${
-              searchMode === 'list'
-                ? 'bg-primary-600 text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-gray-50'
-            }`}
-          >
-            Sélectionner dans une liste
-          </button>
-        </div>
+      {/* Formulaire de recherche */}
+      <section className="search-section">
+        <div className="search-card">
+          <h2 className="section-title">Rechercher un lot</h2>
 
-        {/* Formulaire */}
-        <div className="card">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {searchMode === 'manual' ? (
-              <div>
-                <label
-                  htmlFor="lotNumber"
-                  className="mb-3 block text-sm font-semibold text-gray-700"
-                >
+          {/* Sélecteur de méthode de recherche */}
+          <div className="search-method-selector">
+            <button
+              className={`btn-method ${searchMode === 'manual' ? 'active' : ''}`}
+              onClick={() => setSearchMode('manual')}
+              data-method="manual"
+            >
+              Saisie manuelle
+            </button>
+            <button
+              className={`btn-method ${searchMode === 'list' ? 'active' : ''}`}
+              onClick={() => setSearchMode('list')}
+              data-method="list"
+            >
+              Sélection dans la liste
+            </button>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            {/* Saisie manuelle */}
+            {searchMode === 'manual' && (
+              <div className="search-input-group">
+                <label htmlFor="lotNumber" className="input-label">
                   Numéro de lot
                 </label>
-                <input
-                  type="text"
-                  id="lotNumber"
-                  value={lotNumber}
-                  onChange={(e) => setLotNumber(e.target.value.toUpperCase())}
-                  placeholder="Ex: BA-2026-CH-0107"
-                  className="input text-lg"
-                  autoComplete="off"
-                />
-                {error && (
-                  <p className="mt-2 text-sm text-red-600 flex items-center gap-2">
-                    <span>⚠️</span>
-                    {error}
-                  </p>
-                )}
-              </div>
-            ) : (
-              <div>
-                <label
-                  htmlFor="lotSelect"
-                  className="mb-3 block text-sm font-semibold text-gray-700"
-                >
-                  Sélectionnez un numéro de lot
-                </label>
-
-                {loadingLots ? (
-                  <div className="flex items-center justify-center py-8">
-                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-primary-600"></div>
-                    <span className="ml-3 text-gray-600">Chargement des lots...</span>
-                  </div>
-                ) : (
-                  <select
-                    id="lotSelect"
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    id="lotNumber"
+                    className="input-field"
+                    placeholder="Ex: BA-2026-CH-0107"
+                    autoComplete="off"
                     value={lotNumber}
-                    onChange={(e) => setLotNumber(e.target.value)}
-                    className="input text-lg"
-                  >
-                    <option value="">-- Choisir un numéro de lot --</option>
-                    {lotsGrouped.map((group) => (
-                      <optgroup key={group.beekeeperCode} label={group.beekeeperName}>
-                        {group.lots.map((lot) => (
-                          <option key={lot} value={lot}>
-                            {lot}
-                          </option>
-                        ))}
-                      </optgroup>
-                    ))}
-                  </select>
-                )}
+                    onChange={(e) => setLotNumber(e.target.value.toUpperCase())}
+                  />
+                  <button type="submit" className="btn-search" disabled={loading}>
+                    <span className="btn-icon">🔍</span>
+                    Rechercher
+                  </button>
+                </div>
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={loading || loadingLots}
-              className="btn-primary w-full text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
-                  </svg>
-                  Recherche en cours...
-                </span>
-              ) : (
-                <span className="flex items-center justify-center gap-2">
-                  <span>🔍</span>
-                  Rechercher
-                </span>
-              )}
-            </button>
+            {/* Sélection par liste */}
+            {searchMode === 'list' && (
+              <div className="search-input-group">
+                <label htmlFor="lotSelect" className="input-label">
+                  Sélectionner un lot
+                </label>
+                {loadingLots ? (
+                  <div className="loading-spinner">
+                    <div className="spinner"></div>
+                    <p>Chargement des lots...</p>
+                  </div>
+                ) : (
+                  <div className="input-wrapper">
+                    <select
+                      id="lotSelect"
+                      className="select-field"
+                      value={lotNumber}
+                      onChange={(e) => setLotNumber(e.target.value)}
+                    >
+                      <option value="">-- Choisir un numéro de lot --</option>
+                      {lotsGrouped.map((group) => (
+                        <optgroup key={group.beekeeperCode} label={group.beekeeperName}>
+                          {group.lots.map((lot) => (
+                            <option key={lot} value={lot}>
+                              {lot}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                    <button type="submit" className="btn-search" disabled={loading}>
+                      <span className="btn-icon">🔍</span>
+                      Rechercher
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </form>
 
-          {/* Informations */}
-          <div className="mt-8 border-t border-gray-200 pt-6">
-            <h3 className="mb-4 font-semibold text-gray-800 flex items-center gap-2">
-              <span>💡</span>
-              Format du numéro de lot
-            </h3>
-            <div className="rounded-lg bg-amber-50 p-4 text-sm text-gray-700">
-              <p className="mb-3 font-medium">Le numéro de lot est composé de :</p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-primary-600">CODE</span>
-                  <span>→ 2-3 lettres (code apiculteur) - Ex: BA, MC, CV</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-primary-600">YYYY</span>
-                  <span>→ 4 chiffres (année) - Ex: 2026</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-primary-600">TT</span>
-                  <span>→ 1-3 lettres (type de miel) - Ex: CH, PA, TF</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-bold text-primary-600">NNNN</span>
-                  <span>→ 4 chiffres (numéro) - Ex: 0107</span>
-                </li>
-              </ul>
-              <p className="mt-3 font-semibold text-primary-700">
-                Exemple: BA-2026-CH-0107
-              </p>
+          {/* Message d'erreur */}
+          {error && (
+            <div className="error-message">
+              <span className="error-icon">⚠️</span>
+              <span className="error-text">{error}</span>
             </div>
-          </div>
+          )}
+
+          {/* Loading spinner pendant la recherche */}
+          {loading && (
+            <div className="loading-spinner">
+              <div className="spinner"></div>
+              <p>Chargement des informations...</p>
+            </div>
+          )}
         </div>
-      </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>&copy; 2026 Bee Api'C - Traçabilité du Miel</p>
+      </footer>
     </div>
   );
 }

@@ -44,14 +44,14 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
       </section>
 
-      <div className="container-custom">
+      <div className="container">
         {/* Section Maison Mère */}
-        <section className="section">
+        <section className="company-section">
           <div className="company-card">
             {/* Header */}
             <div className="company-header">
-              <span className="text-4xl">🏢</span>
-              <h2 className="text-3xl font-bold text-gray-900">Bee Api'C</h2>
+              <span className="company-icon">🏢</span>
+              <h2 className="company-title">Bee Api'C</h2>
               <span className="company-badge">Entreprise Locale</span>
             </div>
 
@@ -66,8 +66,8 @@ export default function Home() {
                 </p>
 
                 <div className="company-label">
-                  <span className="text-2xl">🇫🇷</span>
-                  <span className="font-semibold text-lg text-secondary-600">
+                  <span className="label-icon">🇫🇷</span>
+                  <span className="label-text">
                     {siteConfig.label}
                   </span>
                 </div>
@@ -75,55 +75,43 @@ export default function Home() {
 
               {/* Contact */}
               <div className="company-contact">
-                <h3 className="mb-4 text-xl font-bold text-gray-900">Nous contacter</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl">📍</span>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-gray-600">Adresse</span>
-                      <span className="text-gray-900 whitespace-pre-line">{siteConfig.company.address}</span>
-                    </div>
+                <h3 className="contact-title">Nous contacter</h3>
+                <div className="contact-info">
+                  <div className="contact-item">
+                    <span className="contact-icon">📍</span>
+                    <span className="contact-text">{siteConfig.company.address}</span>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl">🌐</span>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-gray-600">Site Web</span>
-                      <a
-                        href={siteConfig.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-600 hover:text-primary-700 hover:underline"
-                      >
-                        bee-apic.com
-                      </a>
-                    </div>
+                  <div className="contact-item">
+                    <span className="contact-icon">🌐</span>
+                    <a
+                      href={siteConfig.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
+                      bee-apic.com
+                    </a>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl">📧</span>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-gray-600">Email</span>
-                      <a
-                        href={`mailto:${siteConfig.company.email}`}
-                        className="text-primary-600 hover:text-primary-700 hover:underline"
-                      >
-                        {siteConfig.company.email}
-                      </a>
-                    </div>
+                  <div className="contact-item">
+                    <span className="contact-icon">📧</span>
+                    <a
+                      href={`mailto:${siteConfig.company.email}`}
+                      className="contact-link"
+                    >
+                      {siteConfig.company.email}
+                    </a>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl">📱</span>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium text-gray-600">Téléphone</span>
-                      <a
-                        href={`tel:${siteConfig.company.phone}`}
-                        className="text-primary-600 hover:text-primary-700 hover:underline"
-                      >
-                        {siteConfig.company.phone}
-                      </a>
-                    </div>
+                  <div className="contact-item">
+                    <span className="contact-icon">📱</span>
+                    <a
+                      href={`tel:${siteConfig.company.phone}`}
+                      className="contact-link"
+                    >
+                      {siteConfig.company.phone}
+                    </a>
                   </div>
                 </div>
               </div>
