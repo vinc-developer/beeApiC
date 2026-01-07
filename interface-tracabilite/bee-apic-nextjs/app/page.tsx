@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </section>
 
-        </section>
+        </div>
 
         {/* Features Section */}
         <section className="section bg-gradient-to-b from-gray-50 to-white -mx-4 px-4 md:-mx-6 md:px-6 lg:-mx-8 lg:px-8">
