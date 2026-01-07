@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { loadBeekeeper } from '@/lib/api/tracabilite';
 
 export default async function BeekeeperPage({
@@ -24,8 +23,11 @@ export default async function BeekeeperPage({
       <header className="header">
         <div className="header-content">
           <div className="brand-logo">
-            <span className="text-5xl">🐝</span>
-            <span className="brand-name">Bee Api'C</span>
+            <img src="images/logo-beeapic.png" alt="Bee Api'C" id="brandLogo" className="hidden"/>
+            <div className="logo-placeholder-brand" id="logoPlaceholderBrand">
+              <span className="brand-icon">🐝</span>
+              <span className="brand-name">Bee Api'C</span>
+            </div>
           </div>
           <h1 className="header-title">Portrait de l'Apiculteur</h1>
           <p className="header-subtitle">Découvrez qui produit votre miel</p>
@@ -48,11 +50,9 @@ export default async function BeekeeperPage({
             {/* Photo */}
             <div className="profile-photo">
               {beekeeper.photo ? (
-                <Image
+                <img
                   src={`/images/${beekeeper.photo}`}
                   alt={`${beekeeper.firstName} ${beekeeper.lastName}`}
-                  fill
-                  className="object-cover"
                 />
               ) : (
                 <div className="photo-placeholder">
@@ -64,12 +64,9 @@ export default async function BeekeeperPage({
             {/* Logo */}
             {beekeeper.logo && (
               <div className="profile-logo">
-                <Image
+                <img
                   src={`/images/${beekeeper.logo}`}
                   alt="Logo"
-                  width={200}
-                  height={100}
-                  className="max-h-[100px] object-contain"
                 />
               </div>
             )}
@@ -162,11 +159,9 @@ export default async function BeekeeperPage({
             <div className="photo-gallery">
               {beekeeper.gallery.map((image, index) => (
                 <div key={index} className="gallery-item">
-                  <Image
+                  <img
                     src={`/images/${image}`}
                     alt={`Photo ${index + 1}`}
-                    fill
-                    className="object-cover"
                   />
                 </div>
               ))}
@@ -243,7 +238,7 @@ export default async function BeekeeperPage({
 
         {/* Réseaux sociaux */}
         {beekeeper.socialMedia && Object.keys(beekeeper.socialMedia).some(key => beekeeper.socialMedia?.[key as keyof typeof beekeeper.socialMedia]) && (
-          <div className="profile-card social-card">
+          <div className="profile-card">
             <h2 className="card-title">
               <span className="title-icon">🌐</span>
               Suivez-moi

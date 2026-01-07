@@ -84,86 +84,77 @@ export default function TracabilitePage() {
             </button>
           </div>
 
-          <form onSubmit={handleSubmit}>
-            {/* Saisie manuelle */}
-            {searchMode === 'manual' && (
-              <div className="search-input-group">
-                <label htmlFor="lotNumber" className="input-label">
-                  Numéro de lot
-                </label>
-                <div className="input-wrapper">
-                  <input
-                    type="text"
-                    id="lotNumber"
-                    className="input-field"
-                    placeholder="Ex: BA-2026-CH-0107"
-                    autoComplete="off"
-                    value={lotNumber}
-                    onChange={(e) => setLotNumber(e.target.value.toUpperCase())}
-                  />
-                  <button type="submit" className="btn-search" disabled={loading}>
-                    <span className="btn-icon">🔍</span>
-                    Rechercher
-                  </button>
-                </div>
-              </div>
-            )}
+          {/* Saisie manuelle */}
+          <div className={`search-input-group ${searchMode !== 'manual' ? 'hidden' : ''}`}>
+            <label htmlFor="lotNumber" className="input-label">
+              Numéro de lot
+            </label>
+            <div className="input-wrapper">
+              <input
+                type="text"
+                id="lotNumber"
+                className="input-field"
+                placeholder="Ex: BA-2026-CH-0107"
+                autoComplete="off"
+                value={lotNumber}
+                onChange={(e) => setLotNumber(e.target.value.toUpperCase())}
+              />
+              <button
+                className="btn-search"
+                onClick={handleSubmit}
+                disabled={loading}
+              >
+                <span className="btn-icon">🔍</span>
+                Rechercher
+              </button>
+            </div>
+          </div>
 
-            {/* Sélection par liste */}
-            {searchMode === 'list' && (
-              <div className="search-input-group">
-                <label htmlFor="lotSelect" className="input-label">
-                  Sélectionner un lot
-                </label>
-                {loadingLots ? (
-                  <div className="loading-spinner">
-                    <div className="spinner"></div>
-                    <p>Chargement des lots...</p>
-                  </div>
-                ) : (
-                  <div className="input-wrapper">
-                    <select
-                      id="lotSelect"
-                      className="select-field"
-                      value={lotNumber}
-                      onChange={(e) => setLotNumber(e.target.value)}
-                    >
-                      <option value="">-- Choisir un numéro de lot --</option>
-                      {lotsGrouped.map((group) => (
-                        <optgroup key={group.beekeeperCode} label={group.beekeeperName}>
-                          {group.lots.map((lot) => (
-                            <option key={lot} value={lot}>
-                              {lot}
-                            </option>
-                          ))}
-                        </optgroup>
-                      ))}
-                    </select>
-                    <button type="submit" className="btn-search" disabled={loading}>
-                      <span className="btn-icon">🔍</span>
-                      Rechercher
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
-          </form>
+          {/* Sélection par liste */}
+          <div className={`search-input-group ${searchMode !== 'list' ? 'hidden' : ''}`}>
+            <label htmlFor="lotSelect" className="input-label">
+              Sélectionner un lot
+            </label>
+            <div className="input-wrapper">
+              <select
+                id="lotSelect"
+                className="select-field"
+                value={lotNumber}
+                onChange={(e) => setLotNumber(e.target.value)}
+              >
+                <option value="">-- Choisir un numéro de lot --</option>
+                {lotsGrouped.map((group) => (
+                  <optgroup key={group.beekeeperCode} label={group.beekeeperName}>
+                    {group.lots.map((lot) => (
+                      <option key={lot} value={lot}>
+                        {lot}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+              <button
+                className="btn-search"
+                onClick={handleSubmit}
+                disabled={loading}
+              >
+                <span className="btn-icon">🔍</span>
+                Rechercher
+              </button>
+            </div>
+          </div>
 
           {/* Message d'erreur */}
-          {error && (
-            <div className="error-message">
-              <span className="error-icon">⚠️</span>
-              <span className="error-text">{error}</span>
-            </div>
-          )}
+          <div className={`error-message ${!error ? 'hidden' : ''}`}>
+            <span className="error-icon">⚠️</span>
+            <span className="error-text">{error}</span>
+          </div>
 
-          {/* Loading spinner pendant la recherche */}
-          {loading && (
-            <div className="loading-spinner">
-              <div className="spinner"></div>
-              <p>Chargement des informations...</p>
-            </div>
-          )}
+          {/* Loading spinner */}
+          <div className={`loading-spinner ${!loadingLots && !loading ? 'hidden' : ''}`}>
+            <div className="spinner"></div>
+            <p>{loadingLots ? 'Chargement des lots...' : 'Chargement des informations...'}</p>
+          </div>
         </div>
       </section>
 
