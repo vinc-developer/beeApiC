@@ -16,26 +16,33 @@ export async function loadBeekeeper(code: string): Promise<Beekeeper | null> {
  * Récupère les données de traçabilité depuis le proxy BeePerf
  */
 async function fetchFromProxy(lotNumber: string): Promise<any> {
+  const url = `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.TRACABILITE}/${lotNumber}`;
+  console.log(`      📡 URL du proxy: ${url}`);
+
   try {
-    const response = await fetch(
-      `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.TRACABILITE}/${lotNumber}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        cache: 'no-store', // Désactiver le cache pour avoir les données en temps réel
-      }
-    );
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store', // Désactiver le cache pour avoir les données en temps réel
+    });
+
+    console.log(`      ✅ Réponse reçue: ${response.status} ${response.statusText}`);
 
     if (!response.ok) {
+      console.error(`      ❌ Erreur HTTP: ${response.status}`);
       throw new Error(`Erreur proxy: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    console.log(`      📦 Données JSON reçues:`, JSON.stringify(data, null, 2));
+
+    return data;
+
   } catch (error) {
-    console.error('Erreur lors de la récupération depuis le proxy:', error);
-    throw new Error('Impossible de récupérer les données depuis le proxy BeePerf');
+    console.error(`      ❌ Erreur lors de la récupération depuis le proxy:`, error);
+    throw error;
   }
 }
 
@@ -43,45 +50,66 @@ async function fetchFromProxy(lotNumber: string): Promise<any> {
  * Charge les données de traçabilité pour un numéro de lot
  */
 export async function getTraceability(lotNumber: string): Promise<TraceabilityData | null> {
+  console.log(`\n🔍 getTraceability() - Recherche du lot: ${lotNumber}`);
+
   const code = extractBeekeeperCode(lotNumber);
+  console.log(`   📋 Code apiculteur extrait: ${code}`);
 
   if (!code) {
+    console.error(`   ❌ Format de numéro de lot invalide`);
     throw new Error('Format de numéro de lot invalide');
   }
 
   // Charger l'apiculteur
   const beekeeper = await loadBeekeeper(code);
+  console.log(`   👤 Apiculteur trouvé: ${beekeeper ? `${beekeeper.firstName} ${beekeeper.lastName}` : 'NON'}`);
 
   if (!beekeeper) {
+    console.error(`   ❌ Apiculteur non trouvé pour le code: ${code}`);
     throw new Error('Apiculteur non trouvé');
   }
+
+  console.log(`   🔧 useProxy: ${beekeeper.useProxy}`);
 
   // Vérifier si on doit utiliser le proxy
   if (beekeeper.useProxy) {
     try {
+      console.log(`   📡 Tentative de récupération depuis le proxy...`);
+
       // Récupérer depuis le proxy BeePerf
       const proxyData = await fetchFromProxy(lotNumber);
+      console.log(`   ✅ Données reçues du proxy:`, proxyData);
 
       // Fusionner les données du proxy avec les infos de l'apiculteur
-      return {
-        lotNumber: proxyData.lotNumber || lotNumber,
+      const result = {
+        lotNumber: proxyData.lotNumber || proxyData.numero_lot || lotNumber,
         zone: proxyData.zone,
         production: proxyData.production,
         beekeeper,
       } as TraceabilityData;
+
+      console.log(`   ✅ Données de traçabilité construites avec succès`);
+      return result;
+
     } catch (error) {
-      console.error('Erreur proxy, fallback sur données locales:', error);
+      console.error(`   ❌ Erreur lors de la récupération depuis le proxy:`, error);
+      console.log(`   🔄 Tentative de fallback sur les données locales...`);
       // Fallback sur les données locales en cas d'erreur
     }
   }
 
   // Utiliser les données locales
+  console.log(`   📂 Recherche dans les données locales...`);
   const lots = traceabilityData.lots as Record<string, any>;
   const lot = lots[lotNumber];
 
   if (!lot) {
-    throw new Error('Lot non trouvé');
+    console.error(`   ❌ Lot non trouvé dans les données locales`);
+    console.error(`   💡 Lots disponibles localement:`, Object.keys(lots).filter(l => l.startsWith(code + '-')));
+    throw new Error(`Lot ${lotNumber} non trouvé`);
   }
+
+  console.log(`   ✅ Lot trouvé dans les données locales`);
 
   // Fusionner les données
   return {
