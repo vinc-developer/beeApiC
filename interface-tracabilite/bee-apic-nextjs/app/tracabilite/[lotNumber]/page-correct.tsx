@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { getTraceability } from '@/lib/api/tracabilite';
 import { extractHoneyType, formatDate } from '@/lib/utils';
 import honeyTypesData from '@/data/honey-types.json';
@@ -131,11 +130,9 @@ export default async function LotDetailPage({
               {/* Photo */}
               <div className="beekeeper-photo">
                 {data.beekeeper?.photo ? (
-                  <Image
+                  <img
                     src={`/images/${data.beekeeper.photo}`}
                     alt={`${data.beekeeper.firstName} ${data.beekeeper.lastName}`}
-                    fill
-                    className="object-cover"
                   />
                 ) : (
                   <div className="photo-placeholder">
@@ -147,12 +144,9 @@ export default async function LotDetailPage({
               {/* Logo */}
               <div className="beekeeper-logo">
                 {data.beekeeper?.logo ? (
-                  <Image
+                  <img
                     src={`/images/${data.beekeeper.logo}`}
                     alt="Logo"
-                    width={200}
-                    height={100}
-                    className="max-h-[100px] object-contain"
                   />
                 ) : (
                   <div className="logo-placeholder">
