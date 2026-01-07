@@ -10,8 +10,8 @@ $projectRoot = "C:\Users\vincolas\Applis\Projets\beeApiC\bee-apic-nextjs"
 Write-Host "📁 Création de la structure de dossiers..." -ForegroundColor Yellow
 
 $folders = @(
-    "app\tracabilite\[lotNumber]",
-    "app\apiculteur\[code]",
+    "app\tracabilite\`[lotNumber`]",
+    "app\apiculteur\`[code`]",
     "app\a-propos",
     "app\api\lots",
     "app\api\apiculteurs",
@@ -238,4 +238,3 @@ Write-Host "  1. cd bee-apic-nextjs" -ForegroundColor White
 Write-Host "  2. npm install" -ForegroundColor White
 Write-Host "  3. npm run dev" -ForegroundColor White
 Write-Host "`n🐝 Don't Pannic, Bee Api'C ! 🍯`n" -ForegroundColor Yellow
-
