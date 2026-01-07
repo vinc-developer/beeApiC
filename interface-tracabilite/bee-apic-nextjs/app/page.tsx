@@ -44,9 +44,94 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
       </section>
 
-      <div className="container-custom">{/* Features Section */}
-
       <div className="container-custom">
+        {/* Section Maison Mère */}
+        <section className="section">
+          <div className="company-card">
+            {/* Header */}
+            <div className="company-header">
+              <span className="text-4xl">🏢</span>
+              <h2 className="text-3xl font-bold text-gray-900">Bee Api'C</h2>
+              <span className="company-badge">Entreprise Locale</span>
+            </div>
+
+            {/* Content */}
+            <div className="company-content">
+              {/* Info */}
+              <div className="company-info">
+                <p className="company-description">
+                  Bee Api'C est une entreprise familiale engagée dans la promotion du miel 100% local de Loire-Atlantique.
+                  Nous travaillons en étroite collaboration avec des apiculteurs passionnés pour vous offrir un miel de qualité,
+                  traçable et respectueux de l'environnement.
+                </p>
+
+                <div className="company-label">
+                  <span className="text-2xl">🇫🇷</span>
+                  <span className="font-semibold text-lg text-secondary-600">
+                    {siteConfig.label}
+                  </span>
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div className="company-contact">
+                <h3 className="mb-4 text-xl font-bold text-gray-900">Nous contacter</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl">📍</span>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-gray-600">Adresse</span>
+                      <span className="text-gray-900 whitespace-pre-line">{siteConfig.company.address}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl">🌐</span>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-gray-600">Site Web</span>
+                      <a
+                        href={siteConfig.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-600 hover:text-primary-700 hover:underline"
+                      >
+                        bee-apic.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl">📧</span>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-gray-600">Email</span>
+                      <a
+                        href={`mailto:${siteConfig.company.email}`}
+                        className="text-primary-600 hover:text-primary-700 hover:underline"
+                      >
+                        {siteConfig.company.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl">📱</span>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium text-gray-600">Téléphone</span>
+                      <a
+                        href={`tel:${siteConfig.company.phone}`}
+                        className="text-primary-600 hover:text-primary-700 hover:underline"
+                      >
+                        {siteConfig.company.phone}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
         <section className="section">
           <h2 className="mb-12 text-center text-4xl font-bold">
             Découvrez l'origine de votre miel
@@ -112,8 +197,6 @@ export default function Home() {
             </Link>
           </div>
         </section>
-
-        </div>
 
         {/* Features Section */}
         <section className="section bg-gradient-to-b from-gray-50 to-white -mx-4 px-4 md:-mx-6 md:px-6 lg:-mx-8 lg:px-8">

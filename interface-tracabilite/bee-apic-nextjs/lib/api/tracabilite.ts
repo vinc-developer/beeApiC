@@ -2,6 +2,7 @@ import { TraceabilityData, Beekeeper } from '@/types';
 import beekeepersData from '@/data/beekeepers.json';
 import traceabilityData from '@/data/traceability-data.json';
 import { extractBeekeeperCode } from '@/lib/utils';
+import { API_CONFIG } from './config';
 
 /**
  * Charge les données d'un apiculteur
@@ -9,6 +10,33 @@ import { extractBeekeeperCode } from '@/lib/utils';
 export async function loadBeekeeper(code: string): Promise<Beekeeper | null> {
   const beekeepers = beekeepersData.beekeepers as Record<string, Beekeeper>;
   return beekeepers[code] || null;
+}
+
+/**
+ * Récupère les données de traçabilité depuis le proxy BeePerf
+ */
+async function fetchFromProxy(lotNumber: string): Promise<any> {
+  try {
+    const response = await fetch(
+      `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.TRACABILITE}/${lotNumber}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        cache: 'no-store', // Désactiver le cache pour avoir les données en temps réel
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Erreur proxy: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Erreur lors de la récupération depuis le proxy:', error);
+    throw new Error('Impossible de récupérer les données depuis le proxy BeePerf');
+  }
 }
 
 /**
@@ -28,7 +56,26 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
     throw new Error('Apiculteur non trouvé');
   }
 
-  // Charger les données de traçabilité
+  // Vérifier si on doit utiliser le proxy
+  if (beekeeper.useProxy) {
+    try {
+      // Récupérer depuis le proxy BeePerf
+      const proxyData = await fetchFromProxy(lotNumber);
+
+      // Fusionner les données du proxy avec les infos de l'apiculteur
+      return {
+        lotNumber: proxyData.lotNumber || lotNumber,
+        zone: proxyData.zone,
+        production: proxyData.production,
+        beekeeper,
+      } as TraceabilityData;
+    } catch (error) {
+      console.error('Erreur proxy, fallback sur données locales:', error);
+      // Fallback sur les données locales en cas d'erreur
+    }
+  }
+
+  // Utiliser les données locales
   const lots = traceabilityData.lots as Record<string, any>;
   const lot = lots[lotNumber];
 
@@ -47,6 +94,46 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
  * Liste tous les numéros de lots disponibles
  */
 export async function getLotsList(): Promise<string[]> {
-  const lots = traceabilityData.lots as Record<string, any>;
-  return Object.keys(lots);
+  const beekeepers = beekeepersData.beekeepers as Record<string, Beekeeper>;
+  const allLots: string[] = [];
+
+  // Récupérer les lots locaux
+  const localLots = traceabilityData.lots as Record<string, any>;
+  const localLotNumbers = Object.keys(localLots);
+  allLots.push(...localLotNumbers);
+
+  // Pour chaque apiculteur avec useProxy: true, récupérer ses lots depuis le proxy
+  for (const [code, beekeeper] of Object.entries(beekeepers)) {
+    if (beekeeper.useProxy) {
+      try {
+        const response = await fetch(
+          `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.NUMEROS_LOTS}?per_page=100`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            cache: 'no-store',
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          // Filtrer les lots de cet apiculteur (commençant par son code)
+          const beekeeperLots = data.data?.filter((lot: any) =>
+            lot.numero_lot?.startsWith(code)
+          ).map((lot: any) => lot.numero_lot);
+
+          if (beekeeperLots?.length) {
+            allLots.push(...beekeeperLots);
+          }
+        }
+      } catch (error) {
+        console.error(`Erreur lors de la récupération des lots pour ${code}:`, error);
+      }
+    }
+  }
+
+  // Retourner les lots uniques et triés
+  return [...new Set(allLots)].sort();
 }
