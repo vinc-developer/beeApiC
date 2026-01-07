@@ -185,11 +185,19 @@ const API = (function() {
     /**
      * Convertit les données locales (ancien format) vers le format du proxy BeePerf
      * @param {Object} legacyData - Données au format legacy
+     * @param {string} lotNumber - Numéro de lot (pour s'assurer qu'il est présent)
      * @returns {Object} - Données au format proxy BeePerf
      */
-    function convertLegacyToProxyFormat(legacyData) {
+    function convertLegacyToProxyFormat(legacyData, lotNumber) {
+        console.log('📝 Conversion des données legacy:', {
+            hasLotNumber: !!legacyData.lotNumber,
+            hasZone: !!legacyData.zone,
+            hasProduction: !!legacyData.production,
+            hasBeekeeper: !!legacyData.beekeeper
+        });
+
         return {
-            lotNumber: legacyData.lotNumber,
+            lotNumber: legacyData.lotNumber || lotNumber,
             ruchers: legacyData.zone ? [{
                 nom: 'Rucher principal',
                 nomPublicZone: legacyData.zone.publicName || 'Zone non spécifiée',
@@ -200,7 +208,7 @@ const API = (function() {
                 dateConditionnement: legacyData.production?.bottlingDate || '',
                 nbRuchesRecoltees: undefined
             },
-            beekeeper: legacyData.beekeeper
+            beekeeper: legacyData.beekeeper || null
         };
     }
 
@@ -261,25 +269,46 @@ const API = (function() {
             }
         } else {
             // Récupérer les données depuis le fichier JSON local (ancien format)
+            console.log('📂 Récupération depuis le fichier JSON local...');
             const legacyData = await loadTraceabilityFromJSON(lotNumber.trim());
 
             if (!legacyData) {
-                console.error(`Aucune donnée de traçabilité trouvée pour le lot: ${lotNumber.trim()}`);
+                console.error(`❌ Aucune donnée de traçabilité trouvée pour le lot: ${lotNumber.trim()}`);
                 throw new Error('NOT_FOUND');
             }
 
+            console.log('✓ Données trouvées dans le JSON local');
+
             // Convertir l'ancien format vers le format proxy BeePerf
             console.log('🔄 Conversion des données locales vers le format proxy BeePerf');
-            data = convertLegacyToProxyFormat(legacyData);
+            data = convertLegacyToProxyFormat(legacyData, lotNumber.trim());
+
+            console.log('✓ Données converties:', {
+                lotNumber: data.lotNumber,
+                hasRuchers: !!data.ruchers && data.ruchers.length > 0,
+                hasProduction: !!data.production,
+                hasBeekeeper: !!data.beekeeper
+            });
         }
 
         // Fusionner les données de l'apiculteur si elles existent
         if (beekeeperData) {
+            console.log('👤 Fusion des données apiculteur depuis beekeepers.json');
             data.beekeeper = {
                 ...data.beekeeper, // Données de l'API ou du JSON (si présentes)
                 ...beekeeperData   // Données du fichier beekeepers.json (prioritaires)
             };
+        } else {
+            console.warn('⚠️ Aucune donnée apiculteur trouvée dans beekeepers.json');
         }
+
+        console.log('✅ Données finales de traçabilité prêtes:', {
+            lotNumber: data.lotNumber,
+            hasRuchers: !!data.ruchers,
+            hasProduction: !!data.production,
+            hasBeekeeperData: !!data.beekeeper,
+            beekeeperName: data.beekeeper ? `${data.beekeeper.firstName} ${data.beekeeper.lastName}` : 'Non défini'
+        });
 
         return data;
     }
