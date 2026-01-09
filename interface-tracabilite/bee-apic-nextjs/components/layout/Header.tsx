@@ -90,10 +90,12 @@ export default function Header() {
                 onClick={() => {
                   console.log('🐝 CLICK Apiculture, current:', apicultureOpen);
                   setApicultureOpen(!apicultureOpen);
+                  if (!apicultureOpen) setEngagementsOpen(false);
                 }}
                 onMouseEnter={() => {
                   console.log('🐝 Mouse ENTER Apiculture');
                   setApicultureOpen(true);
+                  setEngagementsOpen(false);
                 }}
               >
                 <span className={styles.navLinkIcon}>
@@ -168,8 +170,14 @@ export default function Header() {
             >
               <button
                 className={styles.dropdownToggle}
-                onClick={() => setEngagementsOpen(!engagementsOpen)}
-                onMouseEnter={() => setEngagementsOpen(true)}
+                onClick={() => {
+                  setEngagementsOpen(!engagementsOpen);
+                  if (!engagementsOpen) setApicultureOpen(false);
+                }}
+                onMouseEnter={() => {
+                  setEngagementsOpen(true);
+                  setApicultureOpen(false);
+                }}
               >
                 <span className={styles.navLinkIcon}>
                   <span>👥</span>
