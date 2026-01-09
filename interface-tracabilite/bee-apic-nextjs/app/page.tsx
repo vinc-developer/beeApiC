@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
