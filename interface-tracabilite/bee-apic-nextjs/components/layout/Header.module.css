@@ -190,18 +190,14 @@
     transform: translateY(-10px);
     transition: all 0.3s ease;
     z-index: 1000;
-}
-
-.dropdown:hover .dropdownMenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    pointer-events: none;
 }
 
 .dropdownMenuOpen {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) !important;
+    pointer-events: auto !important;
 }
 
 .dropdownItem {

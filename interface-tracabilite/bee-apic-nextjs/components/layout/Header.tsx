@@ -8,8 +8,10 @@ import { useState } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [apicultureOpen, setApicultureOpen] = useState(false);
-  const [engagementsOpen, setEngagementsOpen] = useState(false);
+  const [mobileApicultureOpen, setMobileApicultureOpen] = useState(false);
+  const [mobileEngagementsOpen, setMobileEngagementsOpen] = useState(false);
+  const [desktopApicultureOpen, setDesktopApicultureOpen] = useState(false);
+  const [desktopEngagementsOpen, setDesktopEngagementsOpen] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -46,12 +48,12 @@ export default function Header() {
             {/* Dropdown L'Apiculture */}
             <div
               className={styles.dropdown}
-              onMouseEnter={() => setApicultureOpen(true)}
-              onMouseLeave={() => setApicultureOpen(false)}
+              onMouseEnter={() => setDesktopApicultureOpen(true)}
+              onMouseLeave={() => setDesktopApicultureOpen(false)}
             >
               <button
                 className={styles.dropdownToggle}
-                onClick={() => setApicultureOpen(!apicultureOpen)}
+                onClick={() => setDesktopApicultureOpen(!desktopApicultureOpen)}
               >
                 <span className={styles.navLinkIcon}>
                   <span>🐝</span>
@@ -59,7 +61,7 @@ export default function Header() {
                   <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </button>
-              <div className={`${styles.dropdownMenu} ${apicultureOpen ? styles.dropdownMenuOpen : ''}`}>
+              <div className={`${styles.dropdownMenu} ${desktopApicultureOpen ? styles.dropdownMenuOpen : ''}`}>
                 <Link href="/au-rucher" className={styles.dropdownItem}>
                   <span>🐝</span>
                   <span>Au rucher</span>
@@ -82,12 +84,12 @@ export default function Header() {
             {/* Dropdown Apiculteurs & Traçabilité */}
             <div
               className={styles.dropdown}
-              onMouseEnter={() => setEngagementsOpen(true)}
-              onMouseLeave={() => setEngagementsOpen(false)}
+              onMouseEnter={() => setDesktopEngagementsOpen(true)}
+              onMouseLeave={() => setDesktopEngagementsOpen(false)}
             >
               <button
                 className={styles.dropdownToggle}
-                onClick={() => setEngagementsOpen(!engagementsOpen)}
+                onClick={() => setDesktopEngagementsOpen(!desktopEngagementsOpen)}
               >
                 <span className={styles.navLinkIcon}>
                   <span>👥</span>
@@ -95,7 +97,7 @@ export default function Header() {
                   <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </button>
-              <div className={`${styles.dropdownMenu} ${engagementsOpen ? styles.dropdownMenuOpen : ''}`}>
+              <div className={`${styles.dropdownMenu} ${desktopEngagementsOpen ? styles.dropdownMenuOpen : ''}`}>
                 <Link href="/apiculteurs" className={styles.dropdownItem}>
                   <span>👥</span>
                   <span>Nos apiculteurs</span>
@@ -177,12 +179,12 @@ export default function Header() {
               <div className={styles.mobileDropdown}>
                 <button
                   className={styles.mobileDropdownToggle}
-                  onClick={() => setApicultureOpen(!apicultureOpen)}
+                  onClick={() => setMobileApicultureOpen(!mobileApicultureOpen)}
                 >
                   <span>🐝 L'Apiculture</span>
-                  <span className={styles.dropdownArrow}>{apicultureOpen ? '▲' : '▼'}</span>
+                  <span className={styles.dropdownArrow}>{mobileApicultureOpen ? '▲' : '▼'}</span>
                 </button>
-                {apicultureOpen && (
+                {mobileApicultureOpen && (
                   <div className={styles.mobileDropdownMenu}>
                     <Link href="/au-rucher" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
                       <span>🐝</span>
@@ -208,12 +210,12 @@ export default function Header() {
               <div className={styles.mobileDropdown}>
                 <button
                   className={styles.mobileDropdownToggle}
-                  onClick={() => setEngagementsOpen(!engagementsOpen)}
+                  onClick={() => setMobileEngagementsOpen(!mobileEngagementsOpen)}
                 >
                   <span>👥 Nos engagements</span>
-                  <span className={styles.dropdownArrow}>{engagementsOpen ? '▲' : '▼'}</span>
+                  <span className={styles.dropdownArrow}>{mobileEngagementsOpen ? '▲' : '▼'}</span>
                 </button>
-                {engagementsOpen && (
+                {mobileEngagementsOpen && (
                   <div className={styles.mobileDropdownMenu}>
                     <Link href="/apiculteurs" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
                       <span>👥</span>

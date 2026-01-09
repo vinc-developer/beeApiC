@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.15);
     pointer-events: none;
 }
 
@@ -88,7 +88,7 @@
 .slogan {
     font-size: 1.5rem;
     font-weight: 500;
-    color: #374151;
+    color: #FFFFFF;
     margin-bottom: 2rem;
 }
 
