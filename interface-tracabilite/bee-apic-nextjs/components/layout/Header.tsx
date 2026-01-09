@@ -31,6 +31,7 @@ export default function Header() {
 
   // Ferme tous les menus
   const closeAllMenus = () => {
+    console.log('🔴 Fermeture de tous les menus');
     setApicultureOpen(false);
     setEngagementsOpen(false);
   };
@@ -109,19 +110,42 @@ export default function Header() {
                 className={`${styles.dropdownMenu} ${apicultureOpen ? styles.dropdownMenuOpen : ''}`}
                 style={apicultureOpen ? { opacity: 1, visibility: 'visible', transform: 'translateY(0)' } : {}}
               >
-                <Link href="/au-rucher" className={styles.dropdownItem} onClick={closeAllMenus}>
+                <Link
+                  href="/au-rucher"
+                  className={styles.dropdownItem}
+                  onClick={closeAllMenus}
+                  onMouseDown={(e) => {
+                    console.log('🔴 MouseDown Au rucher');
+                    closeAllMenus();
+                  }}
+                >
                   <span>🐝</span>
                   <span>Au rucher</span>
                 </Link>
-                <Link href="/mon-apiculture" className={styles.dropdownItem} onClick={closeAllMenus}>
+                <Link
+                  href="/mon-apiculture"
+                  className={styles.dropdownItem}
+                  onClick={closeAllMenus}
+                  onMouseDown={closeAllMenus}
+                >
                   <span>👨‍🌾</span>
                   <span>Mon apiculture</span>
                 </Link>
-                <Link href="/mes-miels" className={styles.dropdownItem} onClick={closeAllMenus}>
+                <Link
+                  href="/mes-miels"
+                  className={styles.dropdownItem}
+                  onClick={closeAllMenus}
+                  onMouseDown={closeAllMenus}
+                >
                   <span>🍯</span>
                   <span>Mes miels</span>
                 </Link>
-                <Link href="/frelon-asiatique" className={styles.dropdownItem} onClick={closeAllMenus}>
+                <Link
+                  href="/frelon-asiatique"
+                  className={styles.dropdownItem}
+                  onClick={closeAllMenus}
+                  onMouseDown={closeAllMenus}
+                >
                   <span>⚠️</span>
                   <span>Le frelon asiatique</span>
                 </Link>
@@ -149,11 +173,21 @@ export default function Header() {
                 className={`${styles.dropdownMenu} ${engagementsOpen ? styles.dropdownMenuOpen : ''}`}
                 style={engagementsOpen ? { opacity: 1, visibility: 'visible', transform: 'translateY(0)' } : {}}
               >
-                <Link href="/apiculteurs" className={styles.dropdownItem} onClick={closeAllMenus}>
+                <Link
+                  href="/apiculteurs"
+                  className={styles.dropdownItem}
+                  onClick={closeAllMenus}
+                  onMouseDown={closeAllMenus}
+                >
                   <span>👥</span>
                   <span>Nos apiculteurs</span>
                 </Link>
-                <Link href="/tracabilite" className={styles.dropdownItem} onClick={closeAllMenus}>
+                <Link
+                  href="/tracabilite"
+                  className={styles.dropdownItem}
+                  onClick={closeAllMenus}
+                  onMouseDown={closeAllMenus}
+                >
                   <span>🔍</span>
                   <span>Tracer mon miel</span>
                 </Link>
