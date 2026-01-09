@@ -1,72 +1,109 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
+import styles from './Footer.module.css';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-gray-200 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container-custom">
-        <div className="py-12 md:py-16">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
+        <div className={styles.footerContent}>
+          <div className={styles.footerGrid}>
             {/* À propos */}
-            <div className="lg:col-span-2">
-              <div className="mb-4 flex items-center gap-2">
-                <span className="text-3xl">🐝</span>
-                <h3 className="text-2xl font-bold text-gray-900">{siteConfig.name}</h3>
+            <div className={styles.aboutSection}>
+              <div className={styles.aboutHeader}>
+                <span className={styles.aboutIcon}>🐝</span>
+                <h3 className={styles.aboutTitle}>{siteConfig.name}</h3>
               </div>
-              <p className="mb-3 text-lg font-medium text-secondary-600">{siteConfig.label}</p>
-              <p className="mb-4 text-base font-semibold text-primary-600">{siteConfig.slogan}</p>
-              <p className="max-w-md text-sm text-gray-600 leading-relaxed">
+              <p className={styles.aboutLabel}>{siteConfig.label}</p>
+              <p className={styles.aboutSlogan}>{siteConfig.slogan}</p>
+              <p className={styles.aboutDescription}>
                 Découvrez l'origine de votre miel avec notre système de traçabilité complet.
                 Du rucher à votre table, suivez chaque étape de production.
               </p>
             </div>
 
             {/* Navigation */}
-            <div>
-              <h4 className="mb-4 text-lg font-semibold text-gray-900">Navigation</h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/" className="group flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-primary-600">
-                    <span className="text-base">🏠</span>
-                    <span className="group-hover:translate-x-1 transition-transform">Accueil</span>
+            <div className={styles.navSection}>
+              <h4 className={styles.navTitle}>Navigation</h4>
+              <ul className={styles.navList}>
+                <li className={styles.navItem}>
+                  <Link href="/" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>🏠</span>
+                    <span className={styles.navLinkText}>Accueil</span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/tracabilite" className="group flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-primary-600">
-                    <span className="text-base">🔍</span>
-                    <span className="group-hover:translate-x-1 transition-transform">Traçabilité</span>
+                <li className={styles.navItem}>
+                  <Link href="/au-rucher" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>🐝</span>
+                    <span className={styles.navLinkText}>Au rucher</span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/a-propos" className="group flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-primary-600">
-                    <span className="text-base">ℹ️</span>
-                    <span className="group-hover:translate-x-1 transition-transform">À Propos</span>
+                <li className={styles.navItem}>
+                  <Link href="/mon-apiculture" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>👨‍🌾</span>
+                    <span className={styles.navLinkText}>Mon apiculture</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/mes-miels" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>🍯</span>
+                    <span className={styles.navLinkText}>Mes miels</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/frelon-asiatique" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>⚠️</span>
+                    <span className={styles.navLinkText}>Le frelon asiatique</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/contact" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>📧</span>
+                    <span className={styles.navLinkText}>Me contacter</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <a href="https://bee-apic.com" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>🛒</span>
+                    <span className={styles.navLinkText}>Boutique</span>
+                  </a>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/tracabilite" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>🔍</span>
+                    <span className={styles.navLinkText}>Traçabilité</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/a-propos" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>ℹ���</span>
+                    <span className={styles.navLinkText}>À Propos</span>
                   </Link>
                 </li>
               </ul>
             </div>
 
             {/* Contact */}
-            <div>
-              <h4 className="mb-4 text-lg font-semibold text-gray-900">Contact</h4>
-              <ul className="space-y-3 text-sm text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="text-base">📧</span>
-                  <a href={`mailto:${siteConfig.company.email}`} className="hover:text-primary-600 transition-colors">
+            <div className={styles.contactSection}>
+              <h4 className={styles.contactTitle}>Contact</h4>
+              <ul className={styles.contactList}>
+                <li className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📧</span>
+                  <a href={`mailto:${siteConfig.company.email}`} className={styles.contactLink}>
                     {siteConfig.company.email}
                   </a>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-base">📞</span>
-                  <a href={`tel:${siteConfig.company.phone}`} className="hover:text-primary-600 transition-colors">
+                <li className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📞</span>
+                  <a href={`tel:${siteConfig.company.phone}`} className={styles.contactLink}>
                     {siteConfig.company.phone}
                   </a>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-base">📍</span>
-                  <span className="whitespace-pre-line leading-relaxed">{siteConfig.company.address}</span>
+                <li className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📍</span>
+                  <span className={styles.contactAddress}>{siteConfig.company.address}</span>
                 </li>
               </ul>
             </div>
@@ -74,14 +111,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-200 py-6">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-gray-600">
+        <div className={styles.footerBottom}>
+          <div className={styles.footerBottomContent}>
+            <p className={styles.copyright}>
               &copy; {currentYear} {siteConfig.name}. Tous droits réservés.
             </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
+            <div className={styles.madeWith}>
               <span>Fait avec</span>
-              <span className="text-red-500">❤️</span>
+              <span className={styles.heart}>❤️</span>
               <span>en Loire-Atlantique</span>
             </div>
           </div>

@@ -1,58 +1,115 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig } from '@/config/site';
+import styles from './Header.module.css';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-amber-100 bg-white/95 shadow-sm backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
-      <div className="container-custom">
-        <div className="flex h-20 items-center justify-between">
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
+        <div className={styles.headerContent}>
           {/* Logo */}
-          <Link href="/" className="group flex items-center space-x-3 transition-transform hover:scale-105">
-            <div className="relative h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-amber-100 to-amber-200 p-1 shadow-md">
+          <Link href="/" className={styles.logo}>
+            <div className={styles.logoImageWrapper}>
               <Image
                 src="/images/logo-beeapic.png"
                 alt={siteConfig.name}
                 width={48}
                 height={48}
-                className="h-full w-full rounded-full object-cover"
+                className={styles.logoImage}
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-gray-900 transition-colors group-hover:text-primary-600">
+            <div className={styles.logoText}>
+              <span className={styles.logoName}>
                 {siteConfig.name}
               </span>
-              <span className="text-xs text-gray-500">Don't Pannic, Bee Api'C !</span>
+              <span className={styles.logoSlogan}>Don't Pannic, Bee Api'C !</span>
             </div>
           </Link>
 
           {/* Navigation Desktop */}
-          <nav className="hidden items-center space-x-2 md:flex">
+          <nav className={styles.nav}>
             <Link
               href="/"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:bg-amber-50 hover:text-primary-600"
+              className={styles.navLink}
             >
-              <span className="flex items-center gap-2">
+              <span className={styles.navLinkIcon}>
                 <span>🏠</span>
-                Accueil
+                <span>Accueil</span>
               </span>
             </Link>
             <Link
-              href="/tracabilite"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:bg-amber-50 hover:text-primary-600"
+              href="/au-rucher"
+              className={styles.navLink}
             >
-              <span className="flex items-center gap-2">
+              <span className={styles.navLinkIcon}>
+                <span>🐝</span>
+                <span>Au rucher</span>
+              </span>
+            </Link>
+            <Link
+              href="/mon-apiculture"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
+                <span>👨‍🌾</span>
+                <span>Mon apiculture</span>
+              </span>
+            </Link>
+            <Link
+              href="/mes-miels"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
+                <span>🍯</span>
+                <span>Mes miels</span>
+              </span>
+            </Link>
+            <Link
+              href="/frelon-asiatique"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
+                <span>⚠️</span>
+                <span>Le frelon asiatique</span>
+              </span>
+            </Link>
+            <Link
+              href="/contact"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
+                <span>📧</span>
+                <span>Me contacter</span>
+              </span>
+            </Link>
+            <a
+              href="https://bee-apic.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
+                <span>🛒</span>
+                <span>Boutique</span>
+              </span>
+            </a>
+            <Link
+              href="/tracabilite"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
                 <span>🔍</span>
-                Traçabilité
+                <span>Traçabilité</span>
               </span>
             </Link>
             <Link
               href="/a-propos"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:bg-amber-50 hover:text-primary-600"
+              className={styles.navLink}
             >
-              <span className="flex items-center gap-2">
+              <span className={styles.navLinkIcon}>
                 <span>ℹ️</span>
-                À Propos
+                <span>À Propos</span>
               </span>
             </Link>
           </nav>
@@ -60,18 +117,18 @@ export default function Header() {
           {/* CTA Button */}
           <Link
             href="/tracabilite"
-            className="hidden rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-700 hover:shadow-md active:scale-95 lg:inline-flex"
+            className={styles.ctaButton}
           >
             Tracer mon miel
           </Link>
 
           {/* Mobile menu button */}
           <button
-            className="rounded-lg p-2 text-gray-700 transition-colors hover:bg-gray-100 md:hidden"
+            className={styles.mobileMenuButton}
             aria-label="Menu"
           >
             <svg
-              className="h-6 w-6"
+              className={styles.menuIcon}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

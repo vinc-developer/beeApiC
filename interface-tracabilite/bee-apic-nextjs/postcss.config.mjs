@@ -1,6 +1,6 @@
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    // Tailwind CSS retiré - utilisation de CSS personnalisé uniquement
   },
 };
 

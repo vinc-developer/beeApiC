@@ -44,71 +44,71 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
       </section>
 
-      <div className="container">
+      <div className={styles.container}>
         {/* Section Maison Mère */}
-        <section className="company-section">
-          <div className="company-card">
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
             {/* Header */}
-            <div className="company-header">
-              <span className="company-icon">🏢</span>
-              <h2 className="company-title">Bee Api'C</h2>
-              <span className="company-badge">Entreprise Locale</span>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🏢</span>
+              <h2 className={styles.companyTitle}>Bee Api'C</h2>
+              <span className={styles.companyBadge}>Entreprise Locale</span>
             </div>
 
             {/* Content */}
-            <div className="company-content">
+            <div className={styles.companyContent}>
               {/* Info */}
-              <div className="company-info">
-                <p className="company-description">
+              <div className={styles.companyInfo}>
+                <p className={styles.companyDescription}>
                   Bee Api'C est une entreprise familiale engagée dans la promotion du miel 100% local de Loire-Atlantique.
                   Nous travaillons en étroite collaboration avec des apiculteurs passionnés pour vous offrir un miel de qualité,
                   traçable et respectueux de l'environnement.
                 </p>
 
-                <div className="company-label">
-                  <span className="label-icon">🇫🇷</span>
-                  <span className="label-text">
+                <div className={styles.companyLabel}>
+                  <span className={styles.labelIcon}>🇫🇷</span>
+                  <span className={styles.labelText}>
                     {siteConfig.label}
                   </span>
                 </div>
               </div>
 
               {/* Contact */}
-              <div className="company-contact">
-                <h3 className="contact-title">Nous contacter</h3>
-                <div className="contact-info">
-                  <div className="contact-item">
-                    <span className="contact-icon">📍</span>
-                    <span className="contact-text">{siteConfig.company.address}</span>
+              <div className={styles.companyContact}>
+                <h3 className={styles.contactTitle}>Nous contacter</h3>
+                <div className={styles.contactInfo}>
+                  <div className={styles.contactItem}>
+                    <span className={styles.contactIcon}>📍</span>
+                    <span className={styles.contactText}>{siteConfig.company.address}</span>
                   </div>
 
-                  <div className="contact-item">
-                    <span className="contact-icon">🌐</span>
+                  <div className={styles.contactItem}>
+                    <span className={styles.contactIcon}>🌐</span>
                     <a
                       href={siteConfig.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="contact-link"
+                      className={styles.contactLink}
                     >
                       bee-apic.com
                     </a>
                   </div>
 
-                  <div className="contact-item">
-                    <span className="contact-icon">📧</span>
+                  <div className={styles.contactItem}>
+                    <span className={styles.contactIcon}>📧</span>
                     <a
                       href={`mailto:${siteConfig.company.email}`}
-                      className="contact-link"
+                      className={styles.contactLink}
                     >
                       {siteConfig.company.email}
                     </a>
                   </div>
 
-                  <div className="contact-item">
-                    <span className="contact-icon">📱</span>
+                  <div className={styles.contactItem}>
+                    <span className={styles.contactIcon}>📱</span>
                     <a
                       href={`tel:${siteConfig.company.phone}`}
-                      className="contact-link"
+                      className={styles.contactLink}
                     >
                       {siteConfig.company.phone}
                     </a>
@@ -120,35 +120,35 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="section">
-          <h2 className="mb-12 text-center text-4xl font-bold">
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>
             Découvrez l'origine de votre miel
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
+          <div className={styles.ctaGrid}>
             {/* Traçabilité */}
             <Link
               href="/tracabilite"
-              className="group relative overflow-hidden rounded-2xl border-2 border-primary-200 bg-white p-10 shadow-lg transition-all duration-300 hover:border-primary-400 hover:shadow-2xl hover:-translate-y-2"
+              className={styles.ctaCard}
             >
-              <div className="absolute right-0 top-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-amber-100 opacity-50 blur-3xl transition-all duration-300 group-hover:scale-150"></div>
+              <div className={styles.ctaCardBg}></div>
 
-              <div className="relative text-center">
-                <div className="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-amber-100 to-amber-200 text-5xl shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+              <div className={styles.ctaCardContent}>
+                <div className={styles.ctaIcon}>
                   🍯
                 </div>
 
-                <h3 className="mb-3 text-3xl font-bold text-gray-900">
+                <h3 className={styles.ctaTitle}>
                   Traçabilité
                 </h3>
 
-                <p className="mb-4 text-lg text-gray-600">
+                <p className={styles.ctaDescription}>
                   Découvrez l'origine de votre pot de miel en quelques secondes
                 </p>
 
-                <div className="inline-flex items-center gap-2 text-primary-600 font-semibold group-hover:gap-3 transition-all">
+                <div className={styles.ctaLink}>
                   <span>Rechercher maintenant</span>
-                  <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -158,26 +158,26 @@ export default function Home() {
             {/* Nos Apiculteurs */}
             <Link
               href="/a-propos"
-              className="group relative overflow-hidden rounded-2xl border-2 border-secondary-200 bg-white p-10 shadow-lg transition-all duration-300 hover:border-secondary-400 hover:shadow-2xl hover:-translate-y-2"
+              className={`${styles.ctaCard} ${styles.ctaCardSecondary}`}
             >
-              <div className="absolute right-0 top-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-green-100 opacity-50 blur-3xl transition-all duration-300 group-hover:scale-150"></div>
+              <div className={styles.ctaCardBg}></div>
 
-              <div className="relative text-center">
-                <div className="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-100 to-green-200 text-5xl shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+              <div className={styles.ctaCardContent}>
+                <div className={`${styles.ctaIcon} ${styles.ctaIconSecondary}`}>
                   🐝
                 </div>
 
-                <h3 className="mb-3 text-3xl font-bold text-gray-900">
+                <h3 className={styles.ctaTitle}>
                   Nos Apiculteurs
                 </h3>
 
-                <p className="mb-4 text-lg text-gray-600">
+                <p className={styles.ctaDescription}>
                   Rencontrez nos producteurs passionnés et découvrez leur travail
                 </p>
 
-                <div className="inline-flex items-center gap-2 text-secondary-600 font-semibold group-hover:gap-3 transition-all">
+                <div className={`${styles.ctaLink} ${styles.ctaLinkSecondary}`}>
                   <span>Découvrir</span>
-                  <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -187,42 +187,42 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <section className="section bg-gradient-to-b from-gray-50 to-white -mx-4 px-4 md:-mx-6 md:px-6 lg:-mx-8 lg:px-8">
-          <div className="container-custom">
-            <h2 className="mb-4 text-center text-4xl font-bold">
+        <section className={styles.featuresSection}>
+          <div className={styles.featuresContainer}>
+            <h2 className={styles.featuresTitle}>
               Pourquoi choisir Bee Api'C ?
             </h2>
-            <p className="mb-12 text-center text-lg text-gray-600">
+            <p className={styles.featuresSubtitle}>
               Une démarche de qualité et de transparence
             </p>
 
-            <div className="grid gap-8 md:grid-cols-3">
-              <div className="group rounded-xl bg-white/80 p-8 text-center shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-2">
-                <div className="mb-4 text-6xl transition-transform duration-300 group-hover:scale-110">
+            <div className={styles.featuresGrid}>
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
                   🇫🇷
                 </div>
-                <h3 className="mb-3 text-2xl font-bold">100% Local</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className={styles.featureTitle}>100% Local</h3>
+                <p className={styles.featureDescription}>
                   Miel produit et récolté exclusivement en Loire Atlantique
                 </p>
               </div>
 
-              <div className="group rounded-xl bg-white/80 p-8 text-center shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-2">
-                <div className="mb-4 text-6xl transition-transform duration-300 group-hover:scale-110">
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
                   🔍
                 </div>
-                <h3 className="mb-3 text-2xl font-bold">Traçabilité Totale</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className={styles.featureTitle}>Traçabilité Totale</h3>
+                <p className={styles.featureDescription}>
                   Suivez le parcours de votre miel de la ruche à votre table
                 </p>
               </div>
 
-              <div className="group rounded-xl bg-white/80 p-8 text-center shadow-md backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-2">
-                <div className="mb-4 text-6xl transition-transform duration-300 group-hover:scale-110">
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
                   👨‍🌾
                 </div>
-                <h3 className="mb-3 text-2xl font-bold">Apiculteurs Passionnés</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className={styles.featureTitle}>Apiculteurs Passionnés</h3>
+                <p className={styles.featureDescription}>
                   Des producteurs engagés et qualifiés pour un miel d'exception
                 </p>
               </div>
