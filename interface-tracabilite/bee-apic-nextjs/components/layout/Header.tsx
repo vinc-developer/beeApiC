@@ -73,12 +73,6 @@ export default function Header() {
 
           {/* Navigation Desktop */}
           <nav className={styles.nav}>
-            <Link href="/" className={styles.navLink}>
-              <span className={styles.navLinkIcon}>
-                <span>🏠</span>
-                <span>Accueil</span>
-              </span>
-            </Link>
 
             {/* Dropdown L'Apiculture */}
             <div
@@ -234,22 +228,7 @@ export default function Header() {
                 <span>Boutique</span>
               </span>
             </a>
-
-            <Link href="/a-propos" className={styles.navLink}>
-              <span className={styles.navLinkIcon}>
-                <span>ℹ️</span>
-                <span>À Propos</span>
-              </span>
-            </Link>
           </nav>
-
-          {/* CTA Button */}
-          <Link
-            href="/tracabilite"
-            className={styles.ctaButton}
-          >
-            Tracer mon miel
-          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -277,10 +256,6 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className={styles.mobileMenu}>
             <nav className={styles.mobileNav}>
-              <Link href="/" className={styles.mobileNavLink} onClick={closeEverything}>
-                <span>🏠</span>
-                <span>Accueil</span>
-              </Link>
 
               {/* Apiculture Mobile */}
               <div className={styles.mobileDropdown}>
@@ -351,11 +326,6 @@ export default function Header() {
                 <span>🛒</span>
                 <span>Boutique</span>
               </a>
-
-              <Link href="/a-propos" className={styles.mobileNavLink} onClick={closeEverything}>
-                <span>ℹ️</span>
-                <span>À Propos</span>
-              </Link>
             </nav>
           </div>
         )}
