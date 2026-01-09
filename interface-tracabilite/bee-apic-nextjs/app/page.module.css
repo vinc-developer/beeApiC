@@ -5,7 +5,10 @@
 /* Hero Section */
 .hero {
     position: relative;
-    background: linear-gradient(135deg, #FFF5E6 0%, #FFE0B2 50%, #FFCC80 100%);
+    background-image: url('/images/cadre-miel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 4rem 0;
     overflow: hidden;
 }
@@ -17,8 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/images/pattern-honey.svg') repeat;
-    opacity: 0.05;
+    background: rgba(255, 255, 255, 0.85);
     pointer-events: none;
 }
 

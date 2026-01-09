@@ -34,36 +34,51 @@ export default function Footer() {
                     <span className={styles.navLinkText}>Accueil</span>
                   </Link>
                 </li>
+
                 <li className={styles.navItem}>
-                  <Link href="/au-rucher" className={styles.navLink}>
+                  <span className={styles.navSubtitle}>🐝 L'Apiculture</span>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/au-rucher" className={styles.navLinkIndent}>
                     <span className={styles.navLinkIcon}>🐝</span>
                     <span className={styles.navLinkText}>Au rucher</span>
                   </Link>
                 </li>
                 <li className={styles.navItem}>
-                  <Link href="/mon-apiculture" className={styles.navLink}>
+                  <Link href="/mon-apiculture" className={styles.navLinkIndent}>
                     <span className={styles.navLinkIcon}>👨‍🌾</span>
                     <span className={styles.navLinkText}>Mon apiculture</span>
                   </Link>
                 </li>
                 <li className={styles.navItem}>
-                  <Link href="/apiculteurs" className={styles.navLink}>
-                    <span className={styles.navLinkIcon}>👥</span>
-                    <span className={styles.navLinkText}>Nos apiculteurs</span>
-                  </Link>
-                </li>
-                <li className={styles.navItem}>
-                  <Link href="/mes-miels" className={styles.navLink}>
+                  <Link href="/mes-miels" className={styles.navLinkIndent}>
                     <span className={styles.navLinkIcon}>🍯</span>
                     <span className={styles.navLinkText}>Mes miels</span>
                   </Link>
                 </li>
                 <li className={styles.navItem}>
-                  <Link href="/frelon-asiatique" className={styles.navLink}>
+                  <Link href="/frelon-asiatique" className={styles.navLinkIndent}>
                     <span className={styles.navLinkIcon}>⚠️</span>
                     <span className={styles.navLinkText}>Le frelon asiatique</span>
                   </Link>
                 </li>
+
+                <li className={styles.navItem}>
+                  <span className={styles.navSubtitle}>👥 Apiculteurs & Traçabilité</span>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/apiculteurs" className={styles.navLinkIndent}>
+                    <span className={styles.navLinkIcon}>👥</span>
+                    <span className={styles.navLinkText}>Nos apiculteurs</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link href="/tracabilite" className={styles.navLinkIndent}>
+                    <span className={styles.navLinkIcon}>🔍</span>
+                    <span className={styles.navLinkText}>Tracer mon miel</span>
+                  </Link>
+                </li>
+
                 <li className={styles.navItem}>
                   <Link href="/contact" className={styles.navLink}>
                     <span className={styles.navLinkIcon}>📧</span>
@@ -77,14 +92,8 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className={styles.navItem}>
-                  <Link href="/tracabilite" className={styles.navLink}>
-                    <span className={styles.navLinkIcon}>🔍</span>
-                    <span className={styles.navLinkText}>Traçabilité</span>
-                  </Link>
-                </li>
-                <li className={styles.navItem}>
                   <Link href="/a-propos" className={styles.navLink}>
-                    <span className={styles.navLinkIcon}>ℹ���</span>
+                    <span className={styles.navLinkIcon}>ℹ️</span>
                     <span className={styles.navLinkText}>À Propos</span>
                   </Link>
                 </li>
@@ -133,3 +142,4 @@ export default function Footer() {
     </footer>
   );
 }
+

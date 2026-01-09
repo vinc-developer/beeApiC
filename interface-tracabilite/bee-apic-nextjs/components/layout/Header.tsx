@@ -54,23 +54,37 @@ export default function Header() {
                   <span>👨‍🌾</span>
                   <span>Mon apiculture</span>
                 </Link>
-                <Link href="/apiculteurs" className={styles.dropdownItem}>
-                  <span>👥</span>
-                  <span>Nos apiculteurs</span>
-                </Link>
                 <Link href="/mes-miels" className={styles.dropdownItem}>
                   <span>🍯</span>
                   <span>Mes miels</span>
                 </Link>
+                <Link href="/frelon-asiatique" className={styles.dropdownItem}>
+                  <span>⚠️</span>
+                  <span>Le frelon asiatique</span>
+                </Link>
               </div>
             </div>
 
-            <Link href="/frelon-asiatique" className={styles.navLink}>
-              <span className={styles.navLinkIcon}>
-                <span>⚠️</span>
-                <span>Le frelon asiatique</span>
-              </span>
-            </Link>
+            {/* Dropdown Apiculteurs & Traçabilité */}
+            <div className={styles.dropdown}>
+              <button className={styles.dropdownToggle}>
+                <span className={styles.navLinkIcon}>
+                  <span>👥</span>
+                  <span>Nos engagements</span>
+                  <span className={styles.dropdownArrow}>▼</span>
+                </span>
+              </button>
+              <div className={styles.dropdownMenu}>
+                <Link href="/apiculteurs" className={styles.dropdownItem}>
+                  <span>👥</span>
+                  <span>Nos apiculteurs</span>
+                </Link>
+                <Link href="/tracabilite" className={styles.dropdownItem}>
+                  <span>🔍</span>
+                  <span>Tracer mon miel</span>
+                </Link>
+              </div>
+            </div>
 
             <Link href="/contact" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
@@ -90,13 +104,6 @@ export default function Header() {
                 <span>Boutique</span>
               </span>
             </a>
-
-            <Link href="/tracabilite" className={styles.navLink}>
-              <span className={styles.navLinkIcon}>
-                <span>🔍</span>
-                <span>Traçabilité</span>
-              </span>
-            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -123,3 +130,4 @@ export default function Header() {
     </header>
   );
 }
+

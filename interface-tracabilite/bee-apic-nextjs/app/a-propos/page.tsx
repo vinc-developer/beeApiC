@@ -1,24 +1,25 @@
 import { siteConfig } from '@/config/site';
 import Link from 'next/link';
+import styles from './page.module.css';
 
 export default function AProposPage() {
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="mb-8 text-4xl font-bold text-center">
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1 className={styles.pageTitle}>
           À Propos de {siteConfig.name}
         </h1>
 
         {/* Présentation */}
-        <div className="mb-12 rounded-lg bg-white p-8 shadow-lg">
-          <h2 className="mb-4 text-2xl font-bold">Notre Mission</h2>
-          <p className="mb-4 text-gray-600">
+        <div className={styles.card}>
+          <h2 className={styles.cardTitle}>Notre Mission</h2>
+          <p className={styles.cardText}>
             {siteConfig.name} est une entreprise d'apiculture locale basée en
             Loire-Atlantique, dédiée à la production de miel 100% local et de
             qualité. Notre mission est de vous offrir un miel authentique,
             traçable de la ruche à votre table.
           </p>
-          <p className="text-gray-600">
+          <p className={styles.cardText}>
             Nous travaillons également en partenariat avec des apiculteurs
             locaux passionnés pour vous proposer une gamme variée de miels tout
             en maintenant nos exigences de qualité et de traçabilité.
@@ -26,27 +27,27 @@ export default function AProposPage() {
         </div>
 
         {/* Nos Valeurs */}
-        <div className="mb-12">
-          <h2 className="mb-6 text-2xl font-bold text-center">Nos Valeurs</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-              <div className="mb-3 text-4xl">🌱</div>
-              <h3 className="mb-2 text-xl font-semibold">Local</h3>
-              <p className="text-sm text-gray-600">
+        <div className={styles.valuesSection}>
+          <h2 className={styles.valuesSectionTitle}>Nos Valeurs</h2>
+          <div className={styles.valuesGrid}>
+            <div className={styles.valueCard}>
+              <span className={styles.valueIcon}>🌱</span>
+              <h3 className={styles.valueTitle}>Local</h3>
+              <p className={styles.valueDescription}>
                 100% de notre miel est produit en Loire-Atlantique
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-              <div className="mb-3 text-4xl">🔍</div>
-              <h3 className="mb-2 text-xl font-semibold">Traçabilité</h3>
-              <p className="text-sm text-gray-600">
+            <div className={styles.valueCard}>
+              <span className={styles.valueIcon}>🔍</span>
+              <h3 className={styles.valueTitle}>Traçabilité</h3>
+              <p className={styles.valueDescription}>
                 Chaque pot est traçable de la ruche à votre table
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 text-center shadow-lg">
-              <div className="mb-3 text-4xl">❤️</div>
-              <h3 className="mb-2 text-xl font-semibold">Passion</h3>
-              <p className="text-sm text-gray-600">
+            <div className={styles.valueCard}>
+              <span className={styles.valueIcon}>❤️</span>
+              <h3 className={styles.valueTitle}>Passion</h3>
+              <p className={styles.valueDescription}>
                 Des apiculteurs passionnés et engagés
               </p>
             </div>
@@ -54,57 +55,57 @@ export default function AProposPage() {
         </div>
 
         {/* Label */}
-        <div className="mb-12 rounded-lg bg-amber-50 p-8 text-center">
-          <div className="mb-4 text-5xl">🇫🇷</div>
-          <h2 className="mb-2 text-2xl font-bold text-amber-800">
+        <div className={styles.labelCard}>
+          <span className={styles.labelIcon}>🇫🇷</span>
+          <h2 className={styles.labelTitle}>
             {siteConfig.label}
           </h2>
-          <p className="text-amber-700">
+          <p className={styles.labelText}>
             Tous nos miels sont récoltés, extraits et mis en pot en
             Loire-Atlantique
           </p>
         </div>
 
         {/* Slogan */}
-        <div className="mb-12 rounded-lg bg-primary-50 p-8 text-center">
-          <h2 className="text-3xl font-bold text-primary-600">
+        <div className={styles.sloganCard}>
+          <h2 className={styles.sloganText}>
             {siteConfig.slogan}
           </h2>
         </div>
 
         {/* Contact */}
-        <div className="rounded-lg bg-white p-8 shadow-lg">
-          <h2 className="mb-6 text-2xl font-bold text-center">
+        <div className={styles.contactCard}>
+          <h2 className={styles.contactTitle}>
             Nous Contacter
           </h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="mb-3 font-semibold text-gray-700">
+          <div className={styles.contactGrid}>
+            <div className={styles.contactSection}>
+              <h3 className={styles.contactSectionTitle}>
                 Informations
               </h3>
-              <div className="space-y-2 text-sm text-gray-600">
-                <p className="flex items-start">
-                  <span className="mr-2">📧</span>
+              <div className={styles.contactInfo}>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📧</span>
                   <a
                     href={`mailto:${siteConfig.company.email}`}
-                    className="text-primary-600 hover:underline"
+                    className={styles.contactLink}
                   >
                     {siteConfig.company.email}
                   </a>
-                </p>
-                <p className="flex items-start">
-                  <span className="mr-2">📞</span>
+                </div>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📞</span>
                   <span>{siteConfig.company.phone}</span>
-                </p>
-                <p className="flex items-start">
-                  <span className="mr-2">🏢</span>
+                </div>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>🏢</span>
                   <span>SIRET: {siteConfig.company.siret}</span>
-                </p>
+                </div>
               </div>
             </div>
-            <div>
-              <h3 className="mb-3 font-semibold text-gray-700">Adresse</h3>
-              <p className="whitespace-pre-line text-sm text-gray-600">
+            <div className={styles.contactSection}>
+              <h3 className={styles.contactSectionTitle}>Adresse</h3>
+              <p className={styles.contactAddress}>
                 {siteConfig.company.address}
               </p>
             </div>
@@ -112,10 +113,10 @@ export default function AProposPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div className={styles.ctaSection}>
           <Link
             href="/tracabilite"
-            className="inline-block rounded-lg bg-primary-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-primary-500"
+            className={styles.ctaButton}
           >
             Découvrez la traçabilité de votre miel
           </Link>

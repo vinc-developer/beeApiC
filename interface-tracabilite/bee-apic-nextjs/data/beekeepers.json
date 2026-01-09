@@ -2,7 +2,7 @@
   "beekeepers": {
     "BA": {
       "code": "BA",
-      "useProxy": false,
+      "useProxy": true,
       "type": "Apiculteur Récoltant",
       "partnerSince": "",
       "firstName": "Vincent",
