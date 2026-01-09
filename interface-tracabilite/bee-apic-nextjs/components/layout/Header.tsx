@@ -105,7 +105,10 @@ export default function Header() {
                   <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </button>
-              <div className={`${styles.dropdownMenu} ${apicultureOpen ? styles.dropdownMenuOpen : ''}`}>
+              <div
+                className={`${styles.dropdownMenu} ${apicultureOpen ? styles.dropdownMenuOpen : ''}`}
+                style={apicultureOpen ? { opacity: 1, visibility: 'visible', transform: 'translateY(0)' } : {}}
+              >
                 <Link href="/au-rucher" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>🐝</span>
                   <span>Au rucher</span>
@@ -142,7 +145,10 @@ export default function Header() {
                   <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </button>
-              <div className={`${styles.dropdownMenu} ${engagementsOpen ? styles.dropdownMenuOpen : ''}`}>
+              <div
+                className={`${styles.dropdownMenu} ${engagementsOpen ? styles.dropdownMenuOpen : ''}`}
+                style={engagementsOpen ? { opacity: 1, visibility: 'visible', transform: 'translateY(0)' } : {}}
+              >
                 <Link href="/apiculteurs" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>👥</span>
                   <span>Nos apiculteurs</span>
