@@ -57,6 +57,15 @@ export default function Header() {
               </span>
             </Link>
             <Link
+              href="/apiculteurs"
+              className={styles.navLink}
+            >
+              <span className={styles.navLinkIcon}>
+                <span>👥</span>
+                <span>Nos apiculteurs</span>
+              </span>
+            </Link>
+            <Link
               href="/mes-miels"
               className={styles.navLink}
             >

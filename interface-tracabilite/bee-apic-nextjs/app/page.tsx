@@ -157,7 +157,7 @@ export default function Home() {
 
             {/* Nos Apiculteurs */}
             <Link
-              href="/a-propos"
+              href="/apiculteurs"
               className={`${styles.ctaCard} ${styles.ctaCardSecondary}`}
             >
               <div className={styles.ctaCardBg}></div>

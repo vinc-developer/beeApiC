@@ -47,6 +47,12 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li className={styles.navItem}>
+                  <Link href="/apiculteurs" className={styles.navLink}>
+                    <span className={styles.navLinkIcon}>👥</span>
+                    <span className={styles.navLinkText}>Nos apiculteurs</span>
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
                   <Link href="/mes-miels" className={styles.navLink}>
                     <span className={styles.navLinkIcon}>🍯</span>
                     <span className={styles.navLinkText}>Mes miels</span>
