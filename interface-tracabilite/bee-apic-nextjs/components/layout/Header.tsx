@@ -8,10 +8,26 @@ import { useState } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileApicultureOpen, setMobileApicultureOpen] = useState(false);
-  const [mobileEngagementsOpen, setMobileEngagementsOpen] = useState(false);
-  const [desktopApicultureOpen, setDesktopApicultureOpen] = useState(false);
-  const [desktopEngagementsOpen, setDesktopEngagementsOpen] = useState(false);
+  const [apicultureOpen, setApicultureOpen] = useState(false);
+  const [engagementsOpen, setEngagementsOpen] = useState(false);
+
+  // Ferme tous les menus
+  const closeAllMenus = () => {
+    setApicultureOpen(false);
+    setEngagementsOpen(false);
+  };
+
+  // Ferme tout y compris le menu mobile
+  const closeEverything = () => {
+    setMobileMenuOpen(false);
+    closeAllMenus();
+  };
+
+  // Ouvre le menu mobile avec sous-menus fermés
+  const openMobileMenu = () => {
+    setMobileMenuOpen(true);
+    closeAllMenus();
+  };
 
   return (
     <header className={styles.header}>
@@ -48,13 +64,13 @@ export default function Header() {
             {/* Dropdown L'Apiculture */}
             <div
               className={styles.dropdown}
-              data-open={desktopApicultureOpen}
-              onMouseEnter={() => setDesktopApicultureOpen(true)}
-              onMouseLeave={() => setDesktopApicultureOpen(false)}
+              data-open={apicultureOpen}
+              onMouseEnter={() => setApicultureOpen(true)}
+              onMouseLeave={() => setApicultureOpen(false)}
             >
               <button
                 className={styles.dropdownToggle}
-                onClick={() => setDesktopApicultureOpen(!desktopApicultureOpen)}
+                onClick={() => setApicultureOpen(!apicultureOpen)}
               >
                 <span className={styles.navLinkIcon}>
                   <span>🐝</span>
@@ -62,20 +78,20 @@ export default function Header() {
                   <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </button>
-              <div className={`${styles.dropdownMenu} ${desktopApicultureOpen ? styles.dropdownMenuOpen : ''}`}>
-                <Link href="/au-rucher" className={styles.dropdownItem}>
+              <div className={`${styles.dropdownMenu} ${apicultureOpen ? styles.dropdownMenuOpen : ''}`}>
+                <Link href="/au-rucher" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>🐝</span>
                   <span>Au rucher</span>
                 </Link>
-                <Link href="/mon-apiculture" className={styles.dropdownItem}>
+                <Link href="/mon-apiculture" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>👨‍🌾</span>
                   <span>Mon apiculture</span>
                 </Link>
-                <Link href="/mes-miels" className={styles.dropdownItem}>
+                <Link href="/mes-miels" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>🍯</span>
                   <span>Mes miels</span>
                 </Link>
-                <Link href="/frelon-asiatique" className={styles.dropdownItem}>
+                <Link href="/frelon-asiatique" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>⚠️</span>
                   <span>Le frelon asiatique</span>
                 </Link>
@@ -85,13 +101,13 @@ export default function Header() {
             {/* Dropdown Apiculteurs & Traçabilité */}
             <div
               className={styles.dropdown}
-              data-open={desktopEngagementsOpen}
-              onMouseEnter={() => setDesktopEngagementsOpen(true)}
-              onMouseLeave={() => setDesktopEngagementsOpen(false)}
+              data-open={engagementsOpen}
+              onMouseEnter={() => setEngagementsOpen(true)}
+              onMouseLeave={() => setEngagementsOpen(false)}
             >
               <button
                 className={styles.dropdownToggle}
-                onClick={() => setDesktopEngagementsOpen(!desktopEngagementsOpen)}
+                onClick={() => setEngagementsOpen(!engagementsOpen)}
               >
                 <span className={styles.navLinkIcon}>
                   <span>👥</span>
@@ -99,12 +115,12 @@ export default function Header() {
                   <span className={styles.dropdownArrow}>▼</span>
                 </span>
               </button>
-              <div className={`${styles.dropdownMenu} ${desktopEngagementsOpen ? styles.dropdownMenuOpen : ''}`}>
-                <Link href="/apiculteurs" className={styles.dropdownItem}>
+              <div className={`${styles.dropdownMenu} ${engagementsOpen ? styles.dropdownMenuOpen : ''}`}>
+                <Link href="/apiculteurs" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>👥</span>
                   <span>Nos apiculteurs</span>
                 </Link>
-                <Link href="/tracabilite" className={styles.dropdownItem}>
+                <Link href="/tracabilite" className={styles.dropdownItem} onClick={closeAllMenus}>
                   <span>🔍</span>
                   <span>Tracer mon miel</span>
                 </Link>
@@ -150,7 +166,7 @@ export default function Header() {
           <button
             className={styles.mobileMenuButton}
             aria-label="Menu"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => mobileMenuOpen ? closeEverything() : openMobileMenu()}
           >
             <svg
               className={styles.menuIcon}
@@ -172,7 +188,7 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className={styles.mobileMenu}>
             <nav className={styles.mobileNav}>
-              <Link href="/" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/" className={styles.mobileNavLink} onClick={closeEverything}>
                 <span>🏠</span>
                 <span>Accueil</span>
               </Link>
@@ -181,26 +197,26 @@ export default function Header() {
               <div className={styles.mobileDropdown}>
                 <button
                   className={styles.mobileDropdownToggle}
-                  onClick={() => setMobileApicultureOpen(!mobileApicultureOpen)}
+                  onClick={() => setApicultureOpen(!apicultureOpen)}
                 >
                   <span>🐝 L'Apiculture</span>
-                  <span className={styles.dropdownArrow}>{mobileApicultureOpen ? '▲' : '▼'}</span>
+                  <span className={styles.dropdownArrow}>{apicultureOpen ? '▲' : '▼'}</span>
                 </button>
-                {mobileApicultureOpen && (
+                {apicultureOpen && (
                   <div className={styles.mobileDropdownMenu}>
-                    <Link href="/au-rucher" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/au-rucher" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>🐝</span>
                       <span>Au rucher</span>
                     </Link>
-                    <Link href="/mon-apiculture" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/mon-apiculture" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>👨‍🌾</span>
                       <span>Mon apiculture</span>
                     </Link>
-                    <Link href="/mes-miels" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/mes-miels" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>🍯</span>
                       <span>Mes miels</span>
                     </Link>
-                    <Link href="/frelon-asiatique" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/frelon-asiatique" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>⚠️</span>
                       <span>Le frelon asiatique</span>
                     </Link>
@@ -212,18 +228,18 @@ export default function Header() {
               <div className={styles.mobileDropdown}>
                 <button
                   className={styles.mobileDropdownToggle}
-                  onClick={() => setMobileEngagementsOpen(!mobileEngagementsOpen)}
+                  onClick={() => setEngagementsOpen(!engagementsOpen)}
                 >
                   <span>👥 Nos engagements</span>
-                  <span className={styles.dropdownArrow}>{mobileEngagementsOpen ? '▲' : '▼'}</span>
+                  <span className={styles.dropdownArrow}>{engagementsOpen ? '▲' : '▼'}</span>
                 </button>
-                {mobileEngagementsOpen && (
+                {engagementsOpen && (
                   <div className={styles.mobileDropdownMenu}>
-                    <Link href="/apiculteurs" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/apiculteurs" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>👥</span>
                       <span>Nos apiculteurs</span>
                     </Link>
-                    <Link href="/tracabilite" className={styles.mobileDropdownItem} onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/tracabilite" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>🔍</span>
                       <span>Tracer mon miel</span>
                     </Link>
@@ -231,7 +247,7 @@ export default function Header() {
                 )}
               </div>
 
-              <Link href="/contact" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/contact" className={styles.mobileNavLink} onClick={closeEverything}>
                 <span>📧</span>
                 <span>Me contacter</span>
               </Link>
@@ -241,13 +257,13 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.mobileNavLink}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeEverything}
               >
                 <span>🛒</span>
                 <span>Boutique</span>
               </a>
 
-              <Link href="/a-propos" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/a-propos" className={styles.mobileNavLink} onClick={closeEverything}>
                 <span>ℹ️</span>
                 <span>À Propos</span>
               </Link>
