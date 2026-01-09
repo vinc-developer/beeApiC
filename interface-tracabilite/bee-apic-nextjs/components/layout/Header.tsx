@@ -48,6 +48,7 @@ export default function Header() {
             {/* Dropdown L'Apiculture */}
             <div
               className={styles.dropdown}
+              data-open={desktopApicultureOpen}
               onMouseEnter={() => setDesktopApicultureOpen(true)}
               onMouseLeave={() => setDesktopApicultureOpen(false)}
             >
@@ -84,6 +85,7 @@ export default function Header() {
             {/* Dropdown Apiculteurs & Traçabilité */}
             <div
               className={styles.dropdown}
+              data-open={desktopEngagementsOpen}
               onMouseEnter={() => setDesktopEngagementsOpen(true)}
               onMouseLeave={() => setDesktopEngagementsOpen(false)}
             >

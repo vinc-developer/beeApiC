@@ -171,7 +171,8 @@
     margin-left: 0.25rem;
 }
 
-.dropdown:hover .dropdownArrow {
+.dropdown:hover .dropdownArrow,
+.dropdown[data-open="true"] .dropdownArrow {
     transform: rotate(180deg);
 }
 
@@ -190,14 +191,20 @@
     transform: translateY(-10px);
     transition: all 0.3s ease;
     z-index: 1000;
-    pointer-events: none;
 }
 
+/* Hover CSS pour compatibilité */
+.dropdown:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* JavaScript override */
 .dropdownMenuOpen {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) !important;
-    pointer-events: auto !important;
 }
 
 .dropdownItem {
