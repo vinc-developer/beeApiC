@@ -84,20 +84,16 @@ export default function Header() {
             <div
               className={styles.dropdown}
               data-open={apicultureOpen}
-              onMouseEnter={() => {
-                console.log('🐝 Mouse ENTER Apiculture');
-                setApicultureOpen(true);
-              }}
-              onMouseLeave={() => {
-                console.log('🐝 Mouse LEAVE Apiculture');
-                setApicultureOpen(false);
-              }}
             >
               <button
                 className={styles.dropdownToggle}
                 onClick={() => {
                   console.log('🐝 CLICK Apiculture, current:', apicultureOpen);
                   setApicultureOpen(!apicultureOpen);
+                }}
+                onMouseEnter={() => {
+                  console.log('🐝 Mouse ENTER Apiculture');
+                  setApicultureOpen(true);
                 }}
               >
                 <span className={styles.navLinkIcon}>
@@ -109,6 +105,14 @@ export default function Header() {
               <div
                 className={`${styles.dropdownMenu} ${apicultureOpen ? styles.dropdownMenuOpen : ''}`}
                 style={apicultureOpen ? { opacity: 1, visibility: 'visible', transform: 'translateY(0)' } : {}}
+                onMouseEnter={() => {
+                  console.log('🐝 Mouse ENTER Menu');
+                  setApicultureOpen(true);
+                }}
+                onMouseLeave={() => {
+                  console.log('🐝 Mouse LEAVE Menu');
+                  setApicultureOpen(false);
+                }}
               >
                 <Link
                   href="/au-rucher"
@@ -156,12 +160,11 @@ export default function Header() {
             <div
               className={styles.dropdown}
               data-open={engagementsOpen}
-              onMouseEnter={() => setEngagementsOpen(true)}
-              onMouseLeave={() => setEngagementsOpen(false)}
             >
               <button
                 className={styles.dropdownToggle}
                 onClick={() => setEngagementsOpen(!engagementsOpen)}
+                onMouseEnter={() => setEngagementsOpen(true)}
               >
                 <span className={styles.navLinkIcon}>
                   <span>👥</span>
@@ -172,6 +175,8 @@ export default function Header() {
               <div
                 className={`${styles.dropdownMenu} ${engagementsOpen ? styles.dropdownMenuOpen : ''}`}
                 style={engagementsOpen ? { opacity: 1, visibility: 'visible', transform: 'translateY(0)' } : {}}
+                onMouseEnter={() => setEngagementsOpen(true)}
+                onMouseLeave={() => setEngagementsOpen(false)}
               >
                 <Link
                   href="/apiculteurs"
