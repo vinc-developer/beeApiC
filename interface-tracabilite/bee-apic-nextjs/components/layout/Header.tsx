@@ -119,7 +119,7 @@ export default function Header() {
                   className={styles.dropdownItem}
                   onClick={() => {
                     console.log('🔴 Click Au rucher - Navigation en cours');
-                    // Le menu se fermera automatiquement au mouseLeave
+                    setTimeout(() => closeAllMenus(), 100);
                   }}
                 >
                   <span>🐝</span>
@@ -128,7 +128,10 @@ export default function Header() {
                 <Link
                   href="/mon-apiculture"
                   className={styles.dropdownItem}
-                  onClick={() => console.log('🔴 Click Mon apiculture')}
+                  onClick={() => {
+                    console.log('🔴 Click Mon apiculture');
+                    setTimeout(() => closeAllMenus(), 100);
+                  }}
                 >
                   <span>👨‍🌾</span>
                   <span>Mon apiculture</span>
@@ -136,7 +139,10 @@ export default function Header() {
                 <Link
                   href="/mes-miels"
                   className={styles.dropdownItem}
-                  onClick={() => console.log('🔴 Click Mes miels')}
+                  onClick={() => {
+                    console.log('🔴 Click Mes miels');
+                    setTimeout(() => closeAllMenus(), 100);
+                  }}
                 >
                   <span>🍯</span>
                   <span>Mes miels</span>
@@ -144,7 +150,10 @@ export default function Header() {
                 <Link
                   href="/frelon-asiatique"
                   className={styles.dropdownItem}
-                  onClick={() => console.log('🔴 Click Frelon asiatique')}
+                  onClick={() => {
+                    console.log('🔴 Click Frelon asiatique');
+                    setTimeout(() => closeAllMenus(), 100);
+                  }}
                 >
                   <span>⚠️</span>
                   <span>Le frelon asiatique</span>
@@ -177,7 +186,10 @@ export default function Header() {
                 <Link
                   href="/apiculteurs"
                   className={styles.dropdownItem}
-                  onClick={() => console.log('🔴 Click Nos apiculteurs')}
+                  onClick={() => {
+                    console.log('🔴 Click Nos apiculteurs');
+                    setTimeout(() => closeAllMenus(), 100);
+                  }}
                 >
                   <span>👥</span>
                   <span>Nos apiculteurs</span>
@@ -185,7 +197,10 @@ export default function Header() {
                 <Link
                   href="/tracabilite"
                   className={styles.dropdownItem}
-                  onClick={() => console.log('🔴 Click Tracer mon miel')}
+                  onClick={() => {
+                    console.log('🔴 Click Tracer mon miel');
+                    setTimeout(() => closeAllMenus(), 100);
+                  }}
                 >
                   <span>🔍</span>
                   <span>Tracer mon miel</span>
