@@ -29,69 +29,56 @@ export default function Header() {
 
           {/* Navigation Desktop */}
           <nav className={styles.nav}>
-            <Link
-              href="/"
-              className={styles.navLink}
-            >
+            <Link href="/" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
                 <span>🏠</span>
                 <span>Accueil</span>
               </span>
             </Link>
-            <Link
-              href="/au-rucher"
-              className={styles.navLink}
-            >
-              <span className={styles.navLinkIcon}>
-                <span>🐝</span>
-                <span>Au rucher</span>
-              </span>
-            </Link>
-            <Link
-              href="/mon-apiculture"
-              className={styles.navLink}
-            >
-              <span className={styles.navLinkIcon}>
-                <span>👨‍🌾</span>
-                <span>Mon apiculture</span>
-              </span>
-            </Link>
-            <Link
-              href="/apiculteurs"
-              className={styles.navLink}
-            >
-              <span className={styles.navLinkIcon}>
-                <span>👥</span>
-                <span>Nos apiculteurs</span>
-              </span>
-            </Link>
-            <Link
-              href="/mes-miels"
-              className={styles.navLink}
-            >
-              <span className={styles.navLinkIcon}>
-                <span>🍯</span>
-                <span>Mes miels</span>
-              </span>
-            </Link>
-            <Link
-              href="/frelon-asiatique"
-              className={styles.navLink}
-            >
+
+            {/* Dropdown L'Apiculture */}
+            <div className={styles.dropdown}>
+              <button className={styles.dropdownToggle}>
+                <span className={styles.navLinkIcon}>
+                  <span>🐝</span>
+                  <span>L'Apiculture</span>
+                  <span className={styles.dropdownArrow}>▼</span>
+                </span>
+              </button>
+              <div className={styles.dropdownMenu}>
+                <Link href="/au-rucher" className={styles.dropdownItem}>
+                  <span>🐝</span>
+                  <span>Au rucher</span>
+                </Link>
+                <Link href="/mon-apiculture" className={styles.dropdownItem}>
+                  <span>👨‍🌾</span>
+                  <span>Mon apiculture</span>
+                </Link>
+                <Link href="/apiculteurs" className={styles.dropdownItem}>
+                  <span>👥</span>
+                  <span>Nos apiculteurs</span>
+                </Link>
+                <Link href="/mes-miels" className={styles.dropdownItem}>
+                  <span>🍯</span>
+                  <span>Mes miels</span>
+                </Link>
+              </div>
+            </div>
+
+            <Link href="/frelon-asiatique" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
                 <span>⚠️</span>
                 <span>Le frelon asiatique</span>
               </span>
             </Link>
-            <Link
-              href="/contact"
-              className={styles.navLink}
-            >
+
+            <Link href="/contact" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
                 <span>📧</span>
                 <span>Me contacter</span>
               </span>
             </Link>
+
             <a
               href="https://bee-apic.com"
               target="_blank"
@@ -103,19 +90,15 @@ export default function Header() {
                 <span>Boutique</span>
               </span>
             </a>
-            <Link
-              href="/tracabilite"
-              className={styles.navLink}
-            >
+
+            <Link href="/tracabilite" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
                 <span>🔍</span>
                 <span>Traçabilité</span>
               </span>
             </Link>
-            <Link
-              href="/a-propos"
-              className={styles.navLink}
-            >
+
+            <Link href="/a-propos" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
                 <span>ℹ️</span>
                 <span>À Propos</span>

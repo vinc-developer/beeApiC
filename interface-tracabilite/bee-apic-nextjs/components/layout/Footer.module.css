@@ -90,6 +90,15 @@
 .navItem {
 }
 
+.navSubtitle {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
 .navLink {
     display: flex;
     align-items: center;
@@ -104,6 +113,21 @@
     color: var(--color-primary);
 }
 
+.navLinkIndent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #4B5563;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-left: 1rem;
+}
+
+.navLinkIndent:hover {
+    color: var(--color-primary);
+}
+
 .navLinkIcon {
     font-size: 1rem;
 }
@@ -112,7 +136,8 @@
     transition: transform 0.3s ease;
 }
 
-.navLink:hover .navLinkText {
+.navLink:hover .navLinkText,
+.navLinkIndent:hover .navLinkText {
     transform: translateX(0.25rem);
 }
 

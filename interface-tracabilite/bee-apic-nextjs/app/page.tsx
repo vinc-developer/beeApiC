@@ -6,34 +6,34 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero relative">
-        <div className="container-custom relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-md backdrop-blur-sm">
-              <span className="text-2xl">🐝</span>
-              <span className="text-sm font-semibold text-gray-700">
+      <section className={styles.hero}>
+        <div className={styles.heroContainer}>
+          <div className={styles.heroContent}>
+            <div className={styles.badge}>
+              <span className={styles.badgeIcon}>🐝</span>
+              <span className={styles.badgeText}>
                 Miel 100% Local de Loire Atlantique
               </span>
             </div>
 
-            <h1 className="mb-6 text-6xl font-extrabold tracking-tight md:text-7xl lg:text-8xl">
-              <span className="text-gradient">{siteConfig.name}</span>
+            <h1 className={styles.title}>
+              <span className={styles.titleGradient}>{siteConfig.name}</span>
             </h1>
 
-            <p className="mb-8 text-2xl font-medium text-gray-700 md:text-3xl">
+            <p className={styles.slogan}>
               {siteConfig.slogan}
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <div className={styles.ctaButtons}>
               <Link
                 href="/tracabilite"
-                className="btn-primary text-lg"
+                className={styles.btnPrimary}
               >
                 🔍 Tracer mon miel
               </Link>
               <Link
                 href="/a-propos"
-                className="rounded-lg border-2 border-white bg-white/50 px-6 py-3 text-lg font-semibold backdrop-blur-sm transition-all hover:bg-white hover:shadow-lg"
+                className={styles.btnSecondary}
               >
                 En savoir plus
               </Link>
@@ -42,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* Decoration */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
+        <div className={styles.heroDivider}></div>
       </section>
 
       <div className={styles.container}>
