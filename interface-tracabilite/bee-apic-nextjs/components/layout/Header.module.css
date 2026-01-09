@@ -5,7 +5,7 @@
 .header {
     position: sticky;
     top: 0;
-    z-index: 50;
+    z-index: 1000;
     width: 100%;
     border-bottom: 1px solid #FEF3C7;
     background: rgba(255, 255, 255, 0.95);
@@ -141,6 +141,7 @@
 .dropdown {
     position: relative;
     flex-shrink: 0;
+    z-index: 10;
 }
 
 .dropdownToggle {
@@ -188,7 +189,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .dropdown:hover .dropdownMenu {

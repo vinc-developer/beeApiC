@@ -104,7 +104,22 @@ export default function Header() {
                 <span>Boutique</span>
               </span>
             </a>
+
+            <Link href="/a-propos" className={styles.navLink}>
+              <span className={styles.navLinkIcon}>
+                <span>ℹ️</span>
+                <span>À Propos</span>
+              </span>
+            </Link>
           </nav>
+
+          {/* CTA Button */}
+          <Link
+            href="/tracabilite"
+            className={styles.ctaButton}
+          >
+            Tracer mon miel
+          </Link>
 
           {/* Mobile menu button */}
           <button
