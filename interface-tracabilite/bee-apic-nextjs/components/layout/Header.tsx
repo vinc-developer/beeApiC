@@ -4,12 +4,30 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 import styles from './Header.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [apicultureOpen, setApicultureOpen] = useState(false);
   const [engagementsOpen, setEngagementsOpen] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  // Detect screen width
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    handleResize(); // Initial
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Debug: Monitor state changes
+  useEffect(() => {
+    console.log('📊 État Apiculture:', apicultureOpen);
+  }, [apicultureOpen]);
+
+  useEffect(() => {
+    console.log('📊 État Engagements:', engagementsOpen);
+  }, [engagementsOpen]);
 
   // Ferme tous les menus
   const closeAllMenus = () => {
@@ -65,12 +83,21 @@ export default function Header() {
             <div
               className={styles.dropdown}
               data-open={apicultureOpen}
-              onMouseEnter={() => setApicultureOpen(true)}
-              onMouseLeave={() => setApicultureOpen(false)}
+              onMouseEnter={() => {
+                console.log('🐝 Mouse ENTER Apiculture');
+                setApicultureOpen(true);
+              }}
+              onMouseLeave={() => {
+                console.log('🐝 Mouse LEAVE Apiculture');
+                setApicultureOpen(false);
+              }}
             >
               <button
                 className={styles.dropdownToggle}
-                onClick={() => setApicultureOpen(!apicultureOpen)}
+                onClick={() => {
+                  console.log('🐝 CLICK Apiculture, current:', apicultureOpen);
+                  setApicultureOpen(!apicultureOpen);
+                }}
               >
                 <span className={styles.navLinkIcon}>
                   <span>🐝</span>
