@@ -1,7 +1,16 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { loadBeekeeper } from '@/lib/api/tracabilite';
+import {loadBeekeeper, loadBeekeeperAll} from '@/lib/api/tracabilite';
 import styles from "@/app/page.module.css";
+
+/* référencement apiculteur*/
+export async function generateStaticParams() {
+  const beekeepers = await loadBeekeeperAll();
+
+  return beekeepers.map((apiculteur) => ({
+    code: apiculteur.code,
+  }));
+}
 
 export default async function BeekeeperPage({
   params,

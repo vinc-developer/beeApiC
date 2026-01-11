@@ -6,7 +6,7 @@
 const CONFIG = {
     // URL du proxy de traçabilité
     // Modifier cette URL selon votre configuration
-    API_BASE_URL: 'http://localhost:3000/api/tracabilite',
+    API_BASE_URL: 'http://localhost:3999/api/tracabilite',
 
     // Endpoints
     ENDPOINTS: {

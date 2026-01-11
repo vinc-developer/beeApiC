@@ -1,8 +1,17 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getTraceability } from '@/lib/api/tracabilite';
+import {getLotsListAll, getTraceability} from '@/lib/api/tracabilite';
 import { extractHoneyType, formatDate } from '@/lib/utils';
 import honeyTypesData from '@/data/honey-types.json';
+
+/* référencement lot*/
+export function generateStaticParams() {
+  const lots = getLotsListAll();
+
+  return lots.map((lot) => ({
+    lotNumber: lot.lotNumber,
+  }));
+}
 
 export default async function LotDetailPage({
   params,

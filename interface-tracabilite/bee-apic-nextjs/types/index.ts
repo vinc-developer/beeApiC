@@ -82,3 +82,9 @@ export interface HoneyType {
   color: string;
   season?: string;
 }
+
+export interface Lot {
+  lotNumber: string;
+  zone: Zone;
+  production: Production;
+};

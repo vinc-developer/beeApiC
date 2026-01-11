@@ -1,4 +1,4 @@
-import { TraceabilityData, Beekeeper, LotsGroupedByBeekeeper, Rucher } from '@/types';
+import {TraceabilityData, Beekeeper, LotsGroupedByBeekeeper, Rucher, Lot} from '@/types';
 import beekeepersData from '@/data/beekeepers.json';
 import traceabilityData from '@/data/traceability-data.json';
 import { extractBeekeeperCode } from '@/lib/utils';
@@ -10,6 +10,12 @@ import { API_CONFIG } from './config';
 export async function loadBeekeeper(code: string): Promise<Beekeeper | null> {
   const beekeepers = beekeepersData.beekeepers as Record<string, Beekeeper>;
   return beekeepers[code] || null;
+}
+
+export async function loadBeekeeperAll(): Promise<Beekeeper[]> {
+  return Object.values(
+      beekeepersData.beekeepers as Record<string, Beekeeper>
+  );
 }
 
 /**
@@ -215,6 +221,11 @@ export async function getLotsList(): Promise<string[]> {
   });
 
   return allLots;
+}
+
+export function getLotsListAll(): Lot[] {
+  const lotsRecord = traceabilityData.lots as Record<string, any>;
+  return Object.values(lotsRecord) as Lot[];
 }
 
 /**

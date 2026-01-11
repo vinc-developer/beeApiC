@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   keywords: ["miel", "traçabilité", "apiculture", "Loire Atlantique", "local", "Bee Api'C"],
 };
 
+export const dynamic = "force-static";
 export default function RootLayout({
   children,
 }: Readonly<{
