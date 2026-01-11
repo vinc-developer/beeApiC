@@ -186,6 +186,17 @@ export default function Header() {
                 onMouseLeave={() => setEngagementsOpen(false)}
               >
                 <Link
+                    href="/entreprises-rse"
+                    className={styles.dropdownItem}
+                    onClick={() => {
+                      console.log('🔴 Click Tracer mon miel');
+                      setTimeout(() => closeAllMenus(), 100);
+                    }}
+                >
+                  <span>🏢</span>
+                  <span>Entreprises & RSE</span>
+                </Link>
+                <Link
                   href="/apiculteurs"
                   className={styles.dropdownItem}
                   onClick={() => {

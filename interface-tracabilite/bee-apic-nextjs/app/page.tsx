@@ -46,76 +46,44 @@ export default function Home() {
       </section>
 
       <div className={styles.container}>
-        {/* Section Maison Mère */}
-        <section className={styles.companySection}>
-          <div className={styles.companyCard}>
-            {/* Header */}
-            <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🏢</span>
-              <h2 className={styles.companyTitle}>Bee Api'C</h2>
-              <span className={styles.companyBadge}>Entreprise Locale</span>
-            </div>
 
-            {/* Content */}
-            <div className={styles.companyContent}>
-              {/* Info */}
-              <div className={styles.companyInfo}>
-                <p className={styles.companyDescription}>
-                  Bee Api'C est une entreprise familiale engagée dans la promotion du miel 100% local de Loire-Atlantique.
-                  Nous travaillons en étroite collaboration avec des apiculteurs passionnés pour vous offrir un miel de qualité,
-                  traçable et respectueux de l'environnement.
-                </p>
-
-                <div className={styles.companyLabel}>
-                  <span className={styles.labelIcon}>🇫🇷</span>
-                  <span className={styles.labelText}>
-                    {siteConfig.label}
-                  </span>
-                </div>
-              </div>
-
-              {/* Contact */}
-              <div className={styles.companyContact}>
-                <h3 className={styles.contactTitle}>Nous contacter</h3>
-                <div className={styles.contactInfo}>
-                  <div className={styles.contactItem}>
-                    <span className={styles.contactIcon}>📍</span>
-                    <span className={styles.contactText}>{siteConfig.company.address}</span>
-                  </div>
-
-                  <div className={styles.contactItem}>
-                    <span className={styles.contactIcon}>🌐</span>
-                    <a
-                      href={siteConfig.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.contactLink}
-                    >
-                      bee-apic.com
-                    </a>
-                  </div>
-
-                  <div className={styles.contactItem}>
-                    <span className={styles.contactIcon}>📧</span>
-                    <a
-                      href={`mailto:${siteConfig.company.email}`}
-                      className={styles.contactLink}
-                    >
-                      {siteConfig.company.email}
-                    </a>
-                  </div>
-
-                  <div className={styles.contactItem}>
-                    <span className={styles.contactIcon}>📱</span>
-                    <a
-                      href={`tel:${siteConfig.company.phone}`}
-                      className={styles.contactLink}
-                    >
-                      {siteConfig.company.phone}
-                    </a>
-                  </div>
-                </div>
-              </div>
+        <section className={styles.featuresSection}>
+          <div>
+            <h2>🐝 Producteur de miel et sauveteur d'essaims</h2>
+            <p>
+              Partez à la découverte des richesses de la ruche : du miel de printemps, doux et floral, au miel d'été, aux notes
+              plus intenses et ensoleillées.
+              J'interviens également pour récupérer les essaims d’abeilles installés dans des arbres, poteaux ou autres endroits
+              inattendus, afin de leur offrir un nouveau foyer en toute sécurité.
+            </p>
+            <img src="" alt="photo bee api'c"/>
+          </div>
+          <div>
+            <h2>🌿 Fabrication artisanale et éco-responsable</h2>
+            <p>
+              Tous mes produits sont fabriqués dans le respect des traditions et de la nature.
+              Mon hydromel est élaboré en dame-jeanne, puis lentement maturé en fût de chêne pour développer des arômes profonds et authentiques. Pour préserver ses qualités, je conseille de le conserver à 10 °C.
+              Mon miel, quant à lui, est extrait à chaud à l’aide d’un extracteur manuel et mis en pot à la main, sans aucun traitement ni ajout. Il conserve ainsi toute sa richesse naturelle. Pour une conservation optimale, gardez-le à 14 °C à l’abri de la lumière.
+              Dans une démarche éco-responsable, je récupère également les pots et les bouteilles vides. N’hésitez pas à les rapporter pour leur offrir une seconde vie !
+              Et parce que chaque geste compte, j’imprime mes étiquettes uniquement en fonction des besoins réels, en petites quantités, pour éviter tout gaspillage inutile.
+            </p>
+          </div>
+          <div>
+            <h2>🌸 La vie autour de la ruche</h2>
+            <p>
+              Chaque photo témoigne d’un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
+            </p>
+            <div>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
+              <img src="" alt="photo bee api'c"/>
             </div>
           </div>
         </section>
@@ -129,8 +97,8 @@ export default function Home() {
           <div className={styles.ctaGrid}>
             {/* Traçabilité */}
             <Link
-              href="/tracabilite"
-              className={styles.ctaCard}
+                href="/tracabilite"
+                className={styles.ctaCard}
             >
               <div className={styles.ctaCardBg}></div>
 
@@ -187,44 +155,86 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section className={styles.featuresSection}>
           <div className={styles.featuresContainer}>
             <h2 className={styles.featuresTitle}>
-              Pourquoi choisir Bee Api'C ?
+              Ce que nous proposons !
             </h2>
             <p className={styles.featuresSubtitle}>
-              Une démarche de qualité et de transparence
+              Chez Bee Api’C, nous valorisons un miel local, authentique et transparent, issu de notre rucher et de nos
+                apiculteurs partenaires.
             </p>
 
             <div className={styles.featuresGrid}>
               <div className={styles.featureCard}>
                 <div className={styles.featureIcon}>
-                  🇫🇷
+                  🍯
                 </div>
-                <h3 className={styles.featureTitle}>100% Local</h3>
+                <h3 className={styles.featureTitle}>Vente de miel en direct pour les particuliers</h3>
                 <p className={styles.featureDescription}>
-                  Miel produit et récolté exclusivement en Loire Atlantique
+                  Nous proposons du miel local en vente directe, du producteur au consommateur. Une relation de confiance, sans
+                  intermédiaire, pour découvrir des miels de qualité, récoltés avec soin et dans le respect des abeilles.
+                  Nos miels sont également disponibles dans certains magasins partenaires de la région, afin de faciliter l’accès
+                  à une production locale et responsable.
                 </p>
               </div>
 
               <div className={styles.featureCard}>
                 <div className={styles.featureIcon}>
-                  🔍
+                  🏫
                 </div>
-                <h3 className={styles.featureTitle}>Traçabilité Totale</h3>
+                <h3 className={styles.featureTitle}>Ventes de miel pour les associations et écoles</h3>
                 <p className={styles.featureDescription}>
-                  Suivez le parcours de votre miel de la ruche à votre table
+                  Comme pour les traditionnelles ventes de brioches, saucissons ou bières, nous accompagnons les associations
+                  scolaires et locales dans l’organisation de ventes de miel.
+                  Une solution originale et locale pour soutenir des projets tout en faisant découvrir un produit naturel et
+                  responsable.
                 </p>
               </div>
 
               <div className={styles.featureCard}>
                 <div className={styles.featureIcon}>
-                  👨‍🌾
+                  🎄
                 </div>
-                <h3 className={styles.featureTitle}>Apiculteurs Passionnés</h3>
+                <h3 className={styles.featureTitle}>Marchés de Noël et événements locaux</h3>
                 <p className={styles.featureDescription}>
-                  Des producteurs engagés et qualifiés pour un miel d'exception
+                  Nous participons également à des marchés de Noël et événements locaux, des moments privilégiés pour rencontrer
+                  les producteurs, échanger autour de l’apiculture et faire découvrir nos miels dans une ambiance conviviale.
+                </p>
+              </div>
+
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
+                  🧑‍🍳
+                </div>
+                <h3 className={styles.featureTitle}>Vente de miel en seaux pour les professionnels</h3>
+                <p className={styles.featureDescription}>
+                  Nous proposons également du miel en seaux à destination des professionnels :
+                  boulangers, pâtissiers, restaurateurs, cantines, collectivités, ou tout autre métier ayant besoin de miel de
+                  qualité pour ses préparations.
+                </p>
+              </div>
+
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
+                  🏢
+                </div>
+                <h3 className={styles.featureTitle}>Partenariats avec les entreprises & démarche RSE</h3>
+                <p className={styles.featureDescription}>
+                  Nous accompagnons également les entreprises souhaitant intégrer une dimension locale et environnementale à leur politique RSE, en travaillant directement avec des apiculteurs locaux.
+                  À travers différentes actions, les entreprises peuvent soutenir l’apiculture, la biodiversité et les circuits courts, tout en valorisant leur engagement auprès de leurs collaborateurs et partenaires.
+                </p>
+              </div>
+
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
+                  🤝
+                </div>
+                <h3 className={styles.featureTitle}>Une charte qualité Bee Api’C</h3>
+                <p className={styles.featureDescription}>
+                  Tous les miels proposés par Bee Api’C, y compris ceux de nos partenaires, respectent une charte qualité
+                  exigeante, fondée sur des critères de qualité, de traçabilité et de transparence.
+                  Cette démarche garantit la provenance locale du miel et un produit respectueux des bonnes pratiques apicoles.
                 </p>
               </div>
             </div>
