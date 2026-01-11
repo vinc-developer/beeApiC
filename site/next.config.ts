@@ -1,11 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   output: "export",
+  basePath: "/beeApiC",
+  assetPrefix: "/beeApiC/",
   trailingSlash: true,
-  reactCompiler: true,
-  basePath: "/bee-apic",
+  images: {
+    unoptimized: true,
+  },
+  //distDir: "out/beeApiC", -> pour le local
 };
 
 export default nextConfig;

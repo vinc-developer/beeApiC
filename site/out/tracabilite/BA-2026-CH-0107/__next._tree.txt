@@ -1,6 +1,0 @@
-:HL["/bee-apic/_next/static/chunks/4df0a8271392a526.css","style"]
-:HL["/bee-apic/_next/static/chunks/af689353bb00fbf6.css","style"]
-:HL["/bee-apic/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/images/colas-vincent.jpg","image"]
-:HL["/images/logo-beeapic.png","image"]
-0:{"buildId":"O4Vwjxmy-cagIs8LyBSHi","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tracabilite","paramType":null,"paramKey":"tracabilite","hasRuntimePrefetch":false,"slots":{"children":{"name":"lotNumber","paramType":"d","paramKey":"BA-2026-CH-0107","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
