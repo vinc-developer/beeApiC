@@ -1,0 +1,37 @@
+{
+  "honeyTypes": {
+    "P": {
+      "name": "Miel de Printemps",
+      "description": "Récolte de printemps, fleurs variées"
+    },
+    "PA": {
+      "name": "Miel d'Acacia",
+      "description": "Miel doux et clair"
+    },
+    "CH": {
+      "name": "Miel de Châtaignier",
+      "description": "Miel corsé au goût prononcé"
+    },
+    "E": {
+      "name": "Miel d'Été",
+      "description": "Récolte d'été, fleurs de saison"
+    },
+    "F": {
+      "name": "Miel de Forêt",
+      "description": "Miel de miellat aux notes boisées"
+    },
+    "T": {
+      "name": "Miel de Tilleul",
+      "description": "Miel aromatique et bienfaisant"
+    },
+    "L": {
+      "name": "Miel de Lavande",
+      "description": "Miel parfumé aux notes florales"
+    },
+    "TO": {
+      "name": "Miel Toutes Fleurs",
+      "description": "Mélange harmonieux de fleurs variées"
+    }
+  }
+}
+
