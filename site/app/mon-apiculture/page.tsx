@@ -14,6 +14,46 @@ export default function MonApiculturePage() {
         </p>
 
         <div className={styles.contentWrapper}>
+          {/* Section Philosophie */}
+          <div className={styles.philosophyCard}>
+            <div className={styles.philosophyHeader}>
+              <h2 className={styles.philosophyTitle}>Ma philosophie apicole</h2>
+              <p className={styles.philosophyDescription}>
+                Une approche respectueuse de l'environnement et des abeilles, avec un engagement pour une production durable.
+              </p>
+            </div>
+
+            <div className={styles.philosophyGrid}>
+              <div className={styles.philosophySection}>
+                <h3 className={styles.philosophySectionTitle}>🌿 Ma philosophie</h3>
+                <p className={styles.philosophySectionText}>
+                  Je pratique une apiculture raisonnée, respectueuse des abeilles et de l'environnement.
+                  Mon objectif est de produire un miel de qualité tout en préservant la santé de mes colonies
+                  et la biodiversité locale.
+                </p>
+              </div>
+
+              <div className={styles.philosophySection}>
+                <h3 className={styles.philosophySectionTitle}>🐝 Mes pratiques</h3>
+                <ul className={styles.philosophyList}>
+                  <li>Ruches installées dans des zones préservées de Loire-Atlantique</li>
+                  <li>Respect du cycle naturel des abeilles</li>
+                  <li>Nourrissement limité et naturel</li>
+                  <li>Traçabilité complète de la production</li>
+                  <li>Formation continue aux meilleures pratiques</li>
+                </ul>
+              </div>
+
+              <div className={styles.philosophySection}>
+                <h3 className={styles.philosophySectionTitle}>💚 Mes engagements</h3>
+                <p className={styles.philosophySectionText}>
+                  Je m'engage à produire un miel 100% naturel, sans traitement chimique,
+                  en préservant la santé de mes abeilles et en respectant l'environnement.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Section Une passion, un engagement */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
@@ -98,59 +138,6 @@ export default function MonApiculturePage() {
               <div className={styles.cardImageWrapper}>
                 <div className={styles.placeholderImage}>🌍</div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Section Merci */}
-        <div className={styles.thanksCard}>
-          <div className={styles.thanksIcon}>🐝</div>
-          <h2 className={styles.thanksTitle}>Merci de faire partie de cette aventure</h2>
-          <p className={styles.thanksText}>
-            Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.
-            En choisissant mes produits, en visitant mes ruchers ou simplement en vous intéressant aux abeilles, vous participez vous aussi à leur préservation.
-          </p>
-          <p className={styles.thanksMessage}>
-            🌼 MERCI pour elles, merci pour nous 🌼
-          </p>
-        </div>
-
-        {/* Section Philosophie */}
-        <div className={styles.philosophyCard}>
-          <div className={styles.philosophyHeader}>
-            <h2 className={styles.philosophyTitle}>Ma philosophie apicole</h2>
-            <p className={styles.philosophyDescription}>
-              Une approche respectueuse de l'environnement et des abeilles, avec un engagement pour une production durable.
-            </p>
-          </div>
-
-          <div className={styles.philosophyGrid}>
-            <div className={styles.philosophySection}>
-              <h3 className={styles.philosophySectionTitle}>🌿 Ma philosophie</h3>
-              <p className={styles.philosophySectionText}>
-                Je pratique une apiculture raisonnée, respectueuse des abeilles et de l'environnement.
-                Mon objectif est de produire un miel de qualité tout en préservant la santé de mes colonies
-                et la biodiversité locale.
-              </p>
-            </div>
-
-            <div className={styles.philosophySection}>
-              <h3 className={styles.philosophySectionTitle}>🐝 Mes pratiques</h3>
-              <ul className={styles.philosophyList}>
-                <li>Ruches installées dans des zones préservées de Loire-Atlantique</li>
-                <li>Respect du cycle naturel des abeilles</li>
-                <li>Nourrissement limité et naturel</li>
-                <li>Traçabilité complète de la production</li>
-                <li>Formation continue aux meilleures pratiques</li>
-              </ul>
-            </div>
-
-            <div className={styles.philosophySection}>
-              <h3 className={styles.philosophySectionTitle}>💚 Mes engagements</h3>
-              <p className={styles.philosophySectionText}>
-                Je m'engage à produire un miel 100% naturel, sans traitement chimique,
-                en préservant la santé de mes abeilles et en respectant l'environnement.
-              </p>
             </div>
           </div>
         </div>

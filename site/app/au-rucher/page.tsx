@@ -13,6 +13,35 @@ export default function AuRucherPage() {
           Découvrez ici mes différents ruchers, les races d'abeilles que j'élève, et les paysages dans lesquels elles butinent.
         </p>
 
+        {/* Section La vie au rucher */}
+        <div className={styles.infoCard}>
+          <div className={styles.infoHeader}>
+            <h2 className={styles.infoTitle}>La vie au rucher</h2>
+            <p className={styles.infoDescription}>
+              Découvrez la vie au rucher, le travail quotidien de l'apiculteur et l'univers fascinant des abeilles.
+            </p>
+          </div>
+
+          <div className={styles.infoGrid}>
+            <div className={styles.infoSection}>
+              <h3 className={styles.infoSectionTitle}>Le quotidien au rucher</h3>
+              <p className={styles.infoSectionText}>
+                Le rucher est un lieu vivant où l'apiculteur travaille en harmonie avec la nature.
+                Chaque saison apporte son lot d'activités : l'entretien des ruches, la surveillance de la santé des colonies,
+                et bien sûr, la récolte du miel.
+              </p>
+            </div>
+
+            <div className={styles.infoSection}>
+              <h3 className={styles.infoSectionTitle}>Le rôle des abeilles</h3>
+              <p className={styles.infoSectionText}>
+                Les abeilles sont essentielles à notre écosystème. Elles pollinisent plus de 80% des plantes à fleurs
+                et contribuent à la biodiversité. L'apiculteur veille au bien-être de chaque colonie.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className={styles.contentWrapper}>
           {/* Section Mes abeilles */}
           <div className={styles.contentCard}>
@@ -109,35 +138,6 @@ export default function AuRucherPage() {
               <div className={styles.galleryItem}>
                 <div className={styles.placeholderImage}>🌼</div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Section La vie au rucher */}
-        <div className={styles.infoCard}>
-          <div className={styles.infoHeader}>
-            <h2 className={styles.infoTitle}>La vie au rucher</h2>
-            <p className={styles.infoDescription}>
-              Découvrez la vie au rucher, le travail quotidien de l'apiculteur et l'univers fascinant des abeilles.
-            </p>
-          </div>
-
-          <div className={styles.infoGrid}>
-            <div className={styles.infoSection}>
-              <h3 className={styles.infoSectionTitle}>Le quotidien au rucher</h3>
-              <p className={styles.infoSectionText}>
-                Le rucher est un lieu vivant où l'apiculteur travaille en harmonie avec la nature.
-                Chaque saison apporte son lot d'activités : l'entretien des ruches, la surveillance de la santé des colonies,
-                et bien sûr, la récolte du miel.
-              </p>
-            </div>
-
-            <div className={styles.infoSection}>
-              <h3 className={styles.infoSectionTitle}>Le rôle des abeilles</h3>
-              <p className={styles.infoSectionText}>
-                Les abeilles sont essentielles à notre écosystème. Elles pollinisent plus de 80% des plantes à fleurs
-                et contribuent à la biodiversité. L'apiculteur veille au bien-être de chaque colonie.
-              </p>
             </div>
           </div>
         </div>

@@ -5,8 +5,18 @@ import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 import styles from './Header.module.css';
 import { Menu, MenuButton, MenuItems, MenuItem, Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  // When the route changes, close the mobile menu to ensure it never stays open
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -169,104 +179,108 @@ export default function Header() {
             </a>
           </nav>
 
-          {/* Mobile menu button avec Disclosure de Headless UI */}
-          <Disclosure>
-            {({ open }) => (
-              <>
-                <DisclosureButton className={styles.mobileMenuButton} aria-label="Menu">
-                  <svg
-                    className={styles.menuIcon}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+          {/* Mobile menu button — replaced Disclosure with useState so we can programmatically close on link click */}
+          <>
+            <button
+              type="button"
+              className={styles.mobileMenuButton}
+              aria-label="Menu"
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              <svg
+                className={styles.menuIcon}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
+              </svg>
+            </button>
+
+            {/* Menu Mobile (controlled) */}
+            {mobileOpen && (
+              <div className={styles.mobileMenu} role="menu">
+                <nav className={styles.mobileNav}>
+                  {/* Apiculture Mobile with nested Disclosure (kept) */}
+                  <Disclosure>
+                    {({ open: apicultureOpen }) => (
+                      <div className={styles.mobileDropdown}>
+                        <DisclosureButton className={styles.mobileDropdownToggle}>
+                          <span>🐝 L'Apiculture</span>
+                          <span className={styles.dropdownArrow}>{apicultureOpen ? '▲' : '▼'}</span>
+                        </DisclosureButton>
+                        <DisclosurePanel className={styles.mobileDropdownMenu}>
+                          <Link href="/au-rucher" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>🐝</span>
+                            <span>Au rucher</span>
+                          </Link>
+                          <Link href="/mon-apiculture" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>👨‍🌾</span>
+                            <span>Mon apiculture</span>
+                          </Link>
+                          <Link href="/mes-miels" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>🍯</span>
+                            <span>Mes miels</span>
+                          </Link>
+                          <Link href="/frelon-asiatique" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>⚠️</span>
+                            <span>Le frelon asiatique</span>
+                          </Link>
+                        </DisclosurePanel>
+                      </div>
+                    )}
+                  </Disclosure>
+
+                  {/* Engagements Mobile with nested Disclosure */}
+                  <Disclosure>
+                    {({ open: engagementsOpen }) => (
+                      <div className={styles.mobileDropdown}>
+                        <DisclosureButton className={styles.mobileDropdownToggle}>
+                          <span>👥 Nos engagements</span>
+                          <span className={styles.dropdownArrow}>{engagementsOpen ? '▲' : '▼'}</span>
+                        </DisclosureButton>
+                        <DisclosurePanel className={styles.mobileDropdownMenu}>
+                          <Link href="/entreprises-rse" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>🏢</span>
+                            <span>Entreprises & RSE</span>
+                          </Link>
+                          <Link href="/apiculteurs" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>👥</span>
+                            <span>Nos apiculteurs</span>
+                          </Link>
+                          <Link href="/tracabilite" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>🔍</span>
+                            <span>Tracer mon miel</span>
+                          </Link>
+                        </DisclosurePanel>
+                      </div>
+                    )}
+                  </Disclosure>
+
+                  <Link href="/contact" className={styles.mobileNavLink} onClick={() => setMobileOpen(false)}>
+                    <span>📧</span>
+                    <span>Me contacter</span>
+                  </Link>
+
+                  <a
+                    href="https://bee-apic.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.mobileNavLink}
+                    onClick={() => setMobileOpen(false)}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                    />
-                  </svg>
-                </DisclosureButton>
-
-                {/* Menu Mobile avec DisclosurePanel */}
-                <DisclosurePanel className={styles.mobileMenu}>
-                  <nav className={styles.mobileNav}>
-                    {/* Apiculture Mobile avec Disclosure imbriqué */}
-                    <Disclosure>
-                      {({ open: apicultureOpen }) => (
-                        <div className={styles.mobileDropdown}>
-                          <DisclosureButton className={styles.mobileDropdownToggle}>
-                            <span>🐝 L'Apiculture</span>
-                            <span className={styles.dropdownArrow}>{apicultureOpen ? '▲' : '▼'}</span>
-                          </DisclosureButton>
-                          <DisclosurePanel className={styles.mobileDropdownMenu}>
-                            <Link href="/au-rucher" className={styles.mobileDropdownItem}>
-                              <span>🐝</span>
-                              <span>Au rucher</span>
-                            </Link>
-                            <Link href="/mon-apiculture" className={styles.mobileDropdownItem}>
-                              <span>👨‍🌾</span>
-                              <span>Mon apiculture</span>
-                            </Link>
-                            <Link href="/mes-miels" className={styles.mobileDropdownItem}>
-                              <span>🍯</span>
-                              <span>Mes miels</span>
-                            </Link>
-                            <Link href="/frelon-asiatique" className={styles.mobileDropdownItem}>
-                              <span>⚠️</span>
-                              <span>Le frelon asiatique</span>
-                            </Link>
-                          </DisclosurePanel>
-                        </div>
-                      )}
-                    </Disclosure>
-
-                    {/* Engagements Mobile avec Disclosure imbriqué */}
-                    <Disclosure>
-                      {({ open: engagementsOpen }) => (
-                        <div className={styles.mobileDropdown}>
-                          <DisclosureButton className={styles.mobileDropdownToggle}>
-                            <span>👥 Nos engagements</span>
-                            <span className={styles.dropdownArrow}>{engagementsOpen ? '▲' : '▼'}</span>
-                          </DisclosureButton>
-                          <DisclosurePanel className={styles.mobileDropdownMenu}>
-                            <Link href="/entreprises-rse" className={styles.mobileDropdownItem}>
-                              <span>🏢</span>
-                              <span>Entreprises & RSE</span>
-                            </Link>
-                            <Link href="/apiculteurs" className={styles.mobileDropdownItem}>
-                              <span>👥</span>
-                              <span>Nos apiculteurs</span>
-                            </Link>
-                            <Link href="/tracabilite" className={styles.mobileDropdownItem}>
-                              <span>🔍</span>
-                              <span>Tracer mon miel</span>
-                            </Link>
-                          </DisclosurePanel>
-                        </div>
-                      )}
-                    </Disclosure>
-
-                    <Link href="/contact" className={styles.mobileNavLink}>
-                      <span>📧</span>
-                      <span>Me contacter</span>
-                    </Link>
-
-                    <a
-                      href="https://bee-apic.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.mobileNavLink}
-                    >
-                      <span>🛒</span>
-                      <span>Boutique</span>
-                    </a>
-                  </nav>
-                </DisclosurePanel>
-              </>
+                    <span>🛒</span>
+                    <span>Boutique</span>
+                  </a>
+                </nav>
+              </div>
             )}
-          </Disclosure>
+          </>
         </div>
       </div>
     </header>
