@@ -6,7 +6,10 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className={styles.hero}>
+      <section className={styles.hero}
+               style={{
+                 '--bg-cadre-miel': `url('${process.env.NEXT_PUBLIC_BASE_PATH}/images/cadre-miel.jpg')`
+               } as React.CSSProperties}>
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <div className={styles.badge}>

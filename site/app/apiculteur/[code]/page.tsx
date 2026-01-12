@@ -33,7 +33,7 @@ export default async function BeekeeperPage({
         <header className="header">
           <div className="header-content">
             <div className="brand-logo">
-              <img src="images/logo-beeapic.png" alt="Bee Api'C" id="brandLogo" className="hidden"/>
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-beeapic.png`} alt="Bee Api'C" id="brandLogo" className="hidden"/>
               <div className="logo-placeholder-brand" id="logoPlaceholderBrand">
                 <span className="brand-icon">🐝</span>
                 <span className="brand-name">Bee Api'C</span>
@@ -61,7 +61,7 @@ export default async function BeekeeperPage({
               <div className="profile-photo">
                 {beekeeper.photo ? (
                     <img
-                        src={`/images/${beekeeper.photo}`}
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${beekeeper.photo}`}
                         alt={`${beekeeper.firstName} ${beekeeper.lastName}`}
                     />
                 ) : (
@@ -75,7 +75,7 @@ export default async function BeekeeperPage({
               {beekeeper.logo && (
                   <div className="profile-logo">
                     <img
-                        src={`/images/${beekeeper.logo}`}
+                        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${beekeeper.logo}`}
                         alt="Logo"
                     />
                   </div>
@@ -170,7 +170,7 @@ export default async function BeekeeperPage({
                   {beekeeper.gallery.map((image, index) => (
                       <div key={index} className="gallery-item">
                         <img
-                            src={`/images/${image}`}
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${image}`}
                             alt={`Photo ${index + 1}`}
                         />
                       </div>

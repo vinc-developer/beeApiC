@@ -342,7 +342,7 @@ function BeekeeperCard({ beekeeper, isPartner = false }: BeekeeperCardProps) {
       <div className="beekeeper-photo">
         {beekeeper.photo ? (
           <Image
-            src={`/images/${beekeeper.photo}`}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${beekeeper.photo}`}
             alt={`${beekeeper.firstName} ${beekeeper.lastName}`}
             width={300}
             height={300}

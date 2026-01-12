@@ -5,7 +5,7 @@
 /* Hero Section */
 .hero {
     position: relative;
-    background-image: url('/images/cadre-miel.jpg');
+    background-image: var(--bg-cadre-miel);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

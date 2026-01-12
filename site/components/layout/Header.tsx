@@ -56,7 +56,7 @@ export default function Header() {
           <Link href="/" className={styles.logo}>
             <div className={styles.logoImageWrapper}>
               <Image
-                src="/images/logo-beeapic.png"
+                src= {`${process.env.NEXT_PUBLIC_BASE_PATH}//images/logo-beeapic.png`}
                 alt={siteConfig.name}
                 width={48}
                 height={48}
