@@ -1,0 +1,227 @@
+/* ========================================
+   PAGE ENTREPRISES RSE - STYLES
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.introText {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Section offres */
+.offersSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.offerCard {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #F5B04A;
+    transition: all 0.3s ease;
+}
+
+.offerCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.offerHeader {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.offerText {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.offerList {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.offerList li {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.offerList li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1.125rem;
+}
+
+.rseValue {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #D1FAE5 0%, #F0FDF4 100%);
+    border-left: 4px solid #86EFAC;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: #166534;
+    font-weight: 500;
+}
+
+.rseValue strong {
+    color: #15803D;
+}
+
+/* Section conclusion */
+.conclusionSection {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--color-primary-light);
+}
+
+.conclusionCard {
+    background: linear-gradient(135deg, #D1FAE5 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #86EFAC;
+    text-align: center;
+}
+
+.conclusionTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.conclusionText {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* CTA Section */
+.ctaSection {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.btnPrimary {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    background: var(--color-primary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(231, 149, 27, 0.3);
+}
+
+.btnPrimary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(231, 149, 27, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main {
+        padding: 2rem 1rem;
+    }
+
+    .pageTitle {
+        font-size: 2rem;
+    }
+
+    .introText {
+        font-size: 1rem;
+    }
+
+    .offerCard {
+        padding: 1.5rem;
+    }
+
+    .offerHeader {
+        font-size: 1.25rem;
+    }
+
+    .conclusionCard {
+        padding: 2rem;
+    }
+
+    .conclusionTitle {
+        font-size: 1.5rem;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .pageTitle {
+        font-size: 1.75rem;
+    }
+
+    .offerHeader {
+        font-size: 1.125rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .conclusionTitle {
+        font-size: 1.25rem;
+    }
+
+    .btnPrimary {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+

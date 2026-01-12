@@ -49,44 +49,101 @@ export default function Home() {
       </section>
 
       <div className={styles.container}>
+        {/* Section Présentation */}
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🐝</span>
+              <h2 className={styles.companyTitle}>Producteur de miel et sauveteur d'essaims</h2>
+            </div>
+            <div className={styles.companyContent}>
+              <div className={styles.companyInfo}>
+                <p className={styles.companyDescription}>
+                  Partez à la découverte des richesses de la ruche : du miel de printemps, doux et floral, au miel d'été, aux notes
+                  plus intenses et ensoleillées.
+                </p>
+                <p className={styles.companyDescription}>
+                  J'interviens également pour récupérer les essaims d'abeilles installés dans des arbres, poteaux ou autres endroits
+                  inattendus, afin de leur offrir un nouveau foyer en toute sécurité.
+                </p>
+              </div>
+              <div className={styles.companyContact}>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/essaim.jpg`}
+                  alt="Essaim d'abeilles Bee Api'C"
+                  style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <section className={styles.featuresSection}>
-          <div>
-            <h2>🐝 Producteur de miel et sauveteur d'essaims</h2>
-            <p>
-              Partez à la découverte des richesses de la ruche : du miel de printemps, doux et floral, au miel d'été, aux notes
-              plus intenses et ensoleillées.
-              J'interviens également pour récupérer les essaims d’abeilles installés dans des arbres, poteaux ou autres endroits
-              inattendus, afin de leur offrir un nouveau foyer en toute sécurité.
+        {/* Section Fabrication */}
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🌿</span>
+              <h2 className={styles.companyTitle}>Fabrication artisanale et éco-responsable</h2>
+            </div>
+            <div className={styles.companyContent}>
+              <div className={styles.companyInfo}>
+                <p className={styles.companyDescription}>
+                  Tous mes produits sont fabriqués dans le respect des traditions et de la nature.
+                </p>
+                <p className={styles.companyDescription}>
+                  Mon hydromel est élaboré en dame-jeanne, puis lentement maturé en fût de chêne pour développer des arômes profonds et authentiques. Pour préserver ses qualités, je conseille de le conserver à 10 °C.
+                </p>
+                <p className={styles.companyDescription}>
+                  Mon miel, quant à lui, est extrait à chaud à l'aide d'un extracteur manuel et mis en pot à la main, sans aucun traitement ni ajout. Il conserve ainsi toute sa richesse naturelle. Pour une conservation optimale, gardez-le à 14 °C à l'abri de la lumière.
+                </p>
+              </div>
+              <div className={styles.companyContact}>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/miels.jpg`}
+                  alt="Pots de miel Bee Api'C"
+                  style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
+                />
+              </div>
+            </div>
+            <div className={styles.companyLabel} style={{ marginTop: '1.5rem' }}>
+              <span className={styles.labelIcon}>♻️</span>
+              <span className={styles.labelText}>
+                Dans une démarche éco-responsable, je récupère également les pots et les bouteilles vides. N'hésitez pas à les rapporter pour leur offrir une seconde vie !
+              </span>
+            </div>
+            <p className={styles.companyDescription} style={{ marginTop: '1rem' }}>
+              Et parce que chaque geste compte, j'imprime mes étiquettes uniquement en fonction des besoins réels, en petites quantités, pour éviter tout gaspillage inutile.
             </p>
-            <img src="" alt="photo bee api'c"/>
           </div>
-          <div>
-            <h2>🌿 Fabrication artisanale et éco-responsable</h2>
-            <p>
-              Tous mes produits sont fabriqués dans le respect des traditions et de la nature.
-              Mon hydromel est élaboré en dame-jeanne, puis lentement maturé en fût de chêne pour développer des arômes profonds et authentiques. Pour préserver ses qualités, je conseille de le conserver à 10 °C.
-              Mon miel, quant à lui, est extrait à chaud à l’aide d’un extracteur manuel et mis en pot à la main, sans aucun traitement ni ajout. Il conserve ainsi toute sa richesse naturelle. Pour une conservation optimale, gardez-le à 14 °C à l’abri de la lumière.
-              Dans une démarche éco-responsable, je récupère également les pots et les bouteilles vides. N’hésitez pas à les rapporter pour leur offrir une seconde vie !
-              Et parce que chaque geste compte, j’imprime mes étiquettes uniquement en fonction des besoins réels, en petites quantités, pour éviter tout gaspillage inutile.
+        </section>
+
+        {/* Section La vie autour de la ruche */}
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🌸</span>
+              <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
+            </div>
+            <p className={styles.companyDescription}>
+              Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
             </p>
-          </div>
-          <div>
-            <h2>🌸 La vie autour de la ruche</h2>
-            <p>
-              Chaque photo témoigne d’un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
-            </p>
-            <div>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+              gap: '1rem',
+              marginTop: '1.5rem'
+            }}>
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/colas-vincent.jpg`}
+                alt="Vincent Colas - Apiculteur Bee Api'C"
+                style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem' }}
+              />
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/produits.jpg`}
+                alt="Produits de la ruche Bee Api'C"
+                style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem' }}
+              />
+              {/* Ajoutez d'autres images ici si vous en avez */}
             </div>
           </div>
         </section>
@@ -158,14 +215,15 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Section Ce que nous proposons */}
         <section className={styles.featuresSection}>
           <div className={styles.featuresContainer}>
             <h2 className={styles.featuresTitle}>
               Ce que nous proposons !
             </h2>
             <p className={styles.featuresSubtitle}>
-              Chez Bee Api’C, nous valorisons un miel local, authentique et transparent, issu de notre rucher et de nos
-                apiculteurs partenaires.
+              Chez Bee Api'C, nous valorisons un miel local, authentique et transparent, issu de notre rucher et de nos
+              apiculteurs partenaires.
             </p>
 
             <div className={styles.featuresGrid}>
@@ -177,7 +235,7 @@ export default function Home() {
                 <p className={styles.featureDescription}>
                   Nous proposons du miel local en vente directe, du producteur au consommateur. Une relation de confiance, sans
                   intermédiaire, pour découvrir des miels de qualité, récoltés avec soin et dans le respect des abeilles.
-                  Nos miels sont également disponibles dans certains magasins partenaires de la région, afin de faciliter l’accès
+                  Nos miels sont également disponibles dans certains magasins partenaires de la région, afin de faciliter l'accès
                   à une production locale et responsable.
                 </p>
               </div>
@@ -189,7 +247,7 @@ export default function Home() {
                 <h3 className={styles.featureTitle}>Ventes de miel pour les associations et écoles</h3>
                 <p className={styles.featureDescription}>
                   Comme pour les traditionnelles ventes de brioches, saucissons ou bières, nous accompagnons les associations
-                  scolaires et locales dans l’organisation de ventes de miel.
+                  scolaires et locales dans l'organisation de ventes de miel.
                   Une solution originale et locale pour soutenir des projets tout en faisant découvrir un produit naturel et
                   responsable.
                 </p>
@@ -202,7 +260,7 @@ export default function Home() {
                 <h3 className={styles.featureTitle}>Marchés de Noël et événements locaux</h3>
                 <p className={styles.featureDescription}>
                   Nous participons également à des marchés de Noël et événements locaux, des moments privilégiés pour rencontrer
-                  les producteurs, échanger autour de l’apiculture et faire découvrir nos miels dans une ambiance conviviale.
+                  les producteurs, échanger autour de l'apiculture et faire découvrir nos miels dans une ambiance conviviale.
                 </p>
               </div>
 
@@ -225,7 +283,7 @@ export default function Home() {
                 <h3 className={styles.featureTitle}>Partenariats avec les entreprises & démarche RSE</h3>
                 <p className={styles.featureDescription}>
                   Nous accompagnons également les entreprises souhaitant intégrer une dimension locale et environnementale à leur politique RSE, en travaillant directement avec des apiculteurs locaux.
-                  À travers différentes actions, les entreprises peuvent soutenir l’apiculture, la biodiversité et les circuits courts, tout en valorisant leur engagement auprès de leurs collaborateurs et partenaires.
+                  À travers différentes actions, les entreprises peuvent soutenir l'apiculture, la biodiversité et les circuits courts, tout en valorisant leur engagement auprès de leurs collaborateurs et partenaires.
                 </p>
               </div>
 
@@ -233,9 +291,9 @@ export default function Home() {
                 <div className={styles.featureIcon}>
                   🤝
                 </div>
-                <h3 className={styles.featureTitle}>Une charte qualité Bee Api’C</h3>
+                <h3 className={styles.featureTitle}>Une charte qualité Bee Api'C</h3>
                 <p className={styles.featureDescription}>
-                  Tous les miels proposés par Bee Api’C, y compris ceux de nos partenaires, respectent une charte qualité
+                  Tous les miels proposés par Bee Api'C, y compris ceux de nos partenaires, respectent une charte qualité
                   exigeante, fondée sur des critères de qualité, de traçabilité et de transparence.
                   Cette démarche garantit la provenance locale du miel et un produit respectueux des bonnes pratiques apicoles.
                 </p>
