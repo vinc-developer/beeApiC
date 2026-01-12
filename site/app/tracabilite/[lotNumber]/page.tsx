@@ -151,7 +151,7 @@ export default async function LotDetailPage({
               <div className="beekeeper-photo">
                 {data.beekeeper?.photo ? (
                   <img
-                    src={`/images/${data.beekeeper.photo}`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.photo}`}
                     alt={`${data.beekeeper.firstName} ${data.beekeeper.lastName}`}
                   />
                 ) : (
@@ -165,7 +165,7 @@ export default async function LotDetailPage({
               <div className="beekeeper-logo">
                 {data.beekeeper?.logo ? (
                   <img
-                    src={`/images/${data.beekeeper.logo}`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.logo}`}
                     alt="Logo"
                   />
                 ) : (
