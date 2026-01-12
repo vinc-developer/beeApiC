@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fapiculteur\u002F[code]","\u002Ftracabilite\u002F[lotNumber]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

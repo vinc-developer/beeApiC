@@ -1,5 +1,11 @@
-:HL["/beeApiC/_next/static/chunks/e160e0fba634a641.css","style"]
-:HL["/beeApiC/_next/static/chunks/3a41fb3bba296783.css","style"]
+:HL["/beeApiC/_next/static/chunks/ac359e70a2f09566.css","style"]
+:HL["/beeApiC/_next/static/chunks/bce042bce098b31a.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/_next/static/chunks/de89d9598d5c68f9.css","style"]
-0:{"buildId":"qdRMlKnRXFH4Oh0LwX_Vf","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"frelon-asiatique","paramType":null,"paramKey":"frelon-asiatique","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/beeApiC/_next/static/chunks/3aeeabe0229a9a20.css","style"]
+:HL["/beeApiC/images/pages/frelon/frelon-asiatique.jpg","image"]
+:HL["/beeApiC/images/pages/frelon/frelon-comparaison.jpg","image"]
+:HL["/beeApiC/images/pages/frelon/vol-stationnaire-frelon.jpg","image"]
+:HL["/beeApiC/images/pages/frelon/piege.png","image"]
+:HL["/beeApiC/images/pages/frelon/frelon-attaque.jpg","image"]
+:HL["/beeApiC/images/pages/frelon/frelon-asiatique-nid.jpg","image"]
+0:{"buildId":"4i2xz9c2k8EJsORxN9w0e","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"frelon-asiatique","paramType":null,"paramKey":"frelon-asiatique","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
