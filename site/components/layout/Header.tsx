@@ -310,6 +310,11 @@ export default function Header() {
                 </button>
                 {engagementsOpen && (
                   <div className={styles.mobileDropdownMenu}>
+                    <Link
+                        href="/entreprises-rse" className={styles.mobileDropdownItem} onClick={closeEverything}>
+                      <span>🏢</span>
+                      <span>Entreprises & RSE</span>
+                    </Link>
                     <Link href="/apiculteurs" className={styles.mobileDropdownItem} onClick={closeEverything}>
                       <span>👥</span>
                       <span>Nos apiculteurs</span>
