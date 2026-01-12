@@ -490,6 +490,43 @@
     line-height: 1.625;
 }
 
+/* Card merci */
+.thanksCard {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+    padding: 3rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--color-primary);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.thanksIcon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.thanksTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.thanksText {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+}
+
+.thanksMessage {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 1rem;
+}
+
 /* Responsive */
 @media (min-width: 640px) {
     .ctaButtons {
@@ -557,6 +594,16 @@
         margin: 3rem -1rem;
         padding: 3rem 1rem;
     }
+
+    .contentCard,
+    .philosophyCard,
+    .thanksCard {
+        padding: 1.5rem;
+    }
+
+    .thanksCard {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -574,6 +621,14 @@
 
     .slogan {
         font-size: 1.125rem;
+    }
+
+    .thanksTitle {
+        font-size: 1.5rem;
+    }
+
+    .thanksIcon {
+        font-size: 3rem;
     }
 }
 

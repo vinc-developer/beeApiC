@@ -301,6 +301,19 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Section Merci */}
+        <div className={styles.thanksCard}>
+          <div className={styles.thanksIcon}>🐝</div>
+          <h2 className={styles.thanksTitle}>Merci de faire partie de cette aventure</h2>
+          <p className={styles.thanksText}>
+            Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.
+            En choisissant mes produits, en visitant mes ruchers ou simplement en vous intéressant aux abeilles, vous participez vous aussi à leur préservation.
+          </p>
+          <p className={styles.thanksMessage}>
+            🌼 MERCI pour elles, merci pour nous 🌼
+          </p>
+        </div>
       </div>
     </>
   );

@@ -61,7 +61,7 @@
     min-height: 3rem;
     overflow: hidden;
     border-radius: 9999px;
-    background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+    /*background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);*/
     padding: 0.25rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
@@ -230,6 +230,11 @@
     color: var(--color-primary);
 }
 
+.dropdownItemFocus {
+    background: #FFFBEB;
+    color: var(--color-primary);
+}
+
 /* CTA Button */
 .ctaButton {
     display: none;
@@ -321,6 +326,20 @@
     background: white;
     border-top: 1px solid #E5E7EB;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Escape the centered container so the menu can span the full viewport */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    /* Compensate for headerContainer horizontal padding when inside it */
+    margin-left: calc(50% - 50vw);
+
+    z-index: 2000; /* above header and most content */
+    pointer-events: auto;
 }
 
 .mobileNav {
@@ -342,16 +361,12 @@
     border-left: 3px solid transparent;
 }
 
-.mobileNavLink:hover,
-.mobileNavLink:active {
-    background: #FFFBEB;
-    color: var(--color-primary);
-    border-left-color: var(--color-primary);
-}
-
+/* Keep nested dropdowns scrollable and responsive to Headless UI's hidden attribute */
 .mobileDropdown {
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2100; /* ensure nested lists are above base menu background */
 }
 
 .mobileDropdownToggle {
@@ -370,17 +385,20 @@
     transition: background 0.3s ease;
 }
 
-.mobileDropdownToggle:hover,
-.mobileDropdownToggle:active {
-    background: #FFFBEB;
-    color: var(--color-primary);
-    border-left-color: var(--color-primary);
-}
-
 .mobileDropdownMenu {
     display: flex;
     flex-direction: column;
     background: #F9FAFB;
+
+    /* Make nested menus scrollable when tall */
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Headless UI may toggle panels with the `hidden` attribute — ensure those are not visible */
+.mobileDropdownMenu[hidden] {
+    display: none;
 }
 
 .mobileDropdownItem {
@@ -408,4 +426,3 @@
         display: none;
     }
 }
-
