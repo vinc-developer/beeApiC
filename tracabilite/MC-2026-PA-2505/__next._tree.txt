@@ -1,6 +1,6 @@
 :HL["/beeApiC/_next/static/chunks/4df0a8271392a526.css","style"]
 :HL["/beeApiC/_next/static/chunks/7867ab51a8aad88c.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/images/matthieu-colas/matthieu-colas.jpg","image"]
-:HL["/images/matthieu-colas/logo.jpg","image"]
-0:{"buildId":"IOsBAeRSzMgY-Jk4tcZil","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tracabilite","paramType":null,"paramKey":"tracabilite","hasRuntimePrefetch":false,"slots":{"children":{"name":"lotNumber","paramType":"d","paramKey":"MC-2026-PA-2505","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/beeApiC/images/matthieu-colas/matthieu-colas.jpg","image"]
+:HL["/beeApiC/images/matthieu-colas/logo.jpg","image"]
+0:{"buildId":"IHJVa6jF5qIQALlJ4_b9V","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tracabilite","paramType":null,"paramKey":"tracabilite","hasRuntimePrefetch":false,"slots":{"children":{"name":"lotNumber","paramType":"d","paramKey":"MC-2026-PA-2505","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
