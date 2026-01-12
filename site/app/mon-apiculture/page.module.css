@@ -1,0 +1,255 @@
+/* ========================================
+   PAGE MON APICULTURE - STYLES
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    margin: 4rem 0;
+}
+
+.sectionTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Cards pour les sections */
+.contentCard {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #F5B04A;
+    transition: all 0.3s ease;
+}
+
+.contentCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-primary-light);
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.cardTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+.cardContent {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+}
+
+.cardText {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.cardImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.placeholderImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+/* Card philosophie */
+.philosophyCard {
+    background: linear-gradient(135deg, #D1FAE5 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #86EFAC;
+    margin-top: 3rem;
+}
+
+.philosophyHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.philosophyTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.philosophyDescription {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.philosophyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.philosophySection {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.philosophySectionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.philosophySectionText {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.philosophyList {
+    line-height: 1.75;
+    color: var(--color-text);
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.philosophyList li {
+    margin-bottom: 0.5rem;
+}
+
+/* Bouton retour */
+.backButton {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.btnSecondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    border: 2px solid var(--color-primary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btnSecondary:hover {
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .intro {
+        font-size: 1rem;
+    }
+
+    .cardTitle {
+        font-size: 1.5rem;
+    }
+
+    .cardHeader {
+        flex-wrap: wrap;
+    }
+
+    .cardContent {
+        grid-template-columns: 1fr;
+    }
+
+    .cardImageWrapper {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .philosophyGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sectionTitle {
+        font-size: 1.75rem;
+    }
+
+    .cardTitle {
+        font-size: 1.25rem;
+    }
+
+    .cardIcon {
+        font-size: 2rem;
+    }
+}
+

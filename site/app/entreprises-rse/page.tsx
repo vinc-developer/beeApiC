@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import styles from "@/app/page.module.css";
+import styles from "./page.module.css";
+import pageStyles from "@/app/page.module.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function EntreprisesRSEPage() {
     return (
-        <main className="container mx-auto px-4 py-12 max-w-4xl">
-            <h1 className="text-3xl font-bold mb-6">
+        <main className={styles.main}>
+            <h1 className={styles.pageTitle}>
                 Entreprises & démarche RSE
             </h1>
 
-            <p className="mb-10">
-                Bee Api’C accompagne les entreprises souhaitant intégrer des actions
+            <p className={styles.introText}>
+                Bee Api'C accompagne les entreprises souhaitant intégrer des actions
                 concrètes et locales dans leur politique{" "}
                 <strong>RSE</strong>.
                 En travaillant directement avec des <strong>apiculteurs locaux</strong>,
@@ -25,42 +26,42 @@ export default function EntreprisesRSEPage() {
             </p>
 
             {/* Features Section */}
-            <section className={styles.featuresSection}>
-                <div className={styles.featuresContainer}>
-                    <h2 className={styles.featuresTitle}>
+            <section className={pageStyles.featuresSection}>
+                <div className={pageStyles.featuresContainer}>
+                    <h2 className={pageStyles.featuresTitle}>
                         Pourquoi choisir Bee Api'C ?
                     </h2>
-                    <p className={styles.featuresSubtitle}>
+                    <p className={pageStyles.featuresSubtitle}>
                         Une démarche de qualité et de transparence
                     </p>
 
-                    <div className={styles.featuresGrid}>
-                        <div className={styles.featureCard}>
-                            <div className={styles.featureIcon}>
+                    <div className={pageStyles.featuresGrid}>
+                        <div className={pageStyles.featureCard}>
+                            <div className={pageStyles.featureIcon}>
                                 🇫🇷
                             </div>
-                            <h3 className={styles.featureTitle}>100% Local</h3>
-                            <p className={styles.featureDescription}>
+                            <h3 className={pageStyles.featureTitle}>100% Local</h3>
+                            <p className={pageStyles.featureDescription}>
                                 Miel produit et récolté exclusivement en Loire Atlantique
                             </p>
                         </div>
 
-                        <div className={styles.featureCard}>
-                            <div className={styles.featureIcon}>
+                        <div className={pageStyles.featureCard}>
+                            <div className={pageStyles.featureIcon}>
                                 🔍
                             </div>
-                            <h3 className={styles.featureTitle}>Traçabilité Totale</h3>
-                            <p className={styles.featureDescription}>
+                            <h3 className={pageStyles.featureTitle}>Traçabilité Totale</h3>
+                            <p className={pageStyles.featureDescription}>
                                 Suivez le parcours de votre miel de la ruche à votre table
                             </p>
                         </div>
 
-                        <div className={styles.featureCard}>
-                            <div className={styles.featureIcon}>
+                        <div className={pageStyles.featureCard}>
+                            <div className={pageStyles.featureIcon}>
                                 👨‍🌾
                             </div>
-                            <h3 className={styles.featureTitle}>Apiculteurs Passionnés</h3>
-                            <p className={styles.featureDescription}>
+                            <h3 className={pageStyles.featureTitle}>Apiculteurs Passionnés</h3>
+                            <p className={pageStyles.featureDescription}>
                                 Des producteurs engagés et qualifiés pour un miel d'exception
                             </p>
                         </div>
@@ -68,124 +69,125 @@ export default function EntreprisesRSEPage() {
                 </div>
             </section>
 
-            <section className="space-y-10">
+            <section className={styles.offersSection}>
                 {/* Cadeaux d'entreprise */}
-                <article>
-                    <h2 className="text-xl font-semibold mb-2">
-                        🍯 Cadeaux d’entreprise responsables
+                <article className={styles.offerCard}>
+                    <h2 className={styles.offerHeader}>
+                        🍯 Cadeaux d'entreprise responsables
                     </h2>
-                    <p>
+                    <p className={styles.offerText}>
                         Nous proposons des <strong>pots de miel locaux</strong> comme cadeaux
-                        d’entreprise, une alternative durable et authentique aux goodies
+                        d'entreprise, une alternative durable et authentique aux goodies
                         traditionnels.
                     </p>
-                    <ul className="list-disc pl-6 mt-3 space-y-1">
-                        <li>Pots de miel issus de l’apiculture locale</li>
+                    <ul className={styles.offerList}>
+                        <li>Pots de miel issus de l'apiculture locale</li>
                         <li>Personnalisation possible (étiquette, message)</li>
-                        <li>Idéal pour fêtes de fin d’année, onboarding ou événements</li>
+                        <li>Idéal pour fêtes de fin d'année, onboarding ou événements</li>
                     </ul>
-                    <p className="mt-2 text-sm italic">
-                        Valeur RSE : circuits courts, soutien à l’économie locale
+                    <p className={styles.rseValue}>
+                        <strong>Valeur RSE :</strong> circuits courts, soutien à l'économie locale
                     </p>
                 </article>
 
                 {/* Soutien à l'apiculture */}
-                <article>
-                    <h2 className="text-xl font-semibold mb-2">
-                        🐝 Partenariat de soutien à l’apiculture locale
+                <article className={styles.offerCard}>
+                    <h2 className={styles.offerHeader}>
+                        🐝 Partenariat de soutien à l'apiculture locale
                     </h2>
-                    <p>
-                        Les entreprises peuvent s’engager aux côtés de Bee Api’C en soutenant
-                        directement l’<strong>apiculture locale</strong> et les apiculteurs
+                    <p className={styles.offerText}>
+                        Les entreprises peuvent s'engager aux côtés de Bee Api'C en soutenant
+                        directement l'<strong>apiculture locale</strong> et les apiculteurs
                         partenaires.
                     </p>
-                    <ul className="list-disc pl-6 mt-3 space-y-1">
+                    <ul className={styles.offerList}>
                         <li>Soutien à une production locale et responsable</li>
-                        <li>Mise en avant de l’engagement dans la communication interne</li>
+                        <li>Mise en avant de l'engagement dans la communication interne</li>
                         <li>Approche simple, concrète et mesurable</li>
                     </ul>
-                    <p className="mt-2 text-sm italic">
-                        Valeur RSE : biodiversité, agriculture durable
+                    <p className={styles.rseValue}>
+                        <strong>Valeur RSE :</strong> biodiversité, agriculture durable
                     </p>
                 </article>
 
                 {/* Sensibilisation */}
-                <article>
-                    <h2 className="text-xl font-semibold mb-2">
-                        👩‍🏫 Sensibilisation à l’apiculture et à la biodiversité
+                <article className={styles.offerCard}>
+                    <h2 className={styles.offerHeader}>
+                        👩‍🏫 Sensibilisation à l'apiculture et à la biodiversité
                     </h2>
-                    <p>
+                    <p className={styles.offerText}>
                         Nous proposons des actions de <strong>sensibilisation</strong> pour
                         les collaborateurs, afin de mieux comprendre le rôle des abeilles et
                         les enjeux liés à la biodiversité.
                     </p>
-                    <ul className="list-disc pl-6 mt-3 space-y-1">
+                    <ul className={styles.offerList}>
                         <li>Interventions et présentations en entreprise</li>
-                        <li>Échanges autour de l’apiculture et des saisons</li>
+                        <li>Échanges autour de l'apiculture et des saisons</li>
                         <li>Actions pédagogiques accessibles à tous</li>
                     </ul>
-                    <p className="mt-2 text-sm italic">
-                        Valeur RSE : sensibilisation environnementale
+                    <p className={styles.rseValue}>
+                        <strong>Valeur RSE :</strong> sensibilisation environnementale
                     </p>
                 </article>
 
                 {/* Marchés de Noël */}
-                <article>
-                    <h2 className="text-xl font-semibold mb-2">
-                        🎄 Marchés de Noël et événements d’entreprise
+                <article className={styles.offerCard}>
+                    <h2 className={styles.offerHeader}>
+                        🎄 Marchés de Noël et événements d'entreprise
                     </h2>
-                    <p>
-                        Bee Api’C peut intervenir lors de{" "}
-                        <strong>marchés de Noël d’entreprise</strong> ou d’événements
+                    <p className={styles.offerText}>
+                        Bee Api'C peut intervenir lors de{" "}
+                        <strong>marchés de Noël d'entreprise</strong> ou d'événements
                         internes, en proposant la vente directe de miel aux collaborateurs.
                     </p>
-                    <ul className="list-disc pl-6 mt-3 space-y-1">
-                        <li>Stand Bee Api’C sur site</li>
+                    <ul className={styles.offerList}>
+                        <li>Stand Bee Api'C sur site</li>
                         <li>Vente directe de produits locaux</li>
-                        <li>Moments d’échange et de convivialité</li>
+                        <li>Moments d'échange et de convivialité</li>
                     </ul>
-                    <p className="mt-2 text-sm italic">
-                        Valeur RSE : consommation locale, lien producteur-consommateur
+                    <p className={styles.rseValue}>
+                        <strong>Valeur RSE :</strong> consommation locale, lien producteur-consommateur
                     </p>
                 </article>
 
                 {/* Approvisionnement */}
-                <article>
-                    <h2 className="text-xl font-semibold mb-2">
-                        🧾 Approvisionnement en miel pour l’entreprise
+                <article className={styles.offerCard}>
+                    <h2 className={styles.offerHeader}>
+                        🧾 Approvisionnement en miel pour l'entreprise
                     </h2>
-                    <p>
+                    <p className={styles.offerText}>
                         Nous proposons également du miel pour un{" "}
                         <strong>usage interne</strong> :
                     </p>
-                    <ul className="list-disc pl-6 mt-3 space-y-1">
-                        <li>Cantines et restaurants d’entreprise</li>
+                    <ul className={styles.offerList}>
+                        <li>Cantines et restaurants d'entreprise</li>
                         <li>Salles de pause et petits-déjeuners</li>
                         <li>Événements internes et séminaires</li>
                     </ul>
-                    <p className="mt-2 text-sm italic">
-                        Valeur RSE : produits locaux, réduction des intermédiaires
+                    <p className={styles.rseValue}>
+                        <strong>Valeur RSE :</strong> produits locaux, réduction des intermédiaires
                     </p>
                 </article>
             </section>
 
-            <section className="mt-12 border-t pt-8">
-                <h2 className="text-xl font-semibold mb-3">
-                    🤝 Une démarche simple, locale et engagée
-                </h2>
-                <p>
-                    Les offres RSE Bee Api’C sont pensées pour être{" "}
-                    <strong>simples à mettre en place</strong>, adaptées aux entreprises de
-                    toutes tailles, et ancrées dans une démarche locale, transparente et
-                    responsable.
-                </p>
+            <section className={styles.conclusionSection}>
+                <div className={styles.conclusionCard}>
+                    <h2 className={styles.conclusionTitle}>
+                        🤝 Une démarche simple, locale et engagée
+                    </h2>
+                    <p className={styles.conclusionText}>
+                        Les offres RSE Bee Api'C sont pensées pour être{" "}
+                        <strong>simples à mettre en place</strong>, adaptées aux entreprises de
+                        toutes tailles, et ancrées dans une démarche locale, transparente et
+                        responsable.
+                    </p>
+                </div>
             </section>
 
-            <div style={{marginTop: '2rem', textAlign: 'center'}}>
+            <div className={styles.ctaSection}>
                 <Link href="/contact" className={styles.btnPrimary}>
                     📧 Contactez-nous
                 </Link>
-                {' '}
             </div>
         </main>
     );

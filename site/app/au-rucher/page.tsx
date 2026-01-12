@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../page.module.css";
+import styles from "./page.module.css";
 
 export default function AuRucherPage() {
   return (
@@ -8,12 +8,48 @@ export default function AuRucherPage() {
         <h1 className={styles.sectionTitle}>
           🐝 Mes abeilles, mes ruchers
         </h1>
-        <span>Depuis plusieurs années, j’élève mes abeilles dans le respect de leur rythme et de leur environnement. Découvrez ici mes différents ruchers, les races d’abeilles que j’élève, et les paysages dans lesquels elles butinent.</span>
+        <p className={styles.intro}>
+          Depuis plusieurs années, j'élève mes abeilles dans le respect de leur rythme et de leur environnement.
+          Découvrez ici mes différents ruchers, les races d'abeilles que j'élève, et les paysages dans lesquels elles butinent.
+        </p>
 
-        <div>
-          <div>
-            <h2>🐝 Mes abeilles</h2>
-            <p>
+        {/* Section La vie au rucher */}
+        <div className={styles.infoCard}>
+          <div className={styles.infoHeader}>
+            <h2 className={styles.infoTitle}>La vie au rucher</h2>
+            <p className={styles.infoDescription}>
+              Découvrez la vie au rucher, le travail quotidien de l'apiculteur et l'univers fascinant des abeilles.
+            </p>
+          </div>
+
+          <div className={styles.infoGrid}>
+            <div className={styles.infoSection}>
+              <h3 className={styles.infoSectionTitle}>Le quotidien au rucher</h3>
+              <p className={styles.infoSectionText}>
+                Le rucher est un lieu vivant où l'apiculteur travaille en harmonie avec la nature.
+                Chaque saison apporte son lot d'activités : l'entretien des ruches, la surveillance de la santé des colonies,
+                et bien sûr, la récolte du miel.
+              </p>
+            </div>
+
+            <div className={styles.infoSection}>
+              <h3 className={styles.infoSectionTitle}>Le rôle des abeilles</h3>
+              <p className={styles.infoSectionText}>
+                Les abeilles sont essentielles à notre écosystème. Elles pollinisent plus de 80% des plantes à fleurs
+                et contribuent à la biodiversité. L'apiculteur veille au bien-être de chaque colonie.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.contentWrapper}>
+          {/* Section Mes abeilles */}
+          <div className={styles.contentCard}>
+            <div className={styles.cardHeader}>
+              <span className={styles.cardIcon}>🐝</span>
+              <h2 className={styles.cardTitle}>Mes abeilles</h2>
+            </div>
+            <p className={styles.cardText}>
               Travailler avec les abeilles, c’est accepter de s’adapter à leur rythme, à leur langage, à leur sensibilité. C’est
               une collaboration silencieuse, faite de gestes mesurés, d’observation, et de respect profond pour le vivant.
               J’élève deux types d’abeilles aux caractères bien différents, mais complémentaires.
@@ -30,9 +66,14 @@ export default function AuRucherPage() {
               résilience face aux défis de demain.
             </p>
           </div>
-          <div>
-            <h2>🍃 Mes ruchers</h2>
-            <p>
+
+          {/* Section Mes ruchers */}
+          <div className={styles.contentCard}>
+            <div className={styles.cardHeader}>
+              <span className={styles.cardIcon}>🍃</span>
+              <h2 className={styles.cardTitle}>Mes ruchers</h2>
+            </div>
+            <p className={styles.cardText}>
               Mes ruchers sont installés au cœur du Pays de Retz, dans des environnements naturels soigneusement choisis, tous
               situés à moins de 15 km les uns des autres. Je privilégie des zones calmes, riches en biodiversité, loin des grandes
               cultures intensives.
@@ -56,54 +97,52 @@ export default function AuRucherPage() {
               miel de terroir.
             </p>
           </div>
-          <div>
-            <h2>📸 Au cœur de mes ruchers</h2>
-            <p>
+
+          {/* Section Galerie photos */}
+          <div className={styles.galleryCard}>
+            <div className={styles.cardHeader}>
+              <span className={styles.cardIcon}>📸</span>
+              <h2 className={styles.cardTitle}>Au cœur de mes ruchers</h2>
+            </div>
+            <p className={styles.cardText}>
               Quelques images pour vous faire découvrir mes abeilles dans leur environnement, la diversité de leurs paysages, et des instants de vie au fil des saisons.
             </p>
-            <div>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
-              <img src="" alt="photo bee api'c"/>
+            <div className={styles.galleryGrid}>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🐝</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🌸</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🏡</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🌳</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🍯</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🌿</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🌺</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🦋</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🌻</div>
+              </div>
+              <div className={styles.galleryItem}>
+                <div className={styles.placeholderImage}>🌼</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className={styles.companyCard}>
-          <p className={styles.companyDescription}>
-            Découvrez la vie au rucher, le travail quotidien de nos apiculteurs et l'univers fascinant des abeilles.
-          </p>
-
-          <div style={{marginTop: '2rem'}}>
-            <h2 style={{fontSize: '1.5rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-secondary)'}}>
-              La vie au rucher
-            </h2>
-            <p style={{lineHeight: 1.75, color: 'var(--color-text)'}}>
-              Le rucher est un lieu vivant où nos apiculteurs travaillent en harmonie avec la nature.
-              Chaque saison apporte son lot d'activités : l'entretien des ruches, la surveillance de la santé des colonies,
-              et bien sûr, la récolte du miel.
-            </p>
-          </div>
-
-          <div style={{marginTop: '2rem'}}>
-            <h2 style={{fontSize: '1.5rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-secondary)'}}>
-              Le rôle des abeilles
-            </h2>
-            <p style={{lineHeight: 1.75, color: 'var(--color-text)'}}>
-              Les abeilles sont essentielles à notre écosystème. Elles pollinisent plus de 80% des plantes à fleurs
-              et contribuent à la biodiversité. Nos apiculteurs veillent au bien-être de chaque colonie.
-            </p>
-          </div>
-        </div>
-
-        <div style={{marginTop: '2rem', textAlign: 'center'}}>
+        <div className={styles.backButton}>
           <Link href="/" className={styles.btnSecondary}>
             ← Retour à l'accueil
           </Link>
