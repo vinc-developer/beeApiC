@@ -230,6 +230,11 @@
     color: var(--color-primary);
 }
 
+.dropdownItemFocus {
+    background: #FFFBEB;
+    color: var(--color-primary);
+}
+
 /* CTA Button */
 .ctaButton {
     display: none;
