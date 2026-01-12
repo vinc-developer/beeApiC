@@ -268,7 +268,7 @@ export default function ApiculteursPage() {
       <div className="beekeepers-container">
         <section className={styles.section}>
           <h1 className={styles.sectionTitle}>
-            👨‍🌾 Nos Apiculteurs
+            Nos Apiculteurs
           </h1>
 
           <div className="intro-card">
@@ -284,7 +284,7 @@ export default function ApiculteursPage() {
             <>
               <div className="category-header">
                 <h2 className="category-title">
-                  🐝 Producteurs Bee Api'C
+                  Producteurs Bee Api'C
                 </h2>
                 <p className="category-subtitle">
                   Nos apiculteurs producteurs au cœur de Bee Api'C
@@ -304,7 +304,7 @@ export default function ApiculteursPage() {
             <>
               <div className="category-header" style={{ marginTop: '3rem' }}>
                 <h2 className="category-title">
-                  🤝 Apiculteurs Partenaires
+                  Apiculteurs Partenaires
                 </h2>
                 <p className="category-subtitle">
                   Nos partenaires de confiance

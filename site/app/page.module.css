@@ -155,7 +155,9 @@
 
 /* Section Maison Mère */
 .companySection {
-    margin: 4rem 0;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
 }
 
 .companyCard {
@@ -499,6 +501,7 @@
     border: 2px solid var(--color-primary);
     text-align: center;
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .thanksIcon {

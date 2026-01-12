@@ -16,6 +16,12 @@ export default function FrelonAsiatiquePage() {
           </p>
         </div>
 
+        <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-asiatique.jpg`}
+            alt="Frelon asiatique"
+            style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+        />
+
         <div className={styles.contentWrapper}>
           {/* Section Introduction */}
           <div className={styles.alertSection}>
@@ -30,7 +36,6 @@ export default function FrelonAsiatiquePage() {
           {/* Section Qui est le frelon asiatique */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardIcon}>🐝</span>
               <h2 className={styles.cardTitle}>Qui est le frelon asiatique ?</h2>
             </div>
             <div className={styles.cardContent}>
@@ -43,16 +48,17 @@ export default function FrelonAsiatiquePage() {
                 nid primaire. En été, ce nid est souvent abandonné au profit d'un nid secondaire, bien plus imposant,
                 souvent perché en hauteur. Une colonie peut produire plusieurs centaines de frelons en fin de saison.
               </p>
-              <div className={styles.cardImageWrapper}>
-                <div className={styles.placeholderImage}>🐝</div>
-              </div>
             </div>
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-comparaison.jpg`}
+                alt="Comparaison entre frelon asiatique et frelon européen"
+                style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+            />
           </div>
 
           {/* Section Impact sur la biodiversité */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardIcon}>⚠️</span>
               <h2 className={styles.cardTitle}>L'impact sur la biodiversité et les abeilles</h2>
             </div>
             <div className={styles.cardContent}>
@@ -62,9 +68,12 @@ export default function FrelonAsiatiquePage() {
                   notamment d'abeilles domestiques.
                 </p>
                 <p className={styles.cardText}>
-                  Aux abords des ruchers, il pratique le vol stationnaire en attendant le passage d'une abeille ouvrière qu'il capture
-                  pour nourrir sa colonie. Ce comportement entraîne un stress intense sur les colonies d'abeilles, qui limitent leurs
-                  sorties. La production de miel baisse, les réserves s'amenuisent, et les colonies s'affaiblissent jusqu'à parfois
+                  Aux abords des ruchers, il pratique le vol stationnaire en attendant le passage d'une abeille ouvrière qu'il
+                  capture
+                  pour nourrir sa colonie. Ce comportement entraîne un stress intense sur les colonies d'abeilles, qui limitent
+                  leurs
+                  sorties. La production de miel baisse, les réserves s'amenuisent, et les colonies s'affaiblissent jusqu'à
+                  parfois
                   disparaître.
                 </p>
                 <p className={styles.cardText}>
@@ -72,16 +81,17 @@ export default function FrelonAsiatiquePage() {
                   bénéfiques (papillons, coccinelles, syrphes...), perturbant l'équilibre écologique local.
                 </p>
               </div>
-              <div className={styles.cardImageWrapper}>
-                <div className={styles.placeholderImage}>🦋</div>
-              </div>
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/vol-stationnaire-frelon.jpg`}
+                  alt="Vol stationnaire du frelon asiatique devnat une ruche"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+              />
             </div>
           </div>
 
           {/* Section Mesures de lutte */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardIcon}>🎯</span>
               <h2 className={styles.cardTitle}>Les mesures de lutte : focus sur le piégeage</h2>
             </div>
 
@@ -112,7 +122,8 @@ export default function FrelonAsiatiquePage() {
               <div className={styles.subsection}>
                 <h3 className={styles.subsectionTitle}>🪤 Quels pièges utiliser ?</h3>
                 <ul className={styles.subsectionList}>
-                  <li>Pièges maison : bouteilles en plastique avec mélange sucré fermenté (bière + vin blanc + sirop), à renouveler
+                  <li>Pièges maison : bouteilles en plastique avec mélange sucré fermenté (bière + vin blanc + sirop), à
+                    renouveler
                     régulièrement.
                   </li>
                   <li>Pièges commerciaux sélectifs : conçus pour limiter les captures d'insectes non ciblés.</li>
@@ -135,20 +146,23 @@ export default function FrelonAsiatiquePage() {
                   <li>Muselières à abeilles : réduisent l'accès au trou de vol.</li>
                   <li>Harpes électriques : tuent les frelons en vol autour du rucher.</li>
                   <li>Tentes anti-frelons : barrières physiques pour ruches très exposées.</li>
-                  <li>Raquettes électriques, poules, ou même certaines plantes carnivores sont aussi parfois utilisées comme compléments.</li>
+                  <li>Raquettes électriques, poules, ou même certaines plantes carnivores sont aussi parfois utilisées comme
+                    compléments.
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className={styles.cardImageWrapper} style={{maxWidth: '300px', margin: '2rem auto 0'}}>
-              <div className={styles.placeholderImage}>🪤</div>
-            </div>
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/piege.png`}
+                alt="Frelon asiatique pris dans un piège selectif"
+                style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+            />
           </div>
 
           {/* Section Cadre réglementaire */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardIcon}>📋</span>
               <h2 className={styles.cardTitle}>Cadre réglementaire</h2>
             </div>
             <div className={styles.cardContent}>
@@ -160,9 +174,11 @@ export default function FrelonAsiatiquePage() {
                 Il est interdit de le transporter, de le relâcher ou de favoriser sa propagation. Des plans régionaux de lutte
                 existent, avec soutien aux apiculteurs et campagnes de piégeage coordonnées.
               </p>
-              <div className={styles.cardImageWrapper}>
-                <div className={styles.placeholderImage}>⚖️</div>
-              </div>
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-attaque.jpg`}
+                  alt="Frelon asiatique qui attaque une abeille"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+              />
             </div>
           </div>
 
@@ -184,7 +200,6 @@ export default function FrelonAsiatiquePage() {
           {/* Section Vos gestes qui comptent */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <span className={styles.cardIcon}>🤝</span>
               <h2 className={styles.cardTitle}>Vos gestes qui comptent</h2>
             </div>
             <div className={styles.cardContent}>
@@ -196,9 +211,11 @@ export default function FrelonAsiatiquePage() {
                   <li>Favorisez les insectes auxiliaires et pollinisateurs en plantant des fleurs mellifères.</li>
                 </ul>
               </div>
-              <div className={styles.cardImageWrapper}>
-                <div className={styles.placeholderImage}>🌸</div>
-              </div>
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-asiatique-nid.jpg`}
+                  alt="Nid de frelon asiatique"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+              />
             </div>
           </div>
         </div>

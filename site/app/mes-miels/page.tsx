@@ -6,7 +6,7 @@ export default function MesMielsPage() {
     <div className={styles.container}>
       <section className={styles.section}>
         <h1 className={styles.sectionTitle}>
-          🍯 Mes Miels
+          Mes Miels
         </h1>
 
         <div className={styles.introCard}>
@@ -75,7 +75,6 @@ export default function MesMielsPage() {
         {/* Section Cristallisation */}
         <div className={styles.crystallizationSection}>
           <div className={styles.crystallizationHeader}>
-            <span className={styles.crystallizationIcon}>💎</span>
             <h2 className={styles.crystallizationTitle}>Miel cristallisé, Miel de qualité !</h2>
           </div>
 
@@ -84,37 +83,45 @@ export default function MesMielsPage() {
               <div className={styles.crystallizationSubsection}>
                 <h3 className={styles.crystallizationSubtitle}>❓ Pourquoi le miel cristallise ?</h3>
                 <p className={styles.crystallizationParagraph}>
-                  La cristallisation est un phénomène naturel et inévitable du miel. Loin d'être un défaut, elle est même un gage de qualité !
+                  La cristallisation est un phénomène naturel et inévitable du miel. Loin d'être un défaut, elle est même un gage
+                  de qualité !
                 </p>
                 <p className={styles.crystallizationParagraph}>
-                  Le miel est une solution naturellement saturée en sucres, principalement le glucose et le fructose. Avec le temps, le glucose se sépare de l'eau pour former de petits cristaux, ce qui épaissit et durcit le miel.
+                  Le miel est une solution naturellement saturée en sucres, principalement le glucose et le fructose. Avec le
+                  temps, le glucose se sépare de l'eau pour former de petits cristaux, ce qui épaissit et durcit le miel.
                 </p>
               </div>
+
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/miel/miel-cristalise.jpg`}
+                  alt="Miel cristallisé"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+              />
 
               <div className={styles.crystallizationSubsection}>
                 <h3 className={styles.crystallizationSubtitle}>🔄 Comment rendre le miel liquide ?</h3>
                 <p className={styles.crystallizationParagraph}>
-                  Que vous le préfériez liquide pour les boissons, ou crémeux pour les tartines, la cristallisation est totalement réversible sans perdre les bienfaits du miel. Pour le liquéfier (le rendre fluide) :
+                  Que vous le préfériez liquide pour les boissons, ou crémeux pour les tartines, la cristallisation est totalement
+                  réversible sans perdre les bienfaits du miel. Pour le liquéfier (le rendre fluide) :
                 </p>
                 <ul className={styles.crystallizationList}>
                   <li>Remplissez une casserole d'eau tiède (environ 40 °C).</li>
                   <li>Plongez le pot de miel (sans son couvercle) dans l'eau.</li>
                   <li>Laissez-le jusqu'à ce qu'il redevienne liquide, en remuant de temps en temps.</li>
-                  <li>Pour un miel crémeux : Laissez-le refroidir et commencez à le brasser doucement avec une cuillère plusieurs fois par jour pendant quelques jours.</li>
+                  <li>Pour un miel crémeux : Laissez-le refroidir et commencez à le brasser doucement avec une cuillère plusieurs
+                    fois par jour pendant quelques jours.
+                  </li>
                 </ul>
                 <div className={styles.warningBox}>
                   <p className={styles.warningText}>
                     <strong>⚠️ Attention :</strong> Ne jamais chauffer le miel au-delà de 40°C !
                   </p>
                 </div>
-                <p className={styles.crystallizationParagraph} style={{marginTop: '1rem', fontWeight: 600, color: 'var(--color-primary)'}}>
+                <p className={styles.crystallizationParagraph}
+                   style={{marginTop: '1rem', fontWeight: 600, color: 'var(--color-primary)'}}>
                   Bonne dégustation ! 🍯
                 </p>
               </div>
-            </div>
-
-            <div className={styles.crystallizationImageWrapper}>
-              <div className={styles.placeholderImage}>🍯</div>
             </div>
           </div>
         </div>
@@ -124,7 +131,7 @@ export default function MesMielsPage() {
             ← Retour à l'accueil
           </Link>
           <Link href="/tracabilite" className={styles.btnPrimary}>
-            🔍 Tracer votre miel
+          🔍 Tracer votre miel
           </Link>
         </div>
       </section>

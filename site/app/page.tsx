@@ -8,7 +8,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className={styles.hero}
                style={{
-                 '--bg-cadre-miel': `url('${process.env.NEXT_PUBLIC_BASE_PATH}/images/cadre-miel.jpg')`
+                 '--bg-cadre-miel': `url('${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg')`
                } as React.CSSProperties}>
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
@@ -69,7 +69,7 @@ export default function Home() {
               </div>
               <div className={styles.companyContact}>
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/essaim.jpg`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/essaim.jpg`}
                   alt="Essaim d'abeilles Bee Api'C"
                   style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
                 />
@@ -99,7 +99,7 @@ export default function Home() {
               </div>
               <div className={styles.companyContact}>
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/miels.jpg`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/miels.jpg`}
                   alt="Pots de miel Bee Api'C"
                   style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
                 />
@@ -114,37 +114,6 @@ export default function Home() {
             <p className={styles.companyDescription} style={{ marginTop: '1rem' }}>
               Et parce que chaque geste compte, j'imprime mes étiquettes uniquement en fonction des besoins réels, en petites quantités, pour éviter tout gaspillage inutile.
             </p>
-          </div>
-        </section>
-
-        {/* Section La vie autour de la ruche */}
-        <section className={styles.companySection}>
-          <div className={styles.companyCard}>
-            <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🌸</span>
-              <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
-            </div>
-            <p className={styles.companyDescription}>
-              Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
-            </p>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-              gap: '1rem',
-              marginTop: '1.5rem'
-            }}>
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/colas-vincent.jpg`}
-                alt="Vincent Colas - Apiculteur Bee Api'C"
-                style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem' }}
-              />
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/produits.jpg`}
-                alt="Produits de la ruche Bee Api'C"
-                style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem' }}
-              />
-              {/* Ajoutez d'autres images ici si vous en avez */}
-            </div>
           </div>
         </section>
 
@@ -212,6 +181,87 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+          </div>
+        </section>
+
+        {/* Section La vie autour de la ruche */}
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🌸</span>
+              <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
+            </div>
+            <p className={styles.companyDescription}>
+              Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
+            </p>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+              gap: '1rem',
+              marginTop: '1.5rem'
+            }}>
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/vincent-colas/colas-vincent.jpg`}
+                  alt="Vincent Colas - Apiculteur Bee Api'C"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/produits.jpg`}
+                  alt="Produits de la ruche Bee Api'C"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-fleur.jpeg`}
+                  alt="Abeille dans une fleur"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-ruchette.jpeg`}
+                  alt="Abeille sur une ruchette"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-miel.jpeg`}
+                  alt="Abeilles qui mangent du miel"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-ruche.jpeg`}
+                  alt="Abeilles sur une ruche Bee Api'C"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre.jpeg`}
+                  alt="Cadre de ruche Bee Api'C"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg`}
+                  alt="Cadre de miel"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/rucher-foret.jpeg`}
+                  alt="Rucher dans la forêt"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/ruche-foret.jpeg`}
+                  alt="Ruche dans la forêt"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/visite.jpeg`}
+                  alt="Visite d'une ruche"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`}
+                  alt="Rucher dans les Pays de Retz"
+                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
+              />
+            </div>
           </div>
         </section>
 
@@ -304,7 +354,6 @@ export default function Home() {
 
         {/* Section Merci */}
         <div className={styles.thanksCard}>
-          <div className={styles.thanksIcon}>🐝</div>
           <h2 className={styles.thanksTitle}>Merci de faire partie de cette aventure</h2>
           <p className={styles.thanksText}>
             Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.

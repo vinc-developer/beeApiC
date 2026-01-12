@@ -25,6 +25,12 @@ export default function EntreprisesRSEPage() {
                 responsable, tout en donnant du sens à vos engagements.
             </p>
 
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rse/RSE.png`}
+                alt="rse et apiculture"
+                style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+            />
+
             {/* Features Section */}
             <section className={pageStyles.featuresSection}>
                 <div className={pageStyles.featuresContainer}>
@@ -73,7 +79,7 @@ export default function EntreprisesRSEPage() {
                 {/* Cadeaux d'entreprise */}
                 <article className={styles.offerCard}>
                     <h2 className={styles.offerHeader}>
-                        🍯 Cadeaux d'entreprise responsables
+                        Cadeaux d'entreprise responsables
                     </h2>
                     <p className={styles.offerText}>
                         Nous proposons des <strong>pots de miel locaux</strong> comme cadeaux
@@ -93,7 +99,7 @@ export default function EntreprisesRSEPage() {
                 {/* Soutien à l'apiculture */}
                 <article className={styles.offerCard}>
                     <h2 className={styles.offerHeader}>
-                        🐝 Partenariat de soutien à l'apiculture locale
+                        Partenariat de soutien à l'apiculture locale
                     </h2>
                     <p className={styles.offerText}>
                         Les entreprises peuvent s'engager aux côtés de Bee Api'C en soutenant
@@ -113,7 +119,7 @@ export default function EntreprisesRSEPage() {
                 {/* Sensibilisation */}
                 <article className={styles.offerCard}>
                     <h2 className={styles.offerHeader}>
-                        👩‍🏫 Sensibilisation à l'apiculture et à la biodiversité
+                        Sensibilisation à l'apiculture et à la biodiversité
                     </h2>
                     <p className={styles.offerText}>
                         Nous proposons des actions de <strong>sensibilisation</strong> pour
@@ -133,7 +139,7 @@ export default function EntreprisesRSEPage() {
                 {/* Marchés de Noël */}
                 <article className={styles.offerCard}>
                     <h2 className={styles.offerHeader}>
-                        🎄 Marchés de Noël et événements d'entreprise
+                        Marchés de Noël et événements d'entreprise
                     </h2>
                     <p className={styles.offerText}>
                         Bee Api'C peut intervenir lors de{" "}
@@ -153,7 +159,7 @@ export default function EntreprisesRSEPage() {
                 {/* Approvisionnement */}
                 <article className={styles.offerCard}>
                     <h2 className={styles.offerHeader}>
-                        🧾 Approvisionnement en miel pour l'entreprise
+                        Approvisionnement en miel pour l'entreprise
                     </h2>
                     <p className={styles.offerText}>
                         Nous proposons également du miel pour un{" "}

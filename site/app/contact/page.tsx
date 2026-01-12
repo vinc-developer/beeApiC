@@ -7,7 +7,7 @@ export default function ContactPage() {
     <div className={styles.container}>
       <section className={styles.section}>
         <h1 className={styles.sectionTitle}>
-          📧 Me Contacter
+          Me Contacter
         </h1>
 
         <div className={styles.companyCard}>
@@ -20,7 +20,7 @@ export default function ContactPage() {
             {/* Coordonnées */}
             <div>
               <h2 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-secondary)' }}>
-                📍 Coordonnées
+                Coordonnées
               </h2>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

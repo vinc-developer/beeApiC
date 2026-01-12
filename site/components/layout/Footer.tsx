@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import styles from './Footer.module.css';
-import CardEntreprise from "@/components/apiculteur/card-entreprise";
+import CardEntreprise from "@/components/entreprise/card-entreprise";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

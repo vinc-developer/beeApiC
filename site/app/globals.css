@@ -111,7 +111,7 @@ body {
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
     color: var(--color-text);
-    background: linear-gradient(135deg, var(--color-primary-lightest) 0%, var(--color-light-gray) 100%);
+    /*background: linear-gradient(135deg, var(--color-primary-lightest) 0%, var(--color-light-gray) 100%);*/
     min-height: 100vh;
     padding: var(--spacing-lg);
 }
