@@ -55,15 +55,17 @@
 
 .logoImageWrapper {
     position: relative;
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     min-width: 3rem;
     min-height: 3rem;
     overflow: hidden;
     border-radius: 9999px;
-    /*background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);*/
-    padding: 0.25rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /*background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+     padding: 0.25rem;
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+     */
+
     flex-shrink: 0;
 }
 
@@ -311,8 +313,8 @@
         height: 4rem;
     }
 
-    .logoName {
-        font-size: 1.125rem;
+    .logoText {
+        display: none;
     }
 
     .nav {

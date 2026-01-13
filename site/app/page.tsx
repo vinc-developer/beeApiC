@@ -118,7 +118,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className={styles.section}>
+        <section className={styles.companySection}>
           <h2 className={styles.sectionTitle}>
             Découvrez l'origine de votre miel
           </h2>
@@ -353,7 +353,7 @@ export default function Home() {
         </section>
 
         {/* Section Merci */}
-        <div className={styles.thanksCard}>
+        <section className={styles.thanksCard}>
           <h2 className={styles.thanksTitle}>Merci de faire partie de cette aventure</h2>
           <p className={styles.thanksText}>
             Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.
@@ -362,7 +362,7 @@ export default function Home() {
           <p className={styles.thanksMessage}>
             🌼 MERCI pour elles, merci pour nous 🌼
           </p>
-        </div>
+        </section>
       </div>
     </>
   );
