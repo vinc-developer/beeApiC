@@ -1,9 +1,9 @@
-:HL["/beeApiC/_next/static/chunks/ac359e70a2f09566.css","style"]
-:HL["/beeApiC/_next/static/chunks/bce042bce098b31a.css","style"]
+:HL["/beeApiC/_next/static/chunks/af14158d2a35bcb2.css","style"]
+:HL["/beeApiC/_next/static/chunks/638a1b73fa675a38.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/beeApiC/images/logo-beeapic.png","image"]
 :HL["/beeApiC/images/matthieu-colas/matthieu-colas.jpg","image"]
 :HL["/beeApiC/images/matthieu-colas/logo.jpg","image"]
 :HL["/beeApiC/images/matthieu-colas/ruche-matthieu.jpg","image"]
 :HL["/beeApiC/images/matthieu-colas/rucher-matthieu.jpg","image"]
-0:{"buildId":"4i2xz9c2k8EJsORxN9w0e","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"apiculteur","paramType":null,"paramKey":"apiculteur","hasRuntimePrefetch":false,"slots":{"children":{"name":"code","paramType":"d","paramKey":"MC","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"ztAcMqc-7fS0YomPh_A1D","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"apiculteur","paramType":null,"paramKey":"apiculteur","hasRuntimePrefetch":false,"slots":{"children":{"name":"code","paramType":"d","paramKey":"MC","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
