@@ -266,8 +266,8 @@ export default function Home() {
         </section>
 
         {/* Section Ce que nous proposons */}
-        <section className={styles.featuresSection}>
-          <div className={styles.featuresContainer}>
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
             <h2 className={styles.featuresTitle}>
               Ce que nous proposons !
             </h2>
@@ -353,15 +353,20 @@ export default function Home() {
         </section>
 
         {/* Section Merci */}
-        <section className={styles.thanksCard}>
-          <h2 className={styles.thanksTitle}>Merci de faire partie de cette aventure</h2>
-          <p className={styles.thanksText}>
-            Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.
-            En choisissant mes produits, en visitant mes ruchers ou simplement en vous intéressant aux abeilles, vous participez vous aussi à leur préservation.
-          </p>
-          <p className={styles.thanksMessage}>
-            🌼 MERCI pour elles, merci pour nous 🌼
-          </p>
+        <section className={styles.companySection}>
+          <div className={styles.thanksCard}>
+            <h2 className={styles.companyTitle}>Merci de faire partie de cette aventure</h2>
+            <br />
+            <p className={styles.companyDescription}>
+              Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.
+              En choisissant mes produits, en visitant mes ruchers ou simplement en vous intéressant aux abeilles, vous participez
+              vous aussi à leur préservation.
+            </p>
+            <br />
+            <p className={styles.companyDescription}>
+              🌼 MERCI pour elles, merci pour nous 🌼
+            </p>
+          </div>
         </section>
       </div>
     </>

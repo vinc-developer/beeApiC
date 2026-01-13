@@ -18,11 +18,36 @@ export default function MesMielsPage() {
 
         <div className={styles.honeysGrid}>
           <div className={styles.honeyCard}>
-            <div className={styles.honeyIcon}>🌸</div>
-            <h3 className={styles.honeyTitle}>Miel de Fleurs</h3>
+            <div className={styles.honeyIcon}>🍀</div>
+            <h3 className={styles.honeyTitle}>Miel de Printemps</h3>
             <p className={styles.honeyDescription}>
-              Doux et parfumé, notre miel de fleurs est récolté au printemps.
+              Un mélange harmonieux des premières fleurs de la saison.
+              Doux et équilibré.
+            </p>
+          </div>
+          <div className={styles.honeyCard}>
+            <div className={styles.honeyIcon}>🏵️</div>
+            <h3 className={styles.honeyTitle}>Miel d'acacia</h3>
+            <p className={styles.honeyDescription}>
+              Miel rare et capricieux, au goût délicat et floral.
+              Excellent pour les enfants.
+            </p>
+          </div>
+
+          <div className={styles.honeyCard}>
+            <div className={styles.honeyIcon}>🌸</div>
+            <h3 className={styles.honeyTitle}>Miel toutes Fleurs</h3>
+            <p className={styles.honeyDescription}>
+              Doux et parfumé, notre miel toutes fleurs est récolté durant toute la saison.
               Il offre un goût délicat et une texture crémeuse.
+            </p>
+          </div>
+          <div className={styles.honeyCard}>
+            <div className={styles.honeyIcon}>🌿</div>
+            <h3 className={styles.honeyTitle}>Miel d'été</h3>
+            <p className={styles.honeyDescription}>
+              Léger et délicat, ce miel liquide est parfait pour adoucir
+              les boissons chaudes et les desserts.
             </p>
           </div>
 
@@ -34,40 +59,12 @@ export default function MesMielsPage() {
               Riche en minéraux, il a une couleur sombre caractéristique.
             </p>
           </div>
-
           <div className={styles.honeyCard}>
-            <div className={styles.honeyIcon}>🌻</div>
-            <h3 className={styles.honeyTitle}>Miel de Tournesol</h3>
+            <div className={styles.honeyIcon}>🌲</div>
+            <h3 className={styles.honeyTitle}>Miel de Sapin</h3>
             <p className={styles.honeyDescription}>
-              Doux et fruité, ce miel jaune d'or cristallise rapidement.
-              Parfait pour les tartines du petit-déjeuner.
-            </p>
-          </div>
-
-          <div className={styles.honeyCard}>
-            <div className={styles.honeyIcon}>🌾</div>
-            <h3 className={styles.honeyTitle}>Miel de Sarrasin</h3>
-            <p className={styles.honeyDescription}>
-              Typique de notre région, ce miel sombre a un goût puissant et maltés.
-              Excellent pour la santé.
-            </p>
-          </div>
-
-          <div className={styles.honeyCard}>
-            <div className={styles.honeyIcon}>🍀</div>
-            <h3 className={styles.honeyTitle}>Miel de Trèfle</h3>
-            <p className={styles.honeyDescription}>
-              Léger et délicat, ce miel blanc crémeux est parfait pour adoucir
-              les boissons chaudes et les desserts.
-            </p>
-          </div>
-
-          <div className={styles.honeyCard}>
-            <div className={styles.honeyIcon}>🌿</div>
-            <h3 className={styles.honeyTitle}>Miel de Printemps</h3>
-            <p className={styles.honeyDescription}>
-              Un mélange harmonieux des premières fleurs de la saison.
-              Doux et équilibré.
+              Miel rare et précieux, au goût résineux et boisé.
+              Puissant en antioxydants, il est idéal pour les amateurs de saveurs fortes.
             </p>
           </div>
         </div>

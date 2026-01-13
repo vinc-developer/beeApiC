@@ -51,7 +51,7 @@
 }
 
 .badgeIcon {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
 }
 
 .badgeText {
@@ -86,7 +86,7 @@
 }
 
 .slogan {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     font-weight: 500;
     color: #FFFFFF;
     margin-bottom: 2rem;
@@ -179,11 +179,11 @@
 }
 
 .companyIcon {
-    font-size: 1.875rem;
+    /*font-size: 1.875rem;*/
 }
 
 .companyTitle {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     font-weight: 700;
     color: var(--color-secondary);
     flex: 1;
@@ -246,7 +246,7 @@
 }
 
 .contactTitle {
-    font-size: 1.125rem;
+    /*font-size: 1.125rem;*/
     font-weight: 600;
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -265,7 +265,7 @@
 }
 
 .contactIcon {
-    font-size: 1.125rem;
+    /*font-size: 1.125rem;*/
 }
 
 .contactText {
@@ -293,7 +293,7 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: 2.25rem;
+    /*font-size: 2.25rem;*/
     font-weight: 700;
     margin-bottom: 3rem;
     color: var(--color-secondary);
@@ -382,14 +382,14 @@
 }
 
 .ctaTitle {
-    font-size: 1.875rem;
+    /*font-size: 1.875rem;*/
     font-weight: 700;
     color: #111827;
     margin-bottom: 0.75rem;
 }
 
 .ctaDescription {
-    font-size: 1.125rem;
+    /*font-size: 1.125rem;*/
     color: #4B5563;
     margin-bottom: 1rem;
 }
@@ -436,7 +436,7 @@
 
 .featuresTitle {
     text-align: center;
-    font-size: 2.25rem;
+    /*font-size: 2.25rem;*/
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--color-secondary);
@@ -444,7 +444,7 @@
 
 .featuresSubtitle {
     text-align: center;
-    font-size: 1.125rem;
+    /*font-size: 1.125rem;*/
     color: #4B5563;
     margin-bottom: 3rem;
 }
@@ -482,7 +482,7 @@
 }
 
 .featureTitle {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     font-weight: 700;
     margin-bottom: 0.75rem;
     color: var(--color-secondary);
@@ -495,14 +495,12 @@
 
 /* Card merci */
 .thanksCard {
-    background: linear-gradient(135deg, #FEF3C7 0%, #FFFFFF 100%);
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
     border-radius: 1rem;
-    padding: 3rem;
+    padding: 2rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 2px solid var(--color-primary);
+    border: 2px solid #F5B04A;
     text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
 }
 
 .thanksIcon {
@@ -518,7 +516,7 @@
 }
 
 .thanksText {
-    font-size: 1.125rem;
+   /* font-size: 1.125rem;*/
     line-height: 1.75;
     color: var(--color-text);
     margin-bottom: 1.5rem;
@@ -545,7 +543,7 @@
     }
 
     .slogan {
-        font-size: 1.875rem;
+       /* font-size: 1.875rem;*/
     }
 }
 
@@ -610,8 +608,8 @@
     }
 
     .thanksCard {
-        padding: 2rem;
-        margin: 3rem 1rem;
+        padding: 0.5rem;
+        margin: 3rem auto;
     }
 }
 
@@ -630,7 +628,7 @@
         padding: 0.5rem;
     }
     .thanksCard {
-        /*padding: 0.5rem;*/
+        padding: 0.5rem;
     }
 
     .title {
@@ -638,11 +636,11 @@
     }
 
     .slogan {
-        font-size: 1.125rem;
+        /*font-size: 1.125rem;*/
     }
 
     .thanksTitle {
-        font-size: 1.5rem;
+        /*font-size: 1.5rem;*/
     }
 
     .thanksIcon {
