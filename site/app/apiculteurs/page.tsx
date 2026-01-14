@@ -184,23 +184,53 @@ const pageStyles = `
   .info-details {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFBF0 100%);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #F5E6C8;
   }
 
   .info-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    min-height: 2.5rem;
+  }
+
+  .info-item:hover {
+    background: #FFFEF9;
+    transform: translateX(4px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .info-icon {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFF5E6 0%, #FFE0B2 100%);
+    border-radius: 0.5rem;
     flex-shrink: 0;
   }
 
   .info-text {
     font-size: 0.875rem;
-    color: var(--color-text-light);
+    color: var(--color-text);
+    font-weight: 500;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    min-height: 2.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .bio-preview {
