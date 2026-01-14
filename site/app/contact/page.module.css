@@ -169,6 +169,61 @@
     transform: translateY(0);
 }
 
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Messages de statut */
+.successMessage,
+.errorMessage {
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.successMessage {
+    background: linear-gradient(135deg, #D1FAE5 0%, #F0FDF4 100%);
+    border: 2px solid #86EFAC;
+    color: #166534;
+}
+
+.errorMessage {
+    background: linear-gradient(135deg, #FEE2E2 0%, #FEF2F2 100%);
+    border: 2px solid #FCA5A5;
+    color: #991B1B;
+}
+
+.successIcon,
+.errorIcon {
+    font-size: var(--font-size-2xl);
+    flex-shrink: 0;
+}
+
+.successMessage p,
+.errorMessage p {
+    margin: 0;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-normal);
+}
+
 /* Bouton retour */
 .backButtonContainer {
     margin-top: 2rem;
