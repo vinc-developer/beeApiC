@@ -55,18 +55,17 @@
 
 .logoImageWrapper {
     position: relative;
-    width: 3.5rem;
-    height: 3.5rem;
-    min-width: 3rem;
-    min-height: 3rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
     overflow: hidden;
     border-radius: 9999px;
-    /*background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
-     padding: 0.25rem;
-     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-     */
-
+    padding: 0.25rem;
     flex-shrink: 0;
+    /*background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    */
 }
 
 .logoImage {

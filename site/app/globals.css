@@ -1189,6 +1189,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
+    margin-bottom: 2rem;
 }
 
 /* Header Profil */

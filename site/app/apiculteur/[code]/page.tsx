@@ -31,7 +31,7 @@ export default async function BeekeeperPage({
   return (
       <div className="container">
         {/* Header */}
-        <header className="header">
+        <section className="header">
           <div className="header-content">
             <div className="brand-logo">
               <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-beeapic.png`} alt="Bee Api'C" id="brandLogo" className="hidden"/>
@@ -43,15 +43,7 @@ export default async function BeekeeperPage({
             <h1 className="header-title">Portrait de l'Apiculteur</h1>
             <p className="header-subtitle">Découvrez qui produit votre miel</p>
           </div>
-        </header>
-
-        {/* Bouton retour */}
-        <div className="back-button-container">
-          <Link href="/tracabilite" className="btn-back">
-            <span className="btn-icon">←</span>
-            Retour à la traçabilité
-          </Link>
-        </div>
+        </section>
 
         {/* Section Profil */}
         <section className="beekeeper-profile">
@@ -210,6 +202,24 @@ export default async function BeekeeperPage({
                   </div>
               )}
 
+              {/* Shop web */}
+              {beekeeper?.webshop && (
+                  <div className="contact-detail-item">
+                    <span className="contact-icon">🛒</span>
+                    <div className="contact-content">
+                      <span className="contact-label">Boutique</span>
+                      <a
+                          href={beekeeper.webshop}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="contact-link"
+                      >
+                        {beekeeper.webshop}
+                      </a>
+                    </div>
+                  </div>
+              )}
+
               {/* Email */}
               <div className="contact-detail-item">
                 <span className="contact-icon">📧</span>
@@ -315,12 +325,6 @@ export default async function BeekeeperPage({
               </div>
           )}
         </section>
-
-        <div style={{marginTop: '2rem', textAlign: 'center'}}>
-          <Link href="/" className={styles.btnSecondary}>
-            ← Retour à l'accueil
-          </Link>
-        </div>
       </div>
   );
 }

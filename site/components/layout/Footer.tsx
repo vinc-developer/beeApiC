@@ -8,7 +8,6 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <CardEntreprise />
       <div className={styles.footerContainer}>
 
         {/* Bottom */}

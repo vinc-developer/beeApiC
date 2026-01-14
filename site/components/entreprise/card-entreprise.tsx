@@ -23,6 +23,8 @@ export default function CardEntreprise() {
                             qualité,
                             traçable et respectueux de l'environnement.
                         </p>
+                        <p> Tous nos miels sont récoltés, extraits et mis en pot en
+                            Loire-Atlantique</p>
                         <p>Découvrez l'origine de votre miel avec notre système de traçabilité complet. Du rucher à votre table,
                             suivez chaque étape de production.</p>
 

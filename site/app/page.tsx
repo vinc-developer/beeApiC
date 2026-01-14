@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import styles from "./page.module.css";
+import ImageGallery from "@/components/gallery/ImageGallery";
 
 export default function Home() {
   return (

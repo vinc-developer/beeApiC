@@ -348,12 +348,6 @@ export default function ApiculteursPage() {
               </div>
             </>
           )}
-
-          <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-            <Link href="/" className={styles.btnSecondary}>
-              ← Retour à l'accueil
-            </Link>
-          </div>
         </section>
       </div>
     </>

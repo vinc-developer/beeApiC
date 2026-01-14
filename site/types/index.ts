@@ -42,6 +42,7 @@ export interface Beekeeper {
   email: string;
   phone: string;
   website?: string;
+  webshop?: string;
   siret: string;
   photo?: string;
   logo?: string;

@@ -4,6 +4,7 @@ import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import styles from "./page.module.css";
+import BackButton from "@/components/ui/BackButton";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -41,8 +42,8 @@ export default function ContactPage() {
           template_id: templateId,
           user_id: publicKey,
           template_params: {
-            from_name: formData.name,
-            from_email: formData.email,
+            name: formData.name,
+            email: formData.email,
             phone: formData.phone || 'Non renseigné',
             message: formData.message,
             to_email: siteConfig.company.email,
@@ -243,12 +244,6 @@ export default function ContactPage() {
               </form>
             </div>
           </div>
-        </div>
-
-        <div className={styles.backButtonContainer}>
-          <Link href="/" className={styles.btnSecondary}>
-            ← Retour à l'accueil
-          </Link>
         </div>
       </section>
     </div>

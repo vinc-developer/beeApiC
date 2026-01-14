@@ -268,7 +268,7 @@ export default function Header() {
                   </Link>
 
                   <a
-                    href="https://bee-apic.com"
+                    href="https://bee-apic.sumupstore.com/produits"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.mobileNavLink}

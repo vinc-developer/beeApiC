@@ -245,27 +245,6 @@
     gap: 0.75rem;
 }
 
-/* Bouton */
-.btnSecondary {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: #374151;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(4px);
-    border: 2px solid white;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btnSecondary:hover {
-    background: white;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .container {
@@ -313,11 +292,6 @@
 
     .beekeeperInfo {
         padding: 1rem;
-    }
-
-    .btnSecondary {
-        padding: 0.625rem 1.5rem;
-        font-size: var(--font-size-base);
     }
 }
 

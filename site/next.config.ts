@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
   },
   env: {
     NEXT_PUBLIC_BASE_PATH: isProd ? "/beeApiC" : "",
+    NEXT_PUBLIC_EMAILJS_SERVICE_ID: "service_nhwy10n",
+    NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: "template_6qc89ml",
+    NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: "9ommJjLF0Ubvg-kT7",
   },
   //distDir: "out/beeApiC", -> pour le local
 };

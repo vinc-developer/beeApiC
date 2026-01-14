@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {getLotsListAll, getTraceability} from '@/lib/api/tracabilite';
 import { extractHoneyType, formatDate } from '@/lib/utils';
 import honeyTypesData from '@/data/honey-types.json';
+import styles from "./../tracabilite.module.css";
 
 /* référencement lot*/
 export function generateStaticParams() {
@@ -41,7 +42,7 @@ export default async function LotDetailPage({
   return (
     <div className="container">
       {/* Header */}
-      <header className="header">
+      <section className="header">
         <div className="header-content">
           <div className="brand-logo">
             <span className="brand-icon">🐝</span>
@@ -50,15 +51,7 @@ export default async function LotDetailPage({
           <h1 className="header-title">Traçabilité du Miel</h1>
           <p className="header-subtitle">Don't Pannic, Bee Api'C !</p>
         </div>
-      </header>
-
-      {/* Bouton nouvelle recherche */}
-      <div className="back-button-container">
-        <Link href="/tracabilite" className="btn-back">
-          <span className="btn-icon">←</span>
-          Nouvelle recherche
-        </Link>
-      </div>
+      </section>
 
       {/* Résultats de la traçabilité */}
       <section className="results-section">
@@ -211,7 +204,7 @@ export default async function LotDetailPage({
                   </div>
                 </div>
 
-                {/* Site web */}
+                {/* Site web
                 {data.beekeeper?.website && (
                   <div className="beekeeper-info-item">
                     <span className="info-icon">🌐</span>
@@ -228,6 +221,7 @@ export default async function LotDetailPage({
                     </div>
                   </div>
                 )}
+                */}
 
                 {/* Email */}
                 <div className="beekeeper-info-item">
@@ -251,17 +245,18 @@ export default async function LotDetailPage({
                   </div>
                 </div>
 
-                {/* SIRET */}
+                {/* SIRET
                 <div className="beekeeper-info-item">
                   <span className="info-icon">🏢</span>
                   <div className="info-content">
                     <span className="info-small-label">SIRET</span>
                     <span className="info-text">{data.beekeeper?.siret}</span>
                   </div>
-                </div>
+                </div>*/}
               </div>
 
-              {/* Réseaux sociaux */}
+
+              {/* Réseaux sociaux
               {data.beekeeper?.socialMedia && Object.keys(data.beekeeper.socialMedia).some(key => data.beekeeper?.socialMedia?.[key as keyof typeof data.beekeeper.socialMedia]) && (
                 <div className="social-media-section">
                   <h4 className="social-title">Suivez-nous</h4>
@@ -329,6 +324,7 @@ export default async function LotDetailPage({
                   </div>
                 </div>
               )}
+               */}
 
               {/* Bouton En savoir plus */}
               <div className="beekeeper-actions">
@@ -341,6 +337,14 @@ export default async function LotDetailPage({
           </div>
         </div>
       </section>
+
+      {/* Bouton nouvelle recherche */}
+      <div className={styles.tracabiliteButtonContainer}>
+        <Link href="/tracabilite" className={styles.btnSecondary}>
+          <span className="btn-icon">←</span>
+          Nouvelle recherche
+        </Link>
+      </div>
     </div>
   );
 }

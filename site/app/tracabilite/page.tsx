@@ -52,7 +52,7 @@ export default function TracabilitePage() {
   return (
       <div className="container">
         {/* Header */}
-        <header className="header">
+        <section className="header">
           <div className="header-content">
             <div className="brand-logo">
               <span className="brand-icon">🐝</span>
@@ -61,7 +61,7 @@ export default function TracabilitePage() {
             <h1 className="header-title">Traçabilité du Miel</h1>
             <p className="header-subtitle">Don't Pannic, Bee Api'C !</p>
           </div>
-        </header>
+        </section>
 
         {/* Formulaire de recherche */}
         <section className="search-section">
@@ -159,12 +159,6 @@ export default function TracabilitePage() {
             </div>
           </div>
         </section>
-
-        <div style={{marginTop: '2rem', textAlign: 'center'}}>
-          <Link href="/" className={styles.btnSecondary}>
-            ← Retour à l'accueil
-          </Link>
-        </div>
       </div>
   );
 }

@@ -6,9 +6,9 @@ export const siteConfig = {
   url: "https://bee-apic.com",
   company: {
     name: "Bee Api'C",
-    address: "bois des abeilles\n44680 Saint-Hilaire-de-Chaléons - France",
-    email: "bee.apic@gmail.com",
-    phone: "+33 6 06 06 06 06",
+    address: "14 la Thibaudière\n44680 Saint-Hilaire-de-Chaléons",
+    email: "bee.apic.pro@gmail.com",
+    phone: "+33 6 28 51 19 05",
     siret: "910 020 346 00029",
   },
 };
