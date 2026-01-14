@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": "miel-printemps-250g",
+      "name": "Miel de Printemps",
+      "description": "Miel doux et floral récolté au printemps, aux notes délicates de fleurs variées",
+      "price": 8.50,
+      "image": "pages/home/miels.jpg",
+      "category": "miel",
+      "weight": "250g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-printemps-250g"
+    },
+    {
+      "id": "miel-ete-250g",
+      "name": "Miel d'Été",
+      "description": "Miel aux notes plus intenses, récolté durant les chaudes journées d'été",
+      "price": 8.50,
+      "image": "pages/home/miels.jpg",
+      "category": "miel",
+      "weight": "250g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-ete-250g"
+    },
+    {
+      "id": "miel-chataignier-250g",
+      "name": "Miel de Châtaignier",
+      "description": "Miel corsé au goût prononcé et caractère affirmé",
+      "price": 9.00,
+      "image": "pages/home/miels.jpg",
+      "category": "miel",
+      "weight": "250g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-chataignier-250g"
+    },
+    {
+      "id": "miel-toutes-fleurs-250g",
+      "name": "Miel Toutes Fleurs",
+      "description": "Mélange harmonieux de fleurs variées pour un équilibre parfait",
+      "price": 8.50,
+      "image": "pages/home/miels.jpg",
+      "category": "miel",
+      "weight": "250g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-toutes-fleurs-250g"
+    },
+    {
+      "id": "miel-printemps-500g",
+      "name": "Miel de Printemps",
+      "description": "Miel doux et floral récolté au printemps, format économique",
+      "price": 15.00,
+      "image": "pages/home/miels.jpg",
+      "category": "miel",
+      "weight": "500g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-printemps-500g"
+    },
+    {
+      "id": "miel-ete-500g",
+      "name": "Miel d'Été",
+      "description": "Miel aux notes plus intenses, format économique",
+      "price": 15.00,
+      "image": "pages/home/miels.jpg",
+      "category": "miel",
+      "weight": "500g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-ete-500g"
+    },
+    {
+      "id": "hydromel-75cl",
+      "name": "Hydromel artisanal",
+      "description": "Hydromel élaboré en dame-jeanne et maturé en fût de chêne",
+      "price": 18.00,
+      "image": "pages/home/produits.jpg",
+      "category": "hydromel",
+      "weight": "75cl",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/hydromel-artisanal-75cl"
+    },
+    {
+      "id": "coffret-decouverte",
+      "name": "Coffret Découverte",
+      "description": "Assortiment de 3 pots de miel (Printemps, Été, Toutes Fleurs) - 250g chacun",
+      "price": 24.00,
+      "image": "pages/home/produits.jpg",
+      "category": "coffret",
+      "weight": "3x250g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/coffret-decouverte"
+    },
+    {
+      "id": "coffret-cadeau-premium",
+      "name": "Coffret Cadeau Premium",
+      "description": "2 pots de miel (500g) + 1 hydromel (75cl) dans un bel emballage",
+      "price": 45.00,
+      "image": "pages/home/produits.jpg",
+      "category": "coffret",
+      "weight": "2x500g + 75cl",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/coffret-cadeau-premium"
+    }
+  ]
+}
+

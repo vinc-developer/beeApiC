@@ -137,6 +137,32 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+.backLinkContainer {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.btnLink {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: #374151;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    border: 2px solid var(--color-primary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btnLink:hover {
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
 .heroDivider {
     position: absolute;
     bottom: 0;
@@ -530,7 +556,87 @@
     margin-top: 1rem;
 }
 
-/* Responsive */
+/* ========================================
+   SECTION BOUTIQUE
+   ======================================== */
+
+.shopHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.shopHeader > div {
+    flex: 1;
+}
+
+.shopSubtitle {
+    font-size: var(--font-size-lg);
+    color: #6b7280;
+    margin-top: 0.75rem;
+    line-height: 1.6;
+}
+
+.btnShop {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btnShop:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.productsGrid > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.shopFooter {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fef3c7 100%);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.shopNote {
+    font-size: var(--font-size-base);
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ========================================
+   MEDIA QUERIES
+   ======================================== */
+
 @media (min-width: 640px) {
     .ctaButtons {
         flex-direction: row;
@@ -572,6 +678,16 @@
     .featuresGrid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .productsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .shopHeader {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 }
 
@@ -628,6 +744,11 @@
 
     .companyCard {
         padding: 1.5rem;
+    }
+
+    .productsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 }
 
@@ -710,6 +831,11 @@
 
     .companyIcon {
         font-size: var(--font-size-2xl);
+    }
+
+    .productsGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 

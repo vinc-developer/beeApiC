@@ -2,8 +2,18 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import styles from "./page.module.css";
 import ImageGallery from "@/components/gallery/ImageGallery";
+import ProductCard from "@/components/shop/ProductCard";
+import productsData from "@/data/products.json";
+
+// Fonction pour sélectionner des produits aléatoires
+function getRandomProducts(count: number = 3) {
+  const products = [...productsData.products];
+  const shuffled = products.slice().sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
 
 export default function Home() {
+  const featuredProducts = getRandomProducts(8);
   return (
     <>
       {/* Hero Section */}
@@ -181,6 +191,32 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* Section Boutique */}
+        <section className={styles.companySection}>
+          <div className={styles.shopHeader}>
+            <div>
+              <h2 className={styles.sectionTitle}>
+                🍯 Notre boutique en ligne
+              </h2>
+              <p className={styles.shopSubtitle}>
+                Découvrez nos miels et produits de la ruche, disponibles à la commande
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.productsGrid}>
+            {featuredProducts.map((product) => (
+                <ProductCard key={product.id} product={product}/>
+            ))}
+          </div>
+
+          <div className={styles.backLinkContainer}>
+            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink }>
+              Voir tous nos produits
             </Link>
           </div>
         </section>

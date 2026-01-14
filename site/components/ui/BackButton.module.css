@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-.btnSecondary {
+.btnLink {
     display: inline-block;
     padding: 0.75rem 2rem;
     font-size: var(--font-size-lg);
@@ -17,7 +17,7 @@
     transition: all 0.3s ease;
 }
 
-.btnSecondary:hover {
+.btnLink:hover {
     background: white;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
