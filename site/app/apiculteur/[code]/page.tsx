@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import {loadBeekeeper, loadBeekeeperAll} from '@/lib/api/tracabilite';
 import styles from "@/app/page.module.css";
+import ImageGallery from "@/components/gallery/ImageGallery";
 
 /* référencement apiculteur*/
 export async function generateStaticParams() {
@@ -166,16 +167,12 @@ export default async function BeekeeperPage({
                   <span className="title-icon">📸</span>
                   Galerie Photos
                 </h2>
-                <div className="photo-gallery">
-                  {beekeeper.gallery.map((image, index) => (
-                      <div key={index} className="gallery-item">
-                        <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${image}`}
-                            alt={`Photo ${index + 1}`}
-                        />
-                      </div>
-                  ))}
-                </div>
+                <ImageGallery
+                  images={beekeeper.gallery.map((image, index) => ({
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/${image}`,
+                    alt: `Photo ${index + 1} - ${beekeeper.firstName} ${beekeeper.lastName}`
+                  }))}
+                />
               </div>
           )}
 

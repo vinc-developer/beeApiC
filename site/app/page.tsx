@@ -194,74 +194,58 @@ export default function Home() {
             <p className={styles.companyDescription}>
               Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
             </p>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-              gap: '1rem',
-              marginTop: '1.5rem'
-            }}>
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/vincent-colas/colas-vincent.jpg`}
-                  alt="Vincent Colas - Apiculteur Bee Api'C"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/produits.jpg`}
-                  alt="Produits de la ruche Bee Api'C"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-fleur.jpeg`}
-                  alt="Abeille dans une fleur"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-ruchette.jpeg`}
-                  alt="Abeille sur une ruchette"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-miel.jpeg`}
-                  alt="Abeilles qui mangent du miel"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-ruche.jpeg`}
-                  alt="Abeilles sur une ruche Bee Api'C"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre.jpeg`}
-                  alt="Cadre de ruche Bee Api'C"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg`}
-                  alt="Cadre de miel"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/rucher-foret.jpeg`}
-                  alt="Rucher dans la forêt"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/ruche-foret.jpeg`}
-                  alt="Ruche dans la forêt"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/visite.jpeg`}
-                  alt="Visite d'une ruche"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`}
-                  alt="Rucher dans les Pays de Retz"
-                  style={{width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem'}}
-              />
-            </div>
+            <ImageGallery
+              images={[
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/vincent-colas/colas-vincent.jpg`,
+                  alt: "Vincent Colas - Apiculteur Bee Api'C"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/produits.jpg`,
+                  alt: "Produits de la ruche Bee Api'C"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-fleur.jpeg`,
+                  alt: "Abeille dans une fleur"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-ruchette.jpeg`,
+                  alt: "Abeille sur une ruchette"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-miel.jpeg`,
+                  alt: "Abeilles qui mangent du miel"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-ruche.jpeg`,
+                  alt: "Abeilles sur une ruche Bee Api'C"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre.jpeg`,
+                  alt: "Cadre de ruche Bee Api'C"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg`,
+                  alt: "Cadre de miel"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/rucher-foret.jpeg`,
+                  alt: "Rucher dans la forêt"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/ruche-foret.jpeg`,
+                  alt: "Ruche dans la forêt"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/visite.jpeg`,
+                  alt: "Visite d'une ruche"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`,
+                  alt: "Rucher dans les Pays de Retz"
+                }
+              ]}
+            />
           </div>
         </section>
 

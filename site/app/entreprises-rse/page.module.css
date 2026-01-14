@@ -16,16 +16,16 @@
 
 .pageTitle {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
 }
 
 .introText {
     text-align: center;
-    font-size: 1.125rem;
-    line-height: 1.75;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin-bottom: 3rem;
     max-width: 800px;
@@ -56,8 +56,8 @@
 }
 
 .offerHeader {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
     display: flex;
@@ -66,8 +66,8 @@
 }
 
 .offerText {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin-bottom: 1rem;
 }
@@ -84,7 +84,7 @@
 .offerList li {
     position: relative;
     padding-left: 1.5rem;
-    line-height: 1.75;
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
 
@@ -94,7 +94,7 @@
     left: 0;
     font-weight: bold;
     color: var(--color-primary);
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg);
 }
 
 .rseValue {
@@ -103,10 +103,10 @@
     background: linear-gradient(135deg, #D1FAE5 0%, #F0FDF4 100%);
     border-left: 4px solid #86EFAC;
     border-radius: 0.5rem;
-    font-size: 0.9375rem;
+    font-size: var(--font-size-base);
     font-style: italic;
     color: #166534;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
 
 .rseValue strong {
@@ -130,8 +130,8 @@
 }
 
 .conclusionTitle {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
     display: flex;
@@ -141,8 +141,8 @@
 }
 
 .conclusionText {
-    font-size: 1.125rem;
-    line-height: 1.75;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
 }
@@ -155,9 +155,9 @@
 
 .btnPrimary {
     display: inline-block;
-    padding: 0.875rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: white;
     background: var(--color-primary);
     border-radius: 0.5rem;
@@ -179,11 +179,11 @@
     }
 
     .pageTitle {
-        font-size: 2rem;
+        font-size: var(--font-size-2xl);
     }
 
     .introText {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
     .offerCard {
@@ -191,7 +191,7 @@
     }
 
     .offerHeader {
-        font-size: 1.25rem;
+        font-size: var(--font-size-xl);
     }
 
     .conclusionCard {
@@ -199,29 +199,35 @@
     }
 
     .conclusionTitle {
-        font-size: 1.5rem;
+        font-size: var(--font-size-xl);
         flex-direction: column;
     }
 }
 
 @media (max-width: 480px) {
     .pageTitle {
-        font-size: 1.75rem;
+        font-size: var(--font-size-xl);
+    }
+
+    .offerCard,
+    .conclusionCard {
+        padding: 1rem;
     }
 
     .offerHeader {
-        font-size: 1.125rem;
+        font-size: var(--font-size-lg);
         flex-direction: column;
         align-items: flex-start;
     }
 
     .conclusionTitle {
-        font-size: 1.25rem;
+        font-size: var(--font-size-lg);
     }
 
     .btnPrimary {
         width: 100%;
-        padding: 1rem;
+        padding: 0.75rem 1rem;
+        font-size: var(--font-size-base);
     }
 }
 

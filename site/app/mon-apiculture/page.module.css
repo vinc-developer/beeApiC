@@ -14,16 +14,16 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
 }
 
 .intro {
     text-align: center;
-    font-size: 1.125rem;
-    line-height: 1.75;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin-bottom: 3rem;
     max-width: 800px;
@@ -62,13 +62,13 @@
 }
 
 .cardIcon {
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
     line-height: 1;
 }
 
 .cardTitle {
-    font-size: 1.875rem;
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0;
 }
@@ -81,8 +81,8 @@
 }
 
 .cardText {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
 }
@@ -122,15 +122,15 @@
 }
 
 .philosophyTitle {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
 }
 
 .philosophyDescription {
-    font-size: 1.125rem;
-    line-height: 1.75;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
 
@@ -150,8 +150,8 @@
 }
 
 .philosophySectionTitle {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
     display: flex;
@@ -160,8 +160,8 @@
 }
 
 .philosophySectionText {
-    font-size: 0.9375rem;
-    line-height: 1.75;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
 
@@ -184,9 +184,9 @@
 
 .btnSecondary {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: #374151;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
@@ -209,15 +209,15 @@
     }
 
     .sectionTitle {
-        font-size: 2rem;
+        font-size: var(--font-size-2xl);
     }
 
     .intro {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
     .cardTitle {
-        font-size: 1.5rem;
+        font-size: var(--font-size-xl);
     }
 
     .cardHeader {
@@ -237,19 +237,34 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
+    .contentCard,
+    .philosophyCard {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .sectionTitle {
-        font-size: 1.75rem;
+        font-size: var(--font-size-xl);
     }
 
     .cardTitle {
-        font-size: 1.25rem;
+        font-size: var(--font-size-lg);
     }
 
     .cardIcon {
-        font-size: 2rem;
+        font-size: var(--font-size-3xl);
+    }
+
+    .contentCard,
+    .philosophyCard {
+        padding: 1rem;
+    }
+
+    .btnSecondary {
+        padding: 0.625rem 1.5rem;
+        font-size: var(--font-size-base);
     }
 }
 

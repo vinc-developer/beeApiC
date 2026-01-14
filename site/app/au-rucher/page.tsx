@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import ImageGallery from "@/components/gallery/ImageGallery";
 
 export default function AuRucherPage() {
   return (
@@ -166,78 +167,50 @@ export default function AuRucherPage() {
               Quelques images pour vous faire découvrir mes abeilles dans leur environnement, la diversité de leurs paysages, et
               des instants de vie au fil des saisons.
             </p>
-            <div className={styles.galleryGrid}>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeille-butine.jpeg`}
-                    alt="Abeille butinant une fleur"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeilles-noire.jpeg`}
-                    alt="Abeille noire sur les tetes de cadre"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/petit-rucher.jpeg`}
-                    alt="Petit rucher en Pays de Retz"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/reine-marque.jpeg`}
-                    alt="Reine marquée qui se balade sur un cadre"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/ruche-abeilles.jpeg`}
-                    alt="Ruche envahie d'abeilles"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeille-fleurs.jpeg`}
-                    alt="Abeille butinant une fleur"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/buckfast.jpeg`}
-                    alt="Abeille buckfast sur les tetes de cadre"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/reine.jpeg`}
-                    alt="Reine sur un cadre"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/ruche.jpeg`}
-                    alt="Ruche en Pays de Retz"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-              <div className={styles.galleryItem}>
-                <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`}
-                    alt="Rucher en Pays de Retz"
-                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-                />
-              </div>
-            </div>
+            <ImageGallery
+              images={[
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeille-butine.jpeg`,
+                  alt: "Abeille butinant une fleur"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeilles-noire.jpeg`,
+                  alt: "Abeille noire sur les têtes de cadre"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/petit-rucher.jpeg`,
+                  alt: "Petit rucher en Pays de Retz"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/reine-marque.jpeg`,
+                  alt: "Reine marquée qui se balade sur un cadre"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/ruche-abeilles.jpeg`,
+                  alt: "Ruche envahie d'abeilles"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeille-fleurs.jpeg`,
+                  alt: "Abeille butinant une fleur"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/buckfast.jpeg`,
+                  alt: "Abeille buckfast sur les têtes de cadre"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/reine.jpeg`,
+                  alt: "Reine sur un cadre"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/ruche.jpeg`,
+                  alt: "Ruche en Pays de Retz"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`,
+                  alt: "Rucher en Pays de Retz"
+                }
+              ]}
+            />
           </div>
         </div>
 

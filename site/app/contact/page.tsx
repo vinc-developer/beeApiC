@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import styles from "../page.module.css";
+import styles from "./page.module.css";
 
 export default function ContactPage() {
   return (
@@ -16,65 +16,65 @@ export default function ContactPage() {
             N'hésitez pas à nous contacter !
           </p>
 
-          <div style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div className={styles.contactGrid}>
             {/* Coordonnées */}
-            <div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-secondary)' }}>
+            <div className={styles.contactSection}>
+              <h2 className={styles.contactSectionTitle}>
                 Coordonnées
               </h2>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <span style={{ fontSize: '1.5rem' }}>🏢</span>
-                  <div>
-                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Entreprise</strong>
-                    <span style={{ color: 'var(--color-text)' }}>{siteConfig.name}</span>
+              <div className={styles.contactDetails}>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>🏢</span>
+                  <div className={styles.contactContent}>
+                    <strong className={styles.contactLabel}>Entreprise</strong>
+                    <span className={styles.contactText}>{siteConfig.name}</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <span style={{ fontSize: '1.5rem' }}>📍</span>
-                  <div>
-                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Adresse</strong>
-                    <span style={{ color: 'var(--color-text)', whiteSpace: 'pre-line' }}>{siteConfig.company.address}</span>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📍</span>
+                  <div className={styles.contactContent}>
+                    <strong className={styles.contactLabel}>Adresse</strong>
+                    <span className={styles.contactText} style={{ whiteSpace: 'pre-line' }}>{siteConfig.company.address}</span>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <span style={{ fontSize: '1.5rem' }}>📧</span>
-                  <div>
-                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Email</strong>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📧</span>
+                  <div className={styles.contactContent}>
+                    <strong className={styles.contactLabel}>Email</strong>
                     <a
                       href={`mailto:${siteConfig.company.email}`}
-                      style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 500 }}
+                      className={styles.contactLink}
                     >
                       {siteConfig.company.email}
                     </a>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <span style={{ fontSize: '1.5rem' }}>📱</span>
-                  <div>
-                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Téléphone</strong>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>📱</span>
+                  <div className={styles.contactContent}>
+                    <strong className={styles.contactLabel}>Téléphone</strong>
                     <a
                       href={`tel:${siteConfig.company.phone}`}
-                      style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 500 }}
+                      className={styles.contactLink}
                     >
                       {siteConfig.company.phone}
                     </a>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                  <span style={{ fontSize: '1.5rem' }}>🌐</span>
-                  <div>
-                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Site Web</strong>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactIcon}>🌐</span>
+                  <div className={styles.contactContent}>
+                    <strong className={styles.contactLabel}>Site Web</strong>
                     <a
                       href={siteConfig.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 500 }}
+                      className={styles.contactLink}
                     >
                       bee-apic.com
                     </a>
@@ -84,84 +84,58 @@ export default function ContactPage() {
             </div>
 
             {/* Formulaire de contact */}
-            <div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-secondary)' }}>
+            <div className={styles.contactSection}>
+              <h2 className={styles.contactSectionTitle}>
                 ✉️ Envoyez-nous un message
               </h2>
 
-              <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, color: 'var(--color-secondary)' }}>
+              <form className={styles.form}>
+                <div className={styles.formGroup}>
+                  <label className={styles.formLabel}>
                     Nom *
                   </label>
                   <input
                     type="text"
                     required
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '0.5rem',
-                      border: '2px solid var(--color-gray)',
-                      fontSize: '1rem'
-                    }}
+                    className={styles.formInput}
                   />
                 </div>
 
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, color: 'var(--color-secondary)' }}>
+                <div className={styles.formGroup}>
+                  <label className={styles.formLabel}>
                     Email *
                   </label>
                   <input
                     type="email"
                     required
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '0.5rem',
-                      border: '2px solid var(--color-gray)',
-                      fontSize: '1rem'
-                    }}
+                    className={styles.formInput}
                   />
                 </div>
 
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, color: 'var(--color-secondary)' }}>
+                <div className={styles.formGroup}>
+                  <label className={styles.formLabel}>
                     Téléphone
                   </label>
                   <input
                     type="tel"
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '0.5rem',
-                      border: '2px solid var(--color-gray)',
-                      fontSize: '1rem'
-                    }}
+                    className={styles.formInput}
                   />
                 </div>
 
-                <div>
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, color: 'var(--color-secondary)' }}>
+                <div className={styles.formGroup}>
+                  <label className={styles.formLabel}>
                     Message *
                   </label>
                   <textarea
                     required
                     rows={5}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      borderRadius: '0.5rem',
-                      border: '2px solid var(--color-gray)',
-                      fontSize: '1rem',
-                      resize: 'vertical'
-                    }}
+                    className={styles.formTextarea}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className={styles.btnPrimary}
-                  style={{ width: '100%', justifyContent: 'center' }}
+                  className={styles.submitButton}
                 >
                   📤 Envoyer le message
                 </button>
@@ -170,7 +144,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <div className={styles.backButtonContainer}>
           <Link href="/" className={styles.btnSecondary}>
             ← Retour à l'accueil
           </Link>

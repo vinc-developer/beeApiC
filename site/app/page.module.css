@@ -51,19 +51,19 @@
 }
 
 .badgeIcon {
-    /*font-size: 1.5rem;*/
+    font-size: var(--font-size-2xl);
 }
 
 .badgeText {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     color: #4B5563;
 }
 
 .title {
-    font-size: 3.75rem;
+    font-size: var(--font-size-4xl);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: var(--line-height-tight);
     margin-bottom: 1.5rem;
     letter-spacing: -0.025em;
 }
@@ -86,8 +86,8 @@
 }
 
 .slogan {
-    /*font-size: 1.5rem;*/
-    font-weight: 500;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
     color: #FFFFFF;
     margin-bottom: 2rem;
 }
@@ -101,9 +101,9 @@
 
 .btnPrimary {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: white;
     background: var(--color-primary);
     border-radius: 0.5rem;
@@ -120,9 +120,9 @@
 
 .btnSecondary {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: #374151;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
@@ -179,12 +179,12 @@
 }
 
 .companyIcon {
-    /*font-size: 1.875rem;*/
+    font-size: var(--font-size-3xl);
 }
 
 .companyTitle {
-    /*font-size: 1.5rem;*/
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     flex: 1;
 }
@@ -192,10 +192,10 @@
 .companyBadge {
     background: var(--color-primary);
     color: white;
-    padding: 0.25rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
 }
 
@@ -212,8 +212,8 @@
 }
 
 .companyDescription {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
 
@@ -229,12 +229,12 @@
 }
 
 .labelIcon {
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
 }
 
 .labelText {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-primary);
 }
 
@@ -246,8 +246,8 @@
 }
 
 .contactTitle {
-    /*font-size: 1.125rem;*/
-    font-weight: 600;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
 }
@@ -265,19 +265,19 @@
 }
 
 .contactIcon {
-    /*font-size: 1.125rem;*/
+    font-size: var(--font-size-lg);
 }
 
 .contactText {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text);
 }
 
 .contactLink {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--color-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     transition: color 0.3s ease;
 }
 
@@ -293,8 +293,8 @@
 
 .sectionTitle {
     text-align: center;
-    /*font-size: 2.25rem;*/
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     margin-bottom: 3rem;
     color: var(--color-secondary);
 }
@@ -367,7 +367,7 @@
     height: 6rem;
     border-radius: 9999px;
     background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);
-    font-size: 3rem;
+    font-size: var(--font-size-4xl);
     margin-bottom: 1.5rem;
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease;
@@ -382,14 +382,14 @@
 }
 
 .ctaTitle {
-    /*font-size: 1.875rem;*/
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: #111827;
     margin-bottom: 0.75rem;
 }
 
 .ctaDescription {
-    /*font-size: 1.125rem;*/
+    font-size: var(--font-size-lg);
     color: #4B5563;
     margin-bottom: 1rem;
 }
@@ -399,7 +399,7 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--color-primary);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     transition: gap 0.3s ease;
 }
 
@@ -436,15 +436,15 @@
 
 .featuresTitle {
     text-align: center;
-    /*font-size: 2.25rem;*/
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     margin-bottom: 1rem;
     color: var(--color-secondary);
 }
 
 .featuresSubtitle {
     text-align: center;
-    /*font-size: 1.125rem;*/
+    font-size: var(--font-size-lg);
     color: #4B5563;
     margin-bottom: 3rem;
 }
@@ -472,7 +472,7 @@
 }
 
 .featureIcon {
-    font-size: 3.75rem;
+    font-size: var(--font-size-4xl);
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
 }
@@ -482,15 +482,16 @@
 }
 
 .featureTitle {
-    /*font-size: 1.5rem;*/
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     margin-bottom: 0.75rem;
     color: var(--color-secondary);
 }
 
 .featureDescription {
+    font-size: var(--font-size-base);
     color: #4B5563;
-    line-height: 1.625;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Card merci */
@@ -504,27 +505,27 @@
 }
 
 .thanksIcon {
-    font-size: 4rem;
+    font-size: var(--font-size-4xl);
     margin-bottom: 1rem;
 }
 
 .thanksTitle {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
 }
 
 .thanksText {
-   /* font-size: 1.125rem;*/
-    line-height: 1.75;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin-bottom: 1.5rem;
 }
 
 .thanksMessage {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-primary);
     margin-top: 1rem;
 }
@@ -539,17 +540,17 @@
 
 @media (min-width: 768px) {
     .title {
-        font-size: 4.5rem;
+        font-size: 4rem;
     }
 
     .slogan {
-       /* font-size: 1.875rem;*/
+        font-size: var(--font-size-2xl);
     }
 }
 
 @media (min-width: 1024px) {
     .title {
-        font-size: 6rem;
+        font-size: 5rem;
     }
 }
 
@@ -580,11 +581,11 @@
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: var(--font-size-3xl);
     }
 
     .slogan {
-        font-size: 1.25rem;
+        font-size: var(--font-size-lg);
     }
 
     .companyHeader {
@@ -598,7 +599,7 @@
 
     .featuresSection {
         margin: 3rem auto;
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
     }
 
     .contentCard,
@@ -608,43 +609,107 @@
     }
 
     .thanksCard {
-        padding: 0.5rem;
-        margin: 3rem auto;
+        padding: 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .section {
+        margin: 3rem 0;
+    }
+
+    .sectionTitle {
+        font-size: var(--font-size-2xl);
+        margin-bottom: 2rem;
+    }
+
+    .companySection {
+        margin: 2rem auto;
+    }
+
+    .companyCard {
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0;
+        padding: 0 1rem;
     }
 
     .companyCard {
-        padding: 0.5rem;
+        padding: 1rem;
     }
+
     .companySection {
-        padding: 0.5rem;
+        padding: 0 1rem;
     }
+
     .featuresSection {
-        padding: 0.5rem;
+        padding: 0 1rem;
     }
+
     .thanksCard {
-        padding: 0.5rem;
+        padding: 1rem;
     }
 
     .title {
-        font-size: 2rem;
+        font-size: var(--font-size-2xl);
     }
 
     .slogan {
-        /*font-size: 1.125rem;*/
+        font-size: var(--font-size-base);
     }
 
     .thanksTitle {
-        /*font-size: 1.5rem;*/
+        font-size: var(--font-size-2xl);
     }
 
     .thanksIcon {
-        font-size: 3rem;
+        font-size: var(--font-size-3xl);
+    }
+
+    .btnPrimary,
+    .btnSecondary {
+        padding: 0.625rem 1.5rem;
+        font-size: var(--font-size-base);
+    }
+
+    .ctaCard {
+        padding: 1.5rem;
+    }
+
+    .ctaIcon {
+        width: 4rem;
+        height: 4rem;
+        font-size: var(--font-size-3xl);
+    }
+
+    .ctaTitle {
+        font-size: var(--font-size-xl);
+    }
+
+    .ctaDescription {
+        font-size: var(--font-size-base);
+    }
+
+    .featureCard {
+        padding: 1.5rem;
+    }
+
+    .featureIcon {
+        font-size: var(--font-size-3xl);
+    }
+
+    .featureTitle {
+        font-size: var(--font-size-xl);
+    }
+
+    .companyTitle {
+        font-size: var(--font-size-xl);
+    }
+
+    .companyIcon {
+        font-size: var(--font-size-2xl);
     }
 }
 

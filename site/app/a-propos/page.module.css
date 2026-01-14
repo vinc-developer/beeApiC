@@ -16,8 +16,8 @@
 /* Titre principal */
 .pageTitle {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 3rem;
 }
@@ -38,15 +38,15 @@
 }
 
 .cardTitle {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1.5rem;
 }
 
 .cardText {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
     color: #4B5563;
     margin-bottom: 1rem;
 }
@@ -62,8 +62,8 @@
 
 .valuesSectionTitle {
     text-align: center;
-    font-size: 1.875rem;
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 2rem;
 }
@@ -91,22 +91,22 @@
 }
 
 .valueIcon {
-    font-size: 3.5rem;
+    font-size: var(--font-size-4xl);
     margin-bottom: 1rem;
     display: block;
 }
 
 .valueTitle {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 0.75rem;
 }
 
 .valueDescription {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: #6B7280;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
 }
 
 /* Label Card */
@@ -121,22 +121,22 @@
 }
 
 .labelIcon {
-    font-size: 4rem;
+    font-size: var(--font-size-4xl);
     margin-bottom: 1.5rem;
     display: block;
 }
 
 .labelTitle {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: #92400E;
     margin-bottom: 1rem;
 }
 
 .labelText {
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg);
     color: #B45309;
-    line-height: 1.625;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Slogan Card */
@@ -150,10 +150,10 @@
 }
 
 .sloganText {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-primary);
-    line-height: 1.4;
+    line-height: var(--line-height-tight);
 }
 
 /* Contact Card */
@@ -167,8 +167,8 @@
 
 .contactTitle {
     text-align: center;
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 2rem;
 }
@@ -185,8 +185,8 @@
 }
 
 .contactSectionTitle {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: #374151;
     margin-bottom: 1rem;
 }
@@ -200,20 +200,20 @@
 .contactItem {
     display: flex;
     align-items: flex-start;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: #4B5563;
     gap: 0.5rem;
 }
 
 .contactIcon {
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg);
     flex-shrink: 0;
 }
 
 .contactLink {
     color: var(--color-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     transition: color 0.3s ease;
 }
 
@@ -235,9 +235,9 @@
 
 .ctaButton {
     display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: white;
     background: var(--color-primary);
     border-radius: 0.75rem;
@@ -263,7 +263,7 @@
     }
 
     .pageTitle {
-        font-size: 2rem;
+        font-size: var(--font-size-2xl);
     }
 
     .card {
@@ -281,7 +281,7 @@
     }
 
     .sloganText {
-        font-size: 1.5rem;
+        font-size: var(--font-size-2xl);
     }
 
     .labelCard,
@@ -292,15 +292,27 @@
 
 @media (max-width: 480px) {
     .pageTitle {
-        font-size: 1.75rem;
+        font-size: var(--font-size-xl);
     }
 
     .cardTitle {
-        font-size: 1.5rem;
+        font-size: var(--font-size-xl);
     }
 
     .sloganText {
-        font-size: 1.25rem;
+        font-size: var(--font-size-xl);
+    }
+
+    .card,
+    .labelCard,
+    .sloganCard,
+    .contactCard {
+        padding: 1.5rem;
+    }
+
+    .ctaButton {
+        padding: 0.75rem 1.5rem;
+        font-size: var(--font-size-base);
     }
 }
 
