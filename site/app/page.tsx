@@ -71,12 +71,13 @@ export default function Home() {
             <div className={styles.companyContent}>
               <div className={styles.companyInfo}>
                 <p className={styles.companyDescription}>
-                  Partez à la découverte des richesses de la ruche : du miel de printemps, doux et floral, au miel d'été, aux notes
-                  plus intenses et ensoleillées.
+                  Je vous invite à découvrir le monde fascinant de la ruche à travers des miels que je produis localement, avec patience et respect. Chaque saison apporte ses nuances : un miel de printemps doux et floral, puis un miel d’été plus intense, marqué par la richesse des fleurs qui entourent mes ruches en Loire-Atlantique. Derrière chaque pot, il y a le travail des abeilles, mais aussi beaucoup d’observation, de soin et de passion.
                 </p>
                 <p className={styles.companyDescription}>
-                  J'interviens également pour récupérer les essaims d'abeilles installés dans des arbres, poteaux ou autres endroits
-                  inattendus, afin de leur offrir un nouveau foyer en toute sécurité.
+                  En parallèle de mon activité de producteur, j’interviens également pour le sauvetage d’essaims d’abeilles. Lorsqu’un essaim s’installe dans un arbre, un mur, un poteau ou un endroit inattendu, je me déplace pour le récupérer en douceur, sans les détruire. Mon objectif est simple : protéger les abeilles et leur offrir un nouveau foyer adapté, où elles pourront continuer à vivre et à se développer.
+                </p>
+                <p className={styles.companyDescription}>
+                  Sauver des essaims, produire du miel local et de qualité, c’est pour moi une manière concrète de préserver la biodiversité, de transmettre une autre vision de l’apiculture et de partager, en toute transparence, le fruit de ce travail avec vous.
                 </p>
               </div>
               <div className={styles.companyContact}>
@@ -98,7 +99,7 @@ export default function Home() {
                 Boutique en ligne
               </h2>
               <p className={styles.shopSubtitle}>
-                Découvrez nos miels et produits de la ruche, disponibles à la commande
+                Découvrez mes miels et produits de la ruche, disponibles à la commande
               </p>
             </div>
           </div>
@@ -110,8 +111,8 @@ export default function Home() {
           </div>
 
           <div className={styles.backLinkContainer}>
-            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink }>
-              Voir tous nos produits
+            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink } target="_blank">
+              Voir tous les produits
             </Link>
           </div>
         </section>

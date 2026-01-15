@@ -96,7 +96,7 @@ export default function TracabilitePage() {
                     type="text"
                     id="lotNumber"
                     className="input-field"
-                    placeholder="Ex: BA-2026-CH-0107"
+                    placeholder="Ex: BA-250701-CH"
                     autoComplete="off"
                     value={lotNumber}
                     onChange={(e) => setLotNumber(e.target.value.toUpperCase())}

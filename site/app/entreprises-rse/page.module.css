@@ -113,6 +113,12 @@
     color: #15803D;
 }
 
+.sensibilisationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 /* Section conclusion */
 .conclusionSection {
     margin-top: 3rem;
@@ -201,6 +207,15 @@
     .conclusionTitle {
         font-size: var(--font-size-xl);
         flex-direction: column;
+    }
+    .sensibilisationHeader {
+        flex-direction: column;
+    }
+    .sensibilisationHeader h2 {
+        margin-bottom: 0;
+    }
+    .sensibilisationHeader div {
+        margin-bottom: 1rem;
     }
 }
 

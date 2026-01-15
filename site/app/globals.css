@@ -1080,6 +1080,7 @@ body {
     cursor: pointer;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-md);
+    text-decoration: none;
 }
 
 .btn-more-info:hover {
@@ -1155,6 +1156,10 @@ body {
 
     .info-grid {
         grid-template-columns: 1fr;
+    }
+
+    .beekeeper-actions {
+        margin: auto;
     }
 }
 

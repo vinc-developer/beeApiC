@@ -28,6 +28,7 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     border: 2px solid #F5B04A;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .introText {

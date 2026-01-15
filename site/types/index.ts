@@ -2,12 +2,13 @@
 export interface Rucher {
   nom: string;
   environnement: string;
-  nomPublicZone: string;
+  lieuxRucher: string;
 }
 
 export interface Production {
   datesExtractions: string[];
-  dateConditionnement: string;
+  datesConditionnement: string[];
+  datesRecolte?: string[];
   nbRuchesRecoltees?: number;
 }
 
@@ -57,6 +58,7 @@ export interface Beekeeper {
 
 export interface TraceabilityData {
   lotNumber: string;
+  humidity: string;
   ruchers: Rucher[];
   production: Production;
   beekeeper?: Beekeeper;
@@ -86,6 +88,7 @@ export interface HoneyType {
 
 export interface Lot {
   lotNumber: string;
-  zone: Zone;
+  humidity: string;
+  ruchers: Rucher[];
   production: Production;
-};
+}

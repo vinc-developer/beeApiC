@@ -58,14 +58,16 @@ async function fetchFromProxy(lotNumber: string): Promise<any> {
 function convertLegacyToNewFormat(legacyData: any): TraceabilityData {
   return {
     lotNumber: legacyData.lotNumber,
+    humidity: legacyData.humidity || null,
     ruchers: legacyData.zone ? [{
       nom: 'Rucher principal',
-      nomPublicZone: legacyData.zone.publicName || 'Zone non spécifiée',
-      environnement: legacyData.zone.environment || 'Environnement non spécifié'
+      lieuxRucher: legacyData.zone.lieuxRucher || 'Zone non spécifiée',
+      environnement: legacyData.zone.environnement || 'Environnement non spécifié'
     }] : [],
     production: {
-      datesExtractions: legacyData.production?.extractionDates || [],
-      dateConditionnement: legacyData.production?.bottlingDate || '',
+      datesRecolte: legacyData.production?.datesRecolte || [],
+      datesExtractions: legacyData.production?.datesExtractions || [],
+      datesConditionnement: legacyData.production?.datesConditionnement || [],
       nbRuchesRecoltees: undefined
     },
     beekeeper: legacyData.beekeeper
@@ -120,10 +122,14 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
       // Utiliser directement le format du proxy BeePerf
       const result: TraceabilityData = {
         lotNumber: proxyData.lotNumber || proxyData.numero_lot || lotNumber,
+        humidity: proxyData.humidity || proxyData.tauxHumidite || null,
         ruchers: proxyData.ruchers || [],
         production: {
+          datesRecolte: proxyData.datesRecolte || [],
           datesExtractions: proxyData.datesExtractions || [],
-          dateConditionnement: proxyData.dateConditionnement || '',
+          datesConditionnement: proxyData.datesConditionnement
+              ? [proxyData.datesConditionnement]
+              : [],
           nbRuchesRecoltees: proxyData.nbRuchesRecoltees
         },
         beekeeper,
@@ -165,10 +171,12 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
       // Utiliser directement le format du proxy BeePerf
       const result: TraceabilityData = {
         lotNumber: proxyData.lotNumber || proxyData.numero_lot || lotNumber,
+        humidity: proxyData.humidity || proxyData.tauxHumidite || null,
         ruchers: proxyData.ruchers || [],
         production: {
+          datesRecolte: proxyData.datesRecolte || [],
           datesExtractions: proxyData.datesExtractions || [],
-          dateConditionnement: proxyData.dateConditionnement || '',
+          datesConditionnement: proxyData.datesConditionnement || '',
           nbRuchesRecoltees: proxyData.nbRuchesRecoltees
         },
         beekeeper,
@@ -198,7 +206,7 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
     throw new Error(`Lot ${lotNumber} non trouvé`);
   }
 
-  console.log(`   ✅ Lot trouvé dans les données locales`);
+  console.log(lot.production.datesRecolte + `    ✅ Lot trouvé dans les données locales`);
 
   // Convertir l'ancien format vers le nouveau
   const result = convertLegacyToNewFormat({

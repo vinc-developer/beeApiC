@@ -1,17 +1,28 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import {getLotsListAll, getTraceability} from '@/lib/api/tracabilite';
+import { getTraceability } from '@/lib/api/tracabilite';
 import { extractHoneyType, formatDate } from '@/lib/utils';
 import honeyTypesData from '@/data/honey-types.json';
+import traceabilityData from '@/data/traceability-data.json';
 import styles from "./../tracabilite.module.css";
 
 /* référencement lot*/
 export function generateStaticParams() {
-  const lots = getLotsListAll();
+  try {
+    const lotsRecord = traceabilityData.lots as Record<string, any>;
+    // Utiliser les CLÉS du JSON (qui sont les identifiants de routes)
+    const lotKeys = Object.keys(lotsRecord);
 
-  return lots.map((lot) => ({
-    lotNumber: lot.lotNumber,
-  }));
+    const params = lotKeys.map((key) => ({
+      lotNumber: String(key), // Utiliser la clé, pas lot.lotNumber
+    }));
+
+    console.log(`✅ generateStaticParams: ${params.length} lots trouvés`, params);
+    return params;
+  } catch (error) {
+    console.error('❌ Erreur dans generateStaticParams:', error);
+    return [{ lotNumber: 'BA-2026-CH-0107' }]; // Fallback avec la vraie clé
+  }
 }
 
 export default async function LotDetailPage({
@@ -33,6 +44,7 @@ export default async function LotDetailPage({
   }
 
   const honeyTypeCode = extractHoneyType(lotNumber);
+  console.log(honeyTypeCode + " : type de miel");
   const honeyTypes = honeyTypesData?.honeyTypes as Record<string, any> || {};
   const honeyType = honeyTypeCode && honeyTypes[honeyTypeCode] ? honeyTypes[honeyTypeCode] : null;
 
@@ -69,22 +81,27 @@ export default async function LotDetailPage({
             </div>
 
             <div className="info-item">
-              <span className="info-label">Zone(s) géographique(s)</span>
+              <span className="info-label">Taux d'humidité du miel</span>
+              <span className="info-value">{data.humidity}%</span>
+            </div>
+
+            <div className="info-item">
+              <span className="info-label">Secteur(s) de butinage(s)</span>
               <span className="info-value">
-                {data.ruchers.map(r => r.nomPublicZone).join(', ') || 'Non spécifiée'}
+                {data.ruchers.map(r => r.lieuxRucher).join(', ') || 'Non spécifiée'}
               </span>
             </div>
 
             {honeyType && (
-              <div className="info-item full-width">
-                <span className="info-label">Type de miel</span>
-                <div className="honey-type-details">
-                  <span className="honey-type-badge">{honeyType.name}</span>
-                  {honeyType.description && (
-                    <span className="honey-type-description">{honeyType.description}</span>
-                  )}
+                <div className="info-item full-width">
+                  <span className="info-label">Type de miel</span>
+                  <div className="honey-type-details">
+                    <span className="honey-type-badge">{honeyType.name}</span>
+                    {honeyType.description && (
+                        <span className="honey-type-description">{honeyType.description}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
             )}
 
             <div className="info-item full-width">
@@ -95,10 +112,10 @@ export default async function LotDetailPage({
             </div>
 
             {data.production.nbRuchesRecoltees && (
-              <div className="info-item">
-                <span className="info-label">Nombre de ruches récoltées</span>
-                <span className="info-value">{data.production.nbRuchesRecoltees}</span>
-              </div>
+                <div className="info-item">
+                  <span className="info-label">Nombre de ruches récoltées</span>
+                  <span className="info-value">{data.production.nbRuchesRecoltees}</span>
+                </div>
             )}
           </div>
         </div>
@@ -112,11 +129,11 @@ export default async function LotDetailPage({
 
           <div className="dates-container">
             <div className="date-card">
-              <div className="date-icon">🍯</div>
-              <h3 className="date-title">Date(s) d'extraction</h3>
+              <div className="date-icon">🚚</div>
+              <h3 className="date-title">Date(s) de récolte</h3>
               <div className="date-list">
-                {data.production.datesExtractions.map((date, index) => (
-                  <span key={index} className="date-value">
+                {data.production.datesRecolte?.map((date, index) => (
+                    <span key={index} className="date-value">
                     {formatDate(date)}
                   </span>
                 ))}
@@ -124,9 +141,27 @@ export default async function LotDetailPage({
             </div>
 
             <div className="date-card">
-              <div className="date-icon">🏺</div>
-              <h3 className="date-title">Date de conditionnement</h3>
-              <div className="date-value">{formatDate(data.production.dateConditionnement)}</div>
+              <div className="date-icon">🍯</div>
+              <h3 className="date-title">Date(s) d'extraction</h3>
+              <div className="date-list">
+                {data.production.datesExtractions.map((date, index) => (
+                    <span key={index} className="date-value">
+                    {formatDate(date)}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="date-card">
+              <div className="date-icon">📦</div>
+              <h3 className="date-title">Date(s) de conditionnement</h3>
+              <div className="date-list">
+                {data.production.datesConditionnement.map((date, index) => (
+                    <span key={index} className="date-value">
+                    {formatDate(date)}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -142,7 +177,7 @@ export default async function LotDetailPage({
             <div className="beekeeper-visual">
               {/* Photo */}
               <div className="beekeeper-photo">
-                {data.beekeeper?.photo ? (
+              {data.beekeeper?.photo ? (
                   <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.photo}`}
                     alt={`${data.beekeeper.firstName} ${data.beekeeper.lastName}`}
@@ -255,7 +290,6 @@ export default async function LotDetailPage({
                 </div>*/}
               </div>
 
-
               {/* Réseaux sociaux
               {data.beekeeper?.socialMedia && Object.keys(data.beekeeper.socialMedia).some(key => data.beekeeper?.socialMedia?.[key as keyof typeof data.beekeeper.socialMedia]) && (
                 <div className="social-media-section">
@@ -341,7 +375,7 @@ export default async function LotDetailPage({
       {/* Bouton nouvelle recherche */}
       <div className={styles.tracabiliteButtonContainer}>
         <Link href="/tracabilite" className={styles.btnSecondary}>
-          <span className="btn-icon">←</span>
+          <span className="btn-icon">← </span>
           Nouvelle recherche
         </Link>
       </div>

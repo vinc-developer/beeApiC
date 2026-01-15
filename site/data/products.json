@@ -1,103 +1,114 @@
 {
   "products": [
     {
-      "id": "miel-printemps-250g",
-      "name": "Miel de Printemps",
-      "description": "Miel doux et floral récolté au printemps, aux notes délicates de fleurs variées",
-      "price": 8.50,
-      "image": "pages/home/miels.jpg",
-      "category": "miel",
-      "weight": "250g",
+      "id": "bougie-cire-abeille-100g",
+      "name": "Bougie 100% Cire d'abeille",
+      "description": "Cette bougie est fabriquée à la main à partir de cire d'opercule – la cire la plus fine et la plus pure, récoltée lors de l'extraction du miel de nos ruches familiales des Pays de Retz.",
+      "price": 8,
+      "image": "products/bougie.png",
+      "category": "bougie",
+      "weight": "100g",
       "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-printemps-250g"
+      "storeUrl": "https://bee-apic.sumupstore.com/product/bougie-100-cire-d-abeille"
     },
     {
-      "id": "miel-ete-250g",
-      "name": "Miel d'Été",
-      "description": "Miel aux notes plus intenses, récolté durant les chaudes journées d'été",
-      "price": 8.50,
-      "image": "pages/home/miels.jpg",
-      "category": "miel",
-      "weight": "250g",
+      "id": "hydromel-sec-50cl",
+      "name": "Hydromel Sec 50cl – 11,5° – Vieilli en Fût de Chêne",
+      "description": "Découvrez notre hydromel sec artisanal à 11,5° d’alcool, élaboré avec notre miel d’été local, puis vieilli patiemment en fût de chêne pour développer des arômes complexes et une richesse en bouche exceptionnelle.",
+      "price": 10.00,
+      "image": "products/hydromel.png",
+      "category": "hydromel",
+      "weight": "75cl",
       "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-ete-250g"
+      "storeUrl": "https://bee-apic.sumupstore.com/product/hydromel-sec-50cl-11-50-vieilli-en-fut-de-chene"
     },
     {
-      "id": "miel-chataignier-250g",
-      "name": "Miel de Châtaignier",
-      "description": "Miel corsé au goût prononcé et caractère affirmé",
-      "price": 9.00,
-      "image": "pages/home/miels.jpg",
-      "category": "miel",
-      "weight": "250g",
+      "id": "coffret-cadeau-2-miels-1-bougie",
+      "name": "Coffret Cadeau - 2 miels - 1 bougie",
+      "description": "Coffret Cadeau de Noël - Coffret de miel local\n\n2 pots de 250g de miel des Pays de Retz\n\n1 cuillère à miel\n\n1 bougie à la cire d'abeilles ",
+      "price": 21.00,
+      "image": "products/coffret-2miels-1bougie.png",
+      "category": "coffret",
+      "weight": "2x250g + 100g",
       "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-chataignier-250g"
+      "storeUrl": "https://bee-apic.sumupstore.com/product/coffret-cadeau-2-miels-1-bougie"
     },
     {
-      "id": "miel-toutes-fleurs-250g",
-      "name": "Miel Toutes Fleurs",
-      "description": "Mélange harmonieux de fleurs variées pour un équilibre parfait",
-      "price": 8.50,
-      "image": "pages/home/miels.jpg",
+      "id": "coffret-cadeau-3-miels",
+      "name": "Coffret Cadeau - 3 miels",
+      "description": "CCoffret Cadeau de Noël - Coffret de miel local\n\n3 pots de 250g de miel des Pays de Retz\n\n1 cuillère à miel",
+      "price": 21.00,
+      "image": "products/coffret-3miels.png",
+      "category": "coffret",
+      "weight": "3x250g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/coffret-cadeau-3-miels"
+    },
+    {
+      "id": "pain-d-epices-artisanal-pur-miel-220g",
+      "name": "Pain d'Épices Artisanal Pur Miel - 220g",
+      "description": "Laissez-vous séduire par notre pain d’épices fait maison, riche en saveurs authentiques et en douceur naturelle. Conçu avec 50 % de miel pur.",
+      "price": 6,
+      "image": "products/pain-epice.png",
+      "category": "miel",
+      "weight": "220g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/pain-d-epices-artisanal-pur-miel-220g"
+    },
+    {
+      "id": "miel-acacia-500g",
+      "name": "Miel d'Acacia - 500g",
+      "description": "Ce miel clair et fluide présente une dominante d’acacia, reconnue pour sa saveur douce, florale et peu sucrée, idéale pour les enfants et les palais sensibles.",
+      "price": 8,
+      "image": "products/acacia.png",
+      "category": "miel",
+      "weight": "500g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-acacia-500g-1"
+    },
+    {
+      "id": "miel-foret-250g",
+      "name": "Miel de Forêt - Châtaignier 250g",
+      "description": "Ce miel rare, à la robe sombre et aux arômes boisés, présente une dominante marquée de châtaignier",
+      "price": 5.00,
+      "image": "products/foret.png",
       "category": "miel",
       "weight": "250g",
       "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-toutes-fleurs-250g"
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-foret-chataignier-250g-1"
+    },
+    {
+      "id": "miel-toutes-fleurs-500g",
+      "name": "Miel d'été toutes fleurs 500g",
+      "description": "Entièrement cristallisé, il témoigne de sa pureté et de son origine naturelle, sans aucun chauffage ni traitement. Sa texture fine et fondante rappelle les miels d’antan — authentiques, naturels et riches en caractère.",
+      "price": 8,
+      "image": "products/toutes-fleurs.png",
+      "category": "miel",
+      "weight": "500g",
+      "inStock": true,
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-ete-toutes-fleurs-500g"
     },
     {
       "id": "miel-printemps-500g",
-      "name": "Miel de Printemps",
-      "description": "Miel doux et floral récolté au printemps, format économique",
-      "price": 15.00,
-      "image": "pages/home/miels.jpg",
+      "name": "Miel de Printemps - 500g",
+      "description": "Ce miel est apprécié pour sa douceur florale et ses notes fruitées",
+      "price": 8,
+      "image": "products/printemps.png",
       "category": "miel",
       "weight": "500g",
       "inStock": true,
       "storeUrl": "https://bee-apic.sumupstore.com/product/miel-de-printemps-500g"
     },
     {
-      "id": "miel-ete-500g",
-      "name": "Miel d'Été",
-      "description": "Miel aux notes plus intenses, format économique",
-      "price": 15.00,
-      "image": "pages/home/miels.jpg",
+      "id": "miel-ete-250g",
+      "name": "Miel d'Été - 250g",
+      "description": "Ce miel offre une palette aromatique généreuse, avec une douceur équilibrée et des notes florales et fruitées",
+      "price": 5,
+      "image": "products/ete.png",
       "category": "miel",
-      "weight": "500g",
+      "weight": "250g",
       "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-ete-500g"
-    },
-    {
-      "id": "hydromel-75cl",
-      "name": "Hydromel artisanal",
-      "description": "Hydromel élaboré en dame-jeanne et maturé en fût de chêne",
-      "price": 18.00,
-      "image": "pages/home/produits.jpg",
-      "category": "hydromel",
-      "weight": "75cl",
-      "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/hydromel-artisanal-75cl"
-    },
-    {
-      "id": "coffret-decouverte",
-      "name": "Coffret Découverte",
-      "description": "Assortiment de 3 pots de miel (Printemps, Été, Toutes Fleurs) - 250g chacun",
-      "price": 24.00,
-      "image": "pages/home/produits.jpg",
-      "category": "coffret",
-      "weight": "3x250g",
-      "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/coffret-decouverte"
-    },
-    {
-      "id": "coffret-cadeau-premium",
-      "name": "Coffret Cadeau Premium",
-      "description": "2 pots de miel (500g) + 1 hydromel (75cl) dans un bel emballage",
-      "price": 45.00,
-      "image": "pages/home/produits.jpg",
-      "category": "coffret",
-      "weight": "2x500g + 75cl",
-      "inStock": true,
-      "storeUrl": "https://bee-apic.sumupstore.com/product/coffret-cadeau-premium"
+      "storeUrl": "https://bee-apic.sumupstore.com/product/miel-d-ete-250g-1"
     }
   ]
 }

@@ -109,6 +109,7 @@ export default function EntreprisesRSEPage() {
                     <ul className={styles.offerList}>
                         <li>Soutien à une production locale et responsable</li>
                         <li>Mise en avant de l'engagement dans la communication interne</li>
+                        <li>Ruches personnalisés selon votre logo</li>
                         <li>Approche simple, concrète et mesurable</li>
                     </ul>
                     <p className={styles.rseValue}>
@@ -118,9 +119,19 @@ export default function EntreprisesRSEPage() {
 
                 {/* Sensibilisation */}
                 <article className={styles.offerCard}>
-                    <h2 className={styles.offerHeader}>
-                        Sensibilisation à l'apiculture et à la biodiversité
-                    </h2>
+                    <div className={styles.sensibilisationHeader}>
+                        <h2 className={styles.offerHeader}>
+                            Sensibilisation à l'apiculture et à la biodiversité
+                        </h2>
+
+                        <div className="profile-badges">
+                            <span className="partner-badge-profile">
+                              <span className="partner-icon">🤝</span>
+                              <span className="partner-text">Partenaire Bee Api'C</span>
+                            </span>
+                        </div>
+                    </div>
+
                     <p className={styles.offerText}>
                         Nous proposons des actions de <strong>sensibilisation</strong> pour
                         les collaborateurs, afin de mieux comprendre le rôle des abeilles et
@@ -130,6 +141,7 @@ export default function EntreprisesRSEPage() {
                         <li>Interventions et présentations en entreprise</li>
                         <li>Échanges autour de l'apiculture et des saisons</li>
                         <li>Actions pédagogiques accessibles à tous</li>
+                        <li>Parrainage de ruche</li>
                     </ul>
                     <p className={styles.rseValue}>
                         <strong>Valeur RSE :</strong> sensibilisation environnementale

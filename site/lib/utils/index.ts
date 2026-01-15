@@ -27,7 +27,7 @@ export function extractBeekeeperCode(lotNumber: string): string | null {
  * Format: BA-2026-CH-0107 → CH
  */
 export function extractHoneyType(lotNumber: string): string | null {
-  const match = lotNumber.match(/-([A-Z]{1,3}\d?)-\d{4}$/);
+  const match = lotNumber.match(/-([A-Z]{1,3})\d?$/);
   return match ? match[1] : null;
 }
 

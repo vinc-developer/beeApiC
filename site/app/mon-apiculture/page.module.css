@@ -142,6 +142,7 @@
 }
 
 .philosophySection {
+    text-align: center;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(4px);
     padding: 1.5rem;
@@ -154,7 +155,6 @@
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
-    display: flex;
     align-items: center;
     gap: 0.5rem;
 }
@@ -170,6 +170,7 @@
     color: var(--color-text);
     padding-left: 1.5rem;
     margin: 0;
+    list-style: none;
 }
 
 .philosophyList li {
