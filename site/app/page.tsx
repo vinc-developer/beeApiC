@@ -13,7 +13,8 @@ function getRandomProducts(count: number = 3) {
 }
 
 export default function Home() {
-  const featuredProducts = getRandomProducts(8);
+  // nombre de produit à afficher
+  const featuredProducts = getRandomProducts(4);
   return (
     <>
       {/* Hero Section */}
@@ -86,6 +87,32 @@ export default function Home() {
                 />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Section Boutique */}
+        <section className={styles.companySection}>
+          <div className={styles.shopHeader}>
+            <div>
+              <h2 className={styles.sectionTitle}>
+                Boutique en ligne
+              </h2>
+              <p className={styles.shopSubtitle}>
+                Découvrez nos miels et produits de la ruche, disponibles à la commande
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.productsGrid}>
+            {featuredProducts.map((product) => (
+                <ProductCard key={product.id} product={product}/>
+            ))}
+          </div>
+
+          <div className={styles.backLinkContainer}>
+            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink }>
+              Voir tous nos produits
+            </Link>
           </div>
         </section>
 
@@ -166,8 +193,8 @@ export default function Home() {
 
             {/* Nos Apiculteurs */}
             <Link
-              href="/apiculteurs"
-              className={`${styles.ctaCard} ${styles.ctaCardSecondary}`}
+                href="/apiculteurs"
+                className={`${styles.ctaCard} ${styles.ctaCardSecondary}`}
             >
               <div className={styles.ctaCardBg}></div>
 
@@ -191,32 +218,6 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-            </Link>
-          </div>
-        </section>
-
-        {/* Section Boutique */}
-        <section className={styles.companySection}>
-          <div className={styles.shopHeader}>
-            <div>
-              <h2 className={styles.sectionTitle}>
-                🍯 Notre boutique en ligne
-              </h2>
-              <p className={styles.shopSubtitle}>
-                Découvrez nos miels et produits de la ruche, disponibles à la commande
-              </p>
-            </div>
-          </div>
-
-          <div className={styles.productsGrid}>
-            {featuredProducts.map((product) => (
-                <ProductCard key={product.id} product={product}/>
-            ))}
-          </div>
-
-          <div className={styles.backLinkContainer}>
-            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink }>
-              Voir tous nos produits
             </Link>
           </div>
         </section>
@@ -288,7 +289,7 @@ export default function Home() {
 
         {/* Section Ce que nous proposons */}
         <section className={styles.companySection}>
-          <div className={styles.companyCard}>
+          <div className={styles.propositionCard}>
             <h2 className={styles.featuresTitle}>
               Ce que nous proposons !
             </h2>

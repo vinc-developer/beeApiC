@@ -213,12 +213,6 @@ export default function AuRucherPage() {
             />
           </div>
         </div>
-
-        <div className={styles.backButton}>
-          <Link href="/" className={styles.btnSecondary}>
-            ← Retour à l'accueil
-          </Link>
-        </div>
       </section>
     </div>
   );

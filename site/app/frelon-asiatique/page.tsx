@@ -240,12 +240,6 @@ export default function FrelonAsiatiquePage() {
             Rejoignez le mouvement, équipez-vous, et faites circuler l'information. Chaque piège posé compte !
           </p>
         </div>
-
-        <div className={styles.backButton}>
-          <Link href="/" className={styles.btnSecondary}>
-            ← Retour à l'accueil
-          </Link>
-        </div>
       </section>
     </div>
   );

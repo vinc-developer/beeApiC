@@ -124,9 +124,6 @@ export default function MesMielsPage() {
         </div>
 
         <div className={styles.ctaButtons}>
-          <Link href="/" className={styles.btnSecondary}>
-            ← Retour à l'accueil
-          </Link>
           <Link href="/tracabilite" className={styles.btnPrimary}>
           🔍 Tracer votre miel
           </Link>
