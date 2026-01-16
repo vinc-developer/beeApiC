@@ -14,7 +14,6 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
@@ -49,7 +48,6 @@
 }
 
 .contactSectionTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-semibold);
     margin-bottom: 1rem;
     color: var(--color-secondary);
@@ -230,10 +228,6 @@
         padding: 0 1rem;
     }
 
-    .sectionTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .companyCard {
         padding: 1.5rem;
     }
@@ -245,23 +239,11 @@
     .contactGrid {
         grid-template-columns: 1fr;
     }
-
-    .contactSectionTitle {
-        font-size: var(--font-size-xl);
-    }
 }
 
 @media (max-width: 480px) {
-    .sectionTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .companyCard {
         padding: 1rem;
-    }
-
-    .contactSectionTitle {
-        font-size: var(--font-size-lg);
     }
 }
 

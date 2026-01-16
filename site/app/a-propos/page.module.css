@@ -16,7 +16,6 @@
 /* Titre principal */
 .pageTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 3rem;
@@ -62,7 +61,6 @@
 
 .valuesSectionTitle {
     text-align: center;
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 2rem;
@@ -97,7 +95,6 @@
 }
 
 .valueTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 0.75rem;
@@ -150,7 +147,6 @@
 }
 
 .sloganText {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
     line-height: var(--line-height-tight);
@@ -261,11 +257,6 @@
     .container {
         padding: 2rem 1rem;
     }
-
-    .pageTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .card {
         padding: 1.5rem;
     }
@@ -280,10 +271,6 @@
         gap: 1.5rem;
     }
 
-    .sloganText {
-        font-size: var(--font-size-2xl);
-    }
-
     .labelCard,
     .sloganCard {
         padding: 2rem 1.5rem;
@@ -291,15 +278,7 @@
 }
 
 @media (max-width: 480px) {
-    .pageTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .cardTitle {
-        font-size: var(--font-size-xl);
-    }
-
-    .sloganText {
         font-size: var(--font-size-xl);
     }
 

@@ -117,6 +117,12 @@ export default function EntreprisesRSEPage() {
                     </p>
                 </article>
 
+                <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rse/younup-ruche.jpg`}
+                    alt="rse et apiculture"
+                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+                />
+
                 {/* Sensibilisation */}
                 <article className={styles.offerCard}>
                     <div className={styles.sensibilisationHeader}>
@@ -147,6 +153,12 @@ export default function EntreprisesRSEPage() {
                         <strong>Valeur RSE :</strong> sensibilisation environnementale
                     </p>
                 </article>
+
+                <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rse/travail.jpeg`}
+                    alt="rse et apiculture"
+                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+                />
 
                 {/* Marchés de Noël */}
                 <article className={styles.offerCard}>

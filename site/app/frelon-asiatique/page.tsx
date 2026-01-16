@@ -225,7 +225,7 @@ export default function FrelonAsiatiquePage() {
           <h3 className={styles.warningTitle}>⚠️ Numéros utiles</h3>
           <p className={styles.warningText}>
             <strong>Mairie :</strong> Contactez votre mairie pour signaler un nid<br/>
-            <strong>FDGDON 44 :</strong> 02 40 16 08 00<br/>
+            <strong>FDGDON 44 :</strong> 02 40 36 83 03 <br/>
             <strong>En cas d'urgence :</strong> 18 (Pompiers) ou 15 (SAMU)
           </p>
         </div>

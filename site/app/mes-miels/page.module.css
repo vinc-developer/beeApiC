@@ -14,7 +14,6 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
@@ -37,6 +36,11 @@
     color: var(--color-text);
     text-align: center;
     margin: 0;
+}
+
+.titleMiel {
+    text-align: center;
+    margin: 2rem auto;
 }
 
 /* Grille des miels */
@@ -77,7 +81,6 @@
 }
 
 .honeyTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 0.75rem;
     color: var(--color-secondary);
@@ -115,7 +118,6 @@
 }
 
 .crystallizationTitle {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0;
@@ -143,7 +145,6 @@
 }
 
 .crystallizationSubtitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -278,10 +279,6 @@
         padding: 0 1rem;
     }
 
-    .sectionTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .introCard,
     .crystallizationSection {
         padding: 1.5rem;
@@ -303,10 +300,6 @@
         top: 0;
     }
 
-    .crystallizationTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .ctaButtons {
         flex-direction: column;
         gap: 1rem;
@@ -320,14 +313,6 @@
 }
 
 @media (max-width: 480px) {
-    .sectionTitle {
-        font-size: var(--font-size-xl);
-    }
-
-    .crystallizationTitle {
-        font-size: var(--font-size-lg);
-    }
-
     .crystallizationIcon {
         font-size: var(--font-size-3xl);
     }

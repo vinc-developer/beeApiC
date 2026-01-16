@@ -15,7 +15,7 @@ export default function AuRucherPage() {
         </p>
 
         <img
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher-foret-wallpaper.jpg`}
             alt="Rucher en Pays de Retz"
             style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
         />
@@ -52,6 +52,11 @@ export default function AuRucherPage() {
             <div className={styles.cardHeader}>
               <h2 className={styles.cardTitle}>🐝 Mes abeilles</h2>
             </div>
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeilles-miel.jpeg`}
+                alt="Rucher en Pays de Retz"
+                style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+            />
             <p className={styles.cardText}>
               Travailler avec les abeilles, c’est avant tout apprendre à ralentir. C’est accepter de s’adapter à leur rythme, à
               leurs réactions, à leur façon de communiquer. Chaque visite au rucher est un moment d’observation et d’écoute, où le
@@ -78,21 +83,16 @@ export default function AuRucherPage() {
               objectif reste le même : prendre soin de mes colonies, produire un miel local et de qualité, et transmettre une
               image positive et responsable de l’apiculture, au plus proche des gens et de la nature.
             </p>
-            <br />
-            <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-miel.jpeg`}
-                alt="Rucher en Pays de Retz"
-                style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
-            />
+            <br/>
           </div>
 
           {/* Section Mes ruchers */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <h2 className={styles.cardTitle}>🐝 Mes ruchers</h2>
+              <h2 className={styles.cardTitle}>🌱 Mes ruchers</h2>
             </div>
             <p className={styles.cardText}>
-              J’ai installé mes ruchers au cœur du Pays de Retz entre Nantes et Pornic, dans des lieux que j’ai pris le temps de choisir avec soin.
+            J’ai installé mes ruchers au cœur du Pays de Retz entre Nantes et Pornic, dans des lieux que j’ai pris le temps de choisir avec soin.
               Tous sont situés à moins de 15 kilomètres les uns des autres, afin de rester sur un territoire cohérent et de
               travailler avec une flore locale que je connais bien. Je privilégie des environnements calmes,
               riches en biodiversité, loin des grandes cultures intensives.
@@ -126,7 +126,7 @@ export default function AuRucherPage() {
             <br />
 
             <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/petit-rucher.jpeg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/neige-hiver.jpg`}
                 alt="Petit rucher en Pays de Retz"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
@@ -162,43 +162,51 @@ export default function AuRucherPage() {
             <ImageGallery
               images={[
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeille-butine.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/abeille-butine.jpeg`,
                   alt: "Abeille butinant une fleur"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeilles-noire.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/couvains.jpg`,
                   alt: "Abeille noire sur les têtes de cadre"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/petit-rucher.jpeg`,
-                  alt: "Petit rucher en Pays de Retz"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/reine-marque.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/reine-marque.jpeg`,
                   alt: "Reine marquée qui se balade sur un cadre"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/ruche-abeilles.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ronce.jpg`,
                   alt: "Ruche envahie d'abeilles"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeille-fleurs.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/cadre-male.jpg`,
                   alt: "Abeille butinant une fleur"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/buckfast.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/buckfast.jpeg`,
                   alt: "Abeille buckfast sur les têtes de cadre"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/reine.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche-foret.jpeg`,
                   alt: "Reine sur un cadre"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/ruche.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche.jpeg`,
                   alt: "Ruche en Pays de Retz"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/reine-carnica.jpg`,
+                  alt: "Rucher en Pays de Retz"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/fleur-acacia.jpg`,
+                  alt: "Rucher en Pays de Retz"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/cadre-couvain.jpg`,
+                  alt: "Rucher en Pays de Retz"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/rucher-foret-2.jpg`,
                   alt: "Rucher en Pays de Retz"
                 }
               ]}

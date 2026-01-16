@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
     <head>
-      <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo-Bee-Apic.png`} />
+      <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/bee-apic/logo-bee-apic.png`} />
     </head>
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col">

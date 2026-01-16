@@ -14,7 +14,6 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-error);
@@ -92,7 +91,6 @@
 }
 
 .cardTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0;
@@ -152,7 +150,6 @@
 }
 
 .subsectionTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -213,7 +210,6 @@
 }
 
 .dangerTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-error);
     margin: 0;
@@ -261,7 +257,6 @@
 }
 
 .warningTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0 0 0.75rem 0;
@@ -298,7 +293,6 @@
 }
 
 .actionTitle {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -346,21 +340,12 @@
         padding: 0 1rem;
     }
 
-    .sectionTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .introCard,
     .contentCard,
     .dangerCard,
     .actionCard,
     .alertSection {
         padding: 1.5rem;
-    }
-
-    .cardTitle,
-    .dangerTitle {
-        font-size: var(--font-size-xl);
     }
 
     .cardHeader {
@@ -386,21 +371,8 @@
 }
 
 @media (max-width: 480px) {
-    .sectionTitle {
-        font-size: var(--font-size-xl);
-    }
-
-    .cardTitle,
-    .dangerTitle {
-        font-size: var(--font-size-lg);
-    }
-
     .cardIcon {
         font-size: var(--font-size-3xl);
-    }
-
-    .actionTitle {
-        font-size: var(--font-size-2xl);
     }
 
     .actionIcon {

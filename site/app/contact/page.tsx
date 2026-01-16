@@ -153,7 +153,7 @@ export default function ContactPage() {
             {/* Formulaire de contact */}
             <div className={styles.contactSection}>
               <h2 className={styles.contactSectionTitle}>
-                ✉️ Envoyez-nous un message
+                ✉️ Envoyez un message
               </h2>
 
               {status === 'success' && (
@@ -238,7 +238,7 @@ export default function ContactPage() {
                   {status === 'sending' ? (
                     <>⏳ Envoi en cours...</>
                   ) : (
-                    <>📤 Envoyer le message</>
+                    <>📤 Envoyer</>
                   )}
                 </button>
               </form>

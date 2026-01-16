@@ -55,9 +55,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Decoration */}
-        <div className={styles.heroDivider}></div>
       </section>
 
       <div className={styles.container}>
@@ -80,7 +77,7 @@ export default function Home() {
                   Sauver des essaims, produire du miel local et de qualité, c’est pour moi une manière concrète de préserver la biodiversité, de transmettre une autre vision de l’apiculture et de partager, en toute transparence, le fruit de ce travail avec vous.
                 </p>
               </div>
-              <div className={styles.companyContact}>
+              <div className={styles.imagePresentation  }>
                 <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/essaim.jpg`}
                   alt="Essaim d'abeilles Bee Api'C"
@@ -236,51 +233,51 @@ export default function Home() {
             <ImageGallery
               images={[
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/vincent-colas/colas-vincent.jpg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
                   alt: "Vincent Colas - Apiculteur Bee Api'C"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/produits.jpg`,
-                  alt: "Produits de la ruche Bee Api'C"
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
+                  alt: "Rucher dans les Pays de Retz"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-fleur.jpeg`,
-                  alt: "Abeille dans une fleur"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeille-ruchette.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
                   alt: "Abeille sur une ruchette"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-miel.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
+                  alt: "Produits de la ruche Bee Api'C"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
                   alt: "Abeilles qui mangent du miel"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/abeilles-ruche.jpeg`,
-                  alt: "Abeilles sur une ruche Bee Api'C"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
                   alt: "Cadre de ruche Bee Api'C"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
                   alt: "Cadre de miel"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/rucher-foret.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-abeille.jpg`,
+                  alt: "Abeilles sur une ruche Bee Api'C"
+                },
+                {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
                   alt: "Rucher dans la forêt"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/ruche-foret.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
                   alt: "Ruche dans la forêt"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/visite.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
                   alt: "Visite d'une ruche"
                 },
                 {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher.jpeg`,
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,
                   alt: "Rucher dans les Pays de Retz"
                 }
               ]}

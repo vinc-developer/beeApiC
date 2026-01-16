@@ -18,7 +18,6 @@
 
 .introText {
     text-align: center;
-    font-size: 1.125rem;
     line-height: 1.75;
     color: var(--color-text);
     margin: 0;
@@ -30,7 +29,6 @@
 }
 
 .categoryTitle {
-    font-size: 1.875rem;
     font-weight: 700;
     color: var(--color-secondary);
     margin-bottom: 0.5rem;
@@ -282,7 +280,6 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
@@ -300,7 +297,6 @@
 
 .introText {
     text-align: center;
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -313,7 +309,6 @@
 }
 
 .categoryTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 0.5rem;
@@ -525,14 +520,6 @@
         gap: 1.5rem;
     }
 
-    .sectionTitle {
-        font-size: var(--font-size-2xl);
-    }
-
-    .categoryTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .beekeeperPhoto {
         height: 250px;
     }
@@ -545,10 +532,6 @@
 
     .introCard {
         padding: 1.5rem;
-    }
-
-    .sectionTitle {
-        font-size: var(--font-size-xl);
     }
 
     .beekeeperName {

@@ -14,7 +14,7 @@ export default function MonApiculturePage() {
         </p>
 
         <img
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/apiculture/abeilles-wallpaper.jpeg`}
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/apiculture/abeilles-ruches-wallpaper.jpg`}
             alt="Colonie d'abeilles sur des cadres de ruche"
             style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
         />
@@ -65,6 +65,11 @@ export default function MonApiculturePage() {
             <div className={styles.cardHeader}>
               <h2 className={styles.cardTitle}>Une passion, un engagement</h2>
             </div>
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`}
+                alt="Rucher en hiver"
+                style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+            />
             <div className={styles.cardContent}>
               <p className={styles.cardText}>
                 C'est grâce à mon frère que j'ai découvert l'apiculture, il y a quelques années. Très vite, ce monde fascinant
@@ -94,7 +99,7 @@ export default function MonApiculturePage() {
               <h2 className={styles.cardTitle}>Une apiculture douce et responsable</h2>
             </div>
             <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/apiculture/apiculteur.jpeg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/vincent-colas/apiculteur.jpeg`}
                 alt="Apiculteur qui lève un cadre"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
@@ -128,7 +133,7 @@ export default function MonApiculturePage() {
               <h2 className={styles.cardTitle}>Des produits sincères, au rythme des saisons</h2>
             </div>
             <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/apiculture/miels.jpg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/products/miels-couleurs.jpg`}
                 alt="plusieurs pots de miel"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />

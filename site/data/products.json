@@ -52,7 +52,7 @@
       "image": "products/pain-epice.png",
       "category": "miel",
       "weight": "220g",
-      "inStock": true,
+      "inStock": false,
       "storeUrl": "https://bee-apic.sumupstore.com/product/pain-d-epices-artisanal-pur-miel-220g"
     },
     {

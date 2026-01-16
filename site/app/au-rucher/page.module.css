@@ -14,7 +14,6 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
@@ -67,7 +66,6 @@
 }
 
 .cardTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0;
@@ -144,7 +142,6 @@
 }
 
 .infoTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -173,14 +170,12 @@
 }
 
 .infoSectionTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
 }
 
 .infoSectionText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
@@ -217,10 +212,6 @@
         padding: 0 1rem;
     }
 
-    .sectionTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .intro {
         font-size: var(--font-size-base);
     }
@@ -229,10 +220,6 @@
     .galleryCard,
     .infoCard {
         padding: 1.5rem;
-    }
-
-    .cardTitle {
-        font-size: var(--font-size-xl);
     }
 
     .cardHeader {
@@ -251,14 +238,6 @@
 }
 
 @media (max-width: 480px) {
-    .sectionTitle {
-        font-size: var(--font-size-xl);
-    }
-
-    .cardTitle {
-        font-size: var(--font-size-lg);
-    }
-
     .cardIcon {
         font-size: var(--font-size-3xl);
     }

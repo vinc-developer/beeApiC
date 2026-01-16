@@ -16,7 +16,6 @@
 
 .pageTitle {
     text-align: center;
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
@@ -56,7 +55,6 @@
 }
 
 .offerHeader {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -136,7 +134,6 @@
 }
 
 .conclusionTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -147,7 +144,6 @@
 }
 
 .conclusionText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -184,10 +180,6 @@
         padding: 2rem 1rem;
     }
 
-    .pageTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .introText {
         font-size: var(--font-size-base);
     }
@@ -196,16 +188,11 @@
         padding: 1.5rem;
     }
 
-    .offerHeader {
-        font-size: var(--font-size-xl);
-    }
-
     .conclusionCard {
         padding: 2rem;
     }
 
     .conclusionTitle {
-        font-size: var(--font-size-xl);
         flex-direction: column;
     }
     .sensibilisationHeader {
@@ -220,23 +207,14 @@
 }
 
 @media (max-width: 480px) {
-    .pageTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .offerCard,
     .conclusionCard {
         padding: 1rem;
     }
 
     .offerHeader {
-        font-size: var(--font-size-lg);
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .conclusionTitle {
-        font-size: var(--font-size-lg);
     }
 
     .btnPrimary {

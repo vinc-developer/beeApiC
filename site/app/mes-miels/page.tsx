@@ -8,35 +8,35 @@ export default function MesMielsPage() {
         <h1 className={styles.sectionTitle}>
           Mes Miels
         </h1>
+        <p>Chaque pot de miel que je produis raconte une histoire : celle des fleurs, des saisons et des abeilles qui l’ont
+          créé.
+          Mon objectif est simple : offrir un miel local, authentique et vivant, où l’on retrouve toute la richesse du Pays de
+          Retz.</p>
+        <br/>
+        <p> Je propose différents types de miels selon les floraisons et les saisons. Au printemps, les abeilles butinent les
+          fleurs tendres et parfumées, donnant un miel doux et floral. En été, le miel devient plus corsé, avec des notes
+          chaudes et intenses, reflet de la diversité florale et du soleil généreux. Chaque récolte est unique, et aucun pot ne
+          se ressemble totalement : c’est ce qui fait la beauté du miel de terroir.</p>
+        <br/>
+        <p>
+          Tous mes miels sont récoltés avec soin, directement dans mes ruchers. Je veille à respecter le rythme naturel des
+          colonies, pour ne prélever que ce qui peut être produit sans compromettre leur bien-être. Cela garantit un miel riche
+          en goût, en arômes et en nutriments, tout en préservant la santé des abeilles.
+        </p>
+        <br/>
+        <p>
+          Que vous soyez amateur de douceurs ou curieux de nouvelles saveurs, je vous invite à découvrir et savourer mes miels,
+          un produit 100% local, fruit du travail passionné de mes abeilles et de mon engagement pour une apiculture
+          respectueuse de la nature.
+        </p>
 
-        <div className={styles.introCard}>
-          <p>Chaque pot de miel que je produis raconte une histoire : celle des fleurs, des saisons et des abeilles qui l’ont
-            créé.
-            Mon objectif est simple : offrir un miel local, authentique et vivant, où l’on retrouve toute la richesse du Pays de
-            Retz.</p>
-          <br/>
-          <p> Je propose différents types de miels selon les floraisons et les saisons. Au printemps, les abeilles butinent les
-            fleurs tendres et parfumées, donnant un miel doux et floral. En été, le miel devient plus corsé, avec des notes
-            chaudes et intenses, reflet de la diversité florale et du soleil généreux. Chaque récolte est unique, et aucun pot ne
-            se ressemble totalement : c’est ce qui fait la beauté du miel de terroir.</p>
-          <br/>
-          <p>
-            Tous mes miels sont récoltés avec soin, directement dans mes ruchers. Je veille à respecter le rythme naturel des
-            colonies, pour ne prélever que ce qui peut être produit sans compromettre leur bien-être. Cela garantit un miel riche
-            en goût, en arômes et en nutriments, tout en préservant la santé des abeilles.
-          </p>
-          <br/>
-          <p>
-            Que vous soyez amateur de douceurs ou curieux de nouvelles saveurs, je vous invite à découvrir et savourer mes miels,
-            un produit 100% local, fruit du travail passionné de mes abeilles et de mon engagement pour une apiculture
-            respectueuse de la nature.
-          </p>
-          <br/>
-          <p className={styles.introText}>
-            Découvrez ma gamme de miels locaux, chacun avec ses caractéristiques uniques,
-            produits avec passion en Loire-Atlantique.
-          </p>
-        </div>
+        <h3 className={styles.titleMiel}> Découvrez ma gamme de miels locaux, produits en Loire-Atlantique</h3>
+
+        <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/miel/miels-wallpaper.jpg`}
+            alt="plusieurs pots de miel"
+            style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+        />
 
         <div className={styles.honeysGrid}>
           <div className={styles.honeyCard}>
@@ -147,7 +147,7 @@ export default function MesMielsPage() {
 
         <div className={styles.ctaButtons}>
           <Link href="/tracabilite" className={styles.btnPrimary}>
-          🔍 Tracer votre miel
+            🔍 Tracer votre miel
           </Link>
         </div>
       </section>
