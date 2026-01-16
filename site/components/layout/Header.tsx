@@ -184,7 +184,7 @@ export default function Header() {
             <Link href="/contact" className={styles.navLink}>
               <span className={styles.navLinkIcon}>
                 <span>📧</span>
-                <span>Me contacter</span>
+                <span>Contact</span>
               </span>
             </Link>
 
@@ -295,7 +295,7 @@ export default function Header() {
 
                   <Link href="/contact" className={styles.mobileNavLink} onClick={() => setMobileOpen(false)}>
                     <span>📧</span>
-                    <span>Me contacter</span>
+                    <span>Contact</span>
                   </Link>
 
                   <a
