@@ -21,7 +21,12 @@
       "location": "Saint-Hilaire-de-Chaléons, Loire-Atlantique, France",
       "distance": "45 km de Nantes",
       "beekeeperSince": "2022",
-      "gallery": ["vincent-colas/apiculteur.jpeg", "vincent-colas/carte-visite.jpg", "vincent-colas/chasse-frelon-asiatique.jpg", "vincent-colas/ecole.jpg"],
+      "gallery": [
+        "vincent-colas/apiculteur.jpeg",
+        "vincent-colas/carte-visite.jpg",
+        "vincent-colas/chasse-frelon-asiatique.jpg",
+        "vincent-colas/ecole.jpg"
+      ],
       "socialMedia": {
         "instagram": "https://www.instagram.com/bee.api.c/",
         "facebook": "https://www.facebook.com/profile.php?id=61572010006092",
@@ -51,13 +56,47 @@
       "location": "Guenrouet, Loire-Atlantique, France",
       "distance": "70 km de Nantes",
       "beekeeperSince": "2020",
-      "gallery": ["matthieu-colas/ruche-matthieu.jpg", "matthieu-colas/rucher-matthieu.jpg", "matthieu-colas/matthieu-picking.jpg"],
+      "gallery": [
+        "matthieu-colas/ruche-matthieu.jpg",
+        "matthieu-colas/rucher-matthieu.jpg",
+        "matthieu-colas/matthieu-picking.jpg"
+      ],
       "socialMedia": {
         "instagram": "https://www.instagram.com/el_matioso/",
         "facebook": "https://www.facebook.com/profile.php?id=61583781035864",
         "tiktok": "https://www.tiktok.com/@jesappellegroot212",
         "youtube": "",
         "linkedin": ""
+      }
+    },
+    "BTB": {
+      "code": "BTB",
+      "useProxy": false,
+      "type": "Apiculteur Récoltant",
+      "partnerSince": "2025",
+      "firstName": "Nicolas",
+      "lastName": "Grouls",
+      "commercialName": "Bees To Be",
+      "address": "Couëron - France",
+      "email": "test@gmail.com",
+      "phone": "+33 6 06 06 06 06",
+      "website": "https://beestobe.fr/",
+      "webshop": "",
+      "siret": "",
+      "photo": "nicolas-grouls/nicolas.jpeg",
+      "logo": "nicolas-grouls/B2B-Logo.png",
+      "bio": "Passionné par l'apiculture depuis plus de 10 ans, je produis un miel de qualité dans la magnifique région des Pays de Retz. Mes ruches sont situées dans des zones préservées, entourées de châtaigniers et de prairies fleuries.",
+      "hivesCount": "90 ruches",
+      "location": "Couëron, Loire-Atlantique, France",
+      "distance": "10 km de Nantes",
+      "beekeeperSince": "2020",
+      "gallery": [],
+      "socialMedia": {
+        "instagram": "https://www.instagram.com/bees.to.be",
+        "facebook": "https://www.facebook.com/profile.php?id=61576143175322",
+        "tiktok": "",
+        "youtube": "",
+        "linkedin": "https://www.linkedin.com/company/beestobe/"
       }
     }
   }

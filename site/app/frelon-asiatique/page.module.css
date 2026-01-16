@@ -334,6 +334,12 @@
     transform: translateY(-2px);
 }
 
+.backLinkContainer {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .container {

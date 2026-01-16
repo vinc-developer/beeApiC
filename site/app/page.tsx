@@ -58,6 +58,33 @@ export default function Home() {
       </section>
 
       <div className={styles.container}>
+
+        <section className="entete">
+          <h2>Bienvenue dans l'univers de Bee Api'C</h2>
+          <p>Bienvenue chez Bee Api’C, une apiculture locale engagée au service des abeilles et de la biodiversité en Loire-Atlantique.
+            Animé par une passion profonde pour le monde de la ruche, Bee Api’C vous invite à découvrir l’univers fascinant des abeilles, leur rôle essentiel dans notre écosystème et le travail minutieux qui se cache derrière chaque pot de miel.
+
+            Que vous soyez simplement curieux, sensible à la protection de la nature ou amateur de produits locaux et authentiques, ce site est une porte d’entrée vers une apiculture respectueuse et transparente. Vous y découvrirez mes pratiques, mes ruchers, les miels que je produis ainsi que mes actions pour la sauvegarde des essaims.
+
+            À travers Bee Api’C, mon objectif est simple : protéger les abeilles, produire un miel de qualité et partager une vision responsable et locale de l’apiculture.
+          </p>
+        </section>
+
+        <section className="biodiversite">
+          <h2>Préservez l'abeille c'est préserver la biodiversité</h2>
+          <img src="./assets/images/ia/abeille-biodiversité.jpg" alt="abeille biodiversité"/>
+          <p>Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des pollinisateurs particulièrement efficaces : en transportant le pollen d’une fleur à l’autre, elles permettent la reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu’il s’agisse de fruits, de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
+
+            Cette pollinisation est également indispensable au maintien de l’équilibre écologique. Les plantes constituent la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par un manque de pollinisation, aurait donc des répercussions en cascade sur l’ensemble des écosystèmes et sur les espèces qui en dépendent.
+
+            Les abeilles jouent aussi un rôle majeur dans l’alimentation humaine. Elles participent directement à la production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments que nous consommons au quotidien.
+
+            Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux, contribuant ainsi à la résilience et à la santé des écosystèmes.
+
+            En protégeant les abeilles, nous préservons bien plus qu’un insecte : nous protégeons la biodiversité, la stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱.</p>
+
+        </section>
+
         {/* Section Présentation */}
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
@@ -68,21 +95,27 @@ export default function Home() {
             <div className={styles.companyContent}>
               <div className={styles.companyInfo}>
                 <p className={styles.companyDescription}>
-                  Je vous invite à découvrir le monde fascinant de la ruche à travers des miels que je produis localement, avec patience et respect. Chaque saison apporte ses nuances : un miel de printemps doux et floral, puis un miel d’été plus intense, marqué par la richesse des fleurs qui entourent mes ruches en Loire-Atlantique. Derrière chaque pot, il y a le travail des abeilles, mais aussi beaucoup d’observation, de soin et de passion.
+                  Je vous invite à découvrir le monde de la ruche à travers des miels produits localement, avec patience, respect et passion. Chaque saison révèle ses particularités : un miel de printemps doux et floral, puis un miel d’été plus intense, façonné par la diversité des fleurs qui entourent mes ruches en Loire-Atlantique. Derrière chaque pot se cache le travail remarquable des abeilles, accompagné d’une attention constante portée à leur bien-être.
                 </p>
                 <p className={styles.companyDescription}>
-                  En parallèle de mon activité de producteur, j’interviens également pour le sauvetage d’essaims d’abeilles. Lorsqu’un essaim s’installe dans un arbre, un mur, un poteau ou un endroit inattendu, je me déplace pour le récupérer en douceur, sans les détruire. Mon objectif est simple : protéger les abeilles et leur offrir un nouveau foyer adapté, où elles pourront continuer à vivre et à se développer.
+                  En parallèle de mon activité de producteur, je suis également engagé dans le sauvetage des essaims d’abeilles. Lorsqu’un essaim s’installe dans un lieu inattendu, j’interviens pour le récupérer sans le détruire, afin de lui offrir un environnement adapté et durable.
                 </p>
                 <p className={styles.companyDescription}>
-                  Sauver des essaims, produire du miel local et de qualité, c’est pour moi une manière concrète de préserver la biodiversité, de transmettre une autre vision de l’apiculture et de partager, en toute transparence, le fruit de ce travail avec vous.
+                  Produire du miel local, sauver des essaims et protéger les pollinisateurs, c’est pour moi une démarche globale : préserver la biodiversité, transmettre une apiculture responsable et partager en toute transparence le fruit de ce travail avec vous.
                 </p>
               </div>
-              <div className={styles.imagePresentation  }>
+              <div className={styles.imagePresentation}>
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/essaim.jpg`}
-                  alt="Essaim d'abeilles Bee Api'C"
-                  style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/essaim.jpg`}
+                    alt="Essaim d'abeilles Bee Api'C"
+                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
                 />
+              </div>
+
+              <div className={styles.backLinkContainer}>
+                <Link href="/essaims" className={styles.btnLink} >
+                    En savoir plus sur la récupération d'essaims
+                </Link>
               </div>
             </div>
           </div>
@@ -108,7 +141,7 @@ export default function Home() {
           </div>
 
           <div className={styles.backLinkContainer}>
-            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink } target="_blank">
+            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink} target="_blank">
               Voir tous les produits
             </Link>
           </div>
@@ -127,28 +160,32 @@ export default function Home() {
                   Tous mes produits sont fabriqués dans le respect des traditions et de la nature.
                 </p>
                 <p className={styles.companyDescription}>
-                  Mon hydromel est élaboré en dame-jeanne, puis lentement maturé en fût de chêne pour développer des arômes profonds et authentiques. Pour préserver ses qualités, je conseille de le conserver à 10 °C.
+                  Mon hydromel est élaboré en dame-jeanne, puis lentement maturé en fût de chêne pour développer des arômes
+                  profonds et authentiques. Pour préserver ses qualités, je conseille de le conserver à 10 °C.
                 </p>
                 <p className={styles.companyDescription}>
-                  Mon miel, quant à lui, est extrait à chaud à l'aide d'un extracteur manuel et mis en pot à la main, sans aucun traitement ni ajout. Il conserve ainsi toute sa richesse naturelle. Pour une conservation optimale, gardez-le à 14 °C à l'abri de la lumière.
+                  Mon miel, quant à lui, est extrait à chaud à l'aide d'un extracteur manuel et mis en pot à la main, sans aucun
+                  traitement ni ajout. Il conserve ainsi toute sa richesse naturelle. Pour une conservation optimale, gardez-le à
+                  14 °C à l'abri de la lumière.
                 </p>
               </div>
               <div className={styles.companyContact}>
                 <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/miels.jpg`}
-                  alt="Pots de miel Bee Api'C"
-                  style={{ width: '100%', height: 'auto', borderRadius: '0.5rem' }}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/miels.jpg`}
+                    alt="Pots de miel Bee Api'C"
+                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
                 />
               </div>
             </div>
-            <div className={styles.companyLabel} style={{ marginTop: '1.5rem' }}>
+            <div className={styles.companyLabel} style={{marginTop: '1.5rem'}}>
               <span className={styles.labelIcon}>♻️</span>
               <span className={styles.labelText}>
                 Dans une démarche éco-responsable, je récupère également les pots et les bouteilles vides. N'hésitez pas à les rapporter pour leur offrir une seconde vie !
               </span>
             </div>
-            <p className={styles.companyDescription} style={{ marginTop: '1rem' }}>
-              Et parce que chaque geste compte, j'imprime mes étiquettes uniquement en fonction des besoins réels, en petites quantités, pour éviter tout gaspillage inutile.
+            <p className={styles.companyDescription} style={{marginTop: '1rem'}}>
+              Et parce que chaque geste compte, j'imprime mes étiquettes uniquement en fonction des besoins réels, en petites
+              quantités, pour éviter tout gaspillage inutile.
             </p>
           </div>
         </section>
@@ -183,7 +220,7 @@ export default function Home() {
                 <div className={styles.ctaLink}>
                   <span>Rechercher maintenant</span>
                   <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
                   </svg>
                 </div>
               </div>
@@ -212,7 +249,7 @@ export default function Home() {
                 <div className={`${styles.ctaLink} ${styles.ctaLinkSecondary}`}>
                   <span>Découvrir</span>
                   <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
                   </svg>
                 </div>
               </div>
@@ -228,59 +265,60 @@ export default function Home() {
               <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
             </div>
             <p className={styles.companyDescription}>
-              Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et locaux.
+              Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et
+              locaux.
             </p>
             <ImageGallery
-              images={[
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
-                  alt: "Vincent Colas - Apiculteur Bee Api'C"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
-                  alt: "Rucher dans les Pays de Retz"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
-                  alt: "Abeille sur une ruchette"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
-                  alt: "Produits de la ruche Bee Api'C"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
-                  alt: "Abeilles qui mangent du miel"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
-                  alt: "Cadre de ruche Bee Api'C"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
-                  alt: "Cadre de miel"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-abeille.jpg`,
-                  alt: "Abeilles sur une ruche Bee Api'C"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
-                  alt: "Rucher dans la forêt"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
-                  alt: "Ruche dans la forêt"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
-                  alt: "Visite d'une ruche"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,
-                  alt: "Rucher dans les Pays de Retz"
-                }
-              ]}
+                images={[
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
+                    alt: "Vincent Colas - Apiculteur Bee Api'C"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
+                    alt: "Rucher dans les Pays de Retz"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
+                    alt: "Abeille sur une ruchette"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
+                    alt: "Produits de la ruche Bee Api'C"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
+                    alt: "Abeilles qui mangent du miel"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
+                    alt: "Cadre de ruche Bee Api'C"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
+                    alt: "Cadre de miel"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-abeille.jpg`,
+                    alt: "Abeilles sur une ruche Bee Api'C"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
+                    alt: "Rucher dans la forêt"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
+                    alt: "Ruche dans la forêt"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
+                    alt: "Visite d'une ruche"
+                  },
+                  {
+                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,
+                    alt: "Rucher dans les Pays de Retz"
+                  }
+                ]}
             />
           </div>
         </section>
@@ -352,8 +390,10 @@ export default function Home() {
                 </div>
                 <h3 className={styles.featureTitle}>Partenariats avec les entreprises & démarche RSE</h3>
                 <p className={styles.featureDescription}>
-                  Nous accompagnons également les entreprises souhaitant intégrer une dimension locale et environnementale à leur politique RSE, en travaillant directement avec des apiculteurs locaux.
-                  À travers différentes actions, les entreprises peuvent soutenir l'apiculture, la biodiversité et les circuits courts, tout en valorisant leur engagement auprès de leurs collaborateurs et partenaires.
+                  Nous accompagnons également les entreprises souhaitant intégrer une dimension locale et environnementale à leur
+                  politique RSE, en travaillant directement avec des apiculteurs locaux.
+                  À travers différentes actions, les entreprises peuvent soutenir l'apiculture, la biodiversité et les circuits
+                  courts, tout en valorisant leur engagement auprès de leurs collaborateurs et partenaires.
                 </p>
               </div>
 
@@ -376,13 +416,13 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.thanksCard}>
             <h2 className={styles.companyTitle}>Merci de faire partie de cette aventure</h2>
-            <br />
+            <br/>
             <p className={styles.companyDescription}>
               Mon apiculture est née d'une passion, mais elle ne prend tout son sens que dans l'échange et le partage.
               En choisissant mes produits, en visitant mes ruchers ou simplement en vous intéressant aux abeilles, vous participez
               vous aussi à leur préservation.
             </p>
-            <br />
+            <br/>
             <p className={styles.companyDescription}>
               🌼 MERCI pour elles, merci pour nous 🌼
             </p>

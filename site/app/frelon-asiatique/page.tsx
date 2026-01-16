@@ -43,6 +43,17 @@ export default function FrelonAsiatiquePage() {
                 Le frelon asiatique est un insecte de 2,5 à 3 cm, reconnaissable à son thorax noir et ses pattes jaunes.
                 Contrairement au frelon européen, il est plus petit et chasse en vol stationnaire.
               </p>
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/reconnaitre-un-frelon-asiatique.jpg`}
+                  alt="Frelon asiatique"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+              />
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/insects.png`}
+                  alt="Frelon asiatique"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
+              />
+              <h3>Son cycle de vie</h3>
               <p className={styles.cardText}>
                 Son cycle de vie est annuel : une reine fondatrice sort d'hibernation au printemps et fonde un premier
                 nid primaire. En été, ce nid est souvent abandonné au profit d'un nid secondaire, bien plus imposant,
@@ -50,7 +61,7 @@ export default function FrelonAsiatiquePage() {
               </p>
             </div>
             <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-comparaison.jpg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/cycle_FA.png`}
                 alt="Comparaison entre frelon asiatique et frelon européen"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
             />
@@ -117,6 +128,11 @@ export default function FrelonAsiatiquePage() {
                     directement un rucher.
                   </li>
                 </ul>
+                <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/cycle_de_piegage_frelons.jpg`}
+                    alt="Comparaison entre frelon asiatique et frelon européen"
+                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+                />
               </div>
 
               <div className={styles.subsection}>
@@ -239,6 +255,12 @@ export default function FrelonAsiatiquePage() {
             agissant ensemble à travers des gestes simples et coordonnés, nous pouvons en limiter les effets.
             Rejoignez le mouvement, équipez-vous, et faites circuler l'information. Chaque piège posé compte !
           </p>
+        </div>
+
+        <div className={styles.backLinkContainer}>
+          <Link href="https://lefrelon.com/" className={styles.btnSecondary} target="_blank">
+            Pour en savoir plus sur le frelon !
+          </Link>
         </div>
       </section>
     </div>
