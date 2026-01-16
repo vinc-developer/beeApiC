@@ -4,7 +4,7 @@ import {siteConfig} from "@/config/site";
 export default function CardEntreprise() {
     return (
         <section className={styles.companySection}>
-            <div className={styles.companyCard}>
+            <div className={`${styles.companyCard} ${styles.companyCardLast}`}>
                 {/* Header */}
                 <div className={styles.companyHeader}>
                     <span className={styles.companyIcon}>🐝</span>

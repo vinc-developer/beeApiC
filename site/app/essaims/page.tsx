@@ -35,13 +35,13 @@ export default function EssaimPage() {
                                     lui offrir un nouveau foyer adapté dans une ruche.
                                 </p>
                                 <p className={styles.cardText}>
-                                    Si vous observez un essaim d'abeilles, n'intervenez pas vous-même et contactez-moi : chaque essaim sauvé
+                                    Si vous observez un essaim d'abeilles, n'intervenez pas vous-même et contactez-moi, chaque essaim sauvé
                                     est une colonie préservée.
                                 </p>
                             </div>
                             <div>
                                 <img
-                                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/ia/abeille-essaim.jpg`}
+                                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/essaim/recuperation-essaim.jpg`}
                                     alt="Essaim d'abeilles"
                                     className={styles.sideImage}
                                 />
@@ -61,22 +61,28 @@ export default function EssaimPage() {
                         </p>
                         <div className={styles.subsectionsGrid}>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>📍 Port-Saint-Père</h3>
+                                <h3 className={styles.subsectionTitle}>Port-Saint-Père</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>📍 Brains</h3>
+                                <h3 className={styles.subsectionTitle}>Brains</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>📍 Bouaye</h3>
+                                <h3 className={styles.subsectionTitle}>Saint-Léger-les-Vignes</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>📍 Saint-Léger-les-Vignes</h3>
+                                <h3 className={styles.subsectionTitle}>Saint-Mars-de-Coutais</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>📍 Saint-Mars-de-Coutais</h3>
+                                <h3 className={styles.subsectionTitle}>Sainte-Pazanne</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>📍 Sainte-Pazanne</h3>
+                                <h3 className={styles.subsectionTitle}>Saint-Hilaire-de-Chaléons</h3>
+                            </div>
+                            <div className={styles.subsection}>
+                                <h3 className={styles.subsectionTitle}>Chaume-en-Retz</h3>
+                            </div>
+                            <div className={styles.subsection}>
+                                <h3 className={styles.subsectionTitle}>Bourgneuf-en-Retz</h3>
                             </div>
                         </div>
                     </div>
@@ -101,12 +107,6 @@ export default function EssaimPage() {
                     </p>
                     <Link href="/contact" className={styles.btnSecondary}>
                         Me contacter
-                    </Link>
-                </div>
-
-                <div className={styles.backLinkContainer}>
-                    <Link href="/" className={styles.btnSecondary}>
-                        ← Retour à l'accueil
                     </Link>
                 </div>
             </section>

@@ -10,6 +10,38 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
 
+        <div className={styles.footerTop}>
+          <div>
+            <h3>Bee Api'C</h3>
+            <h4>Apiculteur local</h4>
+            <h5>Entre Nantes et Pornic</h5>
+          </div>
+          <div className={styles.footerNavigation}>
+            <ul>
+              <li>
+                <Link href="/a-propos" className={styles.mobileDropdownItem}>
+                  <span>A propos</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://bee-apic.sumupstore.com/produits" className={styles.mobileDropdownItem} target={"_blank"}>
+                  <span>Boutique</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className={styles.mobileDropdownItem}>
+                  <span>Contact</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/mentions-legales" className={styles.mobileDropdownItem}>
+                  <span>Mentions-legales</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         {/* Bottom */}
         <div className={styles.footerBottom}>
           <div className={styles.footerBottomContent}>

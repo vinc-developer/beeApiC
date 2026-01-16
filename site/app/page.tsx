@@ -63,7 +63,6 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🌼</span>
               <h2 className={styles.companyTitle}>Bienvenue dans l'univers de Bee Api'C</h2>
             </div>
             <div className={styles.companyInfo}>
@@ -85,34 +84,44 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🌱</span>
-              <h2 className={styles.companyTitle}>Préserver l'abeille c'est préserver la biodiversité</h2>
+              <h2 className={styles.companyTitle}> <span className={styles.companyIcon}>🌱</span> Préserver l'abeille c'est
+                préserver la biodiversité</h2>
             </div>
-            <div className={styles.companyContent}>
-              <div className={styles.companyInfo}>
-                <p className={styles.companyDescription}>
-                  Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des pollinisateurs particulièrement efficaces : en transportant le pollen d'une fleur à l'autre, elles permettent la reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu'il s'agisse de fruits, de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
-                </p>
-                <p className={styles.companyDescription}>
-                  Cette pollinisation est également indispensable au maintien de l'équilibre écologique. Les plantes constituent la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par un manque de pollinisation, aurait donc des répercussions en cascade sur l'ensemble des écosystèmes et sur les espèces qui en dépendent.
-                </p>
-                <p className={styles.companyDescription}>
-                  Les abeilles jouent aussi un rôle majeur dans l'alimentation humaine. Elles participent directement à la production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments que nous consommons au quotidien.
-                </p>
-                <p className={styles.companyDescription}>
-                  Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux, contribuant ainsi à la résilience et à la santé des écosystèmes.
-                </p>
-                <p className={styles.companyDescription}>
-                  En protégeant les abeilles, nous préservons bien plus qu'un insecte : nous protégeons la biodiversité, la stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱
-                </p>
-              </div>
-              <div className={styles.companyContact}>
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/ia/abeille-biodiversité.jpg`}
+            <div className={styles.biodivContent}>
+              <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`}
                   alt="Abeille et biodiversité"
+                  className={styles.biodivImage}
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
-                />
-              </div>
+              />
+                <p className={styles.biodivDescription}>
+                  Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des
+                  pollinisateurs particulièrement efficaces : en transportant le pollen d'une fleur à l'autre, elles permettent la
+                  reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu'il s'agisse de fruits,
+                  de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces
+                  plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
+                </p>
+                <p className={styles.biodivDescription}>
+                  Cette pollinisation est également indispensable au maintien de l'équilibre écologique. Les plantes constituent
+                  la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par
+                  un manque de pollinisation, aurait donc des répercussions en cascade sur l'ensemble des écosystèmes et sur les
+                  espèces qui en dépendent.
+                </p>
+                <p className={styles.biodivDescription}>
+                  Les abeilles jouent aussi un rôle majeur dans l'alimentation humaine. Elles participent directement à la
+                  production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures
+                  céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments
+                  que nous consommons au quotidien.
+                </p>
+                <p className={styles.biodivDescription}>
+                  Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette
+                  diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux,
+                  contribuant ainsi à la résilience et à la santé des écosystèmes.
+                </p>
+                <p className={styles.biodivDescription}>
+                  En protégeant les abeilles, nous préservons bien plus qu'un insecte : nous protégeons la biodiversité, la
+                  stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱
+                </p>
             </div>
           </div>
         </section>
@@ -121,20 +130,33 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🐝</span>
-              <h2 className={styles.companyTitle}>Producteur de miel et sauveteur d'essaims</h2>
+              <h2 className={styles.companyTitle}>  <span className={styles.companyIcon}>🐝</span> Producteur de miel et sauveteur
+                d'essaims</h2>
             </div>
             <div className={styles.companyContent}>
               <div className={styles.companyInfo}>
                 <p className={styles.companyDescription}>
-                  Je vous invite à découvrir le monde de la ruche à travers des miels produits localement, avec patience, respect et passion. Chaque saison révèle ses particularités : un miel de printemps doux et floral, puis un miel d’été plus intense, façonné par la diversité des fleurs qui entourent mes ruches en Loire-Atlantique. Derrière chaque pot se cache le travail remarquable des abeilles, accompagné d’une attention constante portée à leur bien-être.
+                  Je vous invite à découvrir le monde de la ruche à travers des miels produits localement, avec patience, respect
+                  et passion. Chaque saison révèle ses particularités : un miel de printemps doux et floral, puis un miel d’été
+                  plus intense, façonné par la diversité des fleurs qui entourent mes ruches en Loire-Atlantique. Derrière chaque
+                  pot se cache le travail remarquable des abeilles, accompagné d’une attention constante portée à leur bien-être.
                 </p>
                 <p className={styles.companyDescription}>
-                  En parallèle de mon activité de producteur, je suis également engagé dans le sauvetage des essaims d’abeilles. Lorsqu’un essaim s’installe dans un lieu inattendu, j’interviens pour le récupérer sans le détruire, afin de lui offrir un environnement adapté et durable.
+                  En parallèle de mon activité de producteur, je suis également engagé dans le sauvetage des essaims d’abeilles.
+                  Lorsqu’un essaim s’installe dans un lieu inattendu, j’interviens pour le récupérer sans le détruire, afin de lui
+                  offrir un environnement adapté et durable.
                 </p>
                 <p className={styles.companyDescription}>
-                  Produire du miel local, sauver des essaims et protéger les pollinisateurs, c’est pour moi une démarche globale : préserver la biodiversité, transmettre une apiculture responsable et partager en toute transparence le fruit de ce travail avec vous.
+                  Produire du miel local, sauver des essaims et protéger les pollinisateurs, c’est pour moi une démarche globale :
+                  préserver la biodiversité, transmettre une apiculture responsable et partager en toute transparence le fruit de
+                  ce travail avec vous.
                 </p>
+
+                <div className={styles.backLinkContainer}>
+                  <Link href="/essaims" className={styles.btnLink}>
+                    En savoir plus sur la récupération d'essaims
+                  </Link>
+                </div>
               </div>
               <div className={styles.imagePresentation}>
                 <img
@@ -142,12 +164,6 @@ export default function Home() {
                     alt="Essaim d'abeilles Bee Api'C"
                     style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
                 />
-              </div>
-
-              <div className={styles.backLinkContainer}>
-                <Link href="/essaims" className={styles.btnLink} >
-                    En savoir plus sur la récupération d'essaims
-                </Link>
               </div>
             </div>
           </div>
@@ -183,8 +199,8 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🌿</span>
-              <h2 className={styles.companyTitle}>Fabrication artisanale et éco-responsable</h2>
+              <h2 className={styles.companyTitle}>  <span className={styles.companyIcon}>🌿</span> Fabrication artisanale et
+                éco-responsable</h2>
             </div>
             <div className={styles.companyContent}>
               <div className={styles.companyInfo}>
@@ -293,7 +309,6 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <span className={styles.companyIcon}>🌸</span>
               <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
             </div>
             <p className={styles.companyDescription}>
@@ -378,6 +393,7 @@ export default function Home() {
                   Nos miels sont également disponibles dans certains magasins partenaires de la région, afin de faciliter l'accès
                   à une production locale et responsable.
                 </p>
+
               </div>
 
               <div className={styles.featureCard}>
@@ -404,7 +420,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.featureCard}>
+              <div className={`${styles.featureCard} ${styles.lastFeatureCard}`}>
                 <div className={styles.featureIcon}>
                   🧑‍🍳
                 </div>
@@ -416,7 +432,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.featureCard}>
+              <div className={`${styles.featureCard} ${styles.lastFeatureCard}`}>
                 <div className={styles.featureIcon}>
                   🏢
                 </div>
@@ -429,7 +445,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.featureCard}>
+              <div className={`${styles.featureCard} ${styles.lastFeatureCard}`}>
                 <div className={styles.featureIcon}>
                   🤝
                 </div>

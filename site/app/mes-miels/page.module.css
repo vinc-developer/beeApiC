@@ -60,7 +60,7 @@
     text-align: center;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 2px solid var(--color-primary-light);
 }
 
 .honeyCard:hover {
@@ -94,12 +94,18 @@
 
 /* Section cristallisation */
 .crystallizationSection {
-    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    /*background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    border: 2px solid #F5B04A;*/
     border-radius: 1rem;
     padding: 2.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 2px solid #F5B04A;
     margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.introPresentation {
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     margin-bottom: 3rem;
 }
 

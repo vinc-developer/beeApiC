@@ -23,15 +23,14 @@
 /* Intro section */
 .introCard {
     background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    border: 2px solid #F5B04A;
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 2px solid #F5B04A;
     margin-bottom: 4rem;
 }
 
 .introText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     text-align: center;
@@ -40,11 +39,11 @@
 
 /* Content cards */
 .contentCard {
-    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    /*background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    border: 2px solid #F5B04A;*/
     border-radius: 1rem;
     padding: 3rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 2px solid #F5B04A;
     margin-bottom: 4rem;
     transition: all 0.3s ease;
 }
@@ -64,12 +63,11 @@
 }
 
 .cardIcon {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1;
 }
 
 .cardTitle {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0;
@@ -82,7 +80,6 @@
 }
 
 .cardText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -135,7 +132,6 @@
 }
 
 .subsectionTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0;
@@ -155,7 +151,6 @@
 }
 
 .warningTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0 0 1rem 0;
@@ -165,7 +160,6 @@
 }
 
 .warningText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -183,19 +177,17 @@
 }
 
 .actionIcon {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
 }
 
 .actionTitle {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0 0 1rem 0;
 }
 
 .actionText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0 0 2rem 0;
@@ -274,16 +266,8 @@
         font-size: 2.5rem;
     }
 
-    .cardTitle {
-        font-size: var(--font-size-2xl);
-    }
-
     .actionIcon {
         font-size: 3rem;
-    }
-
-    .actionTitle {
-        font-size: var(--font-size-2xl);
     }
 
     .subsection {
@@ -304,20 +288,8 @@
         font-size: 2rem;
     }
 
-    .cardTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .actionIcon {
         font-size: 2.5rem;
-    }
-
-    .actionTitle {
-        font-size: var(--font-size-xl);
-    }
-
-    .subsectionTitle {
-        font-size: var(--font-size-lg);
     }
 
     .btnSecondary {

@@ -16,14 +16,13 @@ export default function DocumentationPage() {
                 </div>
 
                 <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/ruche-abeilles.jpg`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/abeilles-miel.jpeg`}
                     alt="Ruche d'abeilles"
                     className={styles.heroImage}
                 />
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>📚</span>
                         <h2 className={styles.cardTitle}>Les principaux aspects de l'apiculture</h2>
                     </div>
                     <div className={styles.subsectionsGrid}>
@@ -84,7 +83,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🔄</span>
                         <h2 className={styles.cardTitle}>La vie dans une ruche</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -139,7 +137,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🎬</span>
                         <h2 className={styles.cardTitle}>Les métiers des abeilles</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -155,7 +152,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🐣</span>
                         <h2 className={styles.cardTitle}>La naissance des abeilles</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -173,7 +169,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🏠</span>
                         <h2 className={styles.cardTitle}>La ruche dadant</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -194,7 +189,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🐝</span>
                         <h2 className={styles.cardTitle}>Cadre à mâle</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -238,7 +232,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>📖</span>
                         <h2 className={styles.cardTitle}>Le couvain ouvert et fermé</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -297,7 +290,6 @@ export default function DocumentationPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🍯</span>
                         <h2 className={styles.cardTitle}>Les cadres à miel</h2>
                     </div>
                     <div className={styles.cardContent}>

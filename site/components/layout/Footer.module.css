@@ -14,6 +14,21 @@
     padding: 0 2rem;
 }
 
+.footerTop {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.footerNavigation li{
+    list-style: none;
+}
+
+.footerNavigation a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .footerContent {
     padding: 3rem 0;
 }
