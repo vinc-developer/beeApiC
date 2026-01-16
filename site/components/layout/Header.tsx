@@ -101,6 +101,28 @@ export default function Header() {
                         </Link>
                       )}
                     </MenuItem>
+                    <MenuItem>
+                      {({ focus }) => (
+                          <Link
+                              href="/essaims"
+                              className={`${styles.dropdownItem} ${focus ? styles.dropdownItemFocus : ''}`}
+                          >
+                            <span>⛑️</span>
+                            <span>Essaims</span>
+                          </Link>
+                      )}
+                    </MenuItem>
+                    <MenuItem>
+                      {({ focus }) => (
+                          <Link
+                              href="/documentation"
+                              className={`${styles.dropdownItem} ${focus ? styles.dropdownItemFocus : ''}`}
+                          >
+                            <span>📗</span>
+                            <span>Documentation</span>
+                          </Link>
+                      )}
+                    </MenuItem>
                   </MenuItems>
                 </div>
               )}
@@ -230,6 +252,15 @@ export default function Header() {
                           <Link href="/frelon-asiatique" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
                             <span>⚠️</span>
                             <span>Le frelon asiatique</span>
+                          </Link>
+
+                          <Link href="/essaims" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>⛑️</span>
+                            <span>Essaim</span>
+                          </Link>
+                          <Link href="/documentation" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>📗</span>
+                            <span>Documentation</span>
                           </Link>
                         </DisclosurePanel>
                       </div>

@@ -59,30 +59,62 @@ export default function Home() {
 
       <div className={styles.container}>
 
-        <section className="entete">
-          <h2>Bienvenue dans l'univers de Bee Api'C</h2>
-          <p>Bienvenue chez Bee Api’C, une apiculture locale engagée au service des abeilles et de la biodiversité en Loire-Atlantique.
-            Animé par une passion profonde pour le monde de la ruche, Bee Api’C vous invite à découvrir l’univers fascinant des abeilles, leur rôle essentiel dans notre écosystème et le travail minutieux qui se cache derrière chaque pot de miel.
-
-            Que vous soyez simplement curieux, sensible à la protection de la nature ou amateur de produits locaux et authentiques, ce site est une porte d’entrée vers une apiculture respectueuse et transparente. Vous y découvrirez mes pratiques, mes ruchers, les miels que je produis ainsi que mes actions pour la sauvegarde des essaims.
-
-            À travers Bee Api’C, mon objectif est simple : protéger les abeilles, produire un miel de qualité et partager une vision responsable et locale de l’apiculture.
-          </p>
+        {/* Section Entête */}
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🌼</span>
+              <h2 className={styles.companyTitle}>Bienvenue dans l'univers de Bee Api'C</h2>
+            </div>
+            <div className={styles.companyInfo}>
+              <p className={styles.companyDescription}>
+                Bienvenue chez Bee Api'C, une apiculture locale engagée au service des abeilles et de la biodiversité en Loire-Atlantique.
+                Animé par une passion profonde pour le monde de la ruche, Bee Api'C vous invite à découvrir l'univers fascinant des abeilles, leur rôle essentiel dans notre écosystème et le travail minutieux qui se cache derrière chaque pot de miel.
+              </p>
+              <p className={styles.companyDescription}>
+                Que vous soyez simplement curieux, sensible à la protection de la nature ou amateur de produits locaux et authentiques, ce site est une porte d'entrée vers une apiculture respectueuse et transparente. Vous y découvrirez mes pratiques, mes ruchers, les miels que je produis ainsi que mes actions pour la sauvegarde des essaims.
+              </p>
+              <p className={styles.companyDescription}>
+                À travers Bee Api'C, mon objectif est simple : protéger les abeilles, produire un miel de qualité et partager une vision responsable et locale de l'apiculture.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section className="biodiversite">
-          <h2>Préservez l'abeille c'est préserver la biodiversité</h2>
-          <img src="./assets/images/ia/abeille-biodiversité.jpg" alt="abeille biodiversité"/>
-          <p>Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des pollinisateurs particulièrement efficaces : en transportant le pollen d’une fleur à l’autre, elles permettent la reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu’il s’agisse de fruits, de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
-
-            Cette pollinisation est également indispensable au maintien de l’équilibre écologique. Les plantes constituent la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par un manque de pollinisation, aurait donc des répercussions en cascade sur l’ensemble des écosystèmes et sur les espèces qui en dépendent.
-
-            Les abeilles jouent aussi un rôle majeur dans l’alimentation humaine. Elles participent directement à la production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments que nous consommons au quotidien.
-
-            Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux, contribuant ainsi à la résilience et à la santé des écosystèmes.
-
-            En protégeant les abeilles, nous préservons bien plus qu’un insecte : nous protégeons la biodiversité, la stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱.</p>
-
+        {/* Section Biodiversité */}
+        <section className={styles.companySection}>
+          <div className={styles.companyCard}>
+            <div className={styles.companyHeader}>
+              <span className={styles.companyIcon}>🌱</span>
+              <h2 className={styles.companyTitle}>Préserver l'abeille c'est préserver la biodiversité</h2>
+            </div>
+            <div className={styles.companyContent}>
+              <div className={styles.companyInfo}>
+                <p className={styles.companyDescription}>
+                  Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des pollinisateurs particulièrement efficaces : en transportant le pollen d'une fleur à l'autre, elles permettent la reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu'il s'agisse de fruits, de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
+                </p>
+                <p className={styles.companyDescription}>
+                  Cette pollinisation est également indispensable au maintien de l'équilibre écologique. Les plantes constituent la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par un manque de pollinisation, aurait donc des répercussions en cascade sur l'ensemble des écosystèmes et sur les espèces qui en dépendent.
+                </p>
+                <p className={styles.companyDescription}>
+                  Les abeilles jouent aussi un rôle majeur dans l'alimentation humaine. Elles participent directement à la production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments que nous consommons au quotidien.
+                </p>
+                <p className={styles.companyDescription}>
+                  Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux, contribuant ainsi à la résilience et à la santé des écosystèmes.
+                </p>
+                <p className={styles.companyDescription}>
+                  En protégeant les abeilles, nous préservons bien plus qu'un insecte : nous protégeons la biodiversité, la stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱
+                </p>
+              </div>
+              <div className={styles.companyContact}>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/ia/abeille-biodiversité.jpg`}
+                  alt="Abeille et biodiversité"
+                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+                />
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Section Présentation */}
