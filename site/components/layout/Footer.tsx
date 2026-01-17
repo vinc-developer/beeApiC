@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import styles from './Footer.module.css';
 import CardEntreprise from "@/components/entreprise/card-entreprise";
+import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,6 +16,34 @@ export default function Footer() {
             <h3>Bee Api'C</h3>
             <h4>Apiculteur local</h4>
             <h5>Entre Nantes et Pornic</h5>
+
+            <div className={styles.socialIcons}>
+              <a
+                  href="https://www.facebook.com/profile.php?id=61572010006092"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-network="facebook"
+              >
+                <FaFacebook className="social-icon"/>
+              </a>
+              <a
+                  href="https://www.instagram.com/bee.api.c/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-network="instagram"
+              >
+                <FaInstagram className="social-icon"/>
+              </a>
+              <a
+                  href="https://www.linkedin.com/company/bee-apic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-network="linkedin"
+              >
+                <FaLinkedin className="social-icon"/>
+              </a>
+            </div>
+
           </div>
           <div className={styles.footerNavigation}>
             <ul>

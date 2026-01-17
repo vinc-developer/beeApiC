@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {loadBeekeeper, loadBeekeeperAll} from '@/lib/api/tracabilite';
 import styles from "@/app/page.module.css";
 import ImageGallery from "@/components/gallery/ImageGallery";
+import { FaFacebook, FaInstagram, FaYoutube, FaTiktok, FaLinkedin } from 'react-icons/fa';
 
 /* référencement apiculteur*/
 export async function generateStaticParams() {
@@ -269,7 +270,7 @@ export default async function BeekeeperPage({
                           className="social-link"
                           data-network="facebook"
                       >
-                        <span className="social-icon">📘</span>
+                        <FaFacebook className="social-icon" />
                         <span className="social-name">Facebook</span>
                       </a>
                   )}
@@ -281,7 +282,7 @@ export default async function BeekeeperPage({
                           className="social-link"
                           data-network="instagram"
                       >
-                        <span className="social-icon">📷</span>
+                        <FaInstagram className="social-icon" />
                         <span className="social-name">Instagram</span>
                       </a>
                   )}
@@ -293,7 +294,7 @@ export default async function BeekeeperPage({
                           className="social-link"
                           data-network="youtube"
                       >
-                        <span className="social-icon">📹</span>
+                        <FaYoutube className="social-icon" />
                         <span className="social-name">YouTube</span>
                       </a>
                   )}
@@ -305,7 +306,7 @@ export default async function BeekeeperPage({
                           className="social-link"
                           data-network="tiktok"
                       >
-                        <span className="social-icon">🎵</span>
+                        <FaTiktok className="social-icon" />
                         <span className="social-name">TikTok</span>
                       </a>
                   )}
@@ -317,7 +318,7 @@ export default async function BeekeeperPage({
                           className="social-link"
                           data-network="linkedin"
                       >
-                        <span className="social-icon">💼</span>
+                        <FaLinkedin className="social-icon" />
                         <span className="social-name">LinkedIn</span>
                       </a>
                   )}

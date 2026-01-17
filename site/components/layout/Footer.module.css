@@ -8,6 +8,11 @@
     background: linear-gradient(to bottom, #F9FAFB, white);
 }
 
+.footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .footerContainer {
     max-width: 1200px;
     margin: 0 auto;
@@ -24,11 +29,6 @@
     list-style: none;
 }
 
-.footerNavigation a{
-    text-decoration: none;
-    color: inherit;
-}
-
 .footerContent {
     padding: 3rem 0;
 }
@@ -39,7 +39,15 @@
     gap: 2rem;
 }
 
-/* À propos */
+.socialIcons a {
+    margin-right: 1rem;
+}
+
+.socialIcons {
+    padding-top: 1rem;
+}
+
+    /* À propos */
 .aboutSection {
     grid-column: 1 / -1;
 }
