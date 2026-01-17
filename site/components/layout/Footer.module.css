@@ -41,6 +41,43 @@
 
 .socialIcons a {
     margin-right: 1rem;
+    color: #4B5563;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialIcons a svg,
+.socialIcons a :global(.social-icon) {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.socialIcons a:hover {
+    transform: translateY(-3px);
+}
+
+/* Couleurs spécifiques au hover pour chaque réseau social */
+.socialIcons a[data-network="facebook"]:hover {
+    color: #1877F2;
+}
+
+.socialIcons a[data-network="instagram"]:hover {
+    color: #E4405F;
+}
+
+.socialIcons a[data-network="linkedin"]:hover {
+    color: #0A66C2;
+}
+
+.socialIcons a[data-network="youtube"]:hover {
+    color: #FF0000;
+}
+
+.socialIcons a[data-network="tiktok"]:hover {
+    color: #000000;
 }
 
 .socialIcons {
