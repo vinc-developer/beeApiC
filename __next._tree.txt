@@ -3,9 +3,9 @@
 :HL["/beeApiC/_next/static/chunks/b90827e3762611ca.css","style"]
 :HL["/beeApiC/images/pages/gallerie-home/abeille-fleur.jpeg","image"]
 :HL["/beeApiC/images/pages/home/essaim.jpg","image"]
-:HL["/beeApiC/images/products/foret.png","image"]
-:HL["/beeApiC/images/products/acacia.png","image"]
-:HL["/beeApiC/images/products/pain-epice.png","image"]
+:HL["/beeApiC/images/products/ete.png","image"]
+:HL["/beeApiC/images/products/printemps.png","image"]
+:HL["/beeApiC/images/products/hydromel.png","image"]
 :HL["/beeApiC/images/pages/home/miels.jpg","image"]
-:HL["/beeApiC/images/products/coffret-3miels.png","image"]
-0:{"buildId":"jCy9AAMSH-tMsR0eBlSLP","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/beeApiC/images/products/bougie.png","image"]
+0:{"buildId":"1sCIrw1ANwaeEsgCdjlzK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

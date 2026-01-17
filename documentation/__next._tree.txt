@@ -14,4 +14,4 @@
 :HL["/beeApiC/images/pages/documentations/provision.jpg","image"]
 :HL["/beeApiC/images/pages/documentations/cadre-G.webp","image"]
 :HL["/beeApiC/images/pages/documentations/cadre-miel.jpeg","image"]
-0:{"buildId":"jCy9AAMSH-tMsR0eBlSLP","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"documentation","paramType":null,"paramKey":"documentation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"1sCIrw1ANwaeEsgCdjlzK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"documentation","paramType":null,"paramKey":"documentation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
