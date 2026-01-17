@@ -1,6 +1,0 @@
-:HL["/beeApiC/_next/static/chunks/af14158d2a35bcb2.css","style"]
-:HL["/beeApiC/_next/static/chunks/638a1b73fa675a38.css","style"]
-:HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/images/vincent-colas/colas-vincent.jpg","image"]
-:HL["/beeApiC/images/logo-beeapic.png","image"]
-0:{"buildId":"ztAcMqc-7fS0YomPh_A1D","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tracabilite","paramType":null,"paramKey":"tracabilite","hasRuntimePrefetch":false,"slots":{"children":{"name":"lotNumber","paramType":"d","paramKey":"BA-2026-CH-0107","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

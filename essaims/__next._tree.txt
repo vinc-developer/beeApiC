@@ -1,0 +1,5 @@
+:HL["/beeApiC/_next/static/chunks/7908c9c4fbacec4d.css","style"]
+:HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/beeApiC/_next/static/chunks/448ac329f738ef65.css","style"]
+:HL["/beeApiC/images/pages/essaim/recuperation-essaim.jpg","image"]
+0:{"buildId":"jCy9AAMSH-tMsR0eBlSLP","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"essaims","paramType":null,"paramKey":"essaims","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
