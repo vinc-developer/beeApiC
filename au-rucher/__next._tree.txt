@@ -5,4 +5,4 @@
 :HL["/beeApiC/images/pages/rucher/rucher-foret-wallpaper.jpg","image"]
 :HL["/beeApiC/images/pages/rucher/abeilles-miel.jpeg","image"]
 :HL["/beeApiC/images/pages/rucher/neige-hiver.jpg","image"]
-0:{"buildId":"PC0HTCqfCDBMa8YSJPDs3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"au-rucher","paramType":null,"paramKey":"au-rucher","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wJcc0qs8lfwbuJFP5dp9b","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"au-rucher","paramType":null,"paramKey":"au-rucher","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

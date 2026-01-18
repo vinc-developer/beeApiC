@@ -13,4 +13,4 @@
 :HL["/beeApiC/images/pages/documentations/oeuf-larve.jpeg","image"]
 :HL["/beeApiC/images/pages/documentations/cadre-G.webp","image"]
 :HL["/beeApiC/images/pages/documentations/cadre-miel.jpeg","image"]
-0:{"buildId":"PC0HTCqfCDBMa8YSJPDs3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"documentation","paramType":null,"paramKey":"documentation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wJcc0qs8lfwbuJFP5dp9b","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"documentation","paramType":null,"paramKey":"documentation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
