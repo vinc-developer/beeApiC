@@ -28,7 +28,7 @@ export default function VenteEcolePage() {
           <p className={styles.introText}>
             Une solution clé en main pour financer les projets de votre école ou association,
             sans risque et sans avance de frais. Je vous accompagne de A à Z pour organiser
-            votre vente de miel artisanal 100% local.
+            votre vente de miel artisanal 100% local, en ligne ou sur vos marchés de Noël.
           </p>
         </div>
 
@@ -108,6 +108,13 @@ export default function VenteEcolePage() {
                 <h3 className={styles.benefitTitle}>Solidaire</h3>
                 <p className={styles.benefitText}>
                   Soutenez un apiculteur local tout en finançant vos projets
+                </p>
+              </div>
+              <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>🎄</div>
+                <h3 className={styles.benefitTitle}>Stand sur marché de Noël</h3>
+                <p className={styles.benefitText}>
+                  Possibilité de tenir un stand lors de vos marchés de Noël
                 </p>
               </div>
             </div>
@@ -212,6 +219,19 @@ export default function VenteEcolePage() {
                 <p className={styles.cardText}>
                   Livraison possible dans les <strong>Pays de Retz</strong> et toute la <strong>Loire-Atlantique</strong> sous conditions.
                 </p>
+              </div>
+
+              <div className={styles.infoSection}>
+                <h3 className={styles.infoTitle}>🎄 Stand sur marché de Noël</h3>
+                <p className={styles.cardText}>
+                  Pour les marchés de Noël organisés par votre école, je peux également venir tenir un stand
+                  pour présenter et vendre directement mes produits. C'est une excellente opportunité de :
+                </p>
+                <ul className={styles.formatList}>
+                  <li>Créer un lien direct entre les familles et l'apiculteur</li>
+                  <li>Présenter l'ensemble de ma gamme de miels et produits dérivés</li>
+                  <li>Répondre aux questions sur l'apiculture et les abeilles</li>
+                </ul>
               </div>
             </div>
           </div>
