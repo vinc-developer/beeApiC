@@ -51,13 +51,20 @@ export default function VenteEcolePage() {
                 produit localement en Loire-Atlantique.
               </p>
               <p className={styles.cardText}>
+                <strong>Une démarche locale et solidaire :</strong> Les miels proposés sont produits par <strong>l'apiculteur
+                local le plus proche de votre école</strong>, membre de notre réseau de <Link href="/apiculteurs" className={styles.inlineLink}>partenaires
+                signataires de notre charte qualité</Link>. Chaque pot dispose d'une <strong>traçabilité complète</strong>
+                que vos clients peuvent consulter en ligne.
+              </p>
+              <p className={styles.cardText}>
                 <strong>Le principe est simple :</strong>
               </p>
               <ul className={styles.benefitsList}>
-                <li>Je mets à disposition de votre école une <strong>quantité déterminée de pots de miel</strong></li>
+                <li>Je mets à disposition de votre école une <strong>quantité déterminée de pots de miel</strong> de votre apiculteur local</li>
                 <li>Vous organisez la vente via une <strong>boutique en ligne</strong> (type HelloAsso ou autre plateforme)</li>
                 <li>Je ne facture à l'école <strong>que les pots effectivement vendus</strong> pendant la campagne</li>
                 <li>Vous conservez la <strong>marge bénéficiaire</strong> pour financer vos projets</li>
+                <li>Chaque pot est <strong>traçable</strong> : origine, apiculteur, date de récolte</li>
               </ul>
             </div>
           </div>
@@ -111,10 +118,24 @@ export default function VenteEcolePage() {
                 </p>
               </div>
               <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>📍</div>
+                <h3 className={styles.benefitTitle}>Proximité locale</h3>
+                <p className={styles.benefitText}>
+                  Miel de l'apiculteur le plus proche de votre école, tissez des liens locaux
+                </p>
+              </div>
+              <div className={styles.benefitItem}>
+                <div className={styles.benefitIcon}>🔍</div>
+                <h3 className={styles.benefitTitle}>Traçabilité garantie</h3>
+                <p className={styles.benefitText}>
+                  Chaque pot est traçable en ligne : apiculteur, origine, date de récolte
+                </p>
+              </div>
+              <div className={styles.benefitItem}>
                 <div className={styles.benefitIcon}>🎄</div>
                 <h3 className={styles.benefitTitle}>Stand sur marché de Noël</h3>
                 <p className={styles.benefitText}>
-                  Possibilité de tenir un stand lors de vos marchés de Noël
+                  Votre apiculteur local peut tenir un stand lors de vos marchés de Noël
                 </p>
               </div>
             </div>
@@ -178,7 +199,9 @@ export default function VenteEcolePage() {
               <div className={styles.infoSection}>
                 <h3 className={styles.infoTitle}>🍯 Les miels disponibles</h3>
                 <p className={styles.cardText}>
-                  Je propose différentes variétés de miel selon les saisons et les récoltes :
+                  Je propose différentes variétés de miel selon les saisons et les récoltes de <strong>l'apiculteur
+                  local le plus proche de votre école</strong>. Tous nos apiculteurs partenaires sont signataires
+                  de notre charte qualité :
                 </p>
                 <ul className={styles.honeyList}>
                   <li><strong>Miel de printemps</strong> – Doux et floral</li>
@@ -188,7 +211,9 @@ export default function VenteEcolePage() {
                 </ul>
                 <p className={styles.cardText}>
                   Tous les miels sont <strong>100% naturels, non chauffés, extraits à froid</strong> et
-                  proviennent de mes ruches situées en Loire-Atlantique.
+                  proviennent de ruches situées en Loire-Atlantique. <strong>Chaque pot dispose d'un numéro
+                  de lot traçable</strong> permettant à vos clients de consulter en ligne l'origine exacte,
+                  l'apiculteur producteur et la date de récolte.
                 </p>
               </div>
 
@@ -224,12 +249,14 @@ export default function VenteEcolePage() {
               <div className={styles.infoSection}>
                 <h3 className={styles.infoTitle}>🎄 Stand sur marché de Noël</h3>
                 <p className={styles.cardText}>
-                  Pour les marchés de Noël organisés par votre école, je peux également venir tenir un stand
-                  pour présenter et vendre directement mes produits. C'est une excellente opportunité de :
+                  Pour les marchés de Noël organisés par votre école, <strong>l'apiculteur local le plus proche
+                  de votre établissement</strong> peut venir tenir un stand pour présenter et vendre directement
+                  ses produits. C'est une excellente opportunité de :
                 </p>
                 <ul className={styles.formatList}>
-                  <li>Créer un lien direct entre les familles et l'apiculteur</li>
-                  <li>Présenter l'ensemble de ma gamme de miels et produits dérivés</li>
+                  <li>Créer un lien direct entre les familles et l'apiculteur de proximité</li>
+                  <li>Tisser des liens locaux et renforcer le réseau de votre territoire</li>
+                  <li>Présenter l'ensemble de la gamme de miels et produits dérivés</li>
                   <li>Répondre aux questions sur l'apiculture et les abeilles</li>
                 </ul>
               </div>
@@ -284,6 +311,15 @@ export default function VenteEcolePage() {
             </div>
             <div className={styles.faqWrapper}>
               <div className={styles.faqItem}>
+                <h3 className={styles.faqQuestion}>Comment choisissez-vous l'apiculteur pour notre école ?</h3>
+                <p className={styles.faqAnswer}>
+                  Nous sélectionnons <strong> l'apiculteur le plus proche de votre établissement</strong> parmi
+                  notre réseau de partenaires signataires de notre charte qualité. Cela permet de créer un lien
+                  local fort et de réduire au maximum les transports. Chaque pot est traçable, vous saurez
+                  exactement qui a produit le miel que vous vendez.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
                 <h3 className={styles.faqQuestion}>Quelle quantité minimum commander ?</h3>
                 <p className={styles.faqAnswer}>
                   Il n'y a pas vraiment de minimum, mais je recommande au moins 50 pots pour que
@@ -293,7 +329,7 @@ export default function VenteEcolePage() {
               <div className={styles.faqItem}>
                 <h3 className={styles.faqQuestion}>Que se passe-t-il si tous les pots ne sont pas vendus ?</h3>
                 <p className={styles.faqAnswer}>
-                  Vous ne payez que les pots vendus. Les pots restants ne seront ni livré ni facturés.
+                  Vous ne payez que les pots vendus. Les pots restants ne seront ni livrés ni facturés.
                 </p>
               </div>
               <div className={styles.faqItem}>
@@ -315,6 +351,14 @@ export default function VenteEcolePage() {
                 <p className={styles.faqAnswer}>
                   Je ne propose pas d'interventions pédagogiques sur les abeilles et l'apiculture.
                   Mais je peux vous recommander un partenaire.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
+                <h3 className={styles.faqQuestion}>Comment se déroule un stand sur marché de Noël ?</h3>
+                <p className={styles.faqAnswer}>
+                  L'apiculteur local le plus proche de votre école vient avec son stand et ses produits le jour du marché.
+                  Il gère la vente et s'acquite de son emplacement. C'est une formule
+                  gagnant-gagnant qui nécessite peu d'organisation de votre part et qui permet de tisser des liens locaux.
                 </p>
               </div>
             </div>
