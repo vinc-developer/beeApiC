@@ -1,4 +1,4 @@
-:HL["/beeApiC/_next/static/chunks/7908c9c4fbacec4d.css","style"]
+:HL["/beeApiC/_next/static/chunks/628d60f29c052950.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/beeApiC/_next/static/chunks/edd07012e5833c58.css","style"]
-0:{"buildId":"1sCIrw1ANwaeEsgCdjlzK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"apiculteurs","paramType":null,"paramKey":"apiculteurs","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"PC0HTCqfCDBMa8YSJPDs3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"apiculteurs","paramType":null,"paramKey":"apiculteurs","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

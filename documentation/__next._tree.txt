@@ -1,4 +1,4 @@
-:HL["/beeApiC/_next/static/chunks/7908c9c4fbacec4d.css","style"]
+:HL["/beeApiC/_next/static/chunks/628d60f29c052950.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/beeApiC/_next/static/chunks/d105d8283862afbc.css","style"]
 :HL["/beeApiC/images/pages/documentations/abeilles-miel.jpeg","image"]
@@ -11,7 +11,6 @@
 :HL["/beeApiC/images/pages/documentations/cadre-male.jpg","image"]
 :HL["/beeApiC/images/pages/documentations/Couvain.png","image"]
 :HL["/beeApiC/images/pages/documentations/oeuf-larve.jpeg","image"]
-:HL["/beeApiC/images/pages/documentations/provision.jpg","image"]
 :HL["/beeApiC/images/pages/documentations/cadre-G.webp","image"]
 :HL["/beeApiC/images/pages/documentations/cadre-miel.jpeg","image"]
-0:{"buildId":"1sCIrw1ANwaeEsgCdjlzK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"documentation","paramType":null,"paramKey":"documentation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"PC0HTCqfCDBMa8YSJPDs3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"documentation","paramType":null,"paramKey":"documentation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

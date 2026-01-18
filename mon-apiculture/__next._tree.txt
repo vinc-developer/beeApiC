@@ -1,4 +1,4 @@
-:HL["/beeApiC/_next/static/chunks/7908c9c4fbacec4d.css","style"]
+:HL["/beeApiC/_next/static/chunks/628d60f29c052950.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/beeApiC/_next/static/chunks/a8feb224991f260f.css","style"]
 :HL["/beeApiC/images/pages/apiculture/abeilles-ruches-wallpaper.jpg","image"]
@@ -6,4 +6,4 @@
 :HL["/beeApiC/images/vincent-colas/apiculteur.jpeg","image"]
 :HL["/beeApiC/images/products/miels-couleurs.jpg","image"]
 :HL["/beeApiC/images/matthieu-colas/rucher-matthieu.jpg","image"]
-0:{"buildId":"1sCIrw1ANwaeEsgCdjlzK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mon-apiculture","paramType":null,"paramKey":"mon-apiculture","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"PC0HTCqfCDBMa8YSJPDs3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mon-apiculture","paramType":null,"paramKey":"mon-apiculture","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
