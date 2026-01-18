@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vinc-developer.github.io/beeApiC/'),
   title: {
     default: "Apiculteur local – Miel du Pays de Retz",
     template: "%s | Bee Api’C",
@@ -25,6 +26,29 @@ export const metadata: Metadata = {
     "pornic",
     "nantes",
   ],
+  openGraph: {
+    title: "Bee Api’C | Apiculteur local en Loire-Atlantique",
+    description: "Production de miel artisanal et sauvegarde d'essaims entre Nantes et Pornic. Découvrez l'univers de la ruche !",
+    url: './',
+    siteName: 'Bee Api’C',
+    locale: 'fr_FR',
+    type: 'website',
+    images: [
+      {
+        url: '/images/bee-apic/logo-bee-apic-complet.png',
+        width: 1200,
+        height: 630,
+        alt: 'Logo Bee Api’C - Apiculture locale',
+      },
+    ],
+  },
+  // 3. Configuration Twitter
+  twitter: {
+    card: 'summary_large_image',
+    title: "Bee Api’C | Miel artisanal du Pays de Retz",
+    description: "Miel local, hydromel et sauvetage d'essaims. Directement du producteur au consommateur.",
+    images: ['/images/bee-apic/logo-bee-apic-complet.png'],
+  },
 };
 
 export const dynamic = "force-static";
