@@ -4,17 +4,27 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: "Apiculteur local – Miel du Pays de Retz",
+    template: "%s | Bee Api’C",
   },
-  description: siteConfig.description,
-  keywords: ["miel", "traçabilité", "apiculture", "Loire-Atlantique", "local", "Bee Api'C"],
+  description:
+      "Apiculteur local en Loire-Atlantique. Production et vente directe de miel artisanal du Pays de Retz, hydromel et produits apicoles entre Nantes et Pornic.",
+  keywords: [
+    "apiculteur",
+    "apiculteur local",
+    "miel pays de retz",
+    "miel loire atlantique",
+    "vente directe miel",
+    "producteur de miel",
+    "miel artisanal",
+    "pornic",
+    "nantes",
+  ],
 };
 
 export const dynamic = "force-static";

@@ -5,6 +5,7 @@ import { extractHoneyType, formatDate } from '@/lib/utils';
 import honeyTypesData from '@/data/honey-types.json';
 import traceabilityData from '@/data/traceability-data.json';
 import styles from "./../tracabilite.module.css";
+import {Metadata} from "next";
 
 /* référencement lot*/
 export function generateStaticParams() {
@@ -24,6 +25,19 @@ export function generateStaticParams() {
     return [{ lotNumber: 'BA-2026-CH-0107' }]; // Fallback avec la vraie clé
   }
 }
+export const metadata: Metadata = {
+  title: "Traçabilité du miel – De la ruche au pot",
+  description:
+      "Suivez la traçabilité de votre miel grâce au QR code : origine, rucher, récolte et apiculteur local du Pays de Retz en Loire-Atlantique.",
+  keywords: [
+    "traçabilité miel",
+    "miel traçable",
+    "origine du miel",
+    "apiculteur local",
+    "miel pays de retz",
+    "qr code miel",
+  ],
+};
 
 export default async function LotDetailPage({
   params,

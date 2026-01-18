@@ -2,6 +2,22 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./apiculteurs.module.css";
 import beekeepersData from "@/data/beekeepers.json";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Apiculteurs partenaires – Réseau local",
+  description:
+      "Découvrez les apiculteurs partenaires de Bee Api’C : un réseau local engagé pour une apiculture responsable et un miel de qualité.",
+  keywords: [
+    "apiculteurs partenaires",
+    "apiculteur local",
+    "apiculture responsable",
+    "miel local",
+    "pays de retz",
+    "loire atlantique",
+  ],
+};
+
 
 export default function ApiculteursPage() {
   // Convertir l'objet beekeepers en tableau
@@ -93,7 +109,7 @@ function BeekeeperCard({ beekeeper, isPartner = false }: BeekeeperCardProps) {
         {beekeeper.photo ? (
           <Image
             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${beekeeper.photo}`}
-            alt={`${beekeeper.firstName} ${beekeeper.lastName}`}
+            alt={`${beekeeper.firstName} ${beekeeper.lastName} - apiculteur récoltant`}
             width={300}
             height={300}
             className={styles.photoImage}

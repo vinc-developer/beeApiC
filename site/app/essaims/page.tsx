@@ -1,5 +1,19 @@
 import styles from "./page.module.css";
 import Link from "next/link";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Récupération d’essaims d’abeilles",
+    description:
+        "Apiculteur local pour la récupération d’essaims d’abeilles en Loire-Atlantique et Pays de Retz. Intervention rapide et respectueuse.",
+    keywords: [
+        "récupération essaim abeilles",
+        "apiculteur essaim",
+        "essaim abeilles loire atlantique",
+        "apiculteur pays de retz",
+    ],
+};
+
 
 export default function EssaimPage() {
     return (
@@ -42,7 +56,7 @@ export default function EssaimPage() {
                             <div>
                                 <img
                                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/essaim/recuperation-essaim.jpg`}
-                                    alt="Essaim d'abeilles"
+                                    alt="Récuération d'un essaim d'abeilles dans un arbre"
                                     className={styles.sideImage}
                                 />
                             </div>
@@ -64,9 +78,6 @@ export default function EssaimPage() {
                                 <h3 className={styles.subsectionTitle}>Port-Saint-Père</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Brains</h3>
-                            </div>
-                            <div className={styles.subsection}>
                                 <h3 className={styles.subsectionTitle}>Saint-Léger-les-Vignes</h3>
                             </div>
                             <div className={styles.subsection}>
@@ -79,7 +90,7 @@ export default function EssaimPage() {
                                 <h3 className={styles.subsectionTitle}>Saint-Hilaire-de-Chaléons</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Chaume-en-Retz</h3>
+                                <h3 className={styles.subsectionTitle}>Chaumes-en-Retz</h3>
                             </div>
                             <div className={styles.subsection}>
                                 <h3 className={styles.subsectionTitle}>Bourgneuf-en-Retz</h3>

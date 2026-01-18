@@ -1,5 +1,21 @@
-import Link from "next/link";
 import styles from "./page.module.css";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Mon apiculture – Passion et vision",
+  description:
+      "Découvrez mon apiculture : passion des abeilles, méthodes de travail, apiculture responsable et vision durable pour demain en Pays de Retz.",
+  keywords: [
+    "mon apiculture",
+    "apiculture responsable",
+    "philosophie apicole",
+    "apiculteur pays de retz",
+    "abeilles",
+    "apiculture durable",
+  ],
+};
+
+
 
 export default function MonApiculturePage() {
   return (
@@ -67,7 +83,7 @@ export default function MonApiculturePage() {
             </div>
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`}
-                alt="Rucher en hiver"
+                alt="Hausse de miel avec un cadre de miel operculé"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
             <div className={styles.cardContent}>
@@ -134,7 +150,7 @@ export default function MonApiculturePage() {
             </div>
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/products/miels-couleurs.jpg`}
-                alt="plusieurs pots de miel"
+                alt="plusieurs pots de miel Bee Api'C avec des couleurs différentes"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
             <div className={styles.cardContent}>
@@ -167,7 +183,7 @@ export default function MonApiculturePage() {
             </div>
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/matthieu-colas/rucher-matthieu.jpg`}
-                alt="Rucher en hiver"
+                alt="Rucher de Matthieu Colas en hiver"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
             <div className={styles.cardContent}>

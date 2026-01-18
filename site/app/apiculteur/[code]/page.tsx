@@ -1,9 +1,49 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import {loadBeekeeper, loadBeekeeperAll} from '@/lib/api/tracabilite';
-import styles from "@/app/page.module.css";
 import ImageGallery from "@/components/gallery/ImageGallery";
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok, FaLinkedin } from 'react-icons/fa';
+import {Metadata} from "next";
+
+export async function generateMetadata({
+                                          params,
+                                        }: {
+  params: Promise<{ code: string }>;
+}) {
+
+  const { code } = await params;
+
+  const beekeeper = await loadBeekeeper(code);
+
+  if (!beekeeper) {
+    return {
+      title: "Apiculteur introuvable | Bee Api’C",
+      description:
+          "Cet apiculteur partenaire Bee Api’C est introuvable.",
+    };
+  }
+
+  const isBeApiC = code === "BA";
+  const isPartner = !!beekeeper.partnerSince;
+
+  const role = isBeApiC
+      ? "Apiculteur Bee Api’C"
+      : isPartner
+          ? "Apiculteur partenaire Bee Api’C"
+          : "Apiculteur local";
+
+  return {
+    title: `${beekeeper.firstName} ${beekeeper.lastName} – ${role}`,
+    description: `Découvrez ${beekeeper.firstName} ${beekeeper.lastName}, ${role} situé à ${beekeeper.location}. Apiculture locale, responsable et traçable.`,
+    keywords: [
+      "apiculteur",
+      "apiculteur local",
+      "apiculture responsable",
+      "miel local",
+      `${beekeeper.location}`,
+      "bee api c",
+    ],
+  };
+}
 
 /* référencement apiculteur*/
 export async function generateStaticParams() {
@@ -28,6 +68,12 @@ export default async function BeekeeperPage({
 
   const isBeApiC = code === 'BA';
   const isPartner = beekeeper.partnerSince;
+
+  const role = isBeApiC
+      ? "Apiculteur Bee Api’C"
+      : isPartner
+          ? "Apiculteur partenaire Bee Api’C"
+          : "Apiculteur local";
 
   return (
       <div className="container">
@@ -56,7 +102,7 @@ export default async function BeekeeperPage({
                 {beekeeper.photo ? (
                     <img
                         src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${beekeeper.photo}`}
-                        alt={`${beekeeper.firstName} ${beekeeper.lastName}`}
+                        alt={`${beekeeper.firstName} ${beekeeper.lastName} - apiculteur récoltant`}
                     />
                 ) : (
                     <div className="photo-placeholder">

@@ -1,6 +1,21 @@
-import Link from "next/link";
 import styles from "./page.module.css";
 import ImageGallery from "@/components/gallery/ImageGallery";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Mes ruchers – Implantation et abeilles",
+  description:
+      "Découvrez l’implantation de mes ruchers dans le Pays de Retz et les abeilles avec lesquelles je travaille, au cœur de milieux naturels.",
+  keywords: [
+    "ruchers",
+    "rucher pays de retz",
+    "abeilles",
+    "apiculteur local",
+    "implantation ruchers",
+    "miel local",
+  ],
+};
+
 
 export default function AuRucherPage() {
   return (
@@ -16,7 +31,7 @@ export default function AuRucherPage() {
 
         <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/rucher-foret-wallpaper.jpg`}
-            alt="Rucher en Pays de Retz"
+            alt="Rucher gans une fôret de Port-Saint-Père"
             style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
         />
 
@@ -54,7 +69,7 @@ export default function AuRucherPage() {
             </div>
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeilles-miel.jpeg`}
-                alt="Rucher en Pays de Retz"
+                alt="Abeilles qui mangent du miel sur un cadre"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
             <p className={styles.cardText}>
@@ -127,7 +142,7 @@ export default function AuRucherPage() {
 
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/neige-hiver.jpg`}
-                alt="Petit rucher en Pays de Retz"
+                alt="Rucher en hiver à Saint-Hilaire-De-Chaléons"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
 
@@ -163,11 +178,11 @@ export default function AuRucherPage() {
               images={[
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/abeille-butine.jpeg`,
-                  alt: "Abeille butinant une fleur"
+                  alt: "Abeille butinant une fleur de thym"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/couvains.jpg`,
-                  alt: "Abeille noire sur les têtes de cadre"
+                  alt: "Cadre de couvain avec des abeilles"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/reine-marque.jpeg`,
@@ -175,39 +190,39 @@ export default function AuRucherPage() {
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ronce.jpg`,
-                  alt: "Ruche envahie d'abeilles"
+                  alt: "Abeille butinant une fleur de ronce"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/cadre-male.jpg`,
-                  alt: "Abeille butinant une fleur"
+                  alt: "Cadre à male avec des abeilles"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/buckfast.jpeg`,
-                  alt: "Abeille buckfast sur les têtes de cadre"
+                  alt: "Abeilles buckfast sur un cadre"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche-foret.jpeg`,
-                  alt: "Reine sur un cadre"
-                },
-                {
-                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche.jpeg`,
                   alt: "Ruche en Pays de Retz"
                 },
                 {
+                  src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche.jpeg`,
+                  alt: "Ruche avec plein d'abeille à Saint-Léger-les-Vignes"
+                },
+                {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/reine-carnica.jpg`,
-                  alt: "Rucher en Pays de Retz"
+                  alt: "Reine carnica sur un cadre"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/fleur-acacia.jpg`,
-                  alt: "Rucher en Pays de Retz"
+                  alt: "Fleurs d'acacia"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/cadre-couvain.jpg`,
-                  alt: "Rucher en Pays de Retz"
+                  alt: "Cadre de couvain avec des abeilles"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/rucher-foret-2.jpg`,
-                  alt: "Rucher en Pays de Retz"
+                  alt: "Attention abeilles en Loire-Atlantique"
                 }
               ]}
             />

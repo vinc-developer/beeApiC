@@ -308,3 +308,9 @@
     }
 }
 
+@media (max-width: 768px) {
+    .footerTop {
+        flex-direction: column;
+    }
+}
+

@@ -1,5 +1,20 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Frelon asiatique – Prévention et piégeage",
+  description:
+      "Informations sur le frelon asiatique : risques pour les abeilles, prévention et piégeage responsable en Loire-Atlantique et Pays de Retz.",
+  keywords: [
+    "frelon asiatique",
+    "piégeage frelon asiatique",
+    "protection abeilles",
+    "apiculteur loire atlantique",
+    "biodiversité",
+  ],
+};
+
 
 export default function FrelonAsiatiquePage() {
   return (
@@ -18,7 +33,7 @@ export default function FrelonAsiatiquePage() {
 
         <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-asiatique.jpg`}
-            alt="Frelon asiatique"
+            alt="Frelon asiatique, un danger pour nos abeilles"
             style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
         />
 
@@ -45,12 +60,12 @@ export default function FrelonAsiatiquePage() {
               </p>
               <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/reconnaitre-un-frelon-asiatique.jpg`}
-                  alt="Frelon asiatique"
+                  alt="Reconnaître un frelon asiatique"
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
               />
               <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/insects.png`}
-                  alt="Frelon asiatique"
+                  alt="Reconnaissance entre frelon asiatique, frelon européen et abeille"
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
               />
               <h3>Son cycle de vie</h3>
@@ -62,7 +77,7 @@ export default function FrelonAsiatiquePage() {
             </div>
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/cycle_FA.png`}
-                alt="Comparaison entre frelon asiatique et frelon européen"
+                alt="Cycle de vie du frelon asiatique"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
             />
           </div>
@@ -94,7 +109,7 @@ export default function FrelonAsiatiquePage() {
               </div>
               <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/vol-stationnaire-frelon.jpg`}
-                  alt="Vol stationnaire du frelon asiatique devnat une ruche"
+                  alt="Vol stationnaire du frelon asiatique devant une ruche"
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
               />
             </div>
@@ -130,7 +145,7 @@ export default function FrelonAsiatiquePage() {
                 </ul>
                 <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/cycle_de_piegage_frelons.jpg`}
-                    alt="Comparaison entre frelon asiatique et frelon européen"
+                    alt="Cycle de piégeage du frelon asiatique"
                     style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
                 />
               </div>
@@ -192,7 +207,7 @@ export default function FrelonAsiatiquePage() {
               </p>
               <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/frelon/frelon-attaque.jpg`}
-                  alt="Frelon asiatique qui attaque une abeille"
+                  alt="Frelon asiatique qui mange une abeille"
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
               />
             </div>

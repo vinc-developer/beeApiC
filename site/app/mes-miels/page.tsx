@@ -1,12 +1,28 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import type {Metadata} from "next";
+import {siteConfig} from "@/config/site";
+
+export const metadata: Metadata = {
+  title: "Miel du Pays de Retz – Vente directe",
+  description:
+      "Découvrez nos miels artisanaux du Pays de Retz : miel de printemps, d’été, d’acacia et de forêt. Vente directe d’apiculteur en Loire-Atlantique.",
+  keywords: [
+    "miel pays de retz",
+    "miel artisanal",
+    "miel local",
+    "vente miel direct apiculteur",
+    "miel loire atlantique",
+  ],
+};
+
 
 export default function MesMielsPage() {
   return (
     <div className={styles.container}>
       <section className={styles.section}>
         <h1 className={styles.sectionTitle}>
-          Mes Miels
+          Mes Miels des Pays de Retz
         </h1>
         <div className={styles.introPresentation}>
           <p>Chaque pot de miel que je produis raconte une histoire : celle des fleurs, des saisons et des abeilles qui l’ont
@@ -36,7 +52,7 @@ export default function MesMielsPage() {
 
         <img
             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/miel/miels-wallpaper.jpg`}
-            alt="plusieurs pots de miel"
+            alt="6 pots de miel différents Bee Api'C"
             style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
         />
 
@@ -93,6 +109,59 @@ export default function MesMielsPage() {
           </div>
         </div>
 
+        <div className={styles.backLinkContainer}>
+          <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink} target="_blank">
+            Achteter mes miels en ligne 🛒
+          </Link>
+        </div>
+
+        {/* Section Vente */}
+        <div className={styles.crystallizationSection}>
+          <div className={styles.crystallizationHeader}>
+            <h2 className={styles.crystallizationTitle}>Vente direct - livraison</h2>
+          </div>
+
+          <div className={styles.crystallizationContent}>
+            <div className={styles.crystallizationText}>
+              <div className={styles.crystallizationSubsection}>
+                <h3 className={styles.crystallizationSubtitle}>Circuit court !</h3>
+                <p className={styles.crystallizationParagraph}>
+                  Mon miel est disponible à la vente directe depuis la mi-juin jusqu'à épuisement des stocks.
+                  Pour garantir la fraîcheur et la qualité de mon miel, je limite la production annuelle en fonction de la
+                  capacité de mes ruchers et des conditions climatiques.
+                </p>
+                <p>Retrait des commandes : <b>sur rendez-vous uniquement</b></p>
+                <br />
+                <p>
+                  📍 {siteConfig.company.address}
+                </p>
+              </div>
+
+              <div className={styles.crystallizationSubsection}>
+                <h3 className={styles.crystallizationSubtitle}>Secteur de livraison</h3>
+                <p className={styles.crystallizationParagraph}>
+                  Je propose également un service de livraison locale dans les environs de Saint-Hilaire-de-Chaléons entre Nantes
+                  et Pornic, pour vous
+                  permettre de recevoir votre miel directement chez vous.
+                </p>
+                <p> Livraison gratuite à partir de 35€ d'achat.</p>
+                <br />
+                <p>Je livre dans les communes suivantes :</p>
+                <ul className={styles.crystallizationList}>
+                  <li>📍 Saint-Léger-les-Vignes</li>
+                  <li>📍 Port-Saint-Père</li>
+                  <li>📍 Sainte-Pazanne</li>
+                  <li>📍 Saint-Hilaire-de-Chaléons</li>
+                  <li>📍 Chaumes-en-Retz</li>
+                  <li>📍 Bourgneuf-en-Retz</li>
+                  <li>📍 Saint-Mars-de-Coutais</li>
+                </ul>
+                <p>Si votre commune n'est pas dans la liste, n'hesitez pas à me contacter !</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Section Cristallisation */}
         <div className={styles.crystallizationSection}>
           <div className={styles.crystallizationHeader}>
@@ -115,7 +184,7 @@ export default function MesMielsPage() {
 
               <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/miel/miel-cristalise.jpg`}
-                  alt="Miel cristallisé"
+                  alt="Miel liquie et cristallisé"
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
               />
 
@@ -126,10 +195,11 @@ export default function MesMielsPage() {
                   réversible sans perdre les bienfaits du miel. Pour le liquéfier (le rendre fluide) :
                 </p>
                 <ul className={styles.crystallizationList}>
-                  <li>Remplissez une casserole d'eau tiède (environ 40 °C).</li>
-                  <li>Plongez le pot de miel (sans son couvercle) dans l'eau.</li>
-                  <li>Laissez-le jusqu'à ce qu'il redevienne liquide, en remuant de temps en temps.</li>
-                  <li>Pour un miel crémeux : Laissez-le refroidir et commencez à le brasser doucement avec une cuillère plusieurs
+                  <li>🍯 Remplissez une casserole d'eau tiède (environ 40 °C).</li>
+                  <li>🍯 Plongez le pot de miel (sans son couvercle) dans l'eau.</li>
+                  <li>🍯 Laissez-le jusqu'à ce qu'il redevienne liquide, en remuant de temps en temps.</li>
+                  <li>🍯 Pour un miel crémeux : Laissez-le refroidir et commencez à le brasser doucement avec une cuillère
+                    plusieurs
                     fois par jour pendant quelques jours.
                   </li>
                 </ul>

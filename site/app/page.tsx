@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import ImageGallery from "@/components/gallery/ImageGallery";
 import ProductCard from "@/components/shop/ProductCard";
 import productsData from "@/data/products.json";
+import {Metadata} from "next";
 
 // Fonction pour sélectionner des produits aléatoires
 function getRandomProducts(count: number = 3) {
@@ -11,6 +12,19 @@ function getRandomProducts(count: number = 3) {
   const shuffled = products.slice().sort(() => 0.5 - Math.random());
   return shuffled.slice(0, count);
 }
+
+export const metadata: Metadata = {
+  title: "Apiculteur local en Loire-Atlantique | Bee Api’C",
+  description:
+      "Bee Api’C, apiculteur local en Loire-Atlantique. Miel artisanal du Pays de Retz en vente directe, hydromel et produits apicoles entre Nantes et Pornic.",
+  keywords: [
+    "apiculteur loire atlantique",
+    "apiculteur pays de retz",
+    "miel local",
+    "miel artisanal",
+    "vente directe apiculteur",
+  ],
+};
 
 export default function Home() {
   // nombre de produit à afficher
@@ -32,7 +46,7 @@ export default function Home() {
             </div>
 
             <h1 className={styles.title}>
-              <span className={styles.titleGradient}>{siteConfig.name}</span>
+              <span className={styles.titleGradient}>{siteConfig.name} - Apiculteur local</span>
             </h1>
 
             <p className={styles.slogan}>
@@ -90,7 +104,7 @@ export default function Home() {
             <div className={styles.biodivContent}>
               <img
                   src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`}
-                  alt="Abeille et biodiversité"
+                  alt="Abeille dans une fleur et biodiversité"
                   className={styles.biodivImage}
                   style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
               />
@@ -161,7 +175,7 @@ export default function Home() {
               <div className={styles.imagePresentation}>
                 <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/essaim.jpg`}
-                    alt="Essaim d'abeilles Bee Api'C"
+                    alt="Essaim d'abeilles dans un arbre"
                     style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
                 />
               </div>
@@ -319,51 +333,51 @@ export default function Home() {
                 images={[
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
-                    alt: "Vincent Colas - Apiculteur Bee Api'C"
+                    alt: "Abeille qui butine dans une fleur"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
-                    alt: "Rucher dans les Pays de Retz"
+                    alt: "Rucher en hiver dans les Pays de Retz"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
-                    alt: "Abeille sur une ruchette"
+                    alt: "Abeilles sur l'entrée d'une ruche Bee Api'C"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
-                    alt: "Produits de la ruche Bee Api'C"
+                    alt: "Abeille qui butine des fleurs de laurier"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
-                    alt: "Abeilles qui mangent du miel"
+                    alt: "Cadre de couvain d'une ruche d'abeille"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
-                    alt: "Cadre de ruche Bee Api'C"
+                    alt: "Cadre de miel d'une ruche Bee Api'C"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
-                    alt: "Cadre de miel"
+                    alt: "Cadre de miel operculé avec une hausse de miel"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-abeille.jpg`,
-                    alt: "Abeilles sur une ruche Bee Api'C"
+                    alt: "Cadre de couvain avec des abeilles"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
-                    alt: "Rucher dans la forêt"
+                    alt: "Cadre de cire gaufrée pour les abeilles"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
-                    alt: "Ruche dans la forêt"
+                    alt: "Fleurs de châtaignier"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
-                    alt: "Visite d'une ruche"
+                    alt: "Miel en cours de mise en pot"
                   },
                   {
                     src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,
-                    alt: "Rucher dans les Pays de Retz"
+                    alt: "Reine des abeilles sur un cadre de ruche"
                   }
                 ]}
             />

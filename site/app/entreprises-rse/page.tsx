@@ -4,10 +4,19 @@ import pageStyles from "@/app/page.module.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Entreprises & RSE | Bee Api'C",
+    title: "Apiculture & RSE – Solutions pour entreprises",
     description:
-        "Découvrez les offres RSE Bee Api'C : apiculture locale, biodiversité, cadeaux responsables, sensibilisation et circuits courts pour les entreprises engagées.",
+        "Solutions apicoles RSE pour entreprises : miel local, traçabilité, partenariats responsables et actions biodiversité en Loire-Atlantique.",
+    keywords: [
+        "rse entreprise",
+        "apiculture rse",
+        "solution rse",
+        "miel local entreprise",
+        "biodiversité entreprise",
+        "apiculteur loire atlantique",
+    ],
 };
+
 
 export default function EntreprisesRSEPage() {
     return (
@@ -27,7 +36,7 @@ export default function EntreprisesRSEPage() {
 
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rse/RSE.png`}
-                alt="rse et apiculture"
+                alt="bannière RSE et apiculture"
                 style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
             />
 
@@ -119,7 +128,7 @@ export default function EntreprisesRSEPage() {
 
                 <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rse/younup-ruche.jpg`}
-                    alt="rse et apiculture"
+                    alt="Ruche d'entreprise avec le logo Younup"
                     style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
                 />
 
@@ -156,7 +165,7 @@ export default function EntreprisesRSEPage() {
 
                 <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rse/travail.jpeg`}
-                    alt="rse et apiculture"
+                    alt="Présentation sur l'apiculture en entreprise avec dégustation de miel"
                     style={{width: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '3rem'}}
                 />
 

@@ -1,4 +1,20 @@
 import styles from "./page.module.css";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Documentation apicole – Abeilles et ruches",
+    description:
+        "Documentation apicole complète : cycle de l’abeille, ruche Dadant, cadres, saisons apicoles et pratiques responsables.",
+    keywords: [
+        "documentation apicole",
+        "cycle de l abeille",
+        "ruche dadant",
+        "cadres de ruche",
+        "apiculture",
+        "abeilles",
+    ],
+};
+
 
 export default function DocumentationPage() {
     return (
@@ -17,7 +33,7 @@ export default function DocumentationPage() {
 
                 <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/abeilles-miel.jpeg`}
-                    alt="Ruche d'abeilles"
+                    alt="Abeilles qui mangent du miel sur des cadres de ruche"
                     className={styles.heroImage}
                 />
 
@@ -95,7 +111,7 @@ export default function DocumentationPage() {
                         </p>
                         <img
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/difference-abeille.jpg`}
-                            alt="Différences entre les types d'abeilles"
+                            alt="Différences entre les 3 types d'abeilles"
                             className={styles.contentImage}
                         />
                         <p className={styles.cardText}>
@@ -124,7 +140,7 @@ export default function DocumentationPage() {
                         />
                         <img
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cycle-vie.png`}
-                            alt="Cycle de vie complet de l'abeille"
+                            alt="La vie des abeilles dans la ruche"
                             className={styles.contentImage}
                         />
                         <img
@@ -158,7 +174,7 @@ export default function DocumentationPage() {
                         <div className={styles.videoContainer}>
                             <iframe
                                 src="https://www.youtube.com/embed/oglJrwyF7Ws?si=tZYxX2PXWLAGR8d9"
-                                title="YouTube video player"
+                                title="Video sur la naissance des abeilles"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerPolicy="strict-origin-when-cross-origin"
                                 allowFullScreen
@@ -239,50 +255,53 @@ export default function DocumentationPage() {
                         <p className={styles.cardText}>
                             Le terme "couvain ouvert" est utilisé pour décrire les cellules où les larves sont visibles.
                             Pendant cette phase, les larves sont alimentées par des ouvrières qui leur donnent de la gelée royale,
-                            un aliment riche en nutriments produit par des glandes situées dans leur tête. Les cellules contenant du
+                            un aliment riche en nutriments produit par des glandes situées dans leur tête. Les cellules contenant
+                            du
                             couvain ouvert sont généralement de forme hexagonale, comme les autres cellules de la ruche, et
                             sont situées au centre des rayons de la ruche.
                         </p>
                         <p className={styles.cardText}>
-                            Le couvain ouvert est un élément vital de la colonie d'abeilles, car il représente la prochaine génération
+                            Le couvain ouvert est un élément vital de la colonie d'abeilles, car il représente la prochaine
+                            génération
                             d'abeilles qui maintiendra la population de la ruche. Les apiculteurs surveillent souvent le couvain
-                            ouvert pour s'assurer que les larves se développent normalement et pour détecter tout signe de maladie ou de
+                            ouvert pour s'assurer que les larves se développent normalement et pour détecter tout signe de maladie
+                            ou de
                             problème dans la colonie.
                         </p>
-
-                        <h3 className={styles.subsectionTitle} style={{marginTop: '2rem'}}>Le couvain fermé</h3>
-                        <p className={styles.cardText}>
-                            Le couvain fermé désigne les cellules de la ruche où les larves d'abeilles sont en train de se développer
-                            mais ne sont pas encore visibles. Après l'éclosion des œufs pondus par la reine, les larves passent par
-                            plusieurs stades de croissance avant de se transformer en abeilles adultes. Pendant ces stades de développement,
-                            les larves sont recouvertes d'une fine couche de cire qui scelle la cellule, d'où le terme "couvain
-                            fermé".
-                        </p>
-                        <p className={styles.cardText}>
-                            Dans les premiers jours suivant l'éclosion des œufs, les larves se développent rapidement en consommant
-                            la gelée royale nourricière fournie par les abeilles ouvrières. Pendant cette période, les cellules de
-                            couvain fermé apparaissent comme des alvéoles légèrement bombées dans les rayons de la ruche.
-                        </p>
-                        <p className={styles.cardText}>
-                            Les apiculteurs surveillent également le couvain fermé pour évaluer la santé de la colonie. Un couvain
-                            sain et uniformément fermé est un signe de bonne santé de la ruche, tandis que des problèmes tels que les
-                            maladies ou les infestations parasitaires peuvent se manifester par des anomalies dans le développement du couvain
-                            fermé.
-                        </p>
-
                         <img
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/Couvain.png`}
                             alt="Cadre avec couvain fermé"
                             className={styles.contentImage}
                         />
+
+                        <h3 className={styles.subsectionTitle} style={{marginTop: '2rem'}}>Le couvain fermé</h3>
+                        <p className={styles.cardText}>
+                            Le couvain fermé désigne les cellules de la ruche où les larves d'abeilles sont en train de se
+                            développer
+                            mais ne sont pas encore visibles. Après l'éclosion des œufs pondus par la reine, les larves passent
+                            par
+                            plusieurs stades de croissance avant de se transformer en abeilles adultes. Pendant ces stades de
+                            développement,
+                            les larves sont recouvertes d'une fine couche de cire qui scelle la cellule, d'où le terme "couvain
+                            fermé".
+                        </p>
+                        <p className={styles.cardText}>
+                            Dans les premiers jours suivant l'éclosion des œufs, les larves se développent rapidement en
+                            consommant
+                            la gelée royale nourricière fournie par les abeilles ouvrières. Pendant cette période, les cellules de
+                            couvain fermé apparaissent comme des alvéoles légèrement bombées dans les rayons de la ruche.
+                        </p>
+                        <p className={styles.cardText}>
+                            Les apiculteurs surveillent également le couvain fermé pour évaluer la santé de la colonie. Un couvain
+                            sain et uniformément fermé est un signe de bonne santé de la ruche, tandis que des problèmes tels que
+                            les
+                            maladies ou les infestations parasitaires peuvent se manifester par des anomalies dans le
+                            développement du couvain
+                            fermé.
+                        </p>
                         <img
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/oeuf-larve.jpeg`}
                             alt="Œufs et larves dans les alvéoles"
-                            className={styles.contentImage}
-                        />
-                        <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/provision.jpg`}
-                            alt="Cadre de provisions"
                             className={styles.contentImage}
                         />
                     </div>

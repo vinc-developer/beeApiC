@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getLotsListGrouped } from '@/lib/api/tracabilite';
 import type { LotsGroupedByBeekeeper } from '@/types';
-import Link from "next/link";
-import styles from "@/app/page.module.css";
 
 export default function TracabilitePage() {
   const [lotNumber, setLotNumber] = useState('');

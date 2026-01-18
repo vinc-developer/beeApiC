@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import styles from './Footer.module.css';
-import CardEntreprise from "@/components/entreprise/card-entreprise";
 import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 
 export default function Footer() {
@@ -13,9 +12,9 @@ export default function Footer() {
 
         <div className={styles.footerTop}>
           <div>
-            <h3>Bee Api'C</h3>
-            <h4>Apiculteur local</h4>
-            <h5>Entre Nantes et Pornic</h5>
+            <h3>Bee Api'C - Apiculteur local</h3>
+            <h4>Entre Nantes et Pornic</h4>
+            <h5>Saint-Hilaire-de-Chaléons</h5>
 
             <div className={styles.socialIcons}>
               <a

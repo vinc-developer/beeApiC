@@ -185,7 +185,7 @@
 }
 
 .crystallizationList li::before {
-    content: "🍯";
+    content: "";
     position: absolute;
     left: 0;
     font-size: var(--font-size-base);
@@ -228,6 +228,33 @@
     align-items: center;
     justify-content: center;
     font-size: 5rem;
+}
+
+.backLinkContainer {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.btnLink {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: #374151;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    border: 2px solid var(--color-primary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btnLink:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(231, 149, 27, 0.4);
+    color: #FFFFFF;
 }
 
 /* Boutons CTA */

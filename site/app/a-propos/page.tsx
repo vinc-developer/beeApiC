@@ -2,6 +2,19 @@ import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 import styles from './page.module.css';
 import CardEntreprise from "@/components/entreprise/card-entreprise";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Apiculteur du Pays de Retz",
+  description:
+      "Bee Api’C, apiculteur du Pays de Retz en Loire-Atlantique. Apiculture locale, responsable et production de miel artisanal.",
+  keywords: [
+    "apiculteur pays de retz",
+    "apiculteur local",
+    "apiculture responsable",
+    "miel artisanal",
+  ],
+};
 
 export default function AProposPage() {
   return (
