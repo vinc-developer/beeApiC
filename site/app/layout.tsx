@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Bee Api’C | Apiculteur local en Loire-Atlantique",
-    description: "Production de miel artisanal et sauvegarde d'essaims entre Nantes et Pornic. Découvrez l'univers de la ruche !",
+    description: "Production et vente directe de miel artisanal du Pays de Retz, hydromel et produits apicoles entre Nantes et Pornic.",
     url: './',
     siteName: 'Bee Api’C',
     locale: 'fr_FR',
     type: 'website',
     images: [
       {
-        url: '/images/bee-apic/logo-bee-apic-complet.png',
+        url: '/images/pages/apiculture/abeilles-ruches-wallpaper.jpg',
         width: 1200,
         height: 630,
         alt: 'Logo Bee Api’C - Apiculture locale',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Bee Api’C | Miel artisanal du Pays de Retz",
     description: "Miel local, hydromel et sauvetage d'essaims. Directement du producteur au consommateur.",
-    images: ['/images/bee-apic/logo-bee-apic-complet.png'],
+    images: ['/images/pages/apiculture/abeilles-ruches-wallpaper.jpg'],
   },
 };
 
