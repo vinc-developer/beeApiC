@@ -108,7 +108,7 @@ export default function Header() {
                               className={`${styles.dropdownItem} ${focus ? styles.dropdownItemFocus : ''}`}
                           >
                             <span>⛑️</span>
-                            <span>Essaims</span>
+                            <span>SOS Essaims</span>
                           </Link>
                       )}
                     </MenuItem>
@@ -267,7 +267,7 @@ export default function Header() {
 
                           <Link href="/essaims" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
                             <span>⛑️</span>
-                            <span>Essaim</span>
+                            <span>SOS Essaim</span>
                           </Link>
                           <Link href="/documentation" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
                             <span>📗</span>
