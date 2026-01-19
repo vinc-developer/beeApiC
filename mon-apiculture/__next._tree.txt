@@ -1,9 +1,10 @@
-:HL["/beeApiC/_next/static/chunks/628d60f29c052950.css","style"]
+:HL["/beeApiC/_next/static/chunks/ff6c8ed327360feb.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/_next/static/chunks/a8feb224991f260f.css","style"]
+:HL["/beeApiC/_next/static/chunks/515a8075435c5521.css","style"]
+:HL["/beeApiC/_next/static/chunks/b2465104749f337c.css","style"]
 :HL["/beeApiC/images/pages/apiculture/abeilles-ruches-wallpaper.jpg","image"]
 :HL["/beeApiC/images/pages/gallerie-home/cadre-miel.jpg","image"]
 :HL["/beeApiC/images/vincent-colas/apiculteur.jpeg","image"]
 :HL["/beeApiC/images/products/miels-couleurs.jpg","image"]
 :HL["/beeApiC/images/matthieu-colas/rucher-matthieu.jpg","image"]
-0:{"buildId":"dsoY0dGl9urXDQOLMYX3l","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mon-apiculture","paramType":null,"paramKey":"mon-apiculture","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"9OwZKG-daOt0VP_BkfQQz","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mon-apiculture","paramType":null,"paramKey":"mon-apiculture","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

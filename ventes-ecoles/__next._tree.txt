@@ -1,5 +1,5 @@
-:HL["/beeApiC/_next/static/chunks/628d60f29c052950.css","style"]
+:HL["/beeApiC/_next/static/chunks/ff6c8ed327360feb.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/_next/static/chunks/edf91c40d4001a5e.css","style"]
+:HL["/beeApiC/_next/static/chunks/0dde69d4edaf0925.css","style"]
 :HL["/beeApiC/images/products/miels-couleurs.jpg","image"]
-0:{"buildId":"dsoY0dGl9urXDQOLMYX3l","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"ventes-ecoles","paramType":null,"paramKey":"ventes-ecoles","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"9OwZKG-daOt0VP_BkfQQz","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"ventes-ecoles","paramType":null,"paramKey":"ventes-ecoles","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

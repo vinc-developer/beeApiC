@@ -1,7 +1,7 @@
-:HL["/beeApiC/_next/static/chunks/628d60f29c052950.css","style"]
+:HL["/beeApiC/_next/static/chunks/ff6c8ed327360feb.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/_next/static/chunks/b90827e3762611ca.css","style"]
+:HL["/beeApiC/_next/static/chunks/b2465104749f337c.css","style"]
 :HL["/beeApiC/images/logo-beeapic.png","image"]
 :HL["/beeApiC/images/nicolas-grouls/nicolas.jpeg","image"]
 :HL["/beeApiC/images/nicolas-grouls/B2B-Logo.png","image"]
-0:{"buildId":"dsoY0dGl9urXDQOLMYX3l","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"apiculteur","paramType":null,"paramKey":"apiculteur","hasRuntimePrefetch":false,"slots":{"children":{"name":"code","paramType":"d","paramKey":"BTB","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"9OwZKG-daOt0VP_BkfQQz","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"apiculteur","paramType":null,"paramKey":"apiculteur","hasRuntimePrefetch":false,"slots":{"children":{"name":"code","paramType":"d","paramKey":"BTB","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

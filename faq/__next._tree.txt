@@ -1,0 +1,4 @@
+:HL["/beeApiC/_next/static/chunks/ff6c8ed327360feb.css","style"]
+:HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/beeApiC/_next/static/chunks/0516667112a4245e.css","style"]
+0:{"buildId":"9OwZKG-daOt0VP_BkfQQz","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"faq","paramType":null,"paramKey":"faq","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
