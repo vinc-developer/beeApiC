@@ -37,6 +37,7 @@ export default function MonApiculturePage() {
         />
 
         <div className={styles.contentWrapper}>
+
           {/* Section Philosophie */}
           <div className={styles.philosophyCard}>
             <div className={styles.philosophyHeader}>
@@ -218,10 +219,9 @@ export default function MonApiculturePage() {
           </div>
 
           {/* Section La vie autour de la ruche */}
-          <section className={styles.companySection}>
-            <div className={styles.companyCard}>
-              <div className={styles.companyHeader}>
-                <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
+          <div className={styles.contentCard}>
+              <div className={styles.cardHeader}>
+                <h2 className={styles.cardTitle}>La vie autour de la ruche</h2>
               </div>
               <p className={styles.companyDescription}>
                 Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et
@@ -280,7 +280,6 @@ export default function MonApiculturePage() {
                   ]}
               />
             </div>
-          </section>
         </div>
       </section>
     </div>

@@ -31,7 +31,6 @@
 }
 
 .introText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     text-align: center;
@@ -55,10 +54,10 @@
 }
 
 .alertText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
+    text-align: justify;
 }
 
 /* Content cards */
@@ -104,10 +103,10 @@
 }
 
 .cardText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0 0 1rem 0;
+    text-align: justify;
 }
 
 .cardText:last-child {
@@ -159,10 +158,10 @@
 }
 
 .subsectionText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0 0 1rem 0;
+    text-align: justify;
 }
 
 .subsectionText:last-child {
@@ -231,7 +230,6 @@
     border-left: 4px solid var(--color-error);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
-    font-size: var(--font-size-base);
 }
 
 .dangerList li::before {
@@ -239,7 +237,6 @@
     position: absolute;
     left: 1rem;
     top: 1rem;
-    font-size: var(--font-size-2xl);
 }
 
 .dangerList li strong {
@@ -266,7 +263,6 @@
 }
 
 .warningText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -299,7 +295,6 @@
 }
 
 .actionText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0 0 2rem 0;

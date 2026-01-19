@@ -117,10 +117,25 @@ export default function DocumentationPage() {
                         <p className={styles.cardText}>
                             Le cycle de vie d'une abeille se compose de quatre étapes principales : l'œuf, la larve, la nymphe et
                             l'abeille adulte. Une reine pond un œuf dans une cellule de la ruche. Après quelques jours, l'œuf
-                            éclot et une larve émerge. Les larves sont nourries de gelée royale par les abeilles ouvrières pendant
+                            éclot et une larve émerge.
+                        </p>
+                        <img
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cycle.jpg`}
+                            alt="Cycle de développement des abeilles"
+                            className={styles.contentImage}
+                        />
+                        <p className={styles.cardText}>
+                            Les larves sont nourries de gelée royale par les abeilles ouvrières pendant
                             environ une semaine, puis les cellules sont operculées pour permettre à la larve de se transformer en
                             nymphe. À l'intérieur de la cellule, la nymphe se métamorphose en abeille adulte, qui perce finalement
                             le couvercle de la cellule et rejoint la colonie en tant qu'abeille ouvrière, faux-bourdon ou reine.
+                        </p>
+                        <img
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cycle-vie.png`}
+                            alt="La vie des abeilles dans la ruche"
+                            className={styles.contentImage}
+                        />
+                        <p className={styles.cardText}>
                             Les abeilles ouvrières, qui constituent la majorité de la colonie, sont responsables de la collecte de
                             nourriture, de la construction de rayons et de l'entretien de la ruche. Les faux-bourdons, ou mâles,
                             ne participent pas activement à ces tâches, mais sont essentiels à la reproduction de la colonie.
@@ -133,16 +148,6 @@ export default function DocumentationPage() {
                             <p className={styles.warningText}>En une journée, une abeille ouvrière peut butiner jusqu'à 2000 fleurs !</p>
                         </div>
 
-                        <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cycle.jpg`}
-                            alt="Cycle de développement des abeilles"
-                            className={styles.contentImage}
-                        />
-                        <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cycle-vie.png`}
-                            alt="La vie des abeilles dans la ruche"
-                            className={styles.contentImage}
-                        />
                         <img
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/anatomie-de-l-abeille.jpg`}
                             alt="Anatomie de l'abeille"
@@ -315,10 +320,16 @@ export default function DocumentationPage() {
                         <p className={styles.cardText}>
                             Un cadre à miel est un composant clé d'une ruche apicole, offrant un espace organisé pour le stockage du
                             miel produit par les abeilles. Fabriqué en bois et équipé d'une feuille de cire gaufrée à l'intérieur,
-                            ce cadre permet aux abeilles de construire leurs alvéoles et d'y déposer le miel. Une fois le miel mûr,
+                            ce cadre permet aux abeilles de construire leurs alvéoles et d'y déposer le miel.
+                        </p>
+                        <p className={styles.cardText}>
+                            Une fois le miel mûr,
                             les alvéoles sont operculées avec de la cire, préservant ainsi la qualité du miel. Les apiculteurs
                             retirent les cadres à miel de la ruche pour récolter le miel, utilisant des extracteurs pour extraire le miel des
-                            alvéoles sans les endommager. La rotation des cadres à miel favorise une production de miel continue et
+                            alvéoles sans les endommager.
+                        </p>
+                        <p className={styles.cardText}>
+                            La rotation des cadres à miel favorise une production de miel continue et
                             permet aux apiculteurs d'inspecter la santé de la colonie, évaluant la quantité de miel, la présence de maladies
                             et la qualité générale de la ruche.
                         </p>

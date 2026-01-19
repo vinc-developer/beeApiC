@@ -83,6 +83,7 @@
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
+    text-align: justify;
 }
 
 /* Section with side image */
@@ -163,6 +164,7 @@
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
+    text-align: justify;
 }
 
 /* Action card */

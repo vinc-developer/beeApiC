@@ -62,10 +62,11 @@ export default function AuRucherPage() {
         </div>
 
         <div className={styles.contentWrapper}>
+
           {/* Section Mes abeilles */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <h2 className={styles.cardTitle}>🐝 Mes abeilles</h2>
+              <h2 className={styles.cardTitle}>Mes abeilles</h2>
             </div>
             <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/rucher/abeilles-miel.jpeg`}
@@ -104,7 +105,7 @@ export default function AuRucherPage() {
           {/* Section Mes ruchers */}
           <div className={styles.contentCard}>
             <div className={styles.cardHeader}>
-              <h2 className={styles.cardTitle}>🌱 Mes ruchers</h2>
+              <h2 className={styles.cardTitle}>Mes ruchers</h2>
             </div>
             <p className={styles.cardText}>
             J’ai installé mes ruchers au cœur du Pays de Retz entre Nantes et Pornic, dans des lieux que j’ai pris le temps de choisir avec soin.
@@ -166,10 +167,9 @@ export default function AuRucherPage() {
           </div>
 
           {/* Section Biodiversité */}
-          <section className={styles.companySection}>
-            <div className={styles.companyCard}>
-              <div className={styles.companyHeader}>
-                <h2 className={styles.companyTitle}> <span className={styles.companyIcon}>🌱</span> Préserver l'abeille c'est
+          <div className={styles.contentCard}>
+              <div className={styles.cardHeader}>
+                <h2 className={styles.cardTitle}>Préserver l'abeille c'est
                   préserver la biodiversité</h2>
               </div>
               <div className={styles.biodivContent}>
@@ -205,11 +205,10 @@ export default function AuRucherPage() {
                 </p>
                 <p className={styles.biodivDescription}>
                   En protégeant les abeilles, nous préservons bien plus qu'un insecte : nous protégeons la biodiversité, la
-                  stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱
+                  stabilité des écosystèmes et notre propre avenir alimentaire.
                 </p>
               </div>
             </div>
-          </section>
 
           {/* Section Galerie photos */}
           <div className={styles.galleryCard}>

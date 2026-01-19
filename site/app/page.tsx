@@ -165,7 +165,7 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <h2 className={styles.companyTitle}>  <span className={styles.companyIcon}>🐝</span> Producteur de miel et sauveteur
+              <h2 className={styles.companyTitle}>Producteur de miel et sauveteur
                 d'essaims</h2>
             </div>
             <div className={styles.companyContent}>
@@ -228,8 +228,7 @@ export default function Home() {
         <section className={styles.companySection}>
           <div className={styles.companyCard}>
             <div className={styles.companyHeader}>
-              <h2 className={styles.companyTitle}>  <span className={styles.companyIcon}>🌿</span> Fabrication artisanale et
-                éco-responsable</h2>
+              <h2 className={styles.companyTitle}>Fabrication artisanale et éco-responsable</h2>
             </div>
             <div className={styles.companyContent}>
               <div className={styles.companyInfo}>
@@ -270,9 +269,7 @@ export default function Home() {
         {/* Section Ce que nous proposons */}
         <section className={styles.companySection}>
           <div className={styles.propositionCard}>
-            <h2 className={styles.featuresTitle}>
-              Ce que nous proposons !
-            </h2>
+            <h2 className={styles.featuresTitle}>Ce que nous proposons !</h2>
             <p className={styles.featuresSubtitle}>
               Chez Bee Api'C, nous valorisons un miel local, authentique et transparent, issu de notre rucher et de nos
               apiculteurs partenaires.
@@ -369,7 +366,7 @@ export default function Home() {
             </p>
             <br/>
             <p className={styles.companyDescription}>
-              🌼 MERCI pour elles, merci pour nous 🌼
+              🌼 MERCI pour elles, MERCI pour nous 🌼
             </p>
           </div>
         </section>

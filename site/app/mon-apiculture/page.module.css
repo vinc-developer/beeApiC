@@ -78,10 +78,10 @@
 }
 
 .cardText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
+    text-align: justify;
 }
 
 .cardImageWrapper {
@@ -125,7 +125,6 @@
 }
 
 .philosophyDescription {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
@@ -147,7 +146,6 @@
 }
 
 .philosophySectionTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin-bottom: 1rem;
@@ -156,7 +154,6 @@
 }
 
 .philosophySectionText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }

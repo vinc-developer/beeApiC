@@ -14,7 +14,6 @@
 
 .sectionTitle {
     text-align: center;
-    font-size: var(--font-size-4xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     color: var(--color-secondary);
@@ -32,10 +31,9 @@
 }
 
 .introText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
-    text-align: center;
+    text-align: justify;
     margin: 0;
 }
 
@@ -81,7 +79,6 @@
 }
 
 .cardTitle {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0;
@@ -94,7 +91,7 @@
 }
 
 .cardText {
-    font-size: var(--font-size-base);
+    text-align: justify;
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -133,7 +130,6 @@
 .benefitsList li {
     padding-left: 1.5rem;
     position: relative;
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
@@ -144,7 +140,6 @@
     left: 0;
     color: var(--color-primary);
     font-weight: bold;
-    font-size: 1.2rem;
 }
 
 .benefitsGrid {
@@ -174,14 +169,12 @@
 }
 
 .benefitTitle {
-    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0 0 0.75rem 0;
 }
 
 .benefitText {
-    font-size: var(--font-size-sm);
     line-height: var(--line-height-relaxed);
     color: var(--color-text-light);
     margin: 0;
@@ -211,7 +204,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -221,14 +213,12 @@
 }
 
 .stepTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0 0 0.5rem 0;
 }
 
 .stepText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -244,7 +234,6 @@
 }
 
 .infoTitle {
-    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0 0 1rem 0;
@@ -271,7 +260,6 @@
 .projectsList li {
     padding-left: 1.5rem;
     position: relative;
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
@@ -305,7 +293,6 @@
 }
 
 .highlightText {
-    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     text-align: center;
@@ -327,14 +314,12 @@
 }
 
 .ctaTitle {
-    font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0 0 1rem 0;
 }
 
 .ctaText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0 0 2rem 0;
@@ -405,14 +390,12 @@
 }
 
 .faqQuestion {
-    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     margin: 0 0 0.75rem 0;
 }
 
 .faqAnswer {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -428,21 +411,12 @@
         margin: 2rem 0;
     }
 
-    .sectionTitle {
-        font-size: var(--font-size-3xl);
-    }
-
     .introCard,
     .contentCard,
     .highlightCard,
     .resultsCard,
     .ctaCard {
         padding: 1.5rem;
-    }
-
-    .cardTitle,
-    .ctaTitle {
-        font-size: var(--font-size-2xl);
     }
 
     .benefitsGrid {
@@ -458,7 +432,6 @@
     .stepNumber {
         width: 2.5rem;
         height: 2.5rem;
-        font-size: var(--font-size-lg);
     }
 
     .ctaButtons {
@@ -482,18 +455,6 @@
 }
 
 @media (max-width: 480px) {
-    .sectionTitle {
-        font-size: var(--font-size-2xl);
-    }
-
-    .introText {
-        font-size: var(--font-size-base);
-    }
-
-    .cardTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .benefitIcon {
         font-size: 2rem;
     }

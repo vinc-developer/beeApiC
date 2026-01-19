@@ -21,7 +21,6 @@
 
 .intro {
     text-align: center;
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin-bottom: 3rem;
@@ -72,10 +71,10 @@
 }
 
 .cardText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
+    text-align: justify;
 }
 
 /* Section galerie photos */
@@ -148,7 +147,6 @@
 }
 
 .infoDescription {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
 }
@@ -178,6 +176,22 @@
 .infoSectionText {
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
+}
+
+.biodivContent {
+    overflow: hidden;
+}
+.biodivImage {
+    float: left;
+    width: 45%;
+    max-width: 500px;
+    margin: 0 2rem 1rem 0;
+    border-radius: 0.5rem;
+}
+.biodivDescription {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: justify;
 }
 
 /* Bouton retour */
@@ -210,10 +224,6 @@
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
-    }
-
-    .intro {
-        font-size: var(--font-size-base);
     }
 
     .contentCard,

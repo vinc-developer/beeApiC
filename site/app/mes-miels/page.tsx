@@ -30,9 +30,7 @@ export default function MesMielsPage() {
             Mon objectif est simple : offrir un miel local, authentique et vivant, où l’on retrouve toute la richesse du Pays de
             Retz.</p>
           <br/>
-          <p> Je propose différents types de miels selon les floraisons et les saisons. Au printemps, les abeilles butinent les
-            fleurs tendres et parfumées, donnant un miel doux et floral. En été, le miel devient plus corsé, avec des notes
-            chaudes et intenses, reflet de la diversité florale et du soleil généreux. Chaque récolte est unique, et aucun pot ne
+          <p> Je propose différents types de miels selon les floraisons et les saisons. Chaque récolte est unique, et aucun pot ne
             se ressemble totalement : c’est ce qui fait la beauté du miel de terroir.</p>
           <br/>
           <p>
