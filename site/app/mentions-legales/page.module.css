@@ -60,6 +60,31 @@
     gap: 1rem;
 }
 
+.subsectionTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.resetButton {
+    padding: 1rem 2rem;
+    background: #EF4444;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.resetButton:hover {
+    background: #DC2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
 .paragraph {
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);

@@ -3,8 +3,10 @@
 import {FormEvent, useState} from "react";
 import {siteConfig} from "@/config/site";
 import styles from "@/app/contact/page.module.css";
+import { useCookieConsent, canUseCookies } from "@/hooks/useCookieConsent";
 
 export default function ContactClient() {
+    const cookieConsent = useCookieConsent();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -14,8 +16,28 @@ export default function ContactClient() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
 
+    const handleReopenCookieBanner = () => {
+        // Supprimer le consentement pour faire réapparaître la bannière
+        localStorage.removeItem("cookieConsent");
+        localStorage.removeItem("cookieConsentDate");
+
+        // Émettre un événement pour notifier les autres composants
+        window.dispatchEvent(new Event("cookieConsentChanged"));
+
+        // Recharger la page pour afficher la bannière
+        window.location.reload();
+    };
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        // Vérifier si l'utilisateur a accepté les cookies
+        if (!canUseCookies()) {
+            setStatus('error');
+            setErrorMessage('Vous devez accepter les cookies pour envoyer un message via ce formulaire. Veuillez accepter les cookies et réessayer.');
+            return;
+        }
+
         setStatus('sending');
         setErrorMessage('');
 
@@ -153,6 +175,44 @@ export default function ContactClient() {
                             <h2 className={styles.contactSectionTitle}>
                                 ✉️ Envoyez un message
                             </h2>
+
+                            {cookieConsent.status === 'refused' && (
+                                <div className={styles.warningMessage}>
+                                    <span className={styles.warningIcon}>⚠️</span>
+                                    <div>
+                                        <p>
+                                            Vous avez refusé les cookies. Pour utiliser ce formulaire de contact,
+                                            vous devez accepter les cookies qui permettent de traiter votre demande.
+                                        </p>
+                                        <button
+                                            onClick={handleReopenCookieBanner}
+                                            className={styles.reopenButton}
+                                            type="button"
+                                        >
+                                            🍪 Modifier mes préférences de cookies
+                                        </button>
+                                        <p className={styles.alternativeText}>
+                                            Ou contactez-nous directement par <a href={`mailto:${siteConfig.company.email}`} className={styles.contactLink}>{siteConfig.company.email}</a> ou par téléphone au <a href={`tel:${siteConfig.company.phone}`} className={styles.contactLink}>{siteConfig.company.phone}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
+                            {cookieConsent.status === 'pending' && (
+                                <div className={styles.infoMessage}>
+                                    <span className={styles.infoIcon}>ℹ️</span>
+                                    <div>
+                                        <p>
+                                            Ce formulaire nécessite l'utilisation de cookies pour fonctionner.
+                                            Veuillez accepter les cookies en utilisant la bannière en bas de page.
+                                        </p>
+                                        <p className={styles.alternativeText}>
+                                            Si la bannière n'apparaît pas, rechargez la page. Vous pouvez aussi nous contacter
+                                            directement par <a href={`mailto:${siteConfig.company.email}`} className={styles.contactLink}>{siteConfig.company.email}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
 
                             {status === 'success' && (
                                 <div className={styles.successMessage}>
