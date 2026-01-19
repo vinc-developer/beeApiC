@@ -1094,6 +1094,26 @@ body {
 }
 
 /* ========================================
+   TRACABILITE
+   ======================================== */
+
+.tracabiliteCard {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 100%);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 2px solid #F5B04A;
+    margin-bottom: 3rem;
+}
+
+.tracabiliteText {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+    text-align: justify;
+    margin: 0;
+}
+
+/* ========================================
    ACTIONS
    ======================================== */
 
@@ -1160,6 +1180,9 @@ body {
 
     .beekeeper-actions {
         margin: auto;
+    }
+    .tracabiliteCard {
+        padding: 1.5rem;
     }
 }
 

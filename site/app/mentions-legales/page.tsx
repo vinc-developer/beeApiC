@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import {Metadata} from "next";
+import {siteConfig} from "@/config/site";
 
 export const metadata: Metadata = {
     title: "Mentions légales",
@@ -30,13 +31,12 @@ export default function MentionsLegalesPage() {
                             Le présent site est édité par :
                         </p>
                         <div className={styles.infoBlock}>
-                            <span className={styles.infoLine}><strong>Bee Api'C</strong></span>
-                            <span className={styles.infoLine}>Apiculteur – Producteur de miel local</span>
-                            <span className={styles.infoLine}>Entreprise individuelle</span>
-                            <span className={styles.infoLine}>SIRET : <em>À compléter</em></span>
-                            <span className={styles.infoLine}>Siège social : <em>À compléter (commune, département)</em></span>
+                            <span className={styles.infoLine}><strong>{siteConfig.name}</strong></span>
+                            <span className={styles.infoLine}>Apiculteur Locale</span>
+                            <span className={styles.infoLine}>SIRET : <em>{siteConfig.company.siret}</em></span>
+                            <span className={styles.infoLine}>Siège social : <em>{siteConfig.company.address}</em></span>
                             <span className={styles.infoLine}>
-                                Email : <a href="mailto:contact@bee-apic.fr" className={styles.link}>contact@bee-apic.fr</a>
+                                Email : <a href="mailto:bee.apic.pro@gmail.com" className={styles.link}>{siteConfig.company.email}</a>
                             </span>
                         </div>
                     </div>
@@ -66,12 +66,11 @@ export default function MentionsLegalesPage() {
                             Le site est hébergé par :
                         </p>
                         <div className={styles.infoBlock}>
-                            <span className={styles.infoLine}><strong>Amazon Web Services (AWS)</strong></span>
-                            <span className={styles.infoLine}>Amazon Web Services EMEA SARL</span>
-                            <span className={styles.infoLine}>38 Avenue John F. Kennedy</span>
-                            <span className={styles.infoLine}>L-1855 Luxembourg</span>
+                            <span className={styles.infoLine}><strong>o2switch</strong></span>
+                            <span className={styles.infoLine}>Chemin des Pardiaux</span>
+                            <span className={styles.infoLine}>63000 Clermont-Ferrand</span>
                             <span className={styles.infoLine}>
-                                Site web : <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" className={styles.link}>https://aws.amazon.com</a>
+                                Site web : <a href="https://www.o2switch.fr/" target="_blank" rel="noopener noreferrer" className={styles.link}>https://www.o2switch.fr/</a>
                             </span>
                         </div>
                     </div>
@@ -135,7 +134,7 @@ export default function MentionsLegalesPage() {
                                 <strong>RGPD :</strong> Conformément au Règlement Général sur la Protection des Données,
                                 vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant.
                                 Pour exercer ce droit, contactez-nous à{' '}
-                                <a href="mailto:contact@bee-apic.fr" className={styles.link}>contact@bee-apic.fr</a>.
+                                <a href="mailto:bee.apic.pro@gmail.com" className={styles.link}>{siteConfig.company.email}</a>
                             </p>
                         </div>
                     </div>

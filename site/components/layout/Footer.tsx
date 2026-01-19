@@ -48,12 +48,17 @@ export default function Footer() {
             <ul>
               <li>
                 <Link href="/a-propos" className={styles.mobileDropdownItem}>
-                  <span>A propos</span>
+                  <span>A-propos</span>
                 </Link>
               </li>
               <li>
                 <Link href="https://bee-apic.sumupstore.com/produits" className={styles.mobileDropdownItem} target={"_blank"}>
                   <span>Boutique</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className={styles.mobileDropdownItem}>
+                  <span>FAQ</span>
                 </Link>
               </li>
               <li>
@@ -63,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/mentions-legales" className={styles.mobileDropdownItem}>
-                  <span>Mentions-legales</span>
+                  <span>Mentions-légales</span>
                 </Link>
               </li>
             </ul>

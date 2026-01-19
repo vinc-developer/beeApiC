@@ -20,15 +20,11 @@
       "name": "Miel de Forêt",
       "description": "Miel de miellat aux notes boisées"
     },
-    "T": {
-      "name": "Miel de Tilleul",
-      "description": "Miel aromatique et bienfaisant"
+    "S": {
+      "name": "Miel de Sapin",
+      "description": "Miel puisant au goût légèrement amère"
     },
-    "L": {
-      "name": "Miel de Lavande",
-      "description": "Miel parfumé aux notes florales"
-    },
-    "TO": {
+    "TF": {
       "name": "Miel Toutes Fleurs",
       "description": "Mélange harmonieux de fleurs variées"
     }
