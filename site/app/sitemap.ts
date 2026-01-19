@@ -6,6 +6,7 @@ export const revalidate = false;
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.bee-apic.com';
+
     const routes = [
         '',
         '/au-rucher',
@@ -21,20 +22,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/apiculteur',
         '/contact',
         '/a-propos',
-        '/mentions-legales'
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: route === '' ? 1 : 0.8,
-    }))
+    }));
 
     const beekeepersArray = Object.values(beekeepersData.beekeepers);
     const apiculteursRoutes = beekeepersArray.map((api) => ({
-       url: `${baseUrl}/apiculteur/${api.code}`,
-       lastModified: new Date(),
-       priority: 0.6,
+        url: `${baseUrl}/apiculteur/${api.code}`,
+        lastModified: new Date(),
+        priority: 0.6,
     }));
 
-    return [...routes, ...apiculteursRoutes];
+    const routesService = [
+        '/mentions-legales',
+        '/faq'
+    ].map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.3,
+    }));
+
+    return [...routes, ...apiculteursRoutes, ...routesService];
 }

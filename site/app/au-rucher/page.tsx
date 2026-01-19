@@ -165,6 +165,52 @@ export default function AuRucherPage() {
             </p>
           </div>
 
+          {/* Section Biodiversité */}
+          <section className={styles.companySection}>
+            <div className={styles.companyCard}>
+              <div className={styles.companyHeader}>
+                <h2 className={styles.companyTitle}> <span className={styles.companyIcon}>🌱</span> Préserver l'abeille c'est
+                  préserver la biodiversité</h2>
+              </div>
+              <div className={styles.biodivContent}>
+                <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`}
+                    alt="Abeille dans une fleur et biodiversité"
+                    className={styles.biodivImage}
+                    style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
+                />
+                <p className={styles.biodivDescription}>
+                  Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des
+                  pollinisateurs particulièrement efficaces : en transportant le pollen d'une fleur à l'autre, elles permettent la
+                  reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu'il s'agisse de fruits,
+                  de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces
+                  plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
+                </p>
+                <p className={styles.biodivDescription}>
+                  Cette pollinisation est également indispensable au maintien de l'équilibre écologique. Les plantes constituent
+                  la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par
+                  un manque de pollinisation, aurait donc des répercussions en cascade sur l'ensemble des écosystèmes et sur les
+                  espèces qui en dépendent.
+                </p>
+                <p className={styles.biodivDescription}>
+                  Les abeilles jouent aussi un rôle majeur dans l'alimentation humaine. Elles participent directement à la
+                  production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures
+                  céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments
+                  que nous consommons au quotidien.
+                </p>
+                <p className={styles.biodivDescription}>
+                  Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette
+                  diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux,
+                  contribuant ainsi à la résilience et à la santé des écosystèmes.
+                </p>
+                <p className={styles.biodivDescription}>
+                  En protégeant les abeilles, nous préservons bien plus qu'un insecte : nous protégeons la biodiversité, la
+                  stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Section Galerie photos */}
           <div className={styles.galleryCard}>
             <div className={styles.cardHeader}>

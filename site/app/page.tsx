@@ -94,49 +94,70 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section Biodiversité */}
+        {/* CTA Section */}
         <section className={styles.companySection}>
-          <div className={styles.companyCard}>
-            <div className={styles.companyHeader}>
-              <h2 className={styles.companyTitle}> <span className={styles.companyIcon}>🌱</span> Préserver l'abeille c'est
-                préserver la biodiversité</h2>
-            </div>
-            <div className={styles.biodivContent}>
-              <img
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`}
-                  alt="Abeille dans une fleur et biodiversité"
-                  className={styles.biodivImage}
-                  style={{width: '100%', height: 'auto', borderRadius: '0.5rem'}}
-              />
-                <p className={styles.biodivDescription}>
-                  Les abeilles jouent un rôle essentiel dans la préservation de la biodiversité. Elles sont avant tout des
-                  pollinisateurs particulièrement efficaces : en transportant le pollen d'une fleur à l'autre, elles permettent la
-                  reproduction de nombreuses plantes à fleurs. Une grande partie des espèces végétales, qu'il s'agisse de fruits,
-                  de légumes ou de fleurs sauvages, dépend directement de leur action. Sans les abeilles, la reproduction de ces
-                  plantes serait fortement compromise, entraînant une baisse significative de la diversité végétale.
+          <h2 className={styles.sectionTitle}>
+            Découvrez l'origine de votre miel
+          </h2>
+
+          <div className={styles.ctaGrid}>
+            {/* Traçabilité */}
+            <Link
+                href="/tracabilite"
+                className={styles.ctaCard}
+            >
+              <div className={styles.ctaCardBg}></div>
+
+              <div className={styles.ctaCardContent}>
+                <div className={styles.ctaIcon}>
+                  🍯
+                </div>
+
+                <h3 className={styles.ctaTitle}>
+                  Traçabilité
+                </h3>
+
+                <p className={styles.ctaDescription}>
+                  Découvrez l'origine de votre pot de miel en quelques secondes
                 </p>
-                <p className={styles.biodivDescription}>
-                  Cette pollinisation est également indispensable au maintien de l'équilibre écologique. Les plantes constituent
-                  la base de la chaîne alimentaire pour de nombreux animaux. Une diminution des populations végétales, causée par
-                  un manque de pollinisation, aurait donc des répercussions en cascade sur l'ensemble des écosystèmes et sur les
-                  espèces qui en dépendent.
+
+                <div className={styles.ctaLink}>
+                  <span>Rechercher maintenant</span>
+                  <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            {/* Nos Apiculteurs */}
+            <Link
+                href="/apiculteurs"
+                className={`${styles.ctaCard} ${styles.ctaCardSecondary}`}
+            >
+              <div className={styles.ctaCardBg}></div>
+
+              <div className={styles.ctaCardContent}>
+                <div className={`${styles.ctaIcon} ${styles.ctaIconSecondary}`}>
+                  🐝
+                </div>
+
+                <h3 className={styles.ctaTitle}>
+                  Nos Apiculteurs
+                </h3>
+
+                <p className={styles.ctaDescription}>
+                  Rencontrez nos producteurs passionnés et découvrez leur travail
                 </p>
-                <p className={styles.biodivDescription}>
-                  Les abeilles jouent aussi un rôle majeur dans l'alimentation humaine. Elles participent directement à la
-                  production de nombreuses cultures agricoles, notamment les fruits, les légumes et certaines cultures
-                  céréalières. Leur disparition aurait un impact immédiat sur la quantité, la diversité et la qualité des aliments
-                  que nous consommons au quotidien.
-                </p>
-                <p className={styles.biodivDescription}>
-                  Enfin, la pollinisation croisée réalisée par les abeilles favorise la diversité génétique des plantes. Cette
-                  diversité renforce leur résistance face aux maladies, aux parasites et aux changements environnementaux,
-                  contribuant ainsi à la résilience et à la santé des écosystèmes.
-                </p>
-                <p className={styles.biodivDescription}>
-                  En protégeant les abeilles, nous préservons bien plus qu'un insecte : nous protégeons la biodiversité, la
-                  stabilité des écosystèmes et notre propre avenir alimentaire 🐝🌱
-                </p>
-            </div>
+
+                <div className={`${styles.ctaLink} ${styles.ctaLinkSecondary}`}>
+                  <span>Découvrir</span>
+                  <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </Link>
           </div>
         </section>
 
@@ -150,13 +171,7 @@ export default function Home() {
             <div className={styles.companyContent}>
               <div className={styles.companyInfo}>
                 <p className={styles.companyDescription}>
-                  Je vous invite à découvrir le monde de la ruche à travers des miels produits localement, avec patience, respect
-                  et passion. Chaque saison révèle ses particularités : un miel de printemps doux et floral, puis un miel d’été
-                  plus intense, façonné par la diversité des fleurs qui entourent mes ruches en Loire-Atlantique. Derrière chaque
-                  pot se cache le travail remarquable des abeilles, accompagné d’une attention constante portée à leur bien-être.
-                </p>
-                <p className={styles.companyDescription}>
-                  En parallèle de mon activité de producteur, je suis également engagé dans le sauvetage des essaims d’abeilles.
+                  En parallèle de mon activité d'apiculteur récoltant, je suis également engagé dans le sauvetage des essaims d’abeilles.
                   Lorsqu’un essaim s’installe dans un lieu inattendu, j’interviens pour le récupérer sans le détruire, afin de lui
                   offrir un environnement adapté et durable.
                 </p>
@@ -249,138 +264,6 @@ export default function Home() {
               Et parce que chaque geste compte, j'imprime mes étiquettes uniquement en fonction des besoins réels, en petites
               quantités, pour éviter tout gaspillage inutile.
             </p>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className={styles.companySection}>
-          <h2 className={styles.sectionTitle}>
-            Découvrez l'origine de votre miel
-          </h2>
-
-          <div className={styles.ctaGrid}>
-            {/* Traçabilité */}
-            <Link
-                href="/tracabilite"
-                className={styles.ctaCard}
-            >
-              <div className={styles.ctaCardBg}></div>
-
-              <div className={styles.ctaCardContent}>
-                <div className={styles.ctaIcon}>
-                  🍯
-                </div>
-
-                <h3 className={styles.ctaTitle}>
-                  Traçabilité
-                </h3>
-
-                <p className={styles.ctaDescription}>
-                  Découvrez l'origine de votre pot de miel en quelques secondes
-                </p>
-
-                <div className={styles.ctaLink}>
-                  <span>Rechercher maintenant</span>
-                  <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            {/* Nos Apiculteurs */}
-            <Link
-                href="/apiculteurs"
-                className={`${styles.ctaCard} ${styles.ctaCardSecondary}`}
-            >
-              <div className={styles.ctaCardBg}></div>
-
-              <div className={styles.ctaCardContent}>
-                <div className={`${styles.ctaIcon} ${styles.ctaIconSecondary}`}>
-                  🐝
-                </div>
-
-                <h3 className={styles.ctaTitle}>
-                  Nos Apiculteurs
-                </h3>
-
-                <p className={styles.ctaDescription}>
-                  Rencontrez nos producteurs passionnés et découvrez leur travail
-                </p>
-
-                <div className={`${styles.ctaLink} ${styles.ctaLinkSecondary}`}>
-                  <span>Découvrir</span>
-                  <svg className={styles.ctaArrow} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </section>
-
-        {/* Section La vie autour de la ruche */}
-        <section className={styles.companySection}>
-          <div className={styles.companyCard}>
-            <div className={styles.companyHeader}>
-              <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
-            </div>
-            <p className={styles.companyDescription}>
-              Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et
-              locaux.
-            </p>
-            <ImageGallery
-                images={[
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
-                    alt: "Abeille qui butine dans une fleur"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
-                    alt: "Rucher en hiver dans les Pays de Retz"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
-                    alt: "Abeilles sur l'entrée d'une ruche Bee Api'C"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
-                    alt: "Abeille qui butine des fleurs de laurier"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
-                    alt: "Cadre de couvain d'une ruche d'abeille"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
-                    alt: "Cadre de miel d'une ruche Bee Api'C"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
-                    alt: "Cadre de miel operculé avec une hausse de miel"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-abeille.jpg`,
-                    alt: "Cadre de couvain avec des abeilles"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
-                    alt: "Cadre de cire gaufrée pour les abeilles"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
-                    alt: "Fleurs de châtaignier"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
-                    alt: "Miel en cours de mise en pot"
-                  },
-                  {
-                    src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,
-                    alt: "Reine des abeilles sur un cadre de ruche"
-                  }
-                ]}
-            />
           </div>
         </section>
 

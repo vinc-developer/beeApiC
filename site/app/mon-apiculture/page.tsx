@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import {Metadata} from "next";
+import ImageGallery from "@/components/gallery/ImageGallery";
 
 export const metadata: Metadata = {
   title: "Mon apiculture – Passion et vision",
@@ -215,6 +216,71 @@ export default function MonApiculturePage() {
               </p>
             </div>
           </div>
+
+          {/* Section La vie autour de la ruche */}
+          <section className={styles.companySection}>
+            <div className={styles.companyCard}>
+              <div className={styles.companyHeader}>
+                <h2 className={styles.companyTitle}>La vie autour de la ruche</h2>
+              </div>
+              <p className={styles.companyDescription}>
+                Chaque photo témoigne d'un engagement : préserver le vivant, respecter les saisons, et offrir des produits vrais et
+                locaux.
+              </p>
+              <ImageGallery
+                  images={[
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
+                      alt: "Abeille qui butine dans une fleur"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
+                      alt: "Rucher en hiver dans les Pays de Retz"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
+                      alt: "Abeilles sur l'entrée d'une ruche Bee Api'C"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
+                      alt: "Abeille qui butine des fleurs de laurier"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
+                      alt: "Cadre de couvain d'une ruche d'abeille"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
+                      alt: "Cadre de miel d'une ruche Bee Api'C"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
+                      alt: "Cadre de miel operculé avec une hausse de miel"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-abeille.jpg`,
+                      alt: "Cadre de couvain avec des abeilles"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
+                      alt: "Cadre de cire gaufrée pour les abeilles"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
+                      alt: "Fleurs de châtaignier"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
+                      alt: "Miel en cours de mise en pot"
+                    },
+                    {
+                      src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,
+                      alt: "Reine des abeilles sur un cadre de ruche"
+                    }
+                  ]}
+              />
+            </div>
+          </section>
         </div>
       </section>
     </div>
