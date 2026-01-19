@@ -51,10 +51,13 @@ export default function VenteEcolePage() {
                 produit localement en Loire-Atlantique.
               </p>
               <p className={styles.cardText}>
-                <strong>Une démarche locale et solidaire :</strong> Les miels proposés sont produits par <strong>l'apiculteur
-                local le plus proche de votre école</strong>, membre de notre réseau de <Link href="/apiculteurs" className={styles.inlineLink}>partenaires
-                signataires de notre charte qualité</Link>. Chaque pot dispose d'une <strong>traçabilité complète</strong>
-                que vos clients peuvent consulter en ligne.
+                <strong>Une démarche locale et solidaire :</strong> Les miels proposés sont produits par{" "}
+                <strong>l'apiculteur local le plus proche de votre école</strong>, membre de notre réseau de{" "}
+                <Link href="/apiculteurs" className={styles.inlineLink}>partenaires signataires de notre charte qualité</Link>.
+                En fonction de votre établissement, nous proposerons des miels de l'apiculteur le plus proche,
+                permettant ainsi de <strong>tisser des liens entre les personnes locales</strong> et de valoriser
+                l'apiculture de votre territoire. Chaque pot dispose d'une <strong>traçabilité complète</strong>{" "}
+                que vos clients pourront consulter en ligne.
               </p>
               <p className={styles.cardText}>
                 <strong>Le principe est simple :</strong>
@@ -251,13 +254,15 @@ export default function VenteEcolePage() {
                 <p className={styles.cardText}>
                   Pour les marchés de Noël organisés par votre école, <strong>l'apiculteur local le plus proche
                   de votre établissement</strong> peut venir tenir un stand pour présenter et vendre directement
-                  ses produits. C'est une excellente opportunité de :
+                  ses produits. L'apiculteur gère lui-même la vente et s'acquitte de l'emplacement.
+                  C'est une excellente opportunité de :
                 </p>
                 <ul className={styles.formatList}>
                   <li>Créer un lien direct entre les familles et l'apiculteur de proximité</li>
                   <li>Tisser des liens locaux et renforcer le réseau de votre territoire</li>
-                  <li>Présenter l'ensemble de la gamme de miels et produits dérivés</li>
-                  <li>Répondre aux questions sur l'apiculture et les abeilles</li>
+                  <li>Faire découvrir l'ensemble de la gamme de miels et produits dérivés</li>
+                  <li>Sensibiliser sur l'apiculture et la préservation des abeilles</li>
+                  <li>Proposer des miels traçables dont les clients peuvent consulter l'origine</li>
                 </ul>
               </div>
             </div>
