@@ -1,6 +1,7 @@
-:HL["/beeApiC/_next/static/chunks/ff6c8ed327360feb.css","style"]
+:HL["/beeApiC/_next/static/chunks/b4a7e920cfc170fd.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/_next/static/chunks/1a4df85b65410a63.css","style"]
+:HL["/beeApiC/_next/static/chunks/8eced99c4fca796e.css","style"]
+:HL["/beeApiC/_next/static/chunks/fb039b6c4ab16314.css","style"]
 :HL["/beeApiC/images/vincent-colas/vincent-colas.jpg","image"]
 :HL["/beeApiC/images/bee-apic/logo-bee-apic.png","image"]
-0:{"buildId":"9OwZKG-daOt0VP_BkfQQz","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tracabilite","paramType":null,"paramKey":"tracabilite","hasRuntimePrefetch":false,"slots":{"children":{"name":"lotNumber","paramType":"d","paramKey":"BA-250701-CH","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"YSpFR-qYraAjQvdQyZ9YM","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"tracabilite","paramType":null,"paramKey":"tracabilite","hasRuntimePrefetch":false,"slots":{"children":{"name":"lotNumber","paramType":"d","paramKey":"BA-250701-CH","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
