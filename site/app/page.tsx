@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import styles from "./page.module.css";
-import ImageGallery from "@/components/gallery/ImageGallery";
 import ProductCard from "@/components/shop/ProductCard";
 import productsData from "@/data/products.json";
 import {Metadata} from "next";
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
 
 // Fonction pour sélectionner des produits aléatoires
 function getRandomProducts(count: number = 3) {
@@ -53,16 +53,16 @@ export default function Home() {
               {siteConfig.slogan}
             </p>
 
-            <div className={styles.ctaButtons}>
+            <div className={styles.homeButtons}>
               <Link
                 href="/tracabilite"
-                className={styles.btnPrimary}
+                className={styles.homeBtnPrimary}
               >
                 🔍 Tracer mon miel
               </Link>
               <Link
                 href="/a-propos"
-                className={styles.btnSecondary}
+                className={styles.homeBtnSecondary}
               >
                 En savoir plus
               </Link>
@@ -181,11 +181,8 @@ export default function Home() {
                   ce travail avec vous.
                 </p>
 
-                <div className={styles.backLinkContainer}>
-                  <Link href="/essaims" className={styles.btnLink}>
-                    En savoir plus sur la récupération d'essaims
-                  </Link>
-                </div>
+                <ButtonPrimary link="/essaims" text=" En savoir plus sur la récupération d'essaims" />
+
               </div>
               <div className={styles.imagePresentation}>
                 <img
@@ -217,11 +214,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className={styles.backLinkContainer}>
-            <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink} target="_blank">
-              Voir tous les produits
-            </Link>
-          </div>
+          <ButtonPrimary link="https://bee-apic.sumupstore.com/produits" text="Voir tous les produits" target="_blank" />
         </section>
 
         {/* Section Fabrication */}

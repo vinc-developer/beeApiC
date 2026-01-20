@@ -11,6 +11,11 @@ export default function MentionsLegalesComponent() {
         window.location.reload();
     };
 
+    const handleResetPopup = () => {
+        localStorage.removeItem('hasSeenHoneyDataInfo');
+        alert('La popup d\'information sera de nouveau affichée lors de votre prochaine visite sur la page des miels.');
+    };
+
     return (
         <div className={styles.container}>
             <section className={styles.section}>
@@ -209,6 +214,54 @@ export default function MentionsLegalesComponent() {
                                 <a href="mailto:bee.apic.pro@gmail.com" className={styles.link}>{siteConfig.company.email}</a>
                                 {' '}ou par téléphone.
                             </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.legalSection}>
+                    <h2 className={styles.sectionTitle}>
+                        <span className={styles.sectionIcon}>💾</span>
+                        Stockage Local et Préférences
+                    </h2>
+                    <div className={styles.sectionContent}>
+                        <p className={styles.paragraph}>
+                            En plus des cookies, le site utilise le stockage local de votre navigateur (localStorage)
+                            pour améliorer votre expérience utilisateur.
+                        </p>
+
+                        <h3 className={styles.subsectionTitle}>Popup d'information sur les données</h3>
+                        <p className={styles.paragraph}>
+                            Lors de votre première visite sur la page de traçabilité des miels, une popup d'information
+                            s'affiche pour vous expliquer que les données sont à titre d'exemple. Une fois que vous
+                            avez fermé cette popup, votre préférence est enregistrée localement dans votre navigateur
+                            pour ne plus l'afficher lors de vos prochaines visites.
+                        </p>
+
+                        <div className={styles.highlightBox}>
+                            <p className={styles.highlightText}>
+                                <strong>Aucune donnée personnelle n'est collectée</strong> - Seule l'information
+                                indiquant que vous avez vu la popup est stockée localement sur votre appareil.
+                            </p>
+                        </div>
+
+                        <h3 className={styles.subsectionTitle}>Réinitialiser vos préférences</h3>
+                        <p className={styles.paragraph}>
+                            Si vous souhaitez revoir la popup d'information, vous pouvez cliquer sur le bouton ci-dessous :
+                        </p>
+                        <div className={styles.infoBlock}>
+                            <button onClick={handleResetPopup} className={styles.resetButton}>
+                                Réafficher la popup d'information
+                            </button>
+                        </div>
+
+                        <h3 className={styles.subsectionTitle}>Suppression complète</h3>
+                        <p className={styles.paragraph}>
+                            Pour supprimer toutes les données stockées localement :
+                        </p>
+                        <div className={styles.infoBlock}>
+                            <span className={styles.infoLine}>• Videz le cache et les données de navigation de votre navigateur</span>
+                            <span className={styles.infoLine}>• Utilisez le mode navigation privée/incognito</span>
+                            <span className={styles.infoLine}>• Configurez votre navigateur pour refuser le stockage local</span>
                         </div>
                     </div>
                 </div>

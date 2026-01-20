@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import {Metadata} from "next";
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
 
 export const metadata: Metadata = {
   title: "Frelon asiatique – Prévention et piégeage",
@@ -272,11 +273,8 @@ export default function FrelonAsiatiquePage() {
           </p>
         </div>
 
-        <div className={styles.backLinkContainer}>
-          <Link href="https://lefrelon.com/" className={styles.btnSecondary} target="_blank">
-            Pour en savoir plus sur le frelon !
-          </Link>
-        </div>
+        <ButtonPrimary link="https://lefrelon.com/" text=" Pour en savoir plus sur le frelon !" target="_blank" />
+
       </section>
     </div>
   );

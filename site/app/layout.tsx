@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/config/site";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CookieConsent from "@/components/CookieConsent";
+import CookieConsent from "@/components/ui/CookieConsent/CookieConsent";
 
 const inter = Inter({ subsets: ["latin"] });
 

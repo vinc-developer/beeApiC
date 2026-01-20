@@ -322,28 +322,6 @@
 .ctaText {
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
-    margin: 0 0 2rem 0;
-}
-
-.ctaButtons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.ctaButtonPrimary,
-.ctaButtonSecondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .ctaButtonPrimary {
@@ -352,18 +330,6 @@
 }
 
 .ctaButtonPrimary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-}
-
-.ctaButtonSecondary {
-    background: white;
-    color: var(--color-secondary);
-    border: 2px solid var(--color-primary);
-}
-
-.ctaButtonSecondary:hover {
-    background: var(--color-primary-light);
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
@@ -432,16 +398,6 @@
     .stepNumber {
         width: 2.5rem;
         height: 2.5rem;
-    }
-
-    .ctaButtons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .ctaButtonPrimary,
-    .ctaButtonSecondary {
-        width: 100%;
     }
 
     .heroImage {

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { Metadata } from "next";
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
+import ButtonSecondary from "@/components/ui/ButtonSecondary/ButtonSecondary";
 
 export const metadata: Metadata = {
   title: "Ventes solidaires pour les écoles – Miel artisanal",
@@ -299,14 +301,8 @@ export default function VenteEcolePage() {
               Contactez-moi pour discuter de votre projet et mettre en place votre campagne
               de vente de miel. C'est simple, rapide et sans engagement !
             </p>
-            <div className={styles.ctaButtons}>
-              <Link href="/contact" className={styles.ctaButtonPrimary}>
-                Me contacter
-              </Link>
-              <Link href="/mes-miels" className={styles.ctaButtonSecondary}>
-                Découvrir mes miels
-              </Link>
-            </div>
+
+            <ButtonPrimary link="/contact" text="Me contacter" />
           </div>
         </div>
       </section>

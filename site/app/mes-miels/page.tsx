@@ -1,7 +1,7 @@
-import Link from "next/link";
 import styles from "./page.module.css";
 import type {Metadata} from "next";
 import {siteConfig} from "@/config/site";
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
 
 export const metadata: Metadata = {
   title: "Miel du Pays de Retz – Vente directe",
@@ -107,11 +107,7 @@ export default function MesMielsPage() {
           </div>
         </div>
 
-        <div className={styles.backLinkContainer}>
-          <Link href="https://bee-apic.sumupstore.com/produits" className={styles.btnLink} target="_blank">
-            Achteter mes miels en ligne 🛒
-          </Link>
-        </div>
+        <ButtonPrimary link="https://bee-apic.sumupstore.com/produits" text="🛒 Acheter mes miels en ligne" target="_blank"/>
 
         {/* Section Vente */}
         <div className={styles.crystallizationSection}>
@@ -146,13 +142,13 @@ export default function MesMielsPage() {
                 <br />
                 <p>Je livre dans les communes suivantes :</p>
                 <ul className={styles.crystallizationList}>
-                  <li>📍 Saint-Léger-les-Vignes</li>
-                  <li>📍 Port-Saint-Père</li>
-                  <li>📍 Sainte-Pazanne</li>
-                  <li>📍 Saint-Hilaire-de-Chaléons</li>
-                  <li>📍 Chaumes-en-Retz</li>
-                  <li>📍 Bourgneuf-en-Retz</li>
-                  <li>📍 Saint-Mars-de-Coutais</li>
+                  <li><h4>📍 Saint-Léger-les-Vignes</h4></li>
+                  <li><h4>📍 Port-Saint-Père</h4></li>
+                  <li><h4>📍 Sainte-Pazanne</h4></li>
+                  <li><h4>📍 Saint-Hilaire-de-Chaléons</h4></li>
+                  <li><h4>📍 Chaumes-en-Retz</h4></li>
+                  <li><h4>📍 Bourgneuf-en-Retz</h4></li>
+                  <li><h4>📍 Saint-Mars-de-Coutais</h4></li>
                 </ul>
                 <p>Si votre commune n'est pas dans la liste, n'hesitez pas à me contacter !</p>
               </div>
@@ -215,11 +211,7 @@ export default function MesMielsPage() {
           </div>
         </div>
 
-        <div className={styles.ctaButtons}>
-          <Link href="/tracabilite" className={styles.btnPrimary}>
-            🔍 Tracer votre miel
-          </Link>
-        </div>
+        <ButtonPrimary link="/tracabilite" text=" 🔍 Tracer votre miel" />
       </section>
     </div>
   );

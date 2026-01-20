@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import {Metadata} from "next";
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
 
 export const metadata: Metadata = {
     title: "Récupération d’essaims d’abeilles",
@@ -31,7 +32,6 @@ export default function EssaimPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>🐝</span>
                         <h2 className={styles.cardTitle}>Qu'est-ce que l'essaimage ?</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -66,7 +66,6 @@ export default function EssaimPage() {
 
                 <div className={styles.contentCard}>
                     <div className={styles.cardHeader}>
-                        <span className={styles.cardIcon}>📍</span>
                         <h2 className={styles.cardTitle}>Secteurs d'intervention</h2>
                     </div>
                     <div className={styles.cardContent}>
@@ -75,25 +74,25 @@ export default function EssaimPage() {
                         </p>
                         <div className={styles.subsectionsGrid}>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Port-Saint-Père</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Port-Saint-Père</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Saint-Léger-les-Vignes</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Saint-Léger-les-Vignes</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Saint-Mars-de-Coutais</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Saint-Mars-de-Coutais</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Sainte-Pazanne</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Sainte-Pazanne</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Saint-Hilaire-de-Chaléons</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Saint-Hilaire-de-Chaléons</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Chaumes-en-Retz</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Chaumes-en-Retz</h3>
                             </div>
                             <div className={styles.subsection}>
-                                <h3 className={styles.subsectionTitle}>Bourgneuf-en-Retz</h3>
+                                <h3 className={styles.subsectionTitle}>📍 Bourgneuf-en-Retz</h3>
                             </div>
                         </div>
                     </div>
@@ -116,9 +115,8 @@ export default function EssaimPage() {
                         Contactez-moi rapidement pour une intervention gratuite et professionnelle.
                         Ensemble, protégeons nos abeilles et préservons la biodiversité !
                     </p>
-                    <Link href="/contact" className={styles.btnSecondary}>
-                        Me contacter
-                    </Link>
+
+                    <ButtonPrimary link="/contact" text="Me contacter" />
                 </div>
             </section>
         </div>

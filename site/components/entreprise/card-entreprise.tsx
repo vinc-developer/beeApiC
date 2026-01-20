@@ -7,8 +7,7 @@ export default function CardEntreprise() {
             <div className={`${styles.companyCard} ${styles.companyCardLast}`}>
                 {/* Header */}
                 <div className={styles.companyHeader}>
-                    <span className={styles.companyIcon}>🐝</span>
-                    <h2 className={styles.companyTitle}>Bee Api'C</h2>
+                    <h2 className={styles.companyTitleCard}>🐝 Bee Api'C</h2>
                     <span className={styles.companyBadge}>Entreprise Locale</span>
                 </div>
 
@@ -16,16 +15,16 @@ export default function CardEntreprise() {
                 <div className={styles.companyContent}>
                     {/* Info */}
                     <div className={styles.companyInfo}>
-                        <p className={styles.companyDescription}>
+                        <p className={styles.companyDescriptionCard}>
                             Bee Api'C est une entreprise familiale engagée dans la promotion du miel 100% local de
                             Loire-Atlantique.
                             Nous travaillons en étroite collaboration avec des apiculteurs passionnés pour vous offrir un miel de
                             qualité,
                             traçable et respectueux de l'environnement.
                         </p>
-                        <p> Tous nos miels sont récoltés, extraits et mis en pot en
+                        <p className={styles.companyDescriptionCard}> Tous nos miels sont récoltés, extraits et mis en pot en
                             Loire-Atlantique</p>
-                        <p>Découvrez l'origine de votre miel avec notre système de traçabilité complet. Du rucher à votre table,
+                        <p className={styles.companyDescriptionCard}>Découvrez l'origine de votre miel avec notre système de traçabilité complet. Du rucher à votre table,
                             suivez chaque étape de production.</p>
 
                         <div className={styles.companyLabel}>
@@ -37,7 +36,7 @@ export default function CardEntreprise() {
                     </div>
 
                     {/* Contact */}
-                    <div className={styles.companyContact}>
+                    <div className={styles.companyContacCard}>
                         <h3 className={styles.contactTitle}>Nous contacter</h3>
                         <div className={styles.contactInfo}>
                             <div className={styles.contactItem}>

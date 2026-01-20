@@ -227,11 +227,11 @@ export default function AuRucherPage() {
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/couvains.jpg`,
-                  alt: "Cadre de couvain avec des abeilles"
+                  alt: "Cadre de couvain d'abeilles, une cellule royale et au dessus, du couvain de faux bourdons"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/reine-marque.jpeg`,
-                  alt: "Reine marquée qui se balade sur un cadre"
+                  alt: "Reine buckfast marquée, qui se balade sur un cadre"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ronce.jpg`,
@@ -239,7 +239,7 @@ export default function AuRucherPage() {
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/cadre-male.jpg`,
-                  alt: "Cadre à male avec des abeilles"
+                  alt: "Cadre à male en construction avec des abeilles et du miel dans la partie supperieure"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/buckfast.jpeg`,
@@ -247,11 +247,11 @@ export default function AuRucherPage() {
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche-foret.jpeg`,
-                  alt: "Ruche en Pays de Retz"
+                  alt: "Ruche en foret dans les Pays de Retz avec des merisier en fleurs"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/ruche.jpeg`,
-                  alt: "Ruche avec plein d'abeille à Saint-Léger-les-Vignes"
+                  alt: "Renforcement d'une ruche faible par une colonie orpheline."
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/reine-carnica.jpg`,
@@ -263,11 +263,11 @@ export default function AuRucherPage() {
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/cadre-couvain.jpg`,
-                  alt: "Cadre de couvain avec des abeilles"
+                  alt: "Cadre de couvain operculé avec des abeilles"
                 },
                 {
                   src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-rucher/rucher-foret-2.jpg`,
-                  alt: "Attention abeilles en Loire-Atlantique"
+                  alt: "Attention abeilles en Loire-Atlantique, ne pas approcher du rucher."
                 }
               ]}
             />

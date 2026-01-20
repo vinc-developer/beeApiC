@@ -1,4 +1,6 @@
 import styles from './ProductCard.module.css';
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
+import ButtonSecondary from "@/components/ui/ButtonSecondary/ButtonSecondary";
 
 export interface Product {
   id: string;

@@ -49,124 +49,114 @@ export default function TracabilitePage() {
 
   return (
       <div className="container">
-        {/* Header */}
-        <section className="header">
-          <div className="header-content">
-            <div className="brand-logo">
-              <span className="brand-icon">🐝</span>
-              <span className="brand-name">Bee Api'C</span>
-            </div>
-            <h1 className="header-title">Traçabilité du Miel</h1>
-            <p className="header-subtitle">Don't Pannic, Bee Api'C !</p>
-          </div>
-        </section>
+        <section className="section">
+          <h1 className="header-title">Traçabilité du miel</h1>
 
-        <section>
           <div className="tracabiliteCard">
-            <p className="tracabiliteText">
-              Le numéro de lot se trouve sur l'étiquette de votre pot de miel, près du QRCode. Il est
-              composé comme suit : <br />
-              <strong>XX-YYMMDD-ZZ</strong> <br />
-              Où <strong>XX</strong> représente le code apiculteur, <strong>YYMMDD</strong> la date
-              d'extraction du miel (année, mois, jour) et <strong>ZZ</strong> un code spécifique au lot.
-              <br />
-            </p>
-          </div>
-        </section>
-
-        {/* Formulaire de recherche */}
-        <section className="search-section">
-          <div className="search-card">
-            <h2 className="section-title">Rechercher un lot</h2>
-
-            {/* Sélecteur de méthode de recherche */}
-            <div className="search-method-selector">
-              <button
-                  className={`btn-method ${searchMode === 'manual' ? 'active' : ''}`}
-                  onClick={() => setSearchMode('manual')}
-                  data-method="manual"
-              >
-                Saisie manuelle
-              </button>
-              <button
-                  className={`btn-method ${searchMode === 'list' ? 'active' : ''}`}
-                  onClick={() => setSearchMode('list')}
-                  data-method="list"
-              >
-                Sélection dans la liste
-              </button>
+              <p className="tracabiliteText">
+                Le numéro de lot se trouve sur l'étiquette de votre pot de miel, près du QRCode. Il est
+                composé comme suit : <br />
+                <strong>XX-YYMMDD-ZZ</strong> <br />
+                Où <strong>XX</strong> représente le code apiculteur, <strong>YYMMDD</strong> la date
+                d'extraction du miel (année, mois, jour) et <strong>ZZ</strong> un code spécifique au lot.
+                <br />
+              </p>
             </div>
 
-            {/* Saisie manuelle */}
-            <div className={`search-input-group ${searchMode !== 'manual' ? 'hidden' : ''}`}>
-              <label htmlFor="lotNumber" className="input-label">
-                Numéro de lot
-              </label>
-              <div className="input-wrapper">
-                <input
-                    type="text"
-                    id="lotNumber"
-                    className="input-field"
-                    placeholder="Ex: BA-250701-CH"
-                    autoComplete="off"
-                    value={lotNumber}
-                    onChange={(e) => setLotNumber(e.target.value.toUpperCase())}
-                />
+          {/* Formulaire de recherche */}
+          <div className="search-section">
+            <div className="search-card">
+              <h2 className="section-title">Rechercher un lot</h2>
+
+              {/* Sélecteur de méthode de recherche */}
+              <div className="search-method-selector">
                 <button
-                    className="btn-search"
-                    onClick={handleSubmit}
-                    disabled={loading || loadingLots}
+                    className={`btn-method ${searchMode === 'manual' ? 'active' : ''}`}
+                    onClick={() => setSearchMode('manual')}
+                    data-method="manual"
                 >
-                  <span className="btn-icon">🔍</span>
-                  Rechercher
+                  Saisie manuelle
+                </button>
+                <button
+                    className={`btn-method ${searchMode === 'list' ? 'active' : ''}`}
+                    onClick={() => setSearchMode('list')}
+                    data-method="list"
+                >
+                  Sélection dans la liste
                 </button>
               </div>
-            </div>
 
-            {/* Sélection par liste */}
-            <div className={`search-input-group ${searchMode !== 'list' ? 'hidden' : ''}`}>
-              <label htmlFor="lotSelect" className="input-label">
-                Sélectionner un lot
-              </label>
-              <div className="input-wrapper">
-                <select
-                    id="lotSelect"
-                    className="select-field"
-                    value={lotNumber}
-                    onChange={(e) => setLotNumber(e.target.value)}
-                >
-                  <option value="">-- Choisir un numéro de lot --</option>
-                  {lotsGrouped.map((group) => (
-                      <optgroup key={group.beekeeperCode} label={group.beekeeperName}>
-                        {group.lots.map((lot) => (
-                            <option key={lot} value={lot}>
-                              {lot}
-                            </option>
-                        ))}
-                      </optgroup>
-                  ))}
-                </select>
-                <button
-                    className="btn-search"
-                    onClick={handleSubmit}
-                    disabled={loading || loadingLots}
-                >
-                  <span className="btn-icon">🔍</span>
-                  Rechercher
-                </button>
+              {/* Saisie manuelle */}
+              <div className={`search-input-group ${searchMode !== 'manual' ? 'hidden' : ''}`}>
+                <label htmlFor="lotNumber" className="input-label">
+                  Numéro de lot
+                </label>
+                <div className="input-wrapper">
+                  <input
+                      type="text"
+                      id="lotNumber"
+                      className="input-field"
+                      placeholder="Ex: BA-250701-CH"
+                      autoComplete="off"
+                      value={lotNumber}
+                      onChange={(e) => setLotNumber(e.target.value.toUpperCase())}
+                  />
+                  <button
+                      className="btn-search"
+                      onClick={handleSubmit}
+                      disabled={loading || loadingLots}
+                  >
+                    <span className="btn-icon">🔍</span>
+                    Rechercher
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* Message d'erreur */}
-            <div className={`error-message ${!error ? 'hidden' : ''}`}>
-              <span className="error-icon">⚠️</span>
-              <span className="error-text">{error}</span>
-            </div>
+              {/* Sélection par liste */}
+              <div className={`search-input-group ${searchMode !== 'list' ? 'hidden' : ''}`}>
+                <label htmlFor="lotSelect" className="input-label">
+                  Sélectionner un lot
+                </label>
+                <div className="input-wrapper">
+                  <select
+                      id="lotSelect"
+                      className="select-field"
+                      value={lotNumber}
+                      onChange={(e) => setLotNumber(e.target.value)}
+                  >
+                    <option value="">-- Choisir un numéro de lot --</option>
+                    {lotsGrouped.map((group) => (
+                        <optgroup key={group.beekeeperCode} label={group.beekeeperName}>
+                          {group.lots.map((lot) => (
+                              <option key={lot} value={lot}>
+                                {lot}
+                              </option>
+                          ))}
+                        </optgroup>
+                    ))}
+                  </select>
+                  <button
+                      className="btn-search"
+                      onClick={handleSubmit}
+                      disabled={loading || loadingLots}
+                  >
+                    <span className="btn-icon">🔍</span>
+                    Rechercher
+                  </button>
+                </div>
+              </div>
 
-            {/* Loading spinner */}
-            <div className={`loading-spinner ${!loadingLots && !loading ? 'hidden' : ''}`}>
-              <div className="spinner"></div>
-              <p>{loadingLots ? 'Chargement des lots...' : 'Chargement des informations...'}</p>
+              {/* Message d'erreur */}
+              <div className={`error-message ${!error ? 'hidden' : ''}`}>
+                <span className="error-icon">⚠️</span>
+                <span className="error-text">{error}</span>
+              </div>
+
+              {/* Loading spinner */}
+              <div className={`loading-spinner ${!loadingLots && !loading ? 'hidden' : ''}`}>
+                <div className="spinner"></div>
+                <p>{loadingLots ? 'Chargement des lots...' : 'Chargement des informations...'}</p>
+              </div>
             </div>
           </div>
         </section>

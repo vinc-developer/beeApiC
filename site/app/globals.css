@@ -121,39 +121,32 @@ body {
    ======================================== */
 
 .container {
-    max-width: var(--container-max-width);
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 /* ========================================
    HEADER
    ======================================== */
 
-.header {
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
-    padding: var(--spacing-xl) 0;
-}
-
-.header-content {
-    background: var(--color-white);
-    padding: var(--spacing-2xl) var(--spacing-xl);
-    border-radius: var(--border-radius-xl);
-    box-shadow: var(--shadow-lg);
+.section {
+    margin: 4rem 0;
 }
 
 .header-title {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-4xl);
+    text-align: center;
     font-weight: var(--font-weight-bold);
+    margin-bottom: 1.5rem;
+    line-height: var(--line-height-tight);
     color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
 }
 
 .header-subtitle {
-    font-size: var(--font-size-lg);
     color: var(--color-text-light);
     font-weight: var(--font-weight-normal);
+    margin: 1.5rem auto;
+    text-align: center;
 }
 
 /* ========================================
@@ -1060,11 +1053,7 @@ body {
    ACTIONS APICULTEUR
    ======================================== */
 
-.beekeeper-actions {
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-xl);
-    border-top: var(--border-width-thin) solid var(--color-gray);
-}
+
 
 .btn-more-info {
     display: inline-flex;
@@ -1178,9 +1167,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .beekeeper-actions {
-        margin: auto;
-    }
     .tracabiliteCard {
         padding: 1.5rem;
     }

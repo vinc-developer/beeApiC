@@ -16,8 +16,6 @@ export const metadata: Metadata = {
   ],
 };
 
-
-
 export default function MonApiculturePage() {
   return (
     <div className={styles.container}>
@@ -231,7 +229,7 @@ export default function MonApiculturePage() {
                   images={[
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleur.jpeg`,
-                      alt: "Abeille qui butine dans une fleur"
+                      alt: "Abeille qui butine dans une fleur de camelia"
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/rucher-hiver.jpg`,
@@ -239,7 +237,7 @@ export default function MonApiculturePage() {
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeilles-ruche.jpeg`,
-                      alt: "Abeilles sur l'entrée d'une ruche Bee Api'C"
+                      alt: "Abeilles qui rentrent dans une ruche après la récupération d'un essaim"
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/abeille-fleurs.jpeg`,
@@ -247,11 +245,11 @@ export default function MonApiculturePage() {
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre.jpeg`,
-                      alt: "Cadre de couvain d'une ruche d'abeille"
+                      alt: "Cadre de couvain et de réserve d'une ruche d'abeille"
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpeg`,
-                      alt: "Cadre de miel d'une ruche Bee Api'C"
+                      alt: "Cadre de miel désoperculé pour extraction"
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cadre-miel.jpg`,
@@ -263,7 +261,7 @@ export default function MonApiculturePage() {
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/cire-gaufre.jpg`,
-                      alt: "Cadre de cire gaufrée pour les abeilles"
+                      alt: "Cadre de cire gaufrée en cours de fabrication"
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/fleur-chataigner.jpg`,
@@ -271,7 +269,7 @@ export default function MonApiculturePage() {
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/mise-en-pot.jpg`,
-                      alt: "Miel en cours de mise en pot"
+                      alt: "Miel qui coule dans un pot"
                     },
                     {
                       src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/gallerie-home/reine.jpeg`,

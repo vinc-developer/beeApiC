@@ -1,11 +1,13 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { getTraceability } from '@/lib/api/tracabilite';
 import { extractHoneyType, formatDate } from '@/lib/utils';
 import honeyTypesData from '@/data/honey-types.json';
 import traceabilityData from '@/data/traceability-data.json';
 import styles from "./../tracabilite.module.css";
 import {Metadata} from "next";
+import HoneyDataInfoPopup from "@/components/ui/popup/popup";
+import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
+import ButtonSecondary from "@/components/ui/ButtonSecondary/ButtonSecondary";
 
 /* référencement lot*/
 export function generateStaticParams() {
@@ -67,193 +69,189 @@ export default async function LotDetailPage({
 
   return (
     <div className="container">
-      {/* Header */}
-      <section className="header">
-        <div className="header-content">
-          <div className="brand-logo">
-            <span className="brand-icon">🐝</span>
-            <span className="brand-name">Bee Api'C</span>
-          </div>
-          <h1 className="header-title">Traçabilité du Miel</h1>
-          <p className="header-subtitle">Don't Pannic, Bee Api'C !</p>
-        </div>
-      </section>
+      <HoneyDataInfoPopup />
+      <section className="section">
 
-      {/* Résultats de la traçabilité */}
-      <section className="results-section">
-        {/* Informations du produit */}
-        <div className="result-card">
-          <h2 className="section-title">
-            <span className="title-icon">🍯</span>
-            Informations du produit
-          </h2>
+          <h1 className="header-title">Traçabilité du miel</h1>
+        <p className="header-subtitle">Découvrez les informations du miel contenue dans votre pot</p>
 
-          <div className="info-grid">
-            <div className="info-item">
-              <span className="info-label">Numéro de lot</span>
-              <span className="info-value">{data.lotNumber}</span>
-            </div>
+        {/* Résultats de la traçabilité */}
+        <div className="results-section">
+          {/* Informations du produit */}
+          <div className="result-card">
+            <h2 className="section-title">
+              <span className="title-icon">🍯</span>
+              Informations du produit
+            </h2>
 
-            <div className="info-item">
-              <span className="info-label">Taux d'humidité du miel</span>
-              <span className="info-value">{data.humidity}%</span>
-            </div>
+            <div className="info-grid">
+              <div className="info-item">
+                <span className="info-label">Numéro de lot</span>
+                <span className="info-value">{data.lotNumber}</span>
+              </div>
 
-            <div className="info-item">
-              <span className="info-label">Secteur(s) de butinage(s)</span>
-              <span className="info-value">
+              <div className="info-item">
+                <span className="info-label">Taux d'humidité du miel</span>
+                <span className="info-value">{data.humidity}%</span>
+              </div>
+
+              <div className="info-item">
+                <span className="info-label">Secteur(s) de butinage(s)</span>
+                <span className="info-value">
                 {data.ruchers.map(r => r.lieuxRucher).join(', ') || 'Non spécifiée'}
               </span>
-            </div>
+              </div>
 
-            {honeyType && (
-                <div className="info-item full-width">
-                  <span className="info-label">Type de miel</span>
-                  <div className="honey-type-details">
-                    <span className="honey-type-badge">{honeyType.name}</span>
-                    {honeyType.description && (
-                        <span className="honey-type-description">{honeyType.description}</span>
-                    )}
+              {honeyType && (
+                  <div className="info-item full-width">
+                    <span className="info-label">Type de miel</span>
+                    <div className="honey-type-details">
+                      <span className="honey-type-badge">{honeyType.name}</span>
+                      {honeyType.description && (
+                          <span className="honey-type-description">{honeyType.description}</span>
+                      )}
+                    </div>
                   </div>
-                </div>
-            )}
+              )}
 
-            <div className="info-item full-width">
-              <span className="info-label">Environnement des ruches</span>
-              <span className="info-value">
+              <div className="info-item full-width">
+                <span className="info-label">Environnement des ruches</span>
+                <span className="info-value">
                 {[...new Set(data.ruchers.map(r => r.environnement))].join(', ') || 'Non spécifié'}
               </span>
-            </div>
+              </div>
 
-            {data.production.nbRuchesRecoltees && (
-                <div className="info-item">
-                  <span className="info-label">Nombre de ruches récoltées</span>
-                  <span className="info-value">{data.production.nbRuchesRecoltees}</span>
+              {data.production.nbRuchesRecoltees && (
+                  <div className="info-item">
+                    <span className="info-label">Nombre de ruches récoltées</span>
+                    <span className="info-value">{data.production.nbRuchesRecoltees}</span>
+                  </div>
+              )}
+            </div>
+          </div>
+
+          {/* Dates importantes */}
+          <div className="result-card">
+            <h2 className="section-title">
+              <span className="title-icon">📅</span>
+              Dates de production
+            </h2>
+
+            <div className="dates-container">
+              <div className="date-card">
+                <div className="date-icon">🚚</div>
+                <h3 className="date-title">Date(s) de récolte</h3>
+                <div className="date-list">
+                  {data.production.datesRecolte?.map((date, index) => (
+                      <span key={index} className="date-value">
+                    {formatDate(date)}
+                  </span>
+                  ))}
                 </div>
-            )}
-          </div>
-        </div>
+              </div>
 
-        {/* Dates importantes */}
-        <div className="result-card">
-          <h2 className="section-title">
-            <span className="title-icon">📅</span>
-            Dates de production
-          </h2>
-
-          <div className="dates-container">
-            <div className="date-card">
-              <div className="date-icon">🚚</div>
-              <h3 className="date-title">Date(s) de récolte</h3>
-              <div className="date-list">
-                {data.production.datesRecolte?.map((date, index) => (
-                    <span key={index} className="date-value">
+              <div className="date-card">
+                <div className="date-icon">🍯</div>
+                <h3 className="date-title">Date(s) d'extraction</h3>
+                <div className="date-list">
+                  {data.production.datesExtractions.map((date, index) => (
+                      <span key={index} className="date-value">
                     {formatDate(date)}
                   </span>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="date-card">
-              <div className="date-icon">🍯</div>
-              <h3 className="date-title">Date(s) d'extraction</h3>
-              <div className="date-list">
-                {data.production.datesExtractions.map((date, index) => (
-                    <span key={index} className="date-value">
+              {data.production.datesConditionnement.length >= 1 && (
+                  <div className="date-card">
+                    <div className="date-icon">📦</div>
+                    <h3 className="date-title">Date(s) de conditionnement</h3>
+                    <div className="date-list">
+                      {data.production.datesConditionnement.map((date, index) => (
+                          <span key={index} className="date-value">
                     {formatDate(date)}
                   </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="date-card">
-              <div className="date-icon">📦</div>
-              <h3 className="date-title">Date(s) de conditionnement</h3>
-              <div className="date-list">
-                {data.production.datesConditionnement.map((date, index) => (
-                    <span key={index} className="date-value">
-                    {formatDate(date)}
-                  </span>
-                ))}
-              </div>
+                      ))}
+                    </div>
+                  </div>
+              )}
             </div>
           </div>
-        </div>
 
-        {/* Informations de l'apiculteur producteur */}
-        <div className="result-card beekeeper-card">
-          <h2 className="section-title">
-            <span className="title-icon">👨‍🌾</span>
-            Produit par l'apiculteur
-          </h2>
+          {/* Informations de l'apiculteur producteur */}
+          <div className="result-card beekeeper-card">
+            <h2 className="section-title">
+              <span className="title-icon">👨‍🌾</span>
+              Produit par l'apiculteur
+            </h2>
 
-          <div className="beekeeper-content">
-            <div className="beekeeper-visual">
-              {/* Photo */}
-              <div className="beekeeper-photo">
-              {data.beekeeper?.photo ? (
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.photo}`}
-                    alt={`${data.beekeeper.firstName} ${data.beekeeper.lastName}`}
-                  />
-                ) : (
-                  <div className="photo-placeholder">
-                    <span className="placeholder-icon">👤</span>
-                  </div>
-                )}
+            <div className="beekeeper-content">
+              <div className="beekeeper-visual">
+                {/* Photo */}
+                <div className="beekeeper-photo">
+                  {data.beekeeper?.photo ? (
+                      <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.photo}`}
+                          alt={`${data.beekeeper.firstName} ${data.beekeeper.lastName}`}
+                      />
+                  ) : (
+                      <div className="photo-placeholder">
+                        <span className="placeholder-icon">👤</span>
+                      </div>
+                  )}
+                </div>
+
+                {/* Logo */}
+                <div className="beekeeper-logo">
+                  {data.beekeeper?.logo ? (
+                      <img
+                          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.logo}`}
+                          alt="Logo"
+                      />
+                  ) : (
+                      <div className="logo-placeholder">
+                        <span className="placeholder-icon">🏢</span>
+                      </div>
+                  )}
+                </div>
               </div>
 
-              {/* Logo */}
-              <div className="beekeeper-logo">
-                {data.beekeeper?.logo ? (
-                  <img
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/${data.beekeeper.logo}`}
-                    alt="Logo"
-                  />
-                ) : (
-                  <div className="logo-placeholder">
-                    <span className="placeholder-icon">🏢</span>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="beekeeper-details">
-              <div className="beekeeper-name">
-                <span className="beekeeper-type">{data.beekeeper?.type}</span>
-                {isBeApiC && (
-                  <span className="beeapic-producer-badge">
+              <div className="beekeeper-details">
+                <div className="beekeeper-name">
+                  <span className="beekeeper-type">{data.beekeeper?.type}</span>
+                  {isBeApiC && (
+                      <span className="beeapic-producer-badge">
                     <span className="producer-icon">🐝</span>
                     <span className="producer-text">Bee Api'C</span>
                   </span>
-                )}
-                {isPartner && (
-                  <span className="partner-badge">
+                  )}
+                  {isPartner && (
+                      <span className="partner-badge">
                     <span className="partner-icon">🤝</span>
                     <span className="partner-text">
                       Partenaire Bee Api'C
                     </span>
                   </span>
-                )}
-                <h3>
-                  {data.beekeeper?.firstName} {data.beekeeper?.lastName}
-                </h3>
-                {data.beekeeper?.commercialName && (
-                  <p className="commercial-name">{data.beekeeper.commercialName}</p>
-                )}
-              </div>
-
-              <div className="beekeeper-info-grid">
-                {/* Adresse */}
-                <div className="beekeeper-info-item">
-                  <span className="info-icon">📍</span>
-                  <div className="info-content">
-                    <span className="info-small-label">Adresse</span>
-                    <span className="info-text">{data.beekeeper?.address}</span>
-                  </div>
+                  )}
+                  <h3>
+                    {data.beekeeper?.firstName} {data.beekeeper?.lastName}
+                  </h3>
+                  {data.beekeeper?.commercialName && (
+                      <p className="commercial-name">{data.beekeeper.commercialName}</p>
+                  )}
                 </div>
 
-                {/* Site web
+                <div className="beekeeper-info-grid">
+                  {/* Adresse */}
+                  <div className="beekeeper-info-item">
+                    <span className="info-icon">📍</span>
+                    <div className="info-content">
+                      <span className="info-small-label">Adresse</span>
+                      <span className="info-text">{data.beekeeper?.address}</span>
+                    </div>
+                  </div>
+
+                  {/* Site web
                 {data.beekeeper?.website && (
                   <div className="beekeeper-info-item">
                     <span className="info-icon">🌐</span>
@@ -272,29 +270,29 @@ export default async function LotDetailPage({
                 )}
                 */}
 
-                {/* Email */}
-                <div className="beekeeper-info-item">
-                  <span className="info-icon">📧</span>
-                  <div className="info-content">
-                    <span className="info-small-label">Email</span>
-                    <a href={`mailto:${data.beekeeper?.email}`} className="info-link">
-                      {data.beekeeper?.email}
-                    </a>
+                  {/* Email */}
+                  <div className="beekeeper-info-item">
+                    <span className="info-icon">📧</span>
+                    <div className="info-content">
+                      <span className="info-small-label">Email</span>
+                      <a href={`mailto:${data.beekeeper?.email}`} className="info-link">
+                        {data.beekeeper?.email}
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                {/* Téléphone */}
-                <div className="beekeeper-info-item">
-                  <span className="info-icon">📱</span>
-                  <div className="info-content">
-                    <span className="info-small-label">Téléphone</span>
-                    <a href={`tel:${data.beekeeper?.phone}`} className="info-link">
-                      {data.beekeeper?.phone}
-                    </a>
+                  {/* Téléphone */}
+                  <div className="beekeeper-info-item">
+                    <span className="info-icon">📱</span>
+                    <div className="info-content">
+                      <span className="info-small-label">Téléphone</span>
+                      <a href={`tel:${data.beekeeper?.phone}`} className="info-link">
+                        {data.beekeeper?.phone}
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                {/* SIRET
+                  {/* SIRET
                 <div className="beekeeper-info-item">
                   <span className="info-icon">🏢</span>
                   <div className="info-content">
@@ -302,9 +300,9 @@ export default async function LotDetailPage({
                     <span className="info-text">{data.beekeeper?.siret}</span>
                   </div>
                 </div>*/}
-              </div>
+                </div>
 
-              {/* Réseaux sociaux
+                {/* Réseaux sociaux
               {data.beekeeper?.socialMedia && Object.keys(data.beekeeper.socialMedia).some(key => data.beekeeper?.socialMedia?.[key as keyof typeof data.beekeeper.socialMedia]) && (
                 <div className="social-media-section">
                   <h4 className="social-title">Suivez-nous</h4>
@@ -374,25 +372,25 @@ export default async function LotDetailPage({
               )}
                */}
 
-              {/* Bouton En savoir plus */}
-              <div className="beekeeper-actions">
-                <Link href={`/apiculteur/${data.beekeeper?.code}`} className="btn-more-info">
-                  <span className="btn-icon">ℹ️</span>
-                  En savoir plus sur l'apiculteur
-                </Link>
+                {/* Bouton En savoir plus */}
+                <div className={styles.beekeeperActions}>
+                  <ButtonSecondary
+                    link={`/apiculteur/${data.beekeeper?.code}`}
+                    text="ℹ️ En savoir plus sur l'apiculteur"
+                    className={styles.beekeeperActionsButton}
+                    classNameLink={styles.btnCardSecondary}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Bouton nouvelle recherche */}
-      <div className={styles.tracabiliteButtonContainer}>
-        <Link href="/tracabilite" className={styles.btnSecondary}>
-          <span className="btn-icon">← </span>
-          Nouvelle recherche
-        </Link>
-      </div>
+        {/* Bouton nouvelle recherche */}
+        <div className={styles.tracabiliteButtonContainer}>
+          <ButtonPrimary link="/tracabilite" text="← Nouvelle recherche" />
+        </div>
+      </section>
     </div>
   );
 }
