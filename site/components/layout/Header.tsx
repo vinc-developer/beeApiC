@@ -168,6 +168,17 @@ export default function Header() {
                     <MenuItem>
                       {({ focus }) => (
                         <Link
+                          href="/qualite"
+                          className={`${styles.dropdownItem} ${focus ? styles.dropdownItemFocus : ''}`}
+                        >
+                          <span>🏅</span>
+                          <span>Notre Charte Qualité</span>
+                        </Link>
+                      )}
+                    </MenuItem>
+                    <MenuItem>
+                      {({ focus }) => (
+                        <Link
                           href="/apiculteurs"
                           className={`${styles.dropdownItem} ${focus ? styles.dropdownItemFocus : ''}`}
                         >
@@ -294,6 +305,10 @@ export default function Header() {
                           <Link href="/ventes-ecoles" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
                             <span>🎓</span>
                             <span>Ventes solidaires écoles</span>
+                          </Link>
+                          <Link href="/qualite" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
+                            <span>🏅</span>
+                            <span>Notre Charte Qualité</span>
                           </Link>
                           <Link href="/apiculteurs" className={styles.mobileDropdownItem} onClick={() => setMobileOpen(false)}>
                             <span>👥</span>
