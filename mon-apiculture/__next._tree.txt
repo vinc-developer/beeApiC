@@ -7,4 +7,4 @@
 :HL["/beeApiC/images/vincent-colas/apiculteur.jpeg","image"]
 :HL["/beeApiC/images/products/miels-couleurs.jpg","image"]
 :HL["/beeApiC/images/matthieu-colas/rucher-matthieu.jpg","image"]
-0:{"buildId":"XfIOFrpK7jXA2g7OGpMTy","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mon-apiculture","paramType":null,"paramKey":"mon-apiculture","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"8WyDbBaU84B0QLROLZkD-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mon-apiculture","paramType":null,"paramKey":"mon-apiculture","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
