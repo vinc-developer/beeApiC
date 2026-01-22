@@ -257,15 +257,19 @@ export default async function BeekeeperPage({
                 )}
 
                 {/* Email */}
-                <div className="contact-detail-item">
-                  <span className="contact-icon">📧</span>
-                  <div className="contact-content">
-                    <span className="contact-label">Email</span>
-                    <a href={`mailto:${beekeeper.email}`} className="contact-link">
-                      {beekeeper.email}
-                    </a>
-                  </div>
-                </div>
+                {
+                  beekeeper.email && (
+                        <div className="contact-detail-item">
+                          <span className="contact-icon">📧</span>
+                          <div className="contact-content">
+                            <span className="contact-label">Email</span>
+                            <a href={`mailto:${beekeeper.email}`} className="contact-link">
+                              {beekeeper.email}
+                            </a>
+                          </div>
+                        </div>
+                    )
+                }
 
                 {/* Téléphone */}
                 <div className="contact-detail-item">
@@ -279,13 +283,17 @@ export default async function BeekeeperPage({
                 </div>
 
                 {/* SIRET */}
-                <div className="contact-detail-item">
-                  <span className="contact-icon">🏢</span>
-                  <div className="contact-content">
-                    <span className="contact-label">SIRET</span>
-                    <span className="contact-value">{beekeeper.siret}</span>
-                  </div>
-                </div>
+                {
+                  beekeeper.siret && (
+                        <div className="contact-detail-item">
+                          <span className="contact-icon">🏢</span>
+                          <div className="contact-content">
+                            <span className="contact-label">SIRET</span>
+                            <span className="contact-value">{beekeeper.siret}</span>
+                          </div>
+                        </div>
+                    )
+                }
               </div>
             </div>
 

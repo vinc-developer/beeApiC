@@ -19,7 +19,7 @@
       "bio": "Passionné par la nature et le vivant depuis tout petit, j’ai découvert l’apiculture grâce à mon frère, avant de me lancer avec mes propres ruches en Pays de Retz.\nEngagé auprès des abeilles avec respect et patience, j’installe mes ruches dans des zones soigneusement sélectionnées, préservées des cultures intensives.\nMon approche repose sur l’observation et l’accompagnement des colonies, afin de produire un miel authentique, fidèle aux saisons et aux lieux, dans une démarche de transparence, de traçabilité et de respect de la biodiversité.",
       "hivesCount": "20 ruches",
       "location": "Saint-Hilaire-de-Chaléons, Loire-Atlantique, France",
-      "distance": "35 kms de Nantes et 25 kms de Pornic",
+      "distance": "25 kms de Nantes et 15 kms de Pornic",
       "beekeeperSince": "2022",
       "gallery": [
         "vincent-colas/apiculteur.jpeg",
@@ -54,7 +54,7 @@
       "bio": "",
       "hivesCount": "30 ruches",
       "location": "Guenrouet, Loire-Atlantique, France",
-      "distance": "50 kms de Nantes et 20 kms de Redon",
+      "distance": "45 kms de Nantes et 15 kms de Redon",
       "beekeeperSince": "2020",
       "gallery": [
         "matthieu-colas/ruche-matthieu.jpg",
@@ -69,8 +69,8 @@
         "linkedin": ""
       }
     },
-    "BTB": {
-      "code": "BTB",
+    "NG": {
+      "code": "NG",
       "useProxy": false,
       "type": "Apiculteur Récoltant",
       "partnerSince": "2025",

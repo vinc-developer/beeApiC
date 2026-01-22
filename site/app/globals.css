@@ -995,10 +995,10 @@ body {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: var(--color-white);
+    /*background: var(--color-white);
     border: var(--border-width-medium) solid var(--color-gray);
+    color: var(--color-text);*/
     border-radius: var(--border-radius-full);
-    color: var(--color-text);
     text-decoration: none;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
@@ -1011,34 +1011,59 @@ body {
 }
 
 /* Couleurs spécifiques par réseau social */
-.social-link[data-network="instagram"]:hover {
+.social-link[data-network="instagram"] {
     background: #E4405F;
-    border-color: #E4405F;
+    border: var(--border-width-medium) solid #E4405F;
     color: var(--color-white);
 }
+.social-link[data-network="instagram"]:hover {
+    background: var(--color-white);
+    border-color: var(--color-gray);
+    color: var(--color-text);
+}
 
-.social-link[data-network="facebook"]:hover {
+.social-link[data-network="facebook"] {
     background: #1877F2;
     border-color: #1877F2;
     color: var(--color-white);
 }
+.social-link[data-network="facebook"]:hover {
+    background: var(--color-white);
+    border-color: var(--color-gray);
+    color: var(--color-text);
+}
 
-.social-link[data-network="tiktok"]:hover {
+.social-link[data-network="tiktok"]{
     background: #000000;
     border-color: #000000;
     color: var(--color-white);
 }
+.social-link[data-network="tiktok"]:hover {
+    background: var(--color-white);
+    border-color: var(--color-gray);
+    color: var(--color-text);
+}
 
-.social-link[data-network="youtube"]:hover {
+.social-link[data-network="youtube"] {
     background: #FF0000;
     border-color: #FF0000;
     color: var(--color-white);
 }
+.social-link[data-network="youtube"]:hover {
+    background: var(--color-white);
+    border-color: var(--color-gray);
+    color: var(--color-text);
+}
 
-.social-link[data-network="linkedin"]:hover {
+.social-link[data-network="linkedin"]{
     background: #0A66C2;
     border-color: #0A66C2;
     color: var(--color-white);
+}
+.social-link[data-network="linkedin"]:hover {
+    background: var(--color-white);
+    border-color: var(--color-gray);
+    color: var(--color-text);
 }
 
 .social-icon {

@@ -58,7 +58,7 @@ export default function TracabilitePage() {
                 composé comme suit : <br />
                 <strong>XX-YYMMDD-ZZ</strong> <br />
                 Où <strong>XX</strong> représente le code apiculteur, <strong>YYMMDD</strong> la date
-                d'extraction du miel (année, mois, jour) et <strong>ZZ</strong> un code spécifique au lot.
+                de mise en pot du miel (année, mois, jour) et <strong>ZZ</strong> un code spécifique au lot.
                 <br />
               </p>
             </div>

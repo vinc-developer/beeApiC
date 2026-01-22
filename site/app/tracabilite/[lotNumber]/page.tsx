@@ -271,15 +271,17 @@ export default async function LotDetailPage({
                 */}
 
                   {/* Email */}
-                  <div className="beekeeper-info-item">
-                    <span className="info-icon">📧</span>
-                    <div className="info-content">
-                      <span className="info-small-label">Email</span>
-                      <a href={`mailto:${data.beekeeper?.email}`} className="info-link">
-                        {data.beekeeper?.email}
-                      </a>
-                    </div>
-                  </div>
+                  { data.beekeeper?.email && (
+                      <div className="beekeeper-info-item">
+                        <span className="info-icon">📧</span>
+                        <div className="info-content">
+                          <span className="info-small-label">Email</span>
+                          <a href={`mailto:${data.beekeeper?.email}`} className="info-link">
+                            {data.beekeeper?.email}
+                          </a>
+                        </div>
+                      </div>
+                  )}
 
                   {/* Téléphone */}
                   <div className="beekeeper-info-item">
