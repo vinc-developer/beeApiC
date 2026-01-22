@@ -32,10 +32,12 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className={styles.hero}
-               style={{
-                 '--bg-cadre-miel': `url('${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg')`
-               } as React.CSSProperties}>
+      <section className={styles.hero}>
+        <img
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/home/cadre-miel.jpg`}
+          alt="Cadre de hausses operculé avec des abeilles lors d'une visite"
+          className={styles.heroImage}
+        />
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <div className={styles.badge}>
