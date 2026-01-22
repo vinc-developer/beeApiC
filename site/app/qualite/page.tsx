@@ -24,7 +24,10 @@ export default function QualitePage() {
                 </h1>
 
                 <p className={styles.introText}>
-                    Chez Bee Api'C, le miel est bien plus qu’un simple produit. Chaque pot est l’aboutissement d’une démarche exigeante où la qualité n’est pas une option, mais une véritable exigence. De la ruche à votre table, chaque étape est menée avec rigueur, transparence et respect de l’environnement, afin de vous offrir un miel authentique, fidèle à nos engagements et à notre passion pour les abeilles.
+                    Chez Bee Api'C, le miel est bien plus qu’un simple produit. Chaque pot est l’aboutissement d’une démarche
+                    exigeante où la qualité n’est pas une option, mais une véritable exigence. De la ruche à votre table, chaque
+                    étape est menée avec rigueur, transparence et respect de l’environnement, afin de vous offrir un miel
+                    authentique, fidèle à nos engagements et à notre passion pour les abeilles.
                 </p>
 
                 <img
@@ -60,7 +63,7 @@ export default function QualitePage() {
                                 <strong>La récolte et l'extraction :</strong> à maturité, sans additifs
                             </li>
                             <li>
-                                <strong>La filtration et la maturation :</strong> processus strict de 7 jours minimum
+                                <strong>La filtration et la maturation :</strong> processus strict
                             </li>
                             <li>
                                 <strong>La traçabilité :</strong> registres obligatoires et numérotation unique
@@ -106,9 +109,10 @@ export default function QualitePage() {
                             <div className={styles.pillarIcon}>🔍</div>
                             <h3 className={styles.pillarTitle}>Traçabilité Totale</h3>
                             <p className={styles.pillarText}>
-                                Grâce à notre système de numérotation unique, chaque pot vous permet de connaître
-                                l'apiculteur, le lieu de production, l'environnement des ruches et la date de mise en pot.
-                                Une transparence absolue à portée de QR code.
+                                Grâce à un système de traçabilité maîtrisé, chaque pot Bee Api'C est lié à son producteur, à son
+                                origine locale et à son parcours de fabrication. Cela vous permet de connaître les grandes étapes
+                                de sa création, du rucher à votre table, avec une transparence renforcée.
+
                             </p>
                         </div>
 
@@ -116,9 +120,9 @@ export default function QualitePage() {
                             <div className={styles.pillarIcon}>🍯</div>
                             <h3 className={styles.pillarTitle}>Miel Brut & Pur</h3>
                             <p className={styles.pillarText}>
-                                Notre miel est récolté à maturité, sans chauffage excessif. Aucun additif, aucune
-                                transformation artificielle. Juste le miel, dans toute sa pureté et son authenticité,
-                                tel que les abeilles l'ont créé.
+                                Notre miel est récolté à maturité, extrait avec soin et élaboré sans additifs ni traitement
+                                artificiel, pour préserver sa pureté naturelle et son authenticité.
+
                             </p>
                         </div>
 
@@ -136,9 +140,10 @@ export default function QualitePage() {
                             <div className={styles.pillarIcon}>⚙️</div>
                             <h3 className={styles.pillarTitle}>Process Rigoureux</h3>
                             <p className={styles.pillarText}>
-                                Filtration minutieuse, maturation en décantation pendant 7 jours minimum, mise en pot
-                                dans des conditions d'hygiène strictes. Chaque étape est contrôlée et tracée pour
-                                garantir un produit final irréprochable.
+                                Chaque étape de l’élaboration est menée avec rigueur : filtration soigneuse, période de repos
+                                avant mise en pot et contrôle des conditions d’hygiène. Cela garantit un miel limpide, stable et
+                                fidèle à nos standards d’excellence.
+
                             </p>
                         </div>
                     </div>
@@ -180,14 +185,28 @@ export default function QualitePage() {
                     </div>
                 </div>
 
+                <div className={styles.contentCard}>
+                    <div className={styles.cardHeader}>
+                        <h2 className={styles.cardTitle}>Information réglementaire</h2>
+                    </div>
+
+                    <p  className={styles.cardText}>
+                        Bee Api’C veille à n’utiliser sur ses étiquettes et supports de communication
+                        que des mentions conformes à la réglementation française et européenne,
+                        afin de garantir une information loyale, claire et transparente.
+                    </p>
+                </div>
+
                 {/* Section Contrôle Qualité */}
                 <div className={styles.highlightCard}>
                     <div className={styles.cardHeader}>
                         <h2 className={styles.cardTitle}>Contrôle et garantie</h2>
                     </div>
                     <p className={styles.cardText}>
-                        Bee Api'C se réserve le droit de procéder à des contrôles réguliers afin de vérifier la conformité des pratiques, des registres et de la traçabilité. Avant chaque mise en vente, le cahier de miellerie de l’apiculteur est contrôlé afin de valider la conformité du processus de production. Le suivi des ruches peut également être vérifié au moins une fois par an à l’aide du cahier de suivi apicole.
-                        Cette vigilance garantit que chaque pot respecte les standards d’excellence Bee Api'C.
+                        Nos apiculteurs partenaires respectent un cadre de qualité exigeant qui inclut la tenue de registres de
+                        production et des contrôles réguliers. Cela nous permet d’assurer la conformité et la transparence de
+                        chaque lot mis sur le marché.
+
                     </p>
 
                     <p className={styles.highlightText}>
