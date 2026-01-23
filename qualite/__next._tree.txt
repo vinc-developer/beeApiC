@@ -1,6 +1,7 @@
-:HL["/beeApiC/_next/static/chunks/702dbc330e94a233.css","style"]
+:HL["/beeApiC/_next/static/chunks/b04c2d12aa4de21a.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/beeApiC/_next/static/chunks/288cf3950010c17e.css","style"]
+:HL["/beeApiC/_next/static/chunks/47c9e5c8870ebb0c.css","style"]
 :HL["/beeApiC/images/pages/gallerie-home/mise-en-pot.jpg","image"]
 :HL["/beeApiC/images/products/5-pots-500g.jpg","image"]
-0:{"buildId":"8WyDbBaU84B0QLROLZkD-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"qualite","paramType":null,"paramKey":"qualite","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/beeApiC/images/pages/tracabilite/tracabilite-miel-bee-apic.png","image"]
+0:{"buildId":"_qvArfmIsy01D6_fwSksp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"qualite","paramType":null,"paramKey":"qualite","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
