@@ -1,7 +1,7 @@
-:HL["/beeApiC/_next/static/chunks/b04c2d12aa4de21a.css","style"]
+:HL["/beeApiC/_next/static/chunks/2fd94d07d6c1196c.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/beeApiC/_next/static/chunks/ad7593b2038dace8.css","style"]
-:HL["/beeApiC/_next/static/chunks/f95059dd64739eba.css","style"]
+:HL["/beeApiC/_next/static/chunks/dd5aec97a20cfa85.css","style"]
 :HL["/beeApiC/images/pages/frelon/frelon-asiatique.jpg","image"]
 :HL["/beeApiC/images/pages/frelon/reconnaitre-un-frelon-asiatique.jpg","image"]
 :HL["/beeApiC/images/pages/frelon/insects.png","image"]
@@ -11,4 +11,4 @@
 :HL["/beeApiC/images/pages/frelon/piege.png","image"]
 :HL["/beeApiC/images/pages/frelon/frelon-attaque.jpg","image"]
 :HL["/beeApiC/images/pages/frelon/frelon-asiatique-nid.jpg","image"]
-0:{"buildId":"_qvArfmIsy01D6_fwSksp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"frelon-asiatique","paramType":null,"paramKey":"frelon-asiatique","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"0etWZPDg1YhL1dFFUyCEW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"frelon-asiatique","paramType":null,"paramKey":"frelon-asiatique","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

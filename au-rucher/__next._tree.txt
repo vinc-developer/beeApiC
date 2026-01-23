@@ -1,8 +1,8 @@
-:HL["/beeApiC/_next/static/chunks/b04c2d12aa4de21a.css","style"]
+:HL["/beeApiC/_next/static/chunks/2fd94d07d6c1196c.css","style"]
 :HL["/beeApiC/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/beeApiC/_next/static/chunks/665b09436c79b8c3.css","style"]
 :HL["/beeApiC/images/pages/rucher/rucher-foret-wallpaper.jpg","image"]
 :HL["/beeApiC/images/pages/rucher/abeilles-miel.jpeg","image"]
 :HL["/beeApiC/images/pages/rucher/neige-hiver.jpg","image"]
 :HL["/beeApiC/images/pages/gallerie-home/abeille-fleur.jpeg","image"]
-0:{"buildId":"_qvArfmIsy01D6_fwSksp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"au-rucher","paramType":null,"paramKey":"au-rucher","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"0etWZPDg1YhL1dFFUyCEW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"au-rucher","paramType":null,"paramKey":"au-rucher","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
