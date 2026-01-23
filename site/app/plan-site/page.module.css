@@ -12,7 +12,6 @@
 
 .pageTitle {
     text-align: center;
-    font-size: var(--font-size-4xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: 2rem;
     color: var(--color-secondary);
@@ -30,7 +29,6 @@
 }
 
 .introText {
-    font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -60,7 +58,6 @@
 }
 
 .categoryTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0 0 1.5rem 0;
@@ -132,7 +129,6 @@
 }
 
 .pageLinkTitle {
-    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--color-secondary);
     white-space: nowrap;
@@ -140,7 +136,6 @@
 }
 
 .pageLinkDescription {
-    font-size: var(--font-size-base);
     color: var(--color-text);
     line-height: var(--line-height-relaxed);
 }
@@ -167,7 +162,6 @@
 }
 
 .sectionTitle {
-    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-secondary);
     margin: 0 0 1.5rem 0;
@@ -190,7 +184,6 @@
 }
 
 .helpText {
-    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--color-text);
     margin: 0;
@@ -215,13 +208,11 @@
 }
 
 .footerText {
-    font-size: var(--font-size-lg);
     color: var(--color-secondary);
     margin: 0 0 0.5rem 0;
 }
 
 .footerSubtext {
-    font-size: var(--font-size-sm);
     color: var(--color-text);
     opacity: 0.7;
     margin: 0;
@@ -260,7 +251,6 @@
     }
 
     .pageTitle {
-        font-size: var(--font-size-3xl);
         margin-bottom: 1.5rem;
     }
 
@@ -273,34 +263,14 @@
         padding: 1.5rem;
     }
 
-    .categoryTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .introCard,
     .infoSection {
         padding: 1.5rem;
         margin-bottom: 2rem;
     }
 
-    .introText {
-        font-size: var(--font-size-base);
-    }
-
-    .sectionTitle {
-        font-size: var(--font-size-xl);
-    }
-
     .pageLink {
         padding: 1rem;
-    }
-
-    .pageLinkTitle {
-        font-size: var(--font-size-base);
-    }
-
-    .pageLinkDescription {
-        font-size: var(--font-size-sm);
     }
 
     .footerInfo {
@@ -309,16 +279,12 @@
 }
 
 @media (max-width: 480px) {
-    .pageTitle {
-        font-size: var(--font-size-2xl);
-    }
 
     .categorySection {
         padding: 1.25rem;
     }
 
     .categoryTitle {
-        font-size: var(--font-size-lg);
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
@@ -327,14 +293,6 @@
     .pageLink {
         padding: 0.875rem;
         grid-template-columns: 1fr auto;
-    }
-
-    .pageLinkTitle {
-        font-size: var(--font-size-sm);
-    }
-
-    .pageLinkDescription {
-        font-size: var(--font-size-xs);
     }
 
     .pageLink:hover {
