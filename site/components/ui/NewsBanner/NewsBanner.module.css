@@ -4,7 +4,6 @@
 
 /* Variables de configuration */
 :root {
-    --news-scroll-speed: 10s; /* Modifier cette valeur pour changer la vitesse (plus petit = plus rapide) */
     --news-banner-height: 2.5rem; /* Hauteur du bandeau */
 }
 
@@ -65,24 +64,25 @@
 .newsScroller {
     display: flex;
     white-space: nowrap;
-    animation: scroll var(--news-scroll-speed) linear infinite;
+    /* Animation contrôlée par JavaScript */
     will-change: transform;
 }
 
-/* Animation de défilement */
+.newsGroup {
+    display: flex;
+    flex-shrink: 0;
+}
+
+/* Animation de défilement - non utilisée, contrôlée par JS */
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-16.66%);
     }
 }
 
-/* Pause au survol */
-.newsScroller:hover {
-    animation-play-state: paused;
-}
 
 /* Items */
 .newsItem {
@@ -143,21 +143,16 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    :root {
-        --news-scroll-speed: 10s; /* Plus lent sur tablette */
-    }
-
     .newsBanner {
-        /*padding: 0.6rem 2.5rem 0.6rem 0.75rem;*/
         font-size: var(--font-size-xs);
     }
 
     .newsItem {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 
     .separator {
-        margin: 0 1rem;
+        margin: 0 0.75rem;
     }
 
     .closeButton {
@@ -169,19 +164,12 @@
 }
 
 @media (max-width: 480px) {
-    :root {
-        --news-scroll-speed: 10s; /* Encore plus lent sur mobile */
-    }
-
-    /*.newsBanner {
-        padding: 0.5rem 2rem 0.5rem 0.5rem;
-    }*/
 
     .newsItem {
-        padding: 0 0.75rem;
+        padding: 0 0.25rem;
     }
 
     .separator {
-        margin: 0 0.75rem;
+        margin: 0 0.5rem;
     }
 }

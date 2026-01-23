@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './NewsBanner.module.css';
 
 interface NewsItem {
@@ -43,14 +43,19 @@ const NEWS_DATA: NewsItem[] = [
 export default function NewsBanner() {
     const [isVisible, setIsVisible] = useState(false);
     const [activeNews, setActiveNews] = useState<NewsItem[]>([]);
+    const scrollerRef = useRef<HTMLDivElement>(null);
+    const animationRef = useRef<number | null>(null);
+    const positionRef = useRef<number>(0);
+    // vitesse de défilement en pixels par frame
+    const speed = 20; // Plus grand = plus rapide, plus petit = plus lent
 
     // Fonction utilitaire pour réinitialiser le bandeau (accessible dans la console)
     useEffect(() => {
         // @ts-ignore
-        window.resetNewsBanner = () => {
+        globalThis.resetNewsBanner = () => {
             localStorage.removeItem('newsBannerClosed');
             console.log('✅ Bandeau d\'actualités réinitialisé - Rechargez la page');
-            window.location.reload();
+            globalThis.location.reload();
         };
     }, []);
 
@@ -88,6 +93,47 @@ export default function NewsBanner() {
         };
     }, [isVisible]);
 
+    // Animation de défilement JavaScript fluide
+    useEffect(() => {
+        if (!isVisible || !scrollerRef.current) return;
+
+        const scroller = scrollerRef.current;
+
+        const animate = () => {
+            if (!scroller) return;
+
+            // Obtenir la largeur d'un seul set de contenu (première moitié)
+            const firstChild = scroller.firstElementChild as HTMLElement;
+            if (!firstChild) return;
+
+            const contentWidth = firstChild.offsetWidth;
+
+            // Incrémenter la position
+            positionRef.current += speed / 60; // 60 FPS
+
+            // Réinitialiser quand on a défilé la largeur d'un contenu
+            if (positionRef.current >= contentWidth) {
+                positionRef.current = 0;
+            }
+
+            // Appliquer la transformation
+            scroller.style.transform = `translateX(-${positionRef.current}px)`;
+
+            // Continuer l'animation
+            animationRef.current = requestAnimationFrame(animate);
+        };
+
+        // Démarrer l'animation
+        animationRef.current = requestAnimationFrame(animate);
+
+        // Cleanup
+        return () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+        };
+    }, [isVisible, activeNews]);
+
     const handleClose = () => {
         setIsVisible(false);
         // Sauvegarder dans le localStorage pour ne pas réafficher pendant 24h
@@ -101,39 +147,34 @@ export default function NewsBanner() {
 
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
+    // Créer le contenu de base
+    const renderNewsItems = (keyPrefix: string = '') => {
+        return activeNews.map((news) => (
+            <span key={`${keyPrefix}${news.id}`} className={styles.newsItem}>
+                {news.link ? (
+                    <a href={`${basePath}${news.link}`} className={styles.newsLink}>
+                        {news.message}
+                    </a>
+                ) : (
+                    news.message
+                )}
+                <span className={styles.separator}>•</span>
+            </span>
+        ));
+    };
+
     return (
         <div className={`${styles.newsBanner} ${styles[activeNews[0].type || 'info']}`}>
             <div className={styles.newsContent}>
-                <div className={styles.newsScroller}>
-                    {activeNews.map((news, index) => (
-                        <span key={news.id} className={styles.newsItem}>
-                            {news.link ? (
-                                <a href={`${basePath}${news.link}`} className={styles.newsLink}>
-                                    {news.message}
-                                </a>
-                            ) : (
-                                news.message
-                            )}
-                            {index < activeNews.length - 1 && (
-                                <span className={styles.separator}>•</span>
-                            )}
-                        </span>
-                    ))}
-                    {/* Dupliquer le contenu pour un défilement continu */}
-                    {activeNews.map((news, index) => (
-                        <span key={`${news.id}-duplicate`} className={styles.newsItem}>
-                            {news.link ? (
-                                <a href={`${basePath}${news.link}`} className={styles.newsLink}>
-                                    {news.message}
-                                </a>
-                            ) : (
-                                news.message
-                            )}
-                            {index < activeNews.length - 1 && (
-                                <span className={styles.separator}>•</span>
-                            )}
-                        </span>
-                    ))}
+                <div className={styles.newsScroller} ref={scrollerRef}>
+                    {/* Premier set de contenu */}
+                    <div className={styles.newsGroup}>
+                        {renderNewsItems('')}
+                    </div>
+                    {/* Dupliquer pour le défilement continu */}
+                    <div className={styles.newsGroup}>
+                        {renderNewsItems('dup-')}
+                    </div>
                 </div>
             </div>
             <button

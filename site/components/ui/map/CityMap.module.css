@@ -18,6 +18,7 @@
     overflow: hidden;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
     border: 2px solid var(--color-primary-light);
+    z-index: 0;
 }
 
 /* État de chargement */

@@ -174,11 +174,6 @@ function BeekeeperCard({ beekeeper, isPartner = false }: BeekeeperCardProps) {
               </span>
             </div>
           )}
-
-          <div className={styles.infoItem}>
-            <span className={styles.infoIcon}>🏠</span>
-            <span className={styles.infoText}>{beekeeper.hivesCount}</span>
-          </div>
         </div>
 
         {beekeeper.bio && (
