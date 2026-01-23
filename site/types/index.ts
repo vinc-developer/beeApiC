@@ -50,6 +50,7 @@ export interface Beekeeper {
   bio?: string;
   hivesCount?: string;
   location?: string;
+  ruchers: string[];
   distance?: string;
   beekeeperSince?: string;
   gallery?: string[];

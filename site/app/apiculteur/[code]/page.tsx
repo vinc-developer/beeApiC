@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import {loadBeekeeper, loadBeekeeperAll} from '@/lib/api/tracabilite';
 import ImageGallery from "@/components/gallery/ImageGallery";
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok, FaLinkedin } from 'react-icons/fa';
+import CityMap from "@/components/ui/map/CityMap";
+import styles from './../page.module.css';
 
 export async function generateMetadata({
                                           params,
@@ -39,7 +41,7 @@ export async function generateMetadata({
       "apiculture responsable",
       "miel local",
       `${beekeeper.location}`,
-      "bee api c",
+      "bee api'c",
     ],
   };
 }
@@ -185,6 +187,10 @@ export default async function BeekeeperPage({
                       <span className="info-value">{beekeeper.beekeeperSince}</span>
                     </div>
                 )}
+              </div>
+              <div>
+                <h3 className={styles.exploitationTitle}>Mes ruchers</h3>
+                <CityMap cities={beekeeper.ruchers} zoom={10} beeApic={false} isVille={true}/>
               </div>
             </div>
 

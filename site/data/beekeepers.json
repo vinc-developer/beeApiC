@@ -58,7 +58,12 @@
       "logo": "matthieu-colas/logo.jpg",
       "bio": "",
       "hivesCount": "",
-      "location": "Guenrouet, Loire-Atlantique, France",
+      "location": "Pays de Nantes, Loire-Atlantique, France",
+      "ruchers" : [
+        "Guenrouet",
+        "Campbon",
+        "Prinquiau"
+      ],
       "distance": "45 kms de Nantes et 15 kms de Redon",
       "beekeeperSince": "2020",
       "gallery": [

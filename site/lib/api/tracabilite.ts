@@ -23,7 +23,6 @@ export async function loadBeekeeperAll(): Promise<Beekeeper[]> {
  */
 async function fetchFromProxy(lotNumber: string): Promise<any> {
   const url = `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.TRACABILITE}/${lotNumber}`;
-  console.log(`      📡 URL du proxy: ${url}`);
 
   try {
     const response = await fetch(url, {
@@ -34,16 +33,11 @@ async function fetchFromProxy(lotNumber: string): Promise<any> {
       cache: 'no-store',
     });
 
-    console.log(`      ✅ Réponse reçue: ${response.status} ${response.statusText}`);
-
     if (!response.ok) {
-      console.error(`      ❌ Erreur HTTP: ${response.status}`);
       throw new Error(`Erreur proxy: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log(`      📦 Données JSON reçues:`, JSON.stringify(data, null, 2));
-
     return data;
 
   } catch (error) {
@@ -210,28 +204,19 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
   const beekeepers = beekeepersData.beekeepers as Record<string, Beekeeper>;
   const grouped: LotsGroupedByBeekeeper[] = [];
 
-  console.log('🔍 getLotsListGrouped() - Début du chargement des lots');
-  console.log(`📡 URL du proxy configurée: ${API_CONFIG.PROXY_URL}`);
-
   for (const [code, beekeeper] of Object.entries(beekeepers)) {
-    console.log(`\n👤 Traitement apiculteur: ${code} (${beekeeper.firstName} ${beekeeper.lastName})`);
-    console.log(`   useProxy: ${beekeeper.useProxy}`);
-
     // Utiliser un Set pour éviter les doublons lors de la fusion
     const allLotsForBeekeeper = new Set<string>();
 
     // 1. TOUJOURS charger depuis le JSON local si disponible
-    console.log(`   📂 Chargement depuis les données locales`);
     const localLots = traceabilityData.lots as Record<string, any>;
     const localBeekeeperLots = Object.keys(localLots).filter(lotNumber => lotNumber.startsWith(code + '-'));
 
     localBeekeeperLots.forEach(lot => allLotsForBeekeeper.add(lot));
-    console.log(`   ✅ ${localBeekeeperLots.length} lot(s) trouvé(s) localement pour ${code}`);
 
     // 2. Si useProxy, charger AUSSI depuis le proxy et fusionner
     if (beekeeper.useProxy) {
       const url = `${API_CONFIG.PROXY_URL}${API_CONFIG.ENDPOINTS.NUMEROS_LOTS}?per_page=100&page=1&beekeeper=${code}`;
-      console.log(`   📡 Appel proxy: ${url}`);
 
       try {
         const response = await fetch(url, {
@@ -242,17 +227,8 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
           cache: 'no-store',
         });
 
-        console.log(`   ✅ Réponse reçue: ${response.status} ${response.statusText}`);
-
         if (response.ok) {
           const data = await response.json();
-          console.log(`   📦 Données proxy reçues`);
-          console.log(`   📦 Structure:`, {
-            hasData: !!data.data,
-            hasPagination: !!(data.current_page || data.per_page),
-            keys: Object.keys(data)
-          });
-
           let proxyLots: string[] = [];
 
           // Le proxy retourne une structure de pagination :
@@ -265,40 +241,25 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
           // }
 
           if (data.data && Array.isArray(data.data)) {
-            console.log(`   📦 data.data est un tableau avec ${data.data.length} élément(s)`);
-
-            if (data.current_page) {
-              console.log(`   📄 Pagination: page ${data.current_page}/${data.last_page || '?'}, ${data.total || data.data.length} lot(s) au total`);
-            }
-
-            if (data.data.length > 0) {
-              console.log(`   📦 Premier élément:`, data.data[0]);
-              console.log(`   📦 Type du premier élément:`, typeof data.data[0]);
-            }
-
             proxyLots = data.data
               .map((lot: any, index: number) => {
                 // Si c'est déjà une chaîne de caractères (numéro de lot direct)
                 if (typeof lot === 'string') {
-                  console.log(`      [${index}] Type: string → "${lot}"`);
                   return lot;
                 }
 
                 // Si c'est un objet, essayer d'extraire le numéro de lot
                 if (typeof lot === 'object' && lot !== null) {
                   const numeroLot = lot.numero_lot || lot.numeroLot || lot.lot_number || lot.number || lot.lotNumber;
-                  console.log(`      [${index}] Type: object → numeroLot: "${numeroLot}"`);
                   return numeroLot;
                 }
 
-                console.log(`      [${index}] Type inconnu (${typeof lot})`);
                 return null;
               })
               .filter((lot: string | null) => lot && typeof lot === 'string');
 
           } else if (Array.isArray(data)) {
             // Fallback : si data est directement un tableau
-            console.log(`   📦 data est directement un tableau avec ${data.length} élément(s)`);
 
             proxyLots = data
               .map((lot: any) => {
@@ -311,10 +272,7 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
 
           // Ajouter les lots du proxy au Set (fusion automatique, pas de doublons)
           proxyLots.forEach(lot => allLotsForBeekeeper.add(lot));
-          console.log(`   ✅ ${proxyLots.length} lot(s) trouvé(s) depuis le proxy pour ${code}`);
 
-        } else {
-          console.error(`   ❌ Erreur HTTP: ${response.status} ${response.statusText}`);
         }
       } catch (error) {
         console.error(`   ❌ Erreur lors de la récupération des lots depuis le proxy pour ${code}:`, error);
@@ -324,7 +282,6 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
 
     // 3. Convertir le Set en tableau trié
     const beekeeperLots = Array.from(allLotsForBeekeeper).sort();
-    console.log(`   ✅ Total pour ${code}: ${beekeeperLots.length} lot(s) unique(s) (local + proxy)`);
 
     // Ajouter au groupe si des lots existent
     if (beekeeperLots.length > 0) {
@@ -335,8 +292,6 @@ export async function getLotsListGrouped(): Promise<LotsGroupedByBeekeeper[]> {
       });
     }
   }
-
-  console.log(`\n✅ Fin du chargement - ${grouped.length} groupe(s) d'apiculteur(s) avec des lots`);
 
   // Trier par nom d'apiculteur
   return grouped.sort((a, b) => a.beekeeperName.localeCompare(b.beekeeperName));

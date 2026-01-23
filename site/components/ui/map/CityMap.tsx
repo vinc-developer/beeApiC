@@ -174,7 +174,7 @@ export default function CityMap({ cities, height = '400px', width = '100%', zoom
                             <div className={styles.popupContent}>
                                 <strong className={styles.popupTitle}>
                                     {beeApic && (
-                                        <span>🐝 Bee Api'C - </span>
+                                        <span>🐝 Bee Api'C - Apiculteur local,</span>
                                     )}
                                     {isVille && coord.cityName ? coord.cityName : coord.name}
                                 </strong>
