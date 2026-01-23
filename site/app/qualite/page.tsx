@@ -2,9 +2,10 @@ import styles from "./page.module.css";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {
-    title: "Notre Charte Qualité – Miel Premium Local",
+    title: "Notre charte qualité – Miel premium local",
     description:
-        "Découvrez notre engagement qualité : miel local 100% Loire-Atlantique, traçabilité totale, apiculture responsable et charte stricte pour nos partenaires apicoles.",
+        "Découvrez notre engagement qualité : miel local 100% Loire-Atlantique, traçabilité totale, " +
+        "apiculture responsable et charte stricte pour nos partenaires apicoles.",
     keywords: [
         "miel qualité premium",
         "miel local Loire-Atlantique",
@@ -177,10 +178,39 @@ export default function QualitePage() {
                                 <div>
                                     <h4 className={styles.differenceTitle}>Miel Bee Api'C</h4>
                                     <p className={styles.differenceText}>
-                                        100% local, producteur identifié, extraction douce, traçabilité complète du rucher au pot
+                                        100% local, producteur identifié, extraction douce, traçabilité complète du pot à la ruche
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.contentCard}>
+                    <div className={styles.cardHeader}>
+                        <h2 className={styles.cardTitle}>Traçabilité du miel - du pot à la ruche</h2>
+                    </div>
+
+                    <div className={styles.tracabiliteContainer}>
+                        <img
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/tracabilite/tracabilite-miel-bee-apic.png`}
+                            alt="Tracabilité du miel Bee Api'C du pot à la ruche"
+                            className={styles.tracabiliteImage}
+                        />
+
+                        <div className={styles.tracabiliteText}>
+                            <p className={styles.cardText}>
+                                Chaque lot de miel Bee Api'C est suivi à chaque étape de son parcours, de la ruche à votre table :
+                            </p>
+                            <ul className={styles.charteList}>
+                                <li>Ruchers</li>
+                                <li>Récoltes</li>
+                                <li>Extraction</li>
+                                <li>Mise en pot</li>
+                            </ul>
+                            <p className={styles.cardText}>
+                                Cette traçabilité garantit l'origine, la qualité et la transparence de chaque pot vendu.
+                            </p>
                         </div>
                     </div>
                 </div>

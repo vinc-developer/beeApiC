@@ -11,7 +11,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
 
         <div className={styles.footerTop}>
-          <div>
+          <div className={styles.footerInfo}>
             <h3>Bee Api'C - Apiculteur local</h3>
             <h4>Entre Nantes et Pornic</h4>
             <h5>Saint-Hilaire-de-Chaléons</h5>
@@ -42,13 +42,13 @@ export default function Footer() {
                 <FaLinkedin className="social-icon"/>
               </a>
             </div>
-
           </div>
+
           <div className={styles.footerNavigation}>
             <ul>
               <li>
                 <Link href="/a-propos" className={styles.mobileDropdownItem}>
-                  <span>A-propos</span>
+                  <span>A propos</span>
                 </Link>
               </li>
               <li>
@@ -57,13 +57,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className={styles.mobileDropdownItem}>
+                  <span>Contact</span>
+                </Link>
+              </li>
+            </ul>
+
+            <ul>
+              <li>
                 <Link href="/faq" className={styles.mobileDropdownItem}>
-                  <span>FAQ</span>
+                  <span>F.A.Q</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className={styles.mobileDropdownItem}>
-                  <span>Contact</span>
+                <Link href="/plan-site" className={styles.mobileDropdownItem}>
+                  <span>Plan du site</span>
                 </Link>
               </li>
               <li>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getLotsListGrouped } from '@/lib/api/tracabilite';
 import type { LotsGroupedByBeekeeper } from '@/types';
+import styles from './tracabilite.module.css';
 
 export default function TracabilitePage() {
   const [lotNumber, setLotNumber] = useState('');
@@ -52,14 +53,18 @@ export default function TracabilitePage() {
         <section className="section">
           <h1 className="header-title">Traçabilité du miel</h1>
 
+          <div className={styles.tracabiliteContainer}>
+            <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/tracabilite/tracabilite-miel-bee-apic.png`}
+                alt="Tracabilité du miel Bee Api'C du pot à la ruche"
+                className={styles.tracabiliteImage}
+            />
+          </div>
+
           <div className="tracabiliteCard">
               <p className="tracabiliteText">
                 Le numéro de lot se trouve sur l'étiquette de votre pot de miel, près du QRCode. Il est
-                composé comme suit : <br />
-                <strong>XX-YYMMDD-ZZ</strong> <br />
-                Où <strong>XX</strong> représente le code apiculteur, <strong>YYMMDD</strong> la date
-                de mise en pot du miel (année, mois, jour) et <strong>ZZ</strong> un code spécifique au lot.
-                <br />
+                composé comme suit : [ <strong>XX-YYMMDD-ZZ</strong> ] <br />
               </p>
             </div>
 

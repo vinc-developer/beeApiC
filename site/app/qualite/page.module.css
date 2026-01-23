@@ -51,6 +51,29 @@
     max-height: 500px;
 }
 
+/* ===== TRACABILITE CONTAINER ===== */
+.tracabiliteContainer {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.tracabiliteImage {
+    flex: 0 0 45%;
+    width: 45%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
+.tracabiliteText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 /* ===== FOOTER IMAGE ===== */
 .footerImage {
     width: 100%;
@@ -288,6 +311,22 @@
     .differenceGrid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    /* Responsive tracabilite - texte sous l'image */
+    .tracabiliteContainer {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .tracabiliteImage {
+        flex: 0 0 100%;
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .tracabiliteText {
+        width: 100%;
     }
 
     .heroImage,

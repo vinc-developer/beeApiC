@@ -23,6 +23,12 @@
     display: flex;
     justify-content: space-around;
     padding: 1rem;
+    align-items: center;
+}
+.footerNavigation {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-around;
 }
 
 .footerNavigation li{
@@ -326,6 +332,24 @@
 @media (max-width: 768px) {
     .footerTop {
         flex-direction: column;
+        text-align: center;
+    }
+    .footerNavigation {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footerNavigation {
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+    }
+    .footerNavigation ul {
+        margin: 0;
+    }
+    .footerInfo {
+        width: 100%;
     }
 }
 

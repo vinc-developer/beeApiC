@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/ventes-ecoles',
         '/apiculteurs',
         '/tracabilite',
+        '/qualite',
         '/apiculteur',
         '/contact',
         '/a-propos',
@@ -38,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const routesService = [
         '/mentions-legales',
+        '/plan-site',
         '/faq'
     ].map((route) => ({
         url: `${baseUrl}${route}`,
