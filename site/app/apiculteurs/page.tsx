@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./apiculteurs.module.css";
 import beekeepersData from "@/data/beekeepers.json";
 import {Metadata} from "next";
+import { getRegionalFlag } from '@/lib/utils/regional-flags';
 
 export const metadata: Metadata = {
   title: "Apiculteurs partenaires – Réseau local",
@@ -102,6 +103,9 @@ interface BeekeeperCardProps {
 }
 
 function BeekeeperCard({ beekeeper, isPartner = false }: BeekeeperCardProps) {
+  // Obtenir le drapeau régional
+  const regionalFlag = getRegionalFlag(beekeeper.location);
+
   return (
     <Link href={`/apiculteur/${beekeeper.code}`} className={styles.beekeeperCard}>
       {/* Photo de l'apiculteur */}
@@ -151,7 +155,18 @@ function BeekeeperCard({ beekeeper, isPartner = false }: BeekeeperCardProps) {
         <div className={styles.infoDetails}>
           <div className={styles.infoItem}>
             <span className={styles.infoIcon}>📍</span>
-            <span className={styles.infoText}>{beekeeper.location}</span>
+            <span className={styles.infoText}>
+              {beekeeper.location}
+              {regionalFlag && (
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH}${regionalFlag}`}
+                  alt="Drapeau régional"
+                  width={20}
+                  height={13}
+                  style={{ marginLeft: '6px', display: 'inline-block', verticalAlign: 'middle' }}
+                />
+              )}
+            </span>
           </div>
 
           <div className={styles.infoItem}>

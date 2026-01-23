@@ -4,6 +4,8 @@ import ImageGallery from "@/components/gallery/ImageGallery";
 import { FaFacebook, FaInstagram, FaYoutube, FaTiktok, FaLinkedin } from 'react-icons/fa';
 import CityMap from "@/components/ui/map/CityMap";
 import styles from './../page.module.css';
+import Image from 'next/image';
+import { getRegionalFlag } from '@/lib/utils/regional-flags';
 
 export async function generateMetadata({
                                           params,
@@ -27,9 +29,9 @@ export async function generateMetadata({
   const isPartner = !!beekeeper.partnerSince;
 
   const role = isBeApiC
-      ? "Apiculteur Bee Api’C"
+      ? "Apiculteur Bee Api'C"
       : isPartner
-          ? "Apiculteur partenaire Bee Api’C"
+          ? "Apiculteur partenaire Bee Api'C"
           : "Apiculteur local";
 
   return {
@@ -71,10 +73,13 @@ export default async function BeekeeperPage({
   const isPartner = beekeeper.partnerSince;
 
   const role = isBeApiC
-      ? "Apiculteur Bee Api’C"
+      ? "Apiculteur Bee Api'C"
       : isPartner
-          ? "Apiculteur partenaire Bee Api’C"
+          ? "Apiculteur partenaire Bee Api'C"
           : "Apiculteur local";
+
+  // Obtenir le drapeau régional
+  const regionalFlag = getRegionalFlag(beekeeper.location);
 
   return (
       <div className="container">
@@ -172,7 +177,18 @@ export default async function BeekeeperPage({
                 {beekeeper.location && (
                     <div className="info-row">
                       <span className="info-label">Localisation</span>
-                      <span className="info-value">{beekeeper.location}</span>
+                      <span className="info-value">
+                        {beekeeper.location}
+                        {regionalFlag && (
+                          <Image
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}${regionalFlag}`}
+                            alt="Drapeau régional"
+                            width={24}
+                            height={16}
+                            style={{ marginLeft: '8px', display: 'inline-block', verticalAlign: 'middle' }}
+                          />
+                        )}
+                      </span>
                     </div>
                 )}
                 {beekeeper.distance && (
@@ -190,7 +206,10 @@ export default async function BeekeeperPage({
               </div>
               <div>
                 <h3 className={styles.exploitationTitle}>Mes ruchers</h3>
-                <CityMap cities={beekeeper.ruchers} zoom={10} beeApic={false} isVille={true}/>
+                <div className={styles.exploitationContent}>
+                  <CityMap cities={beekeeper.ruchers} zoom={10} beeApic={false} isVille={true}/>
+                </div>
+
               </div>
             </div>
 
