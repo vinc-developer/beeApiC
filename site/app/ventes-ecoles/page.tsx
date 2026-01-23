@@ -294,6 +294,24 @@ export default function VenteEcolePage() {
             </div>
           </div>
 
+          <div className={styles.contentCard}>
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>Les écoles partenaires </h2>
+            </div>
+            <div className={styles.cardContent}>
+              <p className={styles.cardText}>
+                Un grand merci aux associations des écoles qui m'ont déjà fait confiance pour
+                organiser les ventes de miel :
+              </p>
+              <ul className={styles.benefitsList}>
+                <li>Ecole de Pornic</li>
+                <li>Ecole de Saint Hilaire de Chaléons</li>
+                <li>Ecole de Saint Léger les Vignes</li>
+                <li>Ecole de Besné</li>
+              </ul>
+            </div>
+          </div>
+
           {/* Section CTA */}
           <div className={styles.ctaCard}>
             <h2 className={styles.ctaTitle}>Prêt à lancer votre vente solidaire ?</h2>
