@@ -148,7 +148,7 @@
     }
 
     .newsBanner {
-        padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+        /*padding: 0.6rem 2.5rem 0.6rem 0.75rem;*/
         font-size: var(--font-size-xs);
     }
 
@@ -170,12 +170,12 @@
 
 @media (max-width: 480px) {
     :root {
-        --news-scroll-speed: 50s; /* Encore plus lent sur mobile */
+        --news-scroll-speed: 10s; /* Encore plus lent sur mobile */
     }
 
-    .newsBanner {
+    /*.newsBanner {
         padding: 0.5rem 2rem 0.5rem 0.5rem;
-    }
+    }*/
 
     .newsItem {
         padding: 0 0.75rem;

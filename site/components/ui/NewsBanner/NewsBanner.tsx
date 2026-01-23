@@ -14,7 +14,7 @@ interface NewsItem {
 const NEWS_DATA: NewsItem[] = [
     {
         id: '1',
-        message: '🍯 Bienvenue sur mon nouveau site ! Pour feter ça, profitez de -15% sur toute la boutique avec le code WELCOME15',
+        message: '🍯 Bienvenue sur mon nouveau site ! Pour fêter ça, profitez de -15% sur toute la boutique avec le code WELCOME15 🎉',
         type: 'warning',
         link: 'https://bee-apic.sumupstore.com/produits',
         active: true
@@ -73,6 +73,20 @@ export default function NewsBanner() {
         setActiveNews(active);
         setIsVisible(active.length > 0);
     }, []);
+
+    // Ajouter/retirer une classe sur le body quand le bandeau est visible/invisible
+    useEffect(() => {
+        if (isVisible) {
+            document.body.classList.add('has-news-banner');
+        } else {
+            document.body.classList.remove('has-news-banner');
+        }
+
+        // Cleanup lors du démontage du composant
+        return () => {
+            document.body.classList.remove('has-news-banner');
+        };
+    }, [isVisible]);
 
     const handleClose = () => {
         setIsVisible(false);

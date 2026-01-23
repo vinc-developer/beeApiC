@@ -4,7 +4,7 @@
 
 .header {
     position: sticky;
-    top: var(--news-banner-height, 0); /* Utilise la hauteur du bandeau si définie, sinon 0 */
+    top: 0;
     z-index: 100; /* Réduit pour rester sous le bandeau (qui est à 1000) */
     width: 100%;
     border-bottom: 1px solid #FEF3C7;
@@ -12,6 +12,12 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     overflow: visible;
+    transition: top 0.3s ease; /* Animation fluide lors du changement */
+}
+
+/* Quand le bandeau d'actualités est visible, décaler le header vers le bas */
+:global(body.has-news-banner) .header {
+    top: var(--news-banner-height, 2.5rem);
 }
 
 @supports (backdrop-filter: blur(12px)) {

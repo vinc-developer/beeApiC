@@ -83,4 +83,6 @@ export function resetConsent(): void {
     if (typeof window === "undefined") return;
     localStorage.removeItem("cookieConsent");
     localStorage.removeItem("cookieConsentDate");
+    localStorage.removeItem('hasSeenHoneyDataInfo');
+    localStorage.removeItem('newsBannerClosed');
 }

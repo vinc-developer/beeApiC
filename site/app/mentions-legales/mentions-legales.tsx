@@ -16,6 +16,12 @@ export default function MentionsLegalesComponent() {
         alert('La popup d\'information sera de nouveau affichée lors de votre prochaine visite sur la page des miels.');
     };
 
+    const handleResetNewsBanner = () => {
+        localStorage.removeItem('newsBannerClosed');
+        alert('Le bandeau d\'actualités sera de nouveau affiché lors du rechargement de la page.');
+        window.location.reload();
+    };
+
     return (
         <div className={styles.container}>
             <section className={styles.section}>
@@ -203,7 +209,7 @@ export default function MentionsLegalesComponent() {
                             <span className={styles.infoLine}>• Rechargeant la page et refusant le consentement</span>
                             <span className={styles.infoLine}>• Cliquer sur le bouton ci-dessous :</span>
                             <button onClick={handleReset} className={styles.resetButton}>
-                                Supprimer mon consentement
+                                Supprimer mes données !
                             </button>
                         </div>
 
@@ -244,9 +250,37 @@ export default function MentionsLegalesComponent() {
                             </p>
                         </div>
 
+                        <h3 className={styles.subsectionTitle}>Bandeau d'actualités</h3>
+                        <p className={styles.paragraph}>
+                            Lorsque vous fermez le bandeau d'actualités en haut de la page, votre choix est enregistré
+                            pendant 24 heures pour éviter de vous afficher à nouveau ce bandeau de manière répétitive.
+                            Cette information est stockée localement dans votre navigateur uniquement.
+                        </p>
+
+                        <div className={styles.infoBlock}>
+                            <span className={styles.infoLine}>
+                                <strong>📢 Durée de masquage :</strong> 24 heures
+                            </span>
+                            <span className={styles.infoLine}>
+                                <strong>💾 Stockage :</strong> localStorage (local, non transmis)
+                            </span>
+                            <span className={styles.infoLine}>
+                                <strong>🔒 Données :</strong> Date de fermeture uniquement
+                            </span>
+                        </div>
+
+                        <p className={styles.paragraph}>
+                            Si vous souhaitez réafficher le bandeau immédiatement, vous pouvez cliquer sur le bouton ci-dessous :
+                        </p>
+                        <div className={styles.infoBlock}>
+                            <button onClick={handleResetNewsBanner} className={styles.resetButton}>
+                                Réafficher le bandeau d'actualités
+                            </button>
+                        </div>
+
                         <h3 className={styles.subsectionTitle}>Réinitialiser vos préférences</h3>
                         <p className={styles.paragraph}>
-                            Si vous souhaitez revoir la popup d'information, vous pouvez cliquer sur le bouton ci-dessous :
+                            Si vous souhaitez revoir la popup d'information des miels, vous pouvez cliquer sur le bouton ci-dessous :
                         </p>
                         <div className={styles.infoBlock}>
                             <button onClick={handleResetPopup} className={styles.resetButton}>
