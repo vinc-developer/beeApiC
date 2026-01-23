@@ -1,0 +1,135 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import styles from './NewsBanner.module.css';
+
+interface NewsItem {
+    id: string;
+    message: string;
+    type?: 'info' | 'warning' | 'success' | 'promotion';
+    link?: string;
+    active: boolean;
+}
+
+const NEWS_DATA: NewsItem[] = [
+    {
+        id: '1',
+        message: '🍯 Bienvenue sur mon nouveau site ! Pour feter ça, profitez de -15% sur toute la boutique avec le code WELCOME15',
+        type: 'warning',
+        link: 'https://bee-apic.sumupstore.com/produits',
+        active: true
+    },
+    {
+         id: '2',
+         message: '📢 Marché de Noël : Retrouvez-nous le samedi 15 décembre à Saint-Brevin',
+         type: 'info',
+         link: '/contact',
+         active: false
+     },
+     {
+         id: '3',
+         message: '⚠️ Rupture de stock temporaire sur le miel d\'acacia - Retour prévu mi-février',
+         type: 'success',
+         active: false
+     },
+    {
+        id: '4',
+        message: '⚠️ Rupture de stock temporaire sur le miel d\'acacia - Retour prévu mi-février',
+        type: 'promotion',
+        active: false
+    },
+];
+
+export default function NewsBanner() {
+    const [isVisible, setIsVisible] = useState(false);
+    const [activeNews, setActiveNews] = useState<NewsItem[]>([]);
+
+    // Fonction utilitaire pour réinitialiser le bandeau (accessible dans la console)
+    useEffect(() => {
+        // @ts-ignore
+        window.resetNewsBanner = () => {
+            localStorage.removeItem('newsBannerClosed');
+            console.log('✅ Bandeau d\'actualités réinitialisé - Rechargez la page');
+            window.location.reload();
+        };
+    }, []);
+
+    useEffect(() => {
+        // Vérifier d'abord si le bandeau a été fermé récemment (moins de 24h)
+        const closedTime = localStorage.getItem('newsBannerClosed');
+
+        if (closedTime) {
+            const hoursSinceClosed = (Date.now() - Number.parseInt(closedTime)) / (1000 * 60 * 60);
+
+            if (hoursSinceClosed < 24) {
+                setIsVisible(false);
+                return; // Ne pas afficher si fermé récemment
+            }
+        }
+
+        // Filtrer les actualités actives
+        const active = NEWS_DATA.filter(news => news.active);
+
+        setActiveNews(active);
+        setIsVisible(active.length > 0);
+    }, []);
+
+    const handleClose = () => {
+        setIsVisible(false);
+        // Sauvegarder dans le localStorage pour ne pas réafficher pendant 24h
+        localStorage.setItem('newsBannerClosed', Date.now().toString());
+    };
+
+
+    if (!isVisible || activeNews.length === 0) {
+        return null;
+    }
+
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+    return (
+        <div className={`${styles.newsBanner} ${styles[activeNews[0].type || 'info']}`}>
+            <div className={styles.newsContent}>
+                <div className={styles.newsScroller}>
+                    {activeNews.map((news, index) => (
+                        <span key={news.id} className={styles.newsItem}>
+                            {news.link ? (
+                                <a href={`${basePath}${news.link}`} className={styles.newsLink}>
+                                    {news.message}
+                                </a>
+                            ) : (
+                                news.message
+                            )}
+                            {index < activeNews.length - 1 && (
+                                <span className={styles.separator}>•</span>
+                            )}
+                        </span>
+                    ))}
+                    {/* Dupliquer le contenu pour un défilement continu */}
+                    {activeNews.map((news, index) => (
+                        <span key={`${news.id}-duplicate`} className={styles.newsItem}>
+                            {news.link ? (
+                                <a href={`${basePath}${news.link}`} className={styles.newsLink}>
+                                    {news.message}
+                                </a>
+                            ) : (
+                                news.message
+                            )}
+                            {index < activeNews.length - 1 && (
+                                <span className={styles.separator}>•</span>
+                            )}
+                        </span>
+                    ))}
+                </div>
+            </div>
+            <button
+                onClick={handleClose}
+                className={styles.closeButton}
+                aria-label="Fermer le bandeau"
+                title="Fermer"
+            >
+                ✕
+            </button>
+        </div>
+    );
+}

@@ -4,8 +4,8 @@
 
 .header {
     position: sticky;
-    top: 0;
-    z-index: 1000;
+    top: var(--news-banner-height, 0); /* Utilise la hauteur du bandeau si définie, sinon 0 */
+    z-index: 100; /* Réduit pour rester sous le bandeau (qui est à 1000) */
     width: 100%;
     border-bottom: 1px solid #FEF3C7;
     background: rgba(255, 255, 255, 0.95);
