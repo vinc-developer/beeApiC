@@ -84,7 +84,7 @@ export default function Home() {
             <div className={styles.companyInfo}>
               <p className={styles.companyDescription}>
                 Bienvenue chez Bee Api'C, une apiculture locale engagée au service des abeilles et de la biodiversité en Loire-Atlantique.
-                Animé par une passion profonde pour le monde de la ruche, Bee Api'C vous invite à découvrir l'univers fascinant des abeilles, leur rôle essentiel dans notre écosystème et le travail minutieux qui se cache derrière chaque pot de miel.
+                Animé par une passion profonde pour le monde de la ruche, je vous invite à découvrir l'univers fascinant des abeilles, leur rôle essentiel dans notre écosystème et le travail minutieux qui se cache derrière chaque pot de miel.
               </p>
               <p className={styles.companyDescription}>
                 Que vous soyez simplement curieux, sensible à la protection de la nature ou amateur de produits locaux et authentiques, ce site est une porte d'entrée vers une apiculture respectueuse et transparente. Vous y découvrirez mes pratiques, mes ruchers, les miels que je produis ainsi que mes actions pour la sauvegarde des essaims.
