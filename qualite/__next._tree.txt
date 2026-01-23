@@ -4,4 +4,4 @@
 :HL["/beeApiC/images/pages/gallerie-home/mise-en-pot.jpg","image"]
 :HL["/beeApiC/images/products/5-pots-500g.jpg","image"]
 :HL["/beeApiC/images/pages/tracabilite/tracabilite-miel-bee-apic.png","image"]
-0:{"buildId":"ok8JF4_ze5EolOA8vL7HO","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"qualite","paramType":null,"paramKey":"qualite","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"qualite","paramType":null,"paramKey":"qualite","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
