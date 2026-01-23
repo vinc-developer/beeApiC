@@ -4,6 +4,8 @@ import {FormEvent, useState} from "react";
 import {siteConfig} from "@/config/site";
 import styles from "@/app/contact/page.module.css";
 import { useCookieConsent, canUseCookies } from "@/hooks/useCookieConsent";
+import CityMap from "@/components/ui/map/CityMap";
+import Link from "next/link";
 
 export default function ContactClient() {
     const cookieConsent = useCookieConsent();
@@ -90,6 +92,10 @@ export default function ContactClient() {
             [e.target.name]: e.target.value
         });
     };
+    const cities = [
+        siteConfig.company.address,
+    ];
+
     return (
         <div className={styles.container}>
             <section className={styles.section}>
@@ -304,6 +310,20 @@ export default function ContactClient() {
                     </div>
                 </div>
             </section>
+
+            <div className={styles.contentCard}>
+                <div className={styles.cardHeader}>
+                    <h2 className={styles.cardTitle}>Où me trouver ?</h2>
+                </div>
+                <div className={styles.cardContent}>
+                    <p>
+                        Vous souhaitez me rendre visite ou acheter du miel en direct ? Vous pouvez vous déplacer directement !
+                    </p>
+
+                    <p>Appeler quand même avant 😉!</p>
+                    <CityMap cities={cities} zoom={16} beeApic={true}/>
+                </div>
+            </div>
         </div>
     );
 }

@@ -3,10 +3,12 @@
     "BA-250701-CH": {
       "lotNumber": "BA-250701-CH",
       "humidity": "17.5",
-      "zone": {
-        "lieuxRucher": "Saint-Léger-les-Vignes",
-        "environnement": "Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques."
-      },
+      "zone": [
+        {
+          "lieuxRucher": "Saint-Léger-les-Vignes",
+          "environnement": "Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques."
+        }
+      ],
       "production": {
         "datesRecolte": [
           "2025-06-10",
@@ -25,10 +27,20 @@
     "MC-250715-PA": {
       "lotNumber": "MC-250715-PA",
       "humidity": "17",
-      "zone": {
-        "lieuxRucher": "Guenrouet",
-        "environnement": "Nos ruches sont situées dans un environnement préservé, entouré de forêts de châtaigniers, de prairies fleuries et de cultures biologiques. La diversité florale de cette région offre un miel aux saveurs uniques et authentiques."
-      },
+      "zone": [
+        {
+          "lieuxRucher": "Guenrouet",
+          "environnement": "Forêts de châtaigniers"
+        },
+        {
+          "lieuxRucher": "Campbon",
+          "environnement": "Prairies fleuries"
+        },
+        {
+          "lieuxRucher": "Malville",
+          "environnement": "Marais"
+        }
+      ],
       "production": {
         "datesRecolte": [
           "2025-06-10",

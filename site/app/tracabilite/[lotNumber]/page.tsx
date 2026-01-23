@@ -8,6 +8,7 @@ import {Metadata} from "next";
 import HoneyDataInfoPopup from "@/components/ui/popup/popup";
 import ButtonPrimary from "@/components/ui/ButtonPrimary/ButtonPrimary";
 import ButtonSecondary from "@/components/ui/ButtonSecondary/ButtonSecondary";
+import CityMap from "@/components/ui/map/CityMap";
 
 /* référencement lot*/
 export function generateStaticParams() {
@@ -67,6 +68,8 @@ export default async function LotDetailPage({
   const isBeApiC = data.beekeeper?.code === 'BA';
   const isPartner = data.beekeeper?.partnerSince;
 
+  const lieuxRuchers: string[] = [...new Set(data.ruchers.map(rucher => rucher.lieuxRucher))];
+
   return (
     <div className="container">
       <HoneyDataInfoPopup />
@@ -84,49 +87,63 @@ export default async function LotDetailPage({
               Informations du produit
             </h2>
 
-            <div className="info-grid">
-              <div className="info-item">
-                <span className="info-label">Numéro de lot</span>
-                <span className="info-value">{data.lotNumber}</span>
-              </div>
-
-              <div className="info-item">
-                <span className="info-label">Taux d'humidité du miel</span>
-                <span className="info-value">{data.humidity}%</span>
-              </div>
-
-              <div className="info-item">
-                <span className="info-label">Secteur(s) de butinage(s)</span>
-                <span className="info-value">
-                {data.ruchers.map(r => r.lieuxRucher).join(', ') || 'Non spécifiée'}
-              </span>
-              </div>
-
-              {honeyType && (
-                  <div className="info-item full-width">
-                    <span className="info-label">Type de miel</span>
-                    <div className="honey-type-details">
-                      <span className="honey-type-badge">{honeyType.name}</span>
-                      {honeyType.description && (
-                          <span className="honey-type-description">{honeyType.description}</span>
-                      )}
-                    </div>
-                  </div>
-              )}
-
-              <div className="info-item full-width">
-                <span className="info-label">Environnement des ruches</span>
-                <span className="info-value">
-                {[...new Set(data.ruchers.map(r => r.environnement))].join(', ') || 'Non spécifié'}
-              </span>
-              </div>
-
-              {data.production.nbRuchesRecoltees && (
+            <div className="product-content-wrapper">
+              {/* Colonne gauche : Informations */}
+              <div className="product-info-column">
+                <div className="info-grid">
                   <div className="info-item">
-                    <span className="info-label">Nombre de ruches récoltées</span>
-                    <span className="info-value">{data.production.nbRuchesRecoltees}</span>
+                    <span className="info-label">Numéro de lot</span>
+                    <span className="info-value">{data.lotNumber}</span>
                   </div>
-              )}
+
+                  <div className="info-item">
+                    <span className="info-label">Taux d'humidité du miel</span>
+                    <span className="info-value">{data.humidity}%</span>
+                  </div>
+
+                  {honeyType && (
+                      <div className="info-item full-width">
+                        <span className="info-label">Type de miel</span>
+                        <div className="honey-type-details">
+                          <span className="honey-type-badge">{honeyType.name}</span>
+                          {honeyType.description && (
+                              <span className="honey-type-description">{honeyType.description}</span>
+                          )}
+                        </div>
+                      </div>
+                  )}
+
+                  <div className="info-item full-width">
+                    <span className="info-label">Environnement des ruches</span>
+                    <span className="info-value">
+                      {[...new Set(data.ruchers.map(r => r.environnement))].join(', ') || 'Non spécifié'}
+                    </span>
+                  </div>
+
+                  {data.production.nbRuchesRecoltees && (
+                      <div className="info-item">
+                        <span className="info-label">Nombre de ruches récoltées</span>
+                        <span className="info-value">{data.production.nbRuchesRecoltees}</span>
+                      </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Colonne droite : Carte */}
+              <div className="product-map-column">
+                <div className="map-section">
+                  <div className="info-item">
+                    <span className="info-label">Secteur(s) de butinage(s)</span>
+                    <span className="info-value">
+                    {data.ruchers.map(r => r.lieuxRucher).join(', ') || 'Non spécifiée'}
+                  </span>
+                  </div>
+
+                  <div className="map-container-wrapper">
+                    <CityMap cities={lieuxRuchers} zoom={10} beeApic={false} isVille={true} />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

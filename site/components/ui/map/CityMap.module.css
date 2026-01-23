@@ -1,0 +1,147 @@
+/* ========================================
+   CITY MAP - STYLES
+   ======================================== */
+
+/* Container principal */
+.mapContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+/* Wrapper de la carte */
+.mapWrapper {
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--color-primary-light);
+}
+
+/* État de chargement */
+.loadingContainer {
+    text-align: center;
+    background-color: #f3f4f6;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+.loadingText {
+    color: #6b7280;
+    font-size: var(--font-size-base);
+    margin: 0;
+}
+
+/* État d'erreur */
+.errorContainer {
+    text-align: center;
+    background-color: #fef3c7;
+    border-radius: 1rem;
+    border: 2px solid #fbbf24;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.errorText {
+    color: #92400e;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    margin: 0;
+}
+
+/* Contenu du popup */
+.popupContent {
+    min-width: 150px;
+    padding: 0.5rem;
+}
+
+.popupTitle {
+    font-size: var(--font-size-base);
+    color: var(--color-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.popupPostalCode {
+    color: #6b7280;
+    font-size: var(--font-size-sm);
+}
+
+.popupCoords {
+    color: #9ca3af;
+    font-size: var(--font-size-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mapWrapper {
+        border-radius: 0.75rem;
+    }
+
+    .loadingIcon,
+    .errorIcon {
+        font-size: 2.5rem;
+    }
+
+    .loadingText,
+    .errorText {
+        font-size: var(--font-size-sm);
+    }
+
+    .errorContainer {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mapWrapper {
+        border-radius: 0.5rem;
+    }
+
+    .loadingIcon,
+    .errorIcon {
+        font-size: 2rem;
+    }
+
+    .popupContent {
+        min-width: 120px;
+        padding: 0.25rem;
+    }
+
+    .popupTitle {
+        font-size: var(--font-size-sm);
+    }
+}

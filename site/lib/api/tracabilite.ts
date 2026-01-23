@@ -1,4 +1,4 @@
-import {TraceabilityData, Beekeeper, LotsGroupedByBeekeeper, Rucher, Lot} from '@/types';
+import {TraceabilityData, Beekeeper, LotsGroupedByBeekeeper, Rucher, Lot, Zone} from '@/types';
 import beekeepersData from '@/data/beekeepers.json';
 import traceabilityData from '@/data/traceability-data.json';
 import { extractBeekeeperCode } from '@/lib/utils';
@@ -59,11 +59,11 @@ function convertLegacyToNewFormat(legacyData: any): TraceabilityData {
   return {
     lotNumber: legacyData.lotNumber,
     humidity: legacyData.humidity || null,
-    ruchers: legacyData.zone ? [{
-      nom: 'Rucher principal',
-      lieuxRucher: legacyData.zone.lieuxRucher || 'Zone non spécifiée',
-      environnement: legacyData.zone.environnement || 'Environnement non spécifié'
-    }] : [],
+    ruchers: legacyData.zone ? legacyData.zone.map((zone: any, index: number) => ({
+      nom: `Rucher ${index + 1}`,
+      lieuxRucher: zone.lieuxRucher || 'Zone non spécifiée',
+      environnement: zone.environnement || 'Environnement non spécifié'
+    })) : [],
     production: {
       datesRecolte: legacyData.production?.datesRecolte || [],
       datesExtractions: legacyData.production?.datesExtractions || [],
@@ -85,29 +85,21 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
 
   // Si le code ne peut pas être extrait (format numérique comme 03052027)
   if (!code) {
-    console.warn(`   ⚠️ Impossible d'extraire le code apiculteur du numéro de lot`);
-    console.log(`   📡 Tentative de récupération directe depuis le proxy sans code apiculteur...`);
-
     try {
       const proxyData = await fetchFromProxy(lotNumber);
-      console.log(`   ✅ Données reçues du proxy (sans code apiculteur)`);
 
       // Trouver l'apiculteur
       let beekeeper: Beekeeper | null = null;
 
       if (proxyData.code_apiculteur || proxyData.beekeeper?.code || proxyData.apiculteur?.code) {
         const beekeeperCode = proxyData.code_apiculteur || proxyData.beekeeper?.code || proxyData.apiculteur?.code;
-        console.log(`   📋 Code apiculteur trouvé dans les données du proxy: ${beekeeperCode}`);
         beekeeper = await loadBeekeeper(beekeeperCode);
       }
 
       if (!beekeeper) {
-        console.log(`   🔍 Recherche de l'apiculteur par défaut (useProxy=true)...`);
         const beekeepers = beekeepersData.beekeepers as Record<string, Beekeeper>;
-
         for (const [beekeeperCode, beekeeperData] of Object.entries(beekeepers)) {
           if (beekeeperData.useProxy) {
-            console.log(`   ✅ Apiculteur par défaut trouvé: ${beekeeperCode}`);
             beekeeper = beekeeperData;
             break;
           }
@@ -115,7 +107,6 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
       }
 
       if (!beekeeper) {
-        console.error(`   ❌ Impossible de déterminer l'apiculteur pour ce lot`);
         throw new Error('Impossible de déterminer l\'apiculteur pour ce numéro de lot');
       }
 
@@ -135,38 +126,24 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
         beekeeper,
       };
 
-      console.log(`   ✅ Données construites:`, {
-        lotNumber: result.lotNumber,
-        nbRuchers: result.ruchers.length,
-        nbDatesExtractions: result.production.datesExtractions.length
-      });
-
       return result;
 
     } catch (error) {
-      console.error(`   ❌ Erreur:`, error);
       throw new Error(`Format de numéro de lot non reconnu: ${lotNumber}`);
     }
   }
 
   // Cas normal : code apiculteur extrait du numéro de lot
   const beekeeper = await loadBeekeeper(code);
-  console.log(`   👤 Apiculteur trouvé: ${beekeeper ? `${beekeeper.firstName} ${beekeeper.lastName}` : 'NON'}`);
 
   if (!beekeeper) {
-    console.error(`   ❌ Apiculteur non trouvé pour le code: ${code}`);
     throw new Error('Apiculteur non trouvé');
   }
-
-  console.log(`   🔧 useProxy: ${beekeeper.useProxy}`);
 
   // Si useProxy, récupérer depuis le proxy BeePerf
   if (beekeeper.useProxy) {
     try {
-      console.log(`   📡 Tentative de récupération depuis le proxy...`);
-
       const proxyData = await fetchFromProxy(lotNumber);
-      console.log(`   ✅ Données reçues du proxy`);
 
       // Utiliser directement le format du proxy BeePerf
       const result: TraceabilityData = {
@@ -182,12 +159,6 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
         beekeeper,
       };
 
-      console.log(`   ✅ Données construites:`, {
-        lotNumber: result.lotNumber,
-        nbRuchers: result.ruchers.length,
-        nbDatesExtractions: result.production.datesExtractions.length
-      });
-
       return result;
 
     } catch (error) {
@@ -197,16 +168,12 @@ export async function getTraceability(lotNumber: string): Promise<TraceabilityDa
   }
 
   // Utiliser les données locales
-  console.log(`   📂 Recherche dans les données locales...`);
   const lots = traceabilityData.lots as Record<string, any>;
   const lot = lots[lotNumber];
 
   if (!lot) {
-    console.error(`   ❌ Lot non trouvé dans les données locales`);
     throw new Error(`Lot ${lotNumber} non trouvé`);
   }
-
-  console.log(lot.production.datesRecolte + `    ✅ Lot trouvé dans les données locales`);
 
   // Convertir l'ancien format vers le nouveau
   const result = convertLegacyToNewFormat({
