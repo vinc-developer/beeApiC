@@ -22,7 +22,8 @@
       "ruchers" : [
         "Saint-Hilaire-de-Chaléons",
         "Saint-Léger-les-Vignes",
-        "Port-Saint-Père"
+        "Port-Saint-Père",
+        "Villeneuve-en-Retz"
       ],
       "distance": "25 kms de Nantes et 15 kms de Pornic",
       "beekeeperSince": "2022",
@@ -62,7 +63,7 @@
       "ruchers" : [
         "Guenrouet",
         "Campbon",
-        "Prinquiau"
+        "Cordemais"
       ],
       "distance": "45 kms de Nantes et 15 kms de Redon",
       "beekeeperSince": "2020",
@@ -95,7 +96,7 @@
       "siret": "979350535",
       "photo": "nicolas-grouls/nicolas.jpeg",
       "logo": "nicolas-grouls/B2B.png",
-      "bio": "Passionné par l'apiculture depuis mon enfance, je suis fasciné par l'élevage et la préservation des abeilles. J'ai finalement décidé en 2023 de me lancer pleinement sur cette activité, pour communiquer au plus grand nombre l’importance des abeilles dans notre écosystème. Engagé dans une démarche d'apiculture responsable, et respectueuse de l'environnement comme des abeilles, mes ruchers sont situés en Pays de Retz, dans des zones natura 2000 ou chez des exploitants en agriculture biologique.",
+      "bio": "Passionné par l'apiculture depuis mon enfance, je suis fasciné par l'élevage et la préservation des abeilles. J'ai finalement décidé en 2023 de me lancer pleinement sur cette activité, pour communiquer au plus grand nombre l’importance des abeilles dans notre écosystème. Engagé dans une démarche d'apiculture responsable, et respectueuse de l'environnement, je respect la charte de l'agriculture biologique. Mes ruchers sont situés en Pays de Retz, dans des zones natura 2000 ou chez des exploitants en agriculture biologique.",
       "hivesCount": "",
       "location": "Pays de Retz, Loire-Atlantique, France",
       "ruchers" : [

@@ -4,6 +4,7 @@ import styles from "./apiculteurs.module.css";
 import beekeepersData from "@/data/beekeepers.json";
 import {Metadata} from "next";
 import { getRegionalFlag } from '@/lib/utils/regional-flags';
+import CityMap from "@/components/ui/map/CityMap";
 
 export const metadata: Metadata = {
   title: "Apiculteurs partenaires – Réseau local",
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
 export default function ApiculteursPage() {
   // Convertir l'objet beekeepers en tableau
   const beekeepersArray = Object.values(beekeepersData.beekeepers);
+  const cities = beekeepersArray.flatMap(b => b.ruchers || []);
+  console.log(cities)
 
   // Séparer les producteurs Bee Api'C et les partenaires
   const beeapicProducers = beekeepersArray.filter(b => !b.partnerSince || b.partnerSince === "");
@@ -91,6 +94,19 @@ export default function ApiculteursPage() {
                   </div>
                 </>
             )}
+
+            <div className={styles.contentCard}>
+              <div className={styles.cardHeader}>
+                <h2 className={styles.cardTitle}>Nos ruchers</h2>
+              </div>
+              <div className={styles.cardContent}>
+                <p>
+                 Nos abeilles butinent principalement dans un rayon de 3 kms autour de leurs ruchers.
+                  Voici une carte indiquant les villes où se trouvent nos ruchers.
+                </p>
+                <CityMap cities={cities} zoom={8} beeApic={false} isVille={true} />
+              </div>
+            </div>
           </section>
         </div>
       </>

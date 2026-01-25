@@ -208,7 +208,7 @@ export default function VenteEcolePage() {
                   local le plus proche de votre école</strong>. Tous nos apiculteurs partenaires sont signataires
                   de notre charte qualité :
                 </p>
-                <ul className={styles.honeyList}>
+                <ul className={styles.benefitsList}>
                   <li><strong>Miel de printemps</strong> – Doux et floral</li>
                   <li><strong>Miel toutes fleurs</strong> – Équilibré et polyvalent</li>
                   <li><strong>Miel d'été</strong> – Fruités et légés</li>
@@ -224,11 +224,11 @@ export default function VenteEcolePage() {
 
               <div className={styles.infoSection}>
                 <h3 className={styles.infoTitle}>📦 Formats proposés</h3>
-                <ul className={styles.formatList}>
-                  <li>Pots de 250g – Format idéal pour les familles</li>
-                  <li>Pots de 500g – Format économique</li>
-                  <li>Possibilité de proposer plusieurs formats dans une même campagne</li>
+                <ul className={styles.benefitsList}>
+                  <li><strong>Pots de 250g </strong> – Format idéal pour les familles</li>
+                  <li><strong>Pots de 500g </strong> – Format économique</li>
                 </ul>
+                <p>Possibilité de proposer plusieurs formats dans une même campagne</p>
               </div>
 
               <div className={styles.infoSection}>
@@ -237,11 +237,11 @@ export default function VenteEcolePage() {
                   Le prix est défini ensemble en fonction du format choisi et de la marge souhaitée
                   par l'école. En général :
                 </p>
-                <ul className={styles.pricingList}>
+                <ul className={styles.benefitsList}>
                   <li>L'école achète les pots à un <strong>tarif préférentiel</strong></li>
                   <li>Elle les revend à un prix permettant de <strong>dégager une marge bénéficiaire</strong></li>
-                  <li>Exemple : pot acheté 7€, revendu 9.50€ = 2.50€ de bénéfice par pot</li>
                 </ul>
+                <p>Exemple : pot acheté 7€, revendu 9.50€ = 2.50€ de bénéfice par pot</p>
               </div>
 
               <div className={styles.infoSection}>
@@ -259,7 +259,7 @@ export default function VenteEcolePage() {
                   ses produits. L'apiculteur gère lui-même la vente et s'acquitte de l'emplacement.
                   C'est une excellente opportunité de :
                 </p>
-                <ul className={styles.formatList}>
+                <ul className={styles.benefitsList}>
                   <li>Créer un lien direct entre les familles et l'apiculteur de proximité</li>
                   <li>Tisser des liens locaux et renforcer le réseau de votre territoire</li>
                   <li>Faire découvrir l'ensemble de la gamme de miels et produits dérivés</li>
