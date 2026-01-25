@@ -61,7 +61,6 @@ export default async function LotDetailPage({
   }
 
   const honeyTypeCode = extractHoneyType(lotNumber);
-  console.log(honeyTypeCode + " : type de miel");
   const honeyTypes = honeyTypesData?.honeyTypes as Record<string, any> || {};
   const honeyType = honeyTypeCode && honeyTypes[honeyTypeCode] ? honeyTypes[honeyTypeCode] : null;
 

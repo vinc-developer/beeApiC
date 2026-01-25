@@ -72,10 +72,7 @@ function convertLegacyToNewFormat(legacyData: any): TraceabilityData {
  * Charge les données de traçabilité pour un numéro de lot
  */
 export async function getTraceability(lotNumber: string): Promise<TraceabilityData | null> {
-  console.log(`\n🔍 getTraceability() - Recherche du lot: ${lotNumber}`);
-
   const code = extractBeekeeperCode(lotNumber);
-  console.log(`   📋 Code apiculteur extrait: ${code}`);
 
   // Si le code ne peut pas être extrait (format numérique comme 03052027)
   if (!code) {

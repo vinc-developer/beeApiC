@@ -75,7 +75,6 @@ export default function CityMap({ cities, height = '400px', width = '100%', zoom
 
 
                     const data = await response.json();
-                    console.log('Données reçues pour', city, data);
 
                     if (data.features && data.features[0]) {
                         const feature = data.features[0];
