@@ -25,7 +25,6 @@ export default function ApiculteursPage() {
   // Convertir l'objet beekeepers en tableau
   const beekeepersArray = Object.values(beekeepersData.beekeepers);
   const cities = beekeepersArray.flatMap(b => b.ruchers || []);
-  console.log(cities)
 
   // Séparer les producteurs Bee Api'C et les partenaires
   const beeapicProducers = beekeepersArray.filter(b => !b.partnerSince || b.partnerSince === "");
