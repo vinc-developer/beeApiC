@@ -5,4 +5,4 @@
 :HL["/beeApiC/images/pages/rse/RSE.png","image"]
 :HL["/beeApiC/images/pages/rse/younup-ruche.jpg","image"]
 :HL["/beeApiC/images/pages/rse/travail.jpeg","image"]
-0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"entreprises-rse","paramType":null,"paramKey":"entreprises-rse","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wXPkbq1ZmhuOkacBJBwIj","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"entreprises-rse","paramType":null,"paramKey":"entreprises-rse","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

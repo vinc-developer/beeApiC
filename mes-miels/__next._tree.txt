@@ -4,4 +4,4 @@
 :HL["/beeApiC/_next/static/chunks/3b0c5e9c84d33b0c.css","style"]
 :HL["/beeApiC/images/pages/miel/miels-wallpaper.jpg","image"]
 :HL["/beeApiC/images/pages/miel/miel-cristalise.jpg","image"]
-0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mes-miels","paramType":null,"paramKey":"mes-miels","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wXPkbq1ZmhuOkacBJBwIj","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"mes-miels","paramType":null,"paramKey":"mes-miels","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

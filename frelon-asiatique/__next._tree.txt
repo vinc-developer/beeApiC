@@ -11,4 +11,4 @@
 :HL["/beeApiC/images/pages/frelon/piege.png","image"]
 :HL["/beeApiC/images/pages/frelon/frelon-attaque.jpg","image"]
 :HL["/beeApiC/images/pages/frelon/frelon-asiatique-nid.jpg","image"]
-0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"frelon-asiatique","paramType":null,"paramKey":"frelon-asiatique","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wXPkbq1ZmhuOkacBJBwIj","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"frelon-asiatique","paramType":null,"paramKey":"frelon-asiatique","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

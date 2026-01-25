@@ -3,9 +3,9 @@
 :HL["/beeApiC/_next/static/chunks/3b0c5e9c84d33b0c.css","style"]
 :HL["/beeApiC/images/pages/home/cadre-miel.jpg","image"]
 :HL["/beeApiC/images/pages/home/essaim.jpg","image"]
-:HL["/beeApiC/images/products/coffret-2miels-1bougie.png","image"]
-:HL["/beeApiC/images/products/foret.png","image"]
-:HL["/beeApiC/images/products/coffret-3miels.png","image"]
+:HL["/beeApiC/images/products/bougie.png","image"]
+:HL["/beeApiC/images/products/acacia.png","image"]
+:HL["/beeApiC/images/products/hydromel.png","image"]
 :HL["/beeApiC/images/pages/home/miels.jpg","image"]
 :HL["/beeApiC/images/products/toutes-fleurs.png","image"]
-0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wXPkbq1ZmhuOkacBJBwIj","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

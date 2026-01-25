@@ -1,8 +1,8 @@
 1:"$Sreact.fragment"
-2:I[92516,["/beeApiC/_next/static/chunks/2d678708fc44360b.js","/beeApiC/_next/static/chunks/e8a5f19c48ca37a4.js","/beeApiC/_next/static/chunks/8673e73f2eeecf7d.js","/beeApiC/_next/static/chunks/1442f9ddf5556540.js"],"default"]
+2:I[92516,["/beeApiC/_next/static/chunks/2d678708fc44360b.js","/beeApiC/_next/static/chunks/e8a5f19c48ca37a4.js","/beeApiC/_next/static/chunks/bd36f674a1ee5221.js","/beeApiC/_next/static/chunks/1442f9ddf5556540.js"],"default"]
 3:I[97367,["/beeApiC/_next/static/chunks/ff1a16fafef87110.js","/beeApiC/_next/static/chunks/7340adf74ff47ec0.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
 :HL["/beeApiC/_next/static/chunks/5745bc25b11c1603.css","style"]
 :HL["/beeApiC/_next/static/chunks/3b0c5e9c84d33b0c.css","style"]
-0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","link","0",{"rel":"stylesheet","href":"/beeApiC/_next/static/chunks/5745bc25b11c1603.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/beeApiC/_next/static/chunks/3b0c5e9c84d33b0c.css","precedence":"next"}],["$","script","script-0",{"src":"/beeApiC/_next/static/chunks/8673e73f2eeecf7d.js","async":true}],["$","script","script-1",{"src":"/beeApiC/_next/static/chunks/1442f9ddf5556540.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"wXPkbq1ZmhuOkacBJBwIj","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","link","0",{"rel":"stylesheet","href":"/beeApiC/_next/static/chunks/5745bc25b11c1603.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/beeApiC/_next/static/chunks/3b0c5e9c84d33b0c.css","precedence":"next"}],["$","script","script-0",{"src":"/beeApiC/_next/static/chunks/bd36f674a1ee5221.js","async":true}],["$","script","script-1",{"src":"/beeApiC/_next/static/chunks/1442f9ddf5556540.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null

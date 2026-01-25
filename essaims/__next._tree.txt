@@ -3,4 +3,4 @@
 :HL["/beeApiC/_next/static/chunks/2a3249396b92730e.css","style"]
 :HL["/beeApiC/_next/static/chunks/3b0c5e9c84d33b0c.css","style"]
 :HL["/beeApiC/images/pages/essaim/recuperation-essaim.jpg","image"]
-0:{"buildId":"aLCeeGl0m9YUcmR28pdHD","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"essaims","paramType":null,"paramKey":"essaims","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wXPkbq1ZmhuOkacBJBwIj","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"essaims","paramType":null,"paramKey":"essaims","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
