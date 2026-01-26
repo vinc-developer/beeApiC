@@ -1,0 +1,183 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// UTILISATEURS (Users) - Authentification
+// ============================================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Hash bcrypt
+  name      String?
+  role      String   @default("admin") // admin, editor, viewer
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+// ============================================
+// APICULTEURS (Beekeepers)
+// ============================================
+
+model Beekeeper {
+  id              String   @id @default(cuid())
+  code            String   @unique // BA, MC, NG
+  useProxy        Boolean  @default(false)
+  type            String   // "Apiculteur Récoltant"
+  partnerSince    String?
+  firstName       String
+  lastName        String
+  commercialName  String
+  address         String   @db.Text
+  email           String?
+  phone           String?
+  website         String?
+  webshop         String?
+  siret           String?
+  photo           String?
+  logo            String?
+  bio             String?  @db.Text
+  hivesCount      String?
+  location        String?
+  distance        String?
+  beekeeperSince  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  ruchers         Rucher[]
+  gallery         BeekeeperGallery[]
+  socialMedia     SocialMedia?
+  lots            Lot[]
+
+  @@map("beekeepers")
+}
+
+model Rucher {
+  id           String     @id @default(cuid())
+  name         String
+  beekeeperId  String
+  beekeeper    Beekeeper  @relation(fields: [beekeeperId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+
+  @@map("ruchers")
+}
+
+model BeekeeperGallery {
+  id           String     @id @default(cuid())
+  imagePath    String
+  beekeeperId  String
+  beekeeper    Beekeeper  @relation(fields: [beekeeperId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+
+  @@map("beekeeper_gallery")
+}
+
+model SocialMedia {
+  id           String     @id @default(cuid())
+  instagram    String?
+  facebook     String?
+  tiktok       String?
+  youtube      String?
+  linkedin     String?
+  beekeeperId  String     @unique
+  beekeeper    Beekeeper  @relation(fields: [beekeeperId], references: [id], onDelete: Cascade)
+
+  @@map("social_media")
+}
+
+// ============================================
+// TYPES DE MIEL (Honey Types)
+// ============================================
+
+model HoneyType {
+  id          String   @id @default(cuid())
+  code        String   @unique // P, PA, CH, E, F, S, TF
+  name        String
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  lots        Lot[]
+
+  @@map("honey_types")
+}
+
+// ============================================
+// PRODUITS (Products)
+// ============================================
+
+model Product {
+  id          String   @id @default(cuid())
+  slug        String   @unique // "bougie-cire-abeille-100g"
+  name        String
+  description String?  @db.Text
+  price       Float
+  image       String?
+  category    String   // "miel", "bougie", "hydromel", "coffret"
+  weight      String?
+  inStock     Boolean  @default(true)
+  storeUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("products")
+}
+
+// ============================================
+// LOTS / TRAÇABILITÉ (Lots / Traceability)
+// ============================================
+
+model Lot {
+  id           String   @id @default(cuid())
+  lotNumber    String   @unique // "BA-250701-CH"
+  humidity     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  beekeeperId  String
+  beekeeper    Beekeeper @relation(fields: [beekeeperId], references: [id], onDelete: Cascade)
+  honeyTypeId  String?
+  honeyType    HoneyType? @relation(fields: [honeyTypeId], references: [id])
+
+  zones        LotZone[]
+  production   LotProduction?
+
+  @@map("lots")
+}
+
+model LotZone {
+  id            String   @id @default(cuid())
+  lieuxRucher   String
+  environnement String?  @db.Text
+  lotId         String
+  lot           Lot      @relation(fields: [lotId], references: [id], onDelete: Cascade)
+
+  @@map("lot_zones")
+}
+
+model LotProduction {
+  id                    String   @id @default(cuid())
+  lotId                 String   @unique
+  lot                   Lot      @relation(fields: [lotId], references: [id], onDelete: Cascade)
+
+  // Dates stockées en JSON pour flexibilité
+  datesRecolte          Json     @default("[]") // Array of dates
+  datesExtractions      Json     @default("[]") // Array of dates
+  datesConditionnement  Json     @default("[]") // Array of dates
+
+  @@map("lot_productions")
+}
