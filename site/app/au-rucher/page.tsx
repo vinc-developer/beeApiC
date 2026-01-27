@@ -137,7 +137,7 @@ export default function AuRucherPage() {
             </p>
             <br/>
             <p className={styles.cardText}>
-              J’ai également un quatrième rucher, lui aussi situé à Saint-Hilaire-de-Chaléons, à proximité de cultures biologiques. Cet emplacement offre aux abeilles une ressource florale saine et diversifiée, en cohérence avec ma volonté de travailler dans des zones respectueuses du vivant et de l’environnement.
+              J’ai également un quatrième rucher, lui est situé à Villeneuve en Retz, à proximité de cultures biologiques. Cet emplacement offre aux abeilles une ressource florale saine et diversifiée, en cohérence avec ma volonté de travailler dans des zones respectueuses du vivant et de l’environnement.
             </p>
             <br />
 

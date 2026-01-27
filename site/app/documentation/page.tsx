@@ -274,8 +274,8 @@ export default function DocumentationPage() {
                             problème dans la colonie.
                         </p>
                         <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/Couvain.png`}
-                            alt="Cadre avec couvain fermé"
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/oeuf-larve.jpeg`}
+                            alt="Œufs et larves dans les alvéoles"
                             className={styles.contentImage}
                         />
 
@@ -305,8 +305,8 @@ export default function DocumentationPage() {
                             fermé.
                         </p>
                         <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/oeuf-larve.jpeg`}
-                            alt="Œufs et larves dans les alvéoles"
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/Couvain.png`}
+                            alt="Cadre avec couvain fermé"
                             className={styles.contentImage}
                         />
                     </div>
@@ -328,17 +328,17 @@ export default function DocumentationPage() {
                             retirent les cadres à miel de la ruche pour récolter le miel, utilisant des extracteurs pour extraire le miel des
                             alvéoles sans les endommager.
                         </p>
+                        <img
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cadre-G.webp`}
+                            alt="Comparaison cadre de hausse et cadre de corps"
+                            className={styles.contentImage}
+                        />
                         <p className={styles.cardText}>
                             La rotation des cadres à miel favorise une production de miel continue et
                             permet aux apiculteurs d'inspecter la santé de la colonie, évaluant la quantité de miel, la présence de maladies
                             et la qualité générale de la ruche.
                         </p>
 
-                        <img
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cadre-G.webp`}
-                            alt="Comparaison cadre de hausse et cadre de corps"
-                            className={styles.contentImage}
-                        />
                         <img
                             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/pages/documentations/cadre-miel.jpeg`}
                             alt="Cadre de miel operculé"

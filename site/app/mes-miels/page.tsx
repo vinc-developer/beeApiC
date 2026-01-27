@@ -25,11 +25,6 @@ export default function MesMielsPage() {
           Mes Miels des Pays de Retz
         </h1>
         <div className={styles.introPresentation}>
-          <p>Chaque pot de miel que je produis raconte une histoire : celle des fleurs, des saisons et des abeilles qui l’ont
-            créé.
-            Mon objectif est simple : offrir un miel local, authentique et vivant, où l’on retrouve toute la richesse du Pays de
-            Retz.</p>
-          <br/>
           <p> Je propose différents types de miels selon les floraisons et les saisons. Chaque récolte est unique, et aucun pot ne
             se ressemble totalement : c’est ce qui fait la beauté du miel de terroir.</p>
           <br/>
