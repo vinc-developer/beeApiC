@@ -1,5 +1,4 @@
 import {Metadata} from "next";
-import BeekeepersClient from "./beekeepersClient";
 import BeekeepersContent from "./beekeepersContent";
 
 export const metadata: Metadata = {

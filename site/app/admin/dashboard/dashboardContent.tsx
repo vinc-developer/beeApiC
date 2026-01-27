@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "./page.module.css";
 
 interface Stats {
@@ -57,7 +56,7 @@ export default function DashboardContent() {
   };
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.dashboardHeader}>
         <h1 className={styles.dashboardTitle}>Tableau de bord</h1>
         <p className={styles.dashboardSubtitle}>Bienvenue dans votre espace administration</p>
@@ -138,6 +137,6 @@ export default function DashboardContent() {
           </a>
         </div>
       </div>
-    </AdminLayout>
+    </>
   );
 }

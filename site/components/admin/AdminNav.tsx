@@ -11,7 +11,8 @@ interface AdminNavProps {
   onLogout: () => void;
 }
 
-export default function AdminNav({ user, onLogout }: AdminNavProps) {
+export default function AdminNav(props: Readonly<AdminNavProps>) {
+  const { user, onLogout } = props;
   const pathname = usePathname();
   const { menuOpen, toggleMenu, closeMenu } = useMobileMenu();
 
@@ -38,19 +39,26 @@ export default function AdminNav({ user, onLogout }: AdminNavProps) {
       </button>
 
       {/* Overlay pour fermer le menu en cliquant à côté */}
-      <div
+      <button
+        type="button"
         className={`${styles.overlay} ${menuOpen ? styles.show : ""}`}
         onClick={closeMenu}
-      ></div>
+        aria-label="Fermer le menu"
+        onKeyDown={(e) => {
+          // fermer aussi au clavier (Escape)
+          if (e.key === "Escape") {
+            closeMenu();
+          }
+        }}
+      />
 
       {/* Sidebar */}
       <aside className={`${styles.sidebar} ${menuOpen ? styles.open : ""}`}>
         <div className={styles.sidebarHeader}>
-          <h2 className={styles.sidebarTitle}>🐝 Bee Api&apos;C</h2>
-          <p className={styles.sidebarSubtitle}>Administration</p>
+          <h2 className={styles.sidebarTitle}>Administration</h2>
         </div>
 
-        <nav className={styles.sidebarNav} onClick={closeMenu}>
+        <nav className={styles.sidebarNav}>
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -58,6 +66,10 @@ export default function AdminNav({ user, onLogout }: AdminNavProps) {
               className={`${styles.navItem} ${
                 pathname === item.href ? styles.active : ""
               }`}
+              onClick={() => {
+                // fermer le menu quand un lien est cliqué (utile en mobile)
+                closeMenu();
+              }}
             >
               <span className={styles.navIcon}>{item.icon}</span>
               {item.label}

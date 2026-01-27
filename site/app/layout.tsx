@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/ui/CookieConsent/CookieConsent";
 import NewsBanner from "@/components/ui/NewsBanner/NewsBanner";
+import AdminShell from "@/components/admin/AdminShell";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,16 +60,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // compute pageTitle safely
+  let pageTitle = 'Bee Api’C';
+  const t = metadata.title as any;
+  if (typeof t === 'string') {
+    pageTitle = t;
+  } else if (t && typeof t === 'object' && 'default' in t && typeof t.default === 'string') {
+    pageTitle = t.default;
+  }
+
   return (
     <html lang="fr">
     <head>
       <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/bee-apic/logo-bee-apic.png`} />
+      <title>{pageTitle}</title>
     </head>
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col">
           <NewsBanner />
           <Header />
-          <main className="flex-1">{children}</main>
+          <AdminShell>
+            <main className="flex-1">{children}</main>
+          </AdminShell>
           <Footer />
         </div>
         <CookieConsent />

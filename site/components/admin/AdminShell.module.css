@@ -1,0 +1,77 @@
+/* Variables */
+:root {
+  --admin-sidebar-width: 280px;
+  --admin-sidebar-width-tablet: 240px;
+}
+
+/* Container pour la page de login */
+.loginContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Container de chargement */
+.loadingContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--color-primary, #f59e0b);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Layout admin principal */
+.adminShell {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+/* Contenu principal */
+.shellMain {
+  flex: 1;
+  padding: 2rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Responsive tablette */
+@media (max-width: 1024px) {
+  .shellMain {
+    margin-left: var(--admin-sidebar-width-tablet);
+    padding: 1.5rem;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .adminShell {
+    display: block;
+  }
+
+  .shellMain {
+    margin-left: 0;
+    padding: 1rem;
+    padding-top: 4rem; /* Espace pour le bouton hamburger */
+  }
+}
+
+

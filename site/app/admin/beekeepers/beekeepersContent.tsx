@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "./page.module.css";
 
 interface Beekeeper {
@@ -81,17 +80,17 @@ export default function BeekeepersContent() {
 
   if (loading) {
     return (
-      <AdminLayout>
+      <>
         <div className={styles.loadingContainer}>
           <div className={styles.loader}></div>
           <p>Chargement...</p>
         </div>
-      </AdminLayout>
+      </>
     );
   }
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>Gestion des Apiculteurs</h1>
@@ -174,6 +173,6 @@ export default function BeekeepersContent() {
           </tbody>
         </table>
       </div>
-    </AdminLayout>
+    </>
   );
 }

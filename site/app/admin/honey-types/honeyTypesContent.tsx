@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "../beekeepers/page.module.css";
 
 interface HoneyType {
@@ -78,17 +77,17 @@ export default function HoneyTypesContent() {
 
   if (loading) {
     return (
-      <AdminLayout>
+      <>
         <div className={styles.loadingContainer}>
           <div className={styles.loader}></div>
           <p>Chargement...</p>
         </div>
-      </AdminLayout>
+      </>
     );
   }
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>Gestion des Types de Miel</h1>
@@ -167,6 +166,6 @@ export default function HoneyTypesContent() {
           </tbody>
         </table>
       </div>
-    </AdminLayout>
+    </>
   );
 }

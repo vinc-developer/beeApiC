@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "../beekeepers/page.module.css";
 
 interface HoneyTypeForm {
@@ -103,7 +102,7 @@ export default function HoneyTypeFormClient() {
   };
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>
@@ -190,6 +189,6 @@ export default function HoneyTypeFormClient() {
             </button>
           </div>
         </form>
-    </AdminLayout>
+    </>
   );
 }

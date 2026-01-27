@@ -2,6 +2,12 @@
    ADMIN NAVIGATION - STYLES
    ======================================== */
 
+/* Définir --admin-footer-height au :root pour que la sidebar n'utilise pas une variable non résolue */
+:root {
+    /* Hauteur du footer (ajustable) pour éviter que la sidebar le recouvre */
+    --admin-footer-height: auto;
+}
+
 /* Sidebar */
 .sidebar {
     width: 280px;
@@ -9,9 +15,14 @@
     color: white;
     display: flex;
     flex-direction: column;
-    position: fixed;
     overflow: hidden;
     left: 0;
+    /* Empêcher la sidebar de couvrir le footer :
+       - --admin-footer-height peut être défini globalement pour correspondre
+         à la hauteur réelle du footer du site. Valeur par défaut : 80px. */
+    top: 0;
+    bottom: var(--admin-footer-height, 80px);
+    height: calc(100vh - var(--admin-footer-height, 80px));
 }
 
 .sidebarHeader {
@@ -159,7 +170,7 @@
 .menuToggle {
     display: none;
     position: fixed;
-    top: 5rem;
+    top: 1rem;
     right: 1rem;
     z-index: 900;
     background: var(--color-primary);
@@ -208,19 +219,23 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 898;
+    border: none; /* bouton stylé sans bord */
+    padding: 0; /* reset */
+    margin: 0; /* reset */
 }
 
 .overlay.show {
     display: block;
 }
 
-/* Responsive */
+/* Responsive - Tablette */
 @media (max-width: 1024px) {
     .sidebar {
-        width: 240px;
+        width: var(--admin-sidebar-width-tablet);
     }
 }
 
+/* Responsive - Mobile */
 @media (max-width: 768px) {
     .menuToggle {
         display: block;
@@ -256,7 +271,7 @@
     .sidebarNav {
         padding: 0.5rem 0;
         overflow-y: auto;
-        max-height: calc(100vh - 300px);
+        flex: 1;
     }
 
     .navItem {

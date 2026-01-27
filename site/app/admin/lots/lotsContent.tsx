@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "../beekeepers/page.module.css";
 
 interface Lot {
@@ -95,17 +94,17 @@ export default function LotsContent() {
 
   if (loading) {
     return (
-      <AdminLayout>
+      <>
         <div className={styles.loadingContainer}>
           <div className={styles.loader}></div>
           <p>Chargement...</p>
         </div>
-      </AdminLayout>
+      </>
     );
   }
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>Gestion de la Traçabilité / Lots</h1>
@@ -195,6 +194,6 @@ export default function LotsContent() {
           </tbody>
         </table>
       </div>
-    </AdminLayout>
+    </>
   );
 }

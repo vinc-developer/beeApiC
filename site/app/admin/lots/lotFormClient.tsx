@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "../beekeepers/page.module.css";
 
 interface Zone {
@@ -208,7 +207,7 @@ export default function LotFormClient() {
   };
 
   return (
-      <AdminLayout >
+      <>
         <header className={styles.pageHeader}>
           <div>
             <h1 className={styles.pageTitle}>
@@ -468,6 +467,6 @@ export default function LotFormClient() {
             </button>
           </div>
         </form>
-      </AdminLayout>
+      </>
   );
 }

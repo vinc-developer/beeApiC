@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "../beekeepers/page.module.css";
 
 interface UserProfile {
@@ -218,17 +217,17 @@ export default function ProfileContent() {
 
   if (loading && !user) {
     return (
-      <AdminLayout>
+      <>
         <div className={styles.loadingContainer}>
           <div className={styles.loader}></div>
           <p>Chargement...</p>
         </div>
-      </AdminLayout>
+      </>
     );
   }
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>Mon Profil</h1>
@@ -481,6 +480,6 @@ export default function ProfileContent() {
           </div>
         </form>
       )}
-    </AdminLayout>
+    </>
   );
 }

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
 import styles from "./page.module.css";
 
 interface BeekeeperForm {
@@ -124,7 +123,7 @@ export default function BeekeeperFormClient() {
   };
 
   return (
-    <AdminLayout>
+    <>
       <header className={styles.pageHeader}>
         <div>
           <h1 className={styles.pageTitle}>
@@ -294,6 +293,6 @@ export default function BeekeeperFormClient() {
             </button>
           </div>
         </form>
-    </AdminLayout>
+    </>
   );
 }
