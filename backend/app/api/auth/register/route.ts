@@ -3,10 +3,17 @@ import prisma from '@/lib/prisma';
 import { successResponse, errorResponse } from '@/lib/api-utils';
 import { hashPassword, generateToken } from '@/lib/auth';
 import { UserCreateInput, AuthResponse } from '@/types';
+import {authenticate} from "@/lib/middleware";
 
 // POST /api/auth/register - Créer un nouvel utilisateur
 export async function POST(request: NextRequest) {
   try {
+    // Vérifier l'authentification
+    const auth = authenticate(request);
+    if (!auth.authenticated) {
+      return errorResponse(auth.error || 'Non authentifié', 401);
+    }
+
     const body: UserCreateInput = await request.json();
 
     // Validation

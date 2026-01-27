@@ -79,6 +79,11 @@ export default function Footer() {
                   <span>Mentions-légales</span>
                 </Link>
               </li>
+              <li>
+                <Link href="/admin/login" className={styles.mobileDropdownItem}>
+                  <span>Connexion</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

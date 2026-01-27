@@ -1,8 +1,21 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { successResponse, errorResponse } from '@/lib/api-utils';
 import { verifyPassword, generateToken } from '@/lib/auth';
 import { UserLoginInput, AuthResponse } from '@/types';
+
+// OPTIONS /api/auth/login - Gère les requêtes CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3000',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Credentials': 'true',
+    },
+  });
+}
 
 // POST /api/auth/login - Connexion utilisateur
 export async function POST(request: NextRequest) {

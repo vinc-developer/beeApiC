@@ -54,8 +54,8 @@ export interface LotProductionCreateInput {
 export interface LotCreateInput {
   lotNumber: string;
   humidity?: string;
-  beekeeperCode: string; // Code de l'apiculteur (BA, MC, NG)
-  honeyTypeCode?: string; // Code du type de miel (P, PA, CH, etc.)
+  beekeeperId: string; // Code de l'apiculteur (BA, MC, NG)
+  honeyTypeId?: string; // Code du type de miel (P, PA, CH, etc.)
   zones?: LotZoneCreateInput[];
   production?: LotProductionCreateInput;
 }

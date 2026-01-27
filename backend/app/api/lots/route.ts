@@ -1,8 +1,21 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { successResponse, errorResponse, paginatedResponse, getPaginationParams } from '@/lib/api-utils';
 import { authenticate } from '@/lib/middleware';
 import { LotCreateInput } from '@/types';
+
+// OPTIONS /api/lots - Gère les requêtes CORS preflight
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3000',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Credentials': 'true',
+    },
+  });
+}
 
 // GET /api/lots - Liste tous les lots
 export async function GET(request: NextRequest) {
@@ -91,18 +104,18 @@ export async function POST(request: NextRequest) {
 
     // Récupérer l'apiculteur par son code
     const beekeeper = await prisma.beekeeper.findUnique({
-      where: { code: body.beekeeperCode.toUpperCase() },
+      where: { id: body.beekeeperId},
     });
 
     if (!beekeeper) {
-      return errorResponse(`Apiculteur avec le code "${body.beekeeperCode}" non trouvé`, 400);
+      return errorResponse(`Apiculteur avec le code "${body.beekeeperId}" non trouvé`, 400);
     }
 
     // Récupérer le type de miel si fourni
     let honeyTypeId: string | null = null;
-    if (body.honeyTypeCode) {
+    if (body.honeyTypeId) {
       const honeyType = await prisma.honeyType.findUnique({
-        where: { code: body.honeyTypeCode.toUpperCase() },
+        where: { id: body.honeyTypeId },
       });
       if (honeyType) {
         honeyTypeId = honeyType.id;
