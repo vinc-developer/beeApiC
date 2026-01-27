@@ -4,17 +4,38 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import styles from "./page.module.css";
 
+export interface SocialMediaDto {
+  instagram?: string;
+  facebook?: string;
+  tiktok?: string;
+  youtube?: string;
+  linkedin?: string;
+}
 interface BeekeeperForm {
+  id?: string;
   code: string;
+  useProxy?: boolean;
   type: string;
+  partnerSince?: string;
   firstName: string;
   lastName: string;
   commercialName: string;
+  address: string;
   email?: string;
   phone?: string;
-  address?: string;
-  location?: string;
+  website?: string;
+  webshop?: string;
+  siret?: string;
+  photo?: string;
+  logo?: string;
   bio?: string;
+  hivesCount?: string;
+  location?: string;
+  distance?: string;
+  beekeeperSince?: string;
+  ruchers?: string[];
+  gallery?: string[];
+  socialMedia?: SocialMediaDto;
 }
 
 export default function BeekeeperFormClient() {

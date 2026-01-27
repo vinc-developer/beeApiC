@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import styles from "../beekeepers/page.module.css";
 
 interface ProductForm {
+  id?: string;
   slug: string;
   name: string;
   description?: string;
@@ -24,6 +25,7 @@ export default function ProductFormClient() {
   const [isEdit, setIsEdit] = useState(false);
 
   const [formData, setFormData] = useState<ProductForm>({
+    id: "",
     slug: "",
     name: "",
     description: "",

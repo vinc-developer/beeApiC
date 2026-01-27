@@ -4,26 +4,41 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../beekeepers/page.module.css";
 
+export interface LotZoneDto {
+  id: string;
+  lieuxRucher: string;
+  environnement?: string;
+}
+
+export interface LotProductionDto {
+  id: string;
+  datesRecolte: string[];
+  datesExtractions: string[];
+  datesConditionnement: string[];
+}
 interface Lot {
   id: string;
   lotNumber: string;
   humidity?: string;
   beekeeperId: string;
-  beekeeper: {
+  beekeeper?: {
+    id: string;
+    code: string;
+    firstName: string;
+    lastName: string;
     commercialName: string;
+    photo?: string;
+    logo?: string;
   };
+  honeyTypeId?: string;
   honeyType?: {
+    id: string;
+    code: string;
     name: string;
+    description?: string;
   };
-  zones: Array<{
-    lieuxRucher: string;
-    environnement?: string;
-  }>;
-  production?: {
-    datesRecolte: string[];
-    datesExtractions: string[];
-    datesConditionnement: string[];
-  };
+  zones: LotZoneDto[];
+  production?: LotProductionDto;
   createdAt: string;
 }
 

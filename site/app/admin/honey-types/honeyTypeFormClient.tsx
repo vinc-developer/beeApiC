@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import styles from "../beekeepers/page.module.css";
 
 interface HoneyTypeForm {
+  id?: string;
   code: string;
   name: string;
   description?: string;

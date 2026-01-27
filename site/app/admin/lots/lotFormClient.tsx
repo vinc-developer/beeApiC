@@ -5,15 +5,24 @@ import { useRouter, useParams } from "next/navigation";
 import styles from "../beekeepers/page.module.css";
 
 interface Zone {
+  id?: string;
   lieuxRucher: string;
   environnement: string;
 }
 
+export interface LotProductionDto {
+  id: string;
+  datesRecolte: string[];
+  datesExtractions: string[];
+  datesConditionnement: string[];
+}
+
 interface LotForm {
+  id?: string;
   lotNumber: string;
+  humidity: string;
   beekeeperId: string;
   honeyTypeId: string;
-  humidity: string;
   zones: Zone[];
   datesRecolte: string[];
   datesExtractions: string[];

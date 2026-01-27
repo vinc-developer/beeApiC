@@ -60,8 +60,6 @@ export interface LotCreateInput {
   production?: LotProductionCreateInput;
 }
 
-export interface LotUpdateInput extends Partial<LotCreateInput> {}
-
 // Type pour la réponse de traçabilité complète
 export interface TraceabilityResponse {
   lot: LotDto;

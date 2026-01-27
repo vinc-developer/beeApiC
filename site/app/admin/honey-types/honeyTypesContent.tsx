@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "../beekeepers/page.module.css";
 
 interface HoneyType {
-  id: number;
+  id?: string;
   code: string;
   name: string;
   description?: string;
@@ -45,7 +45,7 @@ export default function HoneyTypesContent() {
     }
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string | undefined) => {
     if (!confirm("Êtes-vous sûr de vouloir supprimer ce type de miel ?")) {
       return;
     }

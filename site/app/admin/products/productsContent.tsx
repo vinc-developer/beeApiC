@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "../beekeepers/page.module.css";
 
 interface Product {
-  id: number;
+  id?: number;
   slug: string;
   name: string;
   description?: string;
@@ -51,7 +51,7 @@ export default function ProductsContent() {
     }
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: number | undefined) => {
     if (!confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
       return;
     }

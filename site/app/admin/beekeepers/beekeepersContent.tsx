@@ -4,14 +4,38 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
+export interface SocialMediaDto {
+  instagram?: string;
+  facebook?: string;
+  tiktok?: string;
+  youtube?: string;
+  linkedin?: string;
+}
 interface Beekeeper {
-  id: number;
-  name: string;
-  location: string;
+  id?: string;
+  code: string;
+  useProxy?: boolean;
+  type: string;
+  partnerSince?: string;
+  firstName: string;
+  lastName: string;
+  commercialName: string;
+  address: string;
   email?: string;
   phone?: string;
-  description?: string;
-  image?: string;
+  website?: string;
+  webshop?: string;
+  siret?: string;
+  photo?: string;
+  logo?: string;
+  bio?: string;
+  hivesCount?: string;
+  location?: string;
+  distance?: string;
+  beekeeperSince?: string;
+  ruchers?: string[];
+  gallery?: string[];
+  socialMedia?: SocialMediaDto;
 }
 
 export default function BeekeepersContent() {
@@ -48,7 +72,7 @@ export default function BeekeepersContent() {
     }
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string | undefined) => {
     if (!confirm("Êtes-vous sûr de vouloir supprimer cet apiculteur ?")) {
       return;
     }
@@ -74,9 +98,10 @@ export default function BeekeepersContent() {
   };
 
   const filteredBeekeepers = beekeepers.filter((beekeeper) =>
-    beekeeper.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    beekeeper.commercialName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     beekeeper.location?.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  console.log(filteredBeekeepers)
 
   if (loading) {
     return (
@@ -146,7 +171,7 @@ export default function BeekeepersContent() {
               filteredBeekeepers.map((beekeeper) => (
                 <tr key={beekeeper.id}>
                   <td>
-                    <strong>{beekeeper.name}</strong>
+                    <strong>{beekeeper.commercialName}</strong>
                   </td>
                   <td>{beekeeper.location || "-"}</td>
                   <td>{beekeeper.email || "-"}</td>

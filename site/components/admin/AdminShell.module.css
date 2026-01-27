@@ -56,7 +56,6 @@
 /* Responsive tablette */
 @media (max-width: 1024px) {
   .shellMain {
-    margin-left: var(--admin-sidebar-width-tablet);
     padding: 1.5rem;
   }
 }
